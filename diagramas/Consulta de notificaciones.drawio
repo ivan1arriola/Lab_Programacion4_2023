@@ -1,0 +1,23 @@
+<mxfile host="app.diagrams.net" modified="2023-05-16T08:44:36.827Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="wrYTolAypGOXEJYzTeBb" version="21.3.2" type="github">
+  <diagram name="Página-1" id="pVuKzCgh_zC-l1SBALiw">
+    <mxGraphModel dx="718" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iz9ncrYfsI0OqDkW72R0-1" value="Consulta de Notificaciones" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="35" y="18" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iz9ncrYfsI0OqDkW72R0-2" value="listarNotificaciones(nickName:String): Set[DTNotificacion]" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" target="iz9ncrYfsI0OqDkW72R0-3">
+          <mxGeometry y="10" width="80" relative="1" as="geometry">
+            <mxPoint x="40" y="120" as="sourcePoint" />
+            <mxPoint x="250" y="140" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iz9ncrYfsI0OqDkW72R0-3" value=":ConsultaDeNotificacionesController" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="350" y="90" width="230" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
