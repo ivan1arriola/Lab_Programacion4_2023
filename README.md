@@ -1,7 +1,7 @@
 # prog4_2023_gr01
 
 # Laboratorio 3
-[Documento de Word]([https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/Ecn1TH6Pto5Fmb4Fr6zuvQUBxczOiOnJPthI8oZ8k6BBZw?e=b6by8I](https://1drv.ms/w/s!Agzh29nUQIDnkJ51ms9SZsREmqOxPA?e=og6xED))
+[Documento de Word](https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/ERzphtEka7JFuR_Gi3pB9pABNgsM6_nyMeSTR1DvscjRQQ?e=WfN7dr)
 
 [Bitacora](https://docs.google.com/document/d/17Sk7DooYJ5Yo2wJfr_cbxHFgTDBdcpOomfzJT_tBJqI/edit?hl=es) - Intenten escribir cualquier cosa extra en este documento de google
 
