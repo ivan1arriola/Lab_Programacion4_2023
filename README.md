@@ -34,8 +34,7 @@
 - [De Casos de Uso relacionadas con Notificaciones](https://lucid.app/lucidchart/ec928ee1-b2e1-493d-af6f-04e33d4db0f4/edit?beaconFlowId=89A312D3D24096BB&invitationId=inv_d7de60fd-94c8-461d-99a0-59f2e8f117c1&page=0_0#)
 
 ## Notas
-- Usar [draw.io](https://app.diagrams.net/) en lo posible así queda vinculado con el repo
-- Agregar al documento los links de los diagramas si no es draw.io , si es posible
+- Agregar al documento los links de los diagramas si es posible, sino agregar las imagenes a la carpeta de drive
 
 
 # Laboratorio 2 - Analisis 
