@@ -23,3 +23,7 @@
 
 ## Notas
 - Usar [draw.io](https://app.diagrams.net/) en lo posible así queda vinculado con el repo
+
+
+# Laboratorio 2
+[Documento de Word](https://onedrive.live.com/edit.aspx?resid=4E0A101CDC8F4A2F!189&ithint=file%2cdocx&authkey=!AKC4te03l7HlkPA)
