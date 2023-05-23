@@ -5,6 +5,8 @@
 
 [Bitacora](https://docs.google.com/document/d/17Sk7DooYJ5Yo2wJfr_cbxHFgTDBdcpOomfzJT_tBJqI/edit?hl=es) - Intenten escribir cualquier cosa extra en este documento de google
 
+[Carpeta](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas
+
 ## Tareas
 
 1. Modificar el diagrama de dominio y crear las nuevas DSS (Diagramas de Secuencia de Sistemas) para los casos de uso de notificaciones.
