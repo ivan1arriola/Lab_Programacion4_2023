@@ -1,6 +1,8 @@
 # prog4_2023_gr01
 
-# Laboratorio 3
+# Laboratorio 4 - Implementacion
+
+# Laboratorio 3 - Diseño
 [Documento de Word](https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/ERzphtEka7JFuR_Gi3pB9pABNgsM6_nyMeSTR1DvscjRQQ?e=WfN7dr)
 
 [Carpeta](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas, los links, archivos de drawio, etc
@@ -31,10 +33,10 @@
 - Agregar al documento los links de los diagramas si no es draw.io , si es posible
 
 
-# Laboratorio 2
+# Laboratorio 2 - Analisis 
 [Documento de Word](https://onedrive.live.com/edit.aspx?resid=4E0A101CDC8F4A2F!189&ithint=file%2cdocx&authkey=!AKC4te03l7HlkPA)
 
-# Laboratorio 1
+# Laboratorio 1 - Analisis
 
 [Diagrama de Laboratorio 1](https://lucid.app/documents/view/f7ecc9ab-83bd-4ba7-abec-bfbdf07caae4).
 
