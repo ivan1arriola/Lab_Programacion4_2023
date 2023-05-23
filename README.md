@@ -3,8 +3,6 @@
 # Laboratorio 3
 [Documento de Word](https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/ERzphtEka7JFuR_Gi3pB9pABNgsM6_nyMeSTR1DvscjRQQ?e=WfN7dr)
 
-[Bitacora](https://docs.google.com/document/d/17Sk7DooYJ5Yo2wJfr_cbxHFgTDBdcpOomfzJT_tBJqI/edit?hl=es) - Intenten escribir cualquier cosa extra en este documento de google
-
 [Carpeta](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas
 
 ## Tareas
