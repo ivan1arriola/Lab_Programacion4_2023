@@ -23,6 +23,7 @@
 
 ## Notas
 - Usar [draw.io](https://app.diagrams.net/) en lo posible así queda vinculado con el repo
+- Agregar al documento los links de los diagramas si no es draw.io , si es posible
 
 
 # Laboratorio 2
