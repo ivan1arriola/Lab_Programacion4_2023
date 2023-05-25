@@ -131,7 +131,7 @@ Diagramas a revisar:
 - [Diagrama de Comunicacion](https://lucid.app/lucidchart/2533be8a-4594-47a5-89ec-2eece39a3e47/edit?viewport_loc=-19%2C162%2C1972%2C1057%2C0_0&invitationId=inv_ee1a0240-7630-40fb-a37c-be860d53ec14)
 
 ### Consulta de notificaciones
-Diagramas a revisar:
+Diagramas listos
 - Listar Notificaciones
 - Eliminar Notificaciones
 
