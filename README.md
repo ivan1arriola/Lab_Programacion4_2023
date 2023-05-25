@@ -9,6 +9,18 @@
 
 [Carpeta General de archivos del laboratorio](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas, los links, archivos de drawio, etc
 
+## Patrones de disenio utilizados
+Para cada patrón, indicar las clases participantes y sus
+roles, y justificar brevemente por qué resuelven los requerimientos.
+
+### Observer
+Se utilizo este patron para resolver el requerimiento de que los Usuarios sean notificados cuando se creen nuevos cursos del idioma de preferencia.
+Las clases participantes son:
+- Usuario : Observer Concreto
+- Idioma como subject
+
+Solucionan el problema porque cuando se cree un nuevo curso c, c va a mandar un mensaje a su Idioma y este mandara un mensaje a todos los suscriptores (Observer concreto) y solamente a esos. Como el orden en que los notifiquen no es relevante, esa contra del patron tampoco lo es.
+
 ## Notas
 - Agregar al documento los links de los diagramas si es posible, sino agregar las imagenes a la carpeta correspondiente
 
