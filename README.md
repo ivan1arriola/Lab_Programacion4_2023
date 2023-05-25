@@ -14,37 +14,74 @@
 ## Diagramas de Comunicacion por Caso de Uso
 
 ### Alta de usuario
-[Carpeta de Alta Usuario](https://drive.google.com/drive/folders/129GjvqSSXX7ejyN_UdrQX64P6pqmUhJj?usp=drive_link)
+Estan los diagramas de 
+- Alta Estudiante
+- Ingresar Datos Profesor
+- Alta Profesor
+- Ingresar Usuario
+- INgresar Datos Estudiante
+- Listar Nombres de Idiomas Disponibles
+- Seleccionar Idiomas
+
+Hay que revisar que esten bien los diagramas
+
+Links
+- [Carpeta de Alta Usuario](https://drive.google.com/drive/folders/129GjvqSSXX7ejyN_UdrQX64P6pqmUhJj?usp=drive_link)
 - [Diagrama de Comunicación - Alta Curso (Enlace 1)](https://lucid.app/lucidchart/f68b4506-f530-42a7-a476-2227b60930d5/edit?invitationId=inv_e2a321f6-bd07-4022-8b62-1b5e65a9c7b2&page=0_0#)
 - [Diagrama de Comunicación - Alta Curso (Enlace 2)](https://lucid.app/lucidchart/42ae0698-8f82-4362-b670-18e559e35f56/edit?invitationId=inv_83e9943e-9093-4a3c-b684-1f57194674bb&page=0_0#)
 
 ### Alta de curso
-[Carpeta de Alta Curso](https://drive.google.com/drive/folders/1x3qob5hBnLBHIWwY4TKMzlRSvM-2O92X?usp=drive_link)
+Estan los diagramas de
+- Agregar Ejercicio
+- Alta curso
+- Listar Nicknames Profesores
+- Listar Nombres Idiomas Profesor
+- Seleccionar Curso
+- Agregar Leccion
+- Seleccionar Idioma
+- Listar Cursos Habilitados
+- Seleccionar Profesor
+- Ingresar Datos Curso
+
+Falta revisar todos los diagramas y agregar al word los diagramas
+
+Links
+- [Carpeta de Alta Curso](https://drive.google.com/drive/folders/1x3qob5hBnLBHIWwY4TKMzlRSvM-2O92X?usp=drive_link)
 
 
 ### Eliminar curso
-[Carpeta de Eliminar Curso](https://drive.google.com/drive/folders/1olwpiMdvbLemWOtkZCZkNVFGH4g63wrp?usp=drive_link)
+Estan los diagramas de 
+- Obtener Cursos
+- Eliminar Curso
+
+Links
+- [Carpeta de Eliminar Curso](https://drive.google.com/drive/folders/1olwpiMdvbLemWOtkZCZkNVFGH4g63wrp?usp=drive_link)
 - [Diagrama de Comunicación - Eliminar Curso](https://lucid.app/lucidchart/7c05ec32-10eb-4785-9fb7-40e911fd5f62/edit?invitationId=inv_a0bfb6a7-8bc2-4e49-9ad1-62a6fde43fbf&page=0_0#)
 
 ### Realizar ejercicio
-[Carpeta de Realizar Ejercicio](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
+Links
+- [Carpeta de Realizar Ejercicio](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
 
 ### Consultar estadísticas
-[Carpeta de Consultar Estadisticas](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
+Links
+- [Carpeta de Consultar Estadisticas](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
 
 ### Suscribirse a notificaciones
-[Carpeta de Suscribirse a Notificaciones](https://drive.google.com/drive/folders/17z85Q0oAVJleJuyoMyA8pzuV1rxuApFu?usp=drive_link)
+Links
+- [Carpeta de Suscribirse a Notificaciones](https://drive.google.com/drive/folders/17z85Q0oAVJleJuyoMyA8pzuV1rxuApFu?usp=drive_link)
 
 ### Consulta de notificaciones
-[Carpeta de Consultar Notificaciones](https://drive.google.com/drive/folders/1bzpz8-GWqc40va9V2jWk0G_gajwG113L?usp=drive_link)
+Links
+- [Carpeta de Consultar Notificaciones](https://drive.google.com/drive/folders/1bzpz8-GWqc40va9V2jWk0G_gajwG113L?usp=drive_link)
 
 ### Eliminar suscripciones
-[Carpeta de Eliminar Suscripciones](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY?usp=drive_link)
+Links
+- [Carpeta de Eliminar Suscripciones](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY?usp=drive_link)
 
 
 ## Diagramas de clases de diseño
 
-[Carpeta DSS](https://drive.google.com/drive/folders/1uUdIckAbFp5WeqigkbeunN73zlCOnq3l?usp=drive_link)
+- [Carpeta DSS](https://drive.google.com/drive/folders/1uUdIckAbFp5WeqigkbeunN73zlCOnq3l?usp=drive_link)
 - [De Casos de Uso relacionadas con Usuario y Cursos](https://lucid.app/lucidchart/3458c2c8-6672-4edd-9548-c3d645f5ea91/edit?invitationId=inv_7c7f22eb-924c-46ee-8132-b38194db2913)
 - [De Casos de Uso relacionadas con Notificaciones](https://lucid.app/lucidchart/ec928ee1-b2e1-493d-af6f-04e33d4db0f4/edit?beaconFlowId=89A312D3D24096BB&invitationId=inv_d7de60fd-94c8-461d-99a0-59f2e8f117c1&page=0_0#)
 
