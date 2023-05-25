@@ -12,6 +12,8 @@
 ## Notas
 - Agregar al documento los links de los diagramas si es posible, sino agregar las imagenes a la carpeta correspondiente
 
+## Cambios a Diagrama de dominio
+
 
 ## Diagramas de Comunicacion por Caso de Uso
 
