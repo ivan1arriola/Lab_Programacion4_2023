@@ -44,7 +44,12 @@ Estan los diagramas de
 - Seleccionar Profesor
 - Ingresar Datos Curso
 
-Falta revisar todos los diagramas y agregar al word los diagramas
+Falta revisar todos los diagramas, a la mayoria le falta cosas para corregir y agregar al word los diagramas
+
+Faltan los diagramas de  :exclamation:
+- Ingresar Frase Completar
+- Ingresar Frase Traducir
+- Agregar Ejercicio a Leccion
 
 
 **Links**
@@ -56,6 +61,9 @@ Estan los diagramas de
 - Obtener Cursos
 - Eliminar Curso
 
+Falta los diagramas de :exclamation:
+- Seleccionar Curso (puede ser que sea el mismo que en alguno de los anteriores)
+
 
 **Links**
 - [Carpeta de Eliminar Curso](https://drive.google.com/drive/folders/1olwpiMdvbLemWOtkZCZkNVFGH4g63wrp?usp=drive_link)
@@ -63,10 +71,34 @@ Estan los diagramas de
 
 ### Realizar ejercicio
 
+Faltan los diagramas de :exclamation:
+- Ingresar Nickname Estudiante
+- Listar Cursos Inscriptos
+- MOstrar Cursos No Aprobados
+- Seleccionar Curso (repetido arriba)
+- Mostrar Ejercicio No Aprobados
+- Seleccionar Ejercicio
+- Mostrar Ejercicio
+- Ingresar Sol Completar
+- Ingresar SOl Traducir
+- Marcar Ejercicio Aprobado
+- Marcar Ejercicio No Aprobado
+
 **Links**
 - [Carpeta de Realizar Ejercicio](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
 
 ### Consultar estadísticas
+
+Faltan los diagramas de :exclamation:
+- Listar Nicknames Estudiantes (puede que este repetido)
+- Seleccionar Estudiante (puede que este repetido)
+- Listar Cursos Estudiante 
+- Listar Nickname Profesores (puede que este repetido)
+- Seleccionar Profesor (puede que este repetido)
+- Listar Cursos Profesor
+- Listar Cursos (puede que este repetido)
+- Seleccionar Curso (puede que este repetido)
+- Listar Info Curso
 
 **Links**
 - [Carpeta de Consultar Estadisticas](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
