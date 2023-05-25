@@ -128,20 +128,22 @@ Faltan los diagramas de :exclamation:
 - [De Casos de Uso relacionadas con Notificaciones](https://lucid.app/lucidchart/ec928ee1-b2e1-493d-af6f-04e33d4db0f4/edit?beaconFlowId=89A312D3D24096BB&invitationId=inv_d7de60fd-94c8-461d-99a0-59f2e8f117c1&page=0_0#)
 
 
-## Letra (resumida)
+## Letra
 
-1. Modificar el diagrama de dominio y crear las nuevas DSS (Diagramas de Secuencia de Sistemas) para los casos de uso de notificaciones.
-2. Realizar los diagramas de comunicación de los siguientes casos de uso, mostrando el tipo de visibilidad:
-   - Alta de usuario
-   - Alta de curso
-   - Eliminar curso
-   - Realizar ejercicio
-   - Consultar estadísticas
-   - Suscribirse a notificaciones
-   - Consulta de notificaciones
-   - Eliminar suscripciones
-3. Crear el Diagrama de Clases de Diseño basado en los diagramas de comunicación.
-4. Agregar una sección en el documento explicando los criterios GRASP y los patrones de diseño utilizados, incluyendo las clases participantes y sus roles, y una justificación breve de cómo resuelven los requerimientos.
+1. Analizar el impacto de los nuevos requerimientos en el modelo de dominio y diagramas de
+secuencia de casos de uso realizados en los laboratorios anteriores. Agregar una sección en el
+documento de entrega donde se indican los cambios identificados junto a una explicación breve.
+La explicación puede hacer mención a cambios necesarios en conceptos, datatypes u
+operaciones (parámetros, resultado, pre/post-condiciones, etc).
+2. Aplicar patrones de diseño para resolver los requerimientos solicitados en la etapa actual.
+3. Realizar los diagramas de comunicación de las operaciones del sistema de los casos de uso
+pedidos, mostrando en los diagramas el tipo de visibilidad que existe sobre el objeto al que se
+le envía un mensaje.
+4. Realizar el diseño de la estructura (Diagrama de Clases de Diseño) correspondiente a las
+interacciones diseñadas (un único diagrama para todo el diseño de interacciones).
+5. Agregar una sección en el documento explicando qué criterios GRASP fueron considerados y
+qué patrones de diseño se utilizaron. Para cada patrón, indicar las clases participantes y sus
+roles, y justificar brevemente por qué resuelven los requerimientos. 
 
 
 
