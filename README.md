@@ -32,16 +32,15 @@ Solucionan el problema porque cuando se cree un nuevo curso c, c va a mandar un 
 :question: : puede ser que se repita el diagrama en otro caso de uso, hay que verificar
 
 ### Alta de usuario
-Estan los diagramas de 
+
+Diagramas listos :
 - Alta Estudiante
 - Ingresar Datos Profesor
 - Alta Profesor
 - Ingresar Usuario
-- INgresar Datos Estudiante
+- Ingresar Datos Estudiante
 - Listar Nombres de Idiomas Disponibles
 - Seleccionar Idiomas
-
-Hay que revisar que esten bien los diagramas
 
 
 **Links**
@@ -69,6 +68,8 @@ Faltan los diagramas de  :exclamation:
 - Ingresar Frase Traducir
 - Agregar Ejercicio a Leccion
 
+**Modificar DSS**
+
 
 **Links**
 - [Carpeta de Alta Curso](https://drive.google.com/drive/folders/1x3qob5hBnLBHIWwY4TKMzlRSvM-2O92X?usp=drive_link)
@@ -79,9 +80,7 @@ Estan los diagramas de
 - Obtener Cursos :question:
 - Eliminar Curso
 
-Falta los diagramas de :exclamation:
-- Seleccionar Curso :question:
-
+**Hay que modificar DSS**
 
 **Links**
 - [Carpeta de Eliminar Curso](https://drive.google.com/drive/folders/1olwpiMdvbLemWOtkZCZkNVFGH4g63wrp?usp=drive_link)
