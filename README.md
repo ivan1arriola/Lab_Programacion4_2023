@@ -7,7 +7,27 @@
 
 [Carpeta](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas, los links, archivos de drawio, etc
 
-## Tareas
+## Estado actual de parte 2
+
+### Alta de usuario
+
+![imagen](https://drive.google.com/file/d/1pA8JAFDVNKr7zrm4gf2xkSxhrcoljbvY/preview)
+
+### Alta de curso
+
+### Eliminar curso
+
+### Realizar ejercicio
+
+### Consultar estadísticas
+
+### Suscribirse a notificaciones
+
+### Consulta de notificaciones
+
+### Eliminar suscripciones
+
+## Letra (resumida)
 
 1. Modificar el diagrama de dominio y crear las nuevas DSS (Diagramas de Secuencia de Sistemas) para los casos de uso de notificaciones.
 2. Realizar los diagramas de comunicación de los siguientes casos de uso, mostrando el tipo de visibilidad:
