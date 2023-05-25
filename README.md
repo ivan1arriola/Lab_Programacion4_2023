@@ -10,8 +10,7 @@
 ## Estado actual de parte 2
 
 ### Alta de usuario
-
-![imagen](https://drive.google.com/file/d/1pA8JAFDVNKr7zrm4gf2xkSxhrcoljbvY/preview)
+   
 
 ### Alta de curso
 
