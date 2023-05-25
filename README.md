@@ -13,6 +13,8 @@
 
 ## Diagramas de Comunicacion por Caso de Uso
 
+:grey_question: : puede ser que se repita el diagrama en otro caso de uso, hay que verificar
+
 ### Alta de usuario
 Estan los diagramas de 
 - Alta Estudiante
@@ -58,11 +60,11 @@ Faltan los diagramas de  :exclamation:
 
 ### Eliminar curso
 Estan los diagramas de 
-- Obtener Cursos
+- Obtener Cursos :grey_question:
 - Eliminar Curso
 
 Falta los diagramas de :exclamation:
-- Seleccionar Curso (puede ser que sea el mismo que en alguno de los anteriores)
+- Seleccionar Curso :grey_question:
 
 
 **Links**
@@ -75,7 +77,7 @@ Faltan los diagramas de :exclamation:
 - Ingresar Nickname Estudiante
 - Listar Cursos Inscriptos
 - MOstrar Cursos No Aprobados
-- Seleccionar Curso (repetido arriba)
+- Seleccionar Curso :grey_question:
 - Mostrar Ejercicio No Aprobados
 - Seleccionar Ejercicio
 - Mostrar Ejercicio
@@ -90,14 +92,14 @@ Faltan los diagramas de :exclamation:
 ### Consultar estadísticas
 
 Faltan los diagramas de :exclamation:
-- Listar Nicknames Estudiantes (puede que este repetido)
-- Seleccionar Estudiante (puede que este repetido)
+- Listar Nicknames Estudiantes :grey_question:
+- Seleccionar Estudiante :grey_question:
 - Listar Cursos Estudiante 
-- Listar Nickname Profesores (puede que este repetido)
-- Seleccionar Profesor (puede que este repetido)
+- Listar Nickname Profesores :grey_question:
+- Seleccionar Profesor :grey_question:
 - Listar Cursos Profesor
-- Listar Cursos (puede que este repetido)
-- Seleccionar Curso (puede que este repetido)
+- Listar Cursos :grey_question:
+- Seleccionar Curso :grey_question:
 - Listar Info Curso
 
 **Links**
