@@ -25,7 +25,8 @@ Estan los diagramas de
 
 Hay que revisar que esten bien los diagramas
 
-Links
+
+**Links**
 - [Carpeta de Alta Usuario](https://drive.google.com/drive/folders/129GjvqSSXX7ejyN_UdrQX64P6pqmUhJj?usp=drive_link)
 - [Diagrama de Comunicación - Alta Curso (Enlace 1)](https://lucid.app/lucidchart/f68b4506-f530-42a7-a476-2227b60930d5/edit?invitationId=inv_e2a321f6-bd07-4022-8b62-1b5e65a9c7b2&page=0_0#)
 - [Diagrama de Comunicación - Alta Curso (Enlace 2)](https://lucid.app/lucidchart/42ae0698-8f82-4362-b670-18e559e35f56/edit?invitationId=inv_83e9943e-9093-4a3c-b684-1f57194674bb&page=0_0#)
@@ -45,7 +46,8 @@ Estan los diagramas de
 
 Falta revisar todos los diagramas y agregar al word los diagramas
 
-Links
+
+**Links**
 - [Carpeta de Alta Curso](https://drive.google.com/drive/folders/1x3qob5hBnLBHIWwY4TKMzlRSvM-2O92X?usp=drive_link)
 
 
@@ -54,28 +56,34 @@ Estan los diagramas de
 - Obtener Cursos
 - Eliminar Curso
 
-Links
+
+**Links**
 - [Carpeta de Eliminar Curso](https://drive.google.com/drive/folders/1olwpiMdvbLemWOtkZCZkNVFGH4g63wrp?usp=drive_link)
 - [Diagrama de Comunicación - Eliminar Curso](https://lucid.app/lucidchart/7c05ec32-10eb-4785-9fb7-40e911fd5f62/edit?invitationId=inv_a0bfb6a7-8bc2-4e49-9ad1-62a6fde43fbf&page=0_0#)
 
 ### Realizar ejercicio
-Links
+
+**Links**
 - [Carpeta de Realizar Ejercicio](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
 
 ### Consultar estadísticas
-Links
+
+**Links**
 - [Carpeta de Consultar Estadisticas](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
 
 ### Suscribirse a notificaciones
-Links
+
+**Links**
 - [Carpeta de Suscribirse a Notificaciones](https://drive.google.com/drive/folders/17z85Q0oAVJleJuyoMyA8pzuV1rxuApFu?usp=drive_link)
 
 ### Consulta de notificaciones
-Links
+
+**Links**
 - [Carpeta de Consultar Notificaciones](https://drive.google.com/drive/folders/1bzpz8-GWqc40va9V2jWk0G_gajwG113L?usp=drive_link)
 
 ### Eliminar suscripciones
-Links
+
+**Links**
 - [Carpeta de Eliminar Suscripciones](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY?usp=drive_link)
 
 
