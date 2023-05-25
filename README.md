@@ -110,17 +110,27 @@ Faltan los diagramas de :exclamation:
 - [Carpeta de Consultar Estadisticas](https://drive.google.com/drive/folders/1O_mDEhTe_gN43leJtgKYpNqjM5islF_S?usp=drive_link)
 
 ### Suscribirse a notificaciones
+Diagramas a revisar:
+- Listar Idiomas No Suscriptos
+- Suscribirse
+
 
 **Links**
 - [Carpeta de Suscribirse a Notificaciones](https://drive.google.com/drive/folders/17z85Q0oAVJleJuyoMyA8pzuV1rxuApFu?usp=drive_link)
 - [Diagrama de Comunicacion](https://lucid.app/lucidchart/2533be8a-4594-47a5-89ec-2eece39a3e47/edit?viewport_loc=-19%2C162%2C1972%2C1057%2C0_0&invitationId=inv_ee1a0240-7630-40fb-a37c-be860d53ec14)
 
 ### Consulta de notificaciones
+Diagramas a revisar:
+- Listar Notificaciones
+- Eliminar Notificaciones
 
 **Links**
 - [Carpeta de Consultar Notificaciones](https://drive.google.com/drive/folders/1bzpz8-GWqc40va9V2jWk0G_gajwG113L?usp=drive_link)
 
 ### Eliminar suscripciones
+Faltan los diagramas de :exclamation:
+- Listar Idiomas Suscriptos
+- Eliminar Suscripcion // En el dss esta en plural pero mejor implementarlo como una funcion que se ejecuta una vez por suscripcion
 
 **Links**
 - [Carpeta de Eliminar Suscripciones](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY?usp=drive_link)
