@@ -49,24 +49,8 @@ Diagramas listos :
 - [Diagrama de Comunicación - Alta Curso (Enlace 2)](https://lucid.app/lucidchart/42ae0698-8f82-4362-b670-18e559e35f56/edit?invitationId=inv_83e9943e-9093-4a3c-b684-1f57194674bb&page=0_0#)
 
 ### Alta de curso
-Estan los diagramas de
-- Agregar Ejercicio
-- Alta curso
-- Listar Nicknames Profesores
-- Listar Nombres Idiomas Profesor
-- Seleccionar Curso
-- Agregar Leccion
-- Seleccionar Idioma
-- Listar Cursos Habilitados
-- Seleccionar Profesor
-- Ingresar Datos Curso
-
-Falta revisar todos los diagramas, a la mayoria le falta cosas para corregir y agregar al word los diagramas
-
-Faltan los diagramas de  :exclamation:
-- Ingresar Frase Completar
-- Ingresar Frase Traducir
-- Agregar Ejercicio a Leccion
+-PRONTO
+-Link con imagenes de diagramas: estan en wspp
 
 **Modificar DSS**
 
