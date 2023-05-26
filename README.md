@@ -12,6 +12,14 @@ Fecha Limite - lunes, 19 de junio de 2023, 15:00
 
 [Carpeta General de archivos del laboratorio](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas, los links, archivos de drawio, etc
 
+## Diagramas de clases de diseño
+
+- [Diagrama](https://lucid.app/lucidchart/3458c2c8-6672-4edd-9548-c3d645f5ea91/edit?invitationId=inv_7c7f22eb-924c-46ee-8132-b38194db2913)
+
+
+
+
+
 ## Patrones de disenio utilizados
 Para cada patrón, indicar las clases participantes y sus
 roles, y justificar brevemente por qué resuelven los requerimientos.
@@ -137,10 +145,6 @@ Faltan los diagramas de :exclamation:
 - [Carpeta de Eliminar Suscripciones](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY?usp=drive_link)
 - [Diagrama de comunicacion](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY)
 
-
-## Diagramas de clases de diseño
-
-- [Diagrama](https://lucid.app/lucidchart/3458c2c8-6672-4edd-9548-c3d645f5ea91/edit?invitationId=inv_7c7f22eb-924c-46ee-8132-b38194db2913)
 
 
 
