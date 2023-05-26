@@ -132,6 +132,7 @@ Faltan los diagramas de :exclamation:
 
 **Links**
 - [Carpeta de Eliminar Suscripciones](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY?usp=drive_link)
+- [Diagrama de comunicacion](https://drive.google.com/drive/folders/13knw99Zy6G8XyoVpBiymcwdVwUXX9RwY)
 
 
 ## Diagramas de clases de diseño
