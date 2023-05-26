@@ -133,9 +133,8 @@ Faltan los diagramas de :exclamation:
 
 ## Diagramas de clases de diseño
 
-- [Carpeta DSS](https://drive.google.com/drive/folders/1uUdIckAbFp5WeqigkbeunN73zlCOnq3l?usp=drive_link)
-- [De Casos de Uso relacionadas con Usuario y Cursos](https://lucid.app/lucidchart/3458c2c8-6672-4edd-9548-c3d645f5ea91/edit?invitationId=inv_7c7f22eb-924c-46ee-8132-b38194db2913)
-- [De Casos de Uso relacionadas con Notificaciones](https://lucid.app/lucidchart/ec928ee1-b2e1-493d-af6f-04e33d4db0f4/edit?beaconFlowId=89A312D3D24096BB&invitationId=inv_d7de60fd-94c8-461d-99a0-59f2e8f117c1&page=0_0#)
+- [Diagrama](https://lucid.app/lucidchart/3458c2c8-6672-4edd-9548-c3d645f5ea91/edit?invitationId=inv_7c7f22eb-924c-46ee-8132-b38194db2913)
+
 
 
 ## Letra
