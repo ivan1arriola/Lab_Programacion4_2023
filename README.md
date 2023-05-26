@@ -21,6 +21,9 @@ Las clases participantes son:
 
 Solucionan el problema porque cuando se cree un nuevo curso c, c va a mandar un mensaje a su Idioma y este mandara un mensaje a todos los suscriptores (Observer concreto) y solamente a esos. Como el orden en que los notifiquen no es relevante, esa contra del patron tampoco lo es.
 
+### Singleton
+Se utilizo este patron para todos los controladores 
+
 ## Notas
 - Agregar al documento los links de los diagramas si es posible, sino agregar las imagenes a la carpeta correspondiente
 
