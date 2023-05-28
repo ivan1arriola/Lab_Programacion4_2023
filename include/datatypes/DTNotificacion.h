@@ -1,6 +1,3 @@
-/* nombreCurso:String
-nombreIdioma:String*/
-
 #ifndef DTNOTIFICACION
 #define DTNOTIFICACION
 
