@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "../datatypes/DTNotificacion.h"
+#include "../../datatypes/DTNotificacion.h"
 
 using namespace std;
 
