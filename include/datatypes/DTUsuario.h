@@ -28,14 +28,6 @@ class DTUsuario {
         string getInstituto();
         bool getEsEstudiante();
         bool getEsProfesor();
-        void setNickname(string nickname);
-        void setPassword(string password);
-        void setName(string name);
-        void setDesc(string desc);
-        void setPais(string pais);
-        void setInstituto(string instituto);
-        void setEsEstudiante(bool esEstudiante);
-        void setEsProfesor(bool esProfesor);
         ~DTUsuario();
 };
 

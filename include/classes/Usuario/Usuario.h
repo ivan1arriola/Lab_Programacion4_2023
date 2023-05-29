@@ -1,6 +1,6 @@
 #ifndef USUARIO
-
 #define USUARIO
+
 #include <set>
 #include <string>
 #include <vector>
@@ -18,34 +18,34 @@ class Usuario {
     string nombre;
     string descripcion;
     vector<DTNotificacion> notificacionesRecibidas;
-
     void agregarNotificacion(DTNotificacion notificacion);
 
   public:
-    Usuario() {};
+    Usuario();
+    Usuario(string nickname, string contrasenia, string nombre, string descripcion);
 
     // Getters
-    virtual string getNickname() = 0;
-    virtual string getContrasenia() = 0;
-    virtual string getNombre() = 0;
-    virtual string getDescripcion() = 0;
-    virtual vector<DTNotificacion> getNotificacionesRecibidas() = 0;
+    string getNickname();
+    string getContrasenia();
+    string getNombre();
+    string getDescripcion();
+    vector<DTNotificacion> getNotificacionesRecibidas();
 
     // Setters
-    virtual void setNickname(string nickname) = 0;
-    virtual void setContrasenia(string contrasenia) = 0;
-    virtual void setNombre(string nombre) = 0;
-    virtual void setDescripcion(string descripcion) = 0;
+    void setNickname(string nickname);
+    void setContrasenia(string contrasenia);
+    void setNombre(string nombre);
+    void setDescripcion(string descripcion);
 
     // Operaciones
-    virtual void enviarNotificacion(string nombreCurso, string nombreIdioma) = 0;
+    void enviarNotificacion(string nombreCurso, string nombreIdioma);
     virtual bool esProfesor() = 0;
     virtual set<string> obtenerIdiomas() = 0;
-    virtual void eliminarNotificacionesRecibidas() = 0;
+    void eliminarNotificacionesRecibidas();
     virtual bool esEstudiante() = 0;
     virtual set<DTDataCursoProfesor> getCursosProfesor() = 0;
 
-    virtual ~Usuario() {}
+    virtual ~Usuario();
 
 };
 
