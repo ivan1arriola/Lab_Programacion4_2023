@@ -11,6 +11,7 @@ class DTDate {
         int month;
         int year;
     public:
+        DTDate();
         DTDate(int day, int month, int year);
         int getDay();
         int getMonth();

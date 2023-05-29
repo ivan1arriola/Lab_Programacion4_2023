@@ -1,4 +1,4 @@
-#include "../../../include/classes/UsuarioClasses/Usuario.h"
+#include "../../../include/classes/Usuario/Usuario.h"
 
 #include <set>
 #include <string>
