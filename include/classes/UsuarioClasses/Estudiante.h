@@ -31,3 +31,5 @@ class Estudiante : public Usuario {
         ~Estudiante();
         friend ostream& operator<<(ostream& os, const Estudiante& estudiante);
 };
+
+#endif
