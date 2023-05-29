@@ -1,7 +1,7 @@
 #ifndef NIVEL
 #define NIVEL
 
-enum NIVEL {
+enum Nivel {
     PRICIPIANTE,
     MEDIO,
     AVANZADO

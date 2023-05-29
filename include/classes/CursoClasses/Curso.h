@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#include "../enums/Nivel.h"
+#include "../../enums/Nivel.h"
 
 class Curso {
     private:
