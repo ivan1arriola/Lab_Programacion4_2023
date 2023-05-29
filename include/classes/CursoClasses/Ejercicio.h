@@ -13,8 +13,8 @@ class Ejercicio {
         string nombre;
         string descripcion;
     public:
-        virtual Ejercicio()=0;
-        virtual Ejercicio(string nombre, string descripcion)=0;
+        Ejercicio();
+        Ejercicio(string nombre, string descripcion);
 
         // Getters
         virtual string getNombre()=0;
