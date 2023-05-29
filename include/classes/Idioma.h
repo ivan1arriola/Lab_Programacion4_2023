@@ -2,24 +2,27 @@
 #define IDIOMA
 
 #include <string>
-#include '../interfaces/ISuscriptor.h'
+#include <set>
+#include "../interfaces/ISuscriptor.h"
 
 using namespace std;
 
 class Idioma {
     private:
         string nombre;
+        set<ISuscriptor> suscriptores;
     public:
-        virtual Idioma() {};
-        virtual string getNombre() = 0;
-        virtual ~Idioma() {}
+        Idioma();
+        Idioma(string nombre);
+        string getNombre();
+        ~Idioma() {}
 
-        virtual void agregarSuscriptor(ISuscriptor suscriptor) = 0;
-        virtual void eliminarSuscriptor(string nickname) = 0;
-        virtual void notificarSuscriptores() = 0;
+        void agregarSuscriptor(ISuscriptor suscriptor);
+        void eliminarSuscriptor(string nickname);
+        void notificarSuscriptores();
 
-        virtual bool contieneSuscriptor(string nickname) = 0;
-        virtual set<string> getIdiomasProfesor() = 0;
+        bool contieneSuscriptor(string nickname);
+        set<string> getIdiomasProfesor();
 
 };
 
