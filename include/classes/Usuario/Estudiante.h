@@ -19,6 +19,8 @@ class Estudiante : public Usuario {
         // Getters
         string getPais();
         DTDate getFechaNacimiento();
+        bool esProfesor();
+        bool esEstudiante();
 
         // Setters
         void setPais(string pais);

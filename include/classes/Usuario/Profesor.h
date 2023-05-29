@@ -17,6 +17,8 @@ class Profesor : public Usuario {
 
         // Getters
         string getInstituto();
+        bool esProfesor();
+        bool esEstudiante();
 
         // Setters
         void setInstituto(string instituto);
