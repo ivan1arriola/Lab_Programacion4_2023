@@ -1,10 +1,12 @@
 #ifndef USUARIO
 
 #define USUARIO
+#include <set>
 #include <string>
 #include <vector>
 
 #include "../../datatypes/DTNotificacion.h"
+#include "../../datatypes/DTDataCursoProfesor.h"
 
 using namespace std;
 
@@ -20,7 +22,7 @@ class Usuario {
     void agregarNotificacion(DTNotificacion notificacion);
 
   public:
-    virtual Usuario() {};
+    Usuario() {};
 
     // Getters
     virtual string getNickname() = 0;
@@ -41,7 +43,7 @@ class Usuario {
     virtual set<string> obtenerIdiomas() = 0;
     virtual void eliminarNotificacionesRecibidas() = 0;
     virtual bool esEstudiante() = 0;
-    virtual set<DataCursoProfesor> getCursosProfesor() = 0;
+    virtual set<DTDataCursoProfesor> getCursosProfesor() = 0;
 
     virtual ~Usuario() {}
 
