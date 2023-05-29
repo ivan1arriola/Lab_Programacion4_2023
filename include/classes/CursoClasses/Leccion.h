@@ -1,15 +1,10 @@
-/*tema: String
-objetivo: String*/
-/*
-crearEjercicioYAgregarlo(desc:String)
-getEjercicios()
-*/
-
 #ifndef LECCION
 #define LECCION
 
 #include <string>
 #include <set>
+
+#include "Ejercicio.h"
 
 using namespace std;
 
