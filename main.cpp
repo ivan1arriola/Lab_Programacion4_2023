@@ -70,6 +70,7 @@ int main() {
     menuDeOpciones();
     int opcion = ingresarOpcion();
     bool quiereSalir = opcion == 0;
+    cout << "--------------------------------------" << endl;
 
     while (!quiereSalir) {
         switch (opcion) {
@@ -149,6 +150,7 @@ int main() {
                 break;
             }
         }
+        cout << "--------------------------------------" << endl;
         if (!quiereSalir) {
             quiereSalir = deseaContinuar() == 0;
             if (!quiereSalir) {
