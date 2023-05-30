@@ -5,6 +5,24 @@ Fecha Limite - lunes, 19 de junio de 2023, 15:00
 
 [Letra del laboratorio](https://drive.google.com/file/d/1Y0D_zd7lZzLsieHDqj8DCGuhldjupDoa/view?usp=sharing)
 
+## Todos los casos de uso
+- Alta de usuario
+- Consulta de usuario
+- Alta de idioma
+- Consultar idiomas
+- Alta de curso
+- Agregar lección
+- Agregar ejercicio
+- Habilitar curso
+- Eliminar curso
+- Consultar curso
+- Inscribirse a curso
+- Realizar ejercicio
+- Consultar estadísticas
+- Suscribirse a notificaciones
+- Consulta de notificaciones
+- Eliminar suscripciones
+
 # Laboratorio 3 - Diseño
 [Documento de Word](https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/ERzphtEka7JFuR_Gi3pB9pABNgsM6_nyMeSTR1DvscjRQQ?e=WfN7dr)
 
