@@ -8,10 +8,12 @@
 #include "../../datatypes/DTNotificacion.h"
 #include "../../datatypes/DTDataCursoProfesor.h"
 
+#include "../../interfaces/ISuscriptor.h"
+
 using namespace std;
 
 /*Clase Abstracta*/
-class Usuario {
+class Usuario: public ISuscriptor {
   private:
     string nickname;
     string contrasenia;
