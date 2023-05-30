@@ -27,6 +27,7 @@ class Profesor : public Usuario {
         void enviarNotificacion(string nombreCurso, string nombreIdioma);
         set<string> obtenerIdiomas();
         void agregarAIdiomasDeProfesor();
+        set<DTDataCursoProfesor> getCursosProfesor();
 
 
         ~Profesor();
@@ -76,6 +77,10 @@ bool Profesor::esEstudiante() {
   return false;
 }
 
+set<DTDataCursoProfesor> Profesor::getCursosProfesor() {
+  set<DTDataCursoProfesor> cursosProfesor;
+  return cursosProfesor;
+}
 
 Profesor::~Profesor() {
     // Destruye todos las notificaciones recibidas

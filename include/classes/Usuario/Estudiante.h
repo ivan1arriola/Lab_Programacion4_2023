@@ -15,6 +15,8 @@ private:
 public:
     Estudiante();
     Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate fechaNacimiento);
+    Estudiante(string nickname, string contrasenia, string nombre, string descripcion);
+    Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais);
 
     // Getters
     string getPais();

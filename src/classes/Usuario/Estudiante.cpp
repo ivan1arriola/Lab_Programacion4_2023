@@ -13,6 +13,11 @@ Estudiante::Estudiante(string nickname, string contrasenia, string nombre, strin
   this->fechaNacimiento = fechaNacimiento;
 }
 
+Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion) : Usuario(nickname, contrasenia, nombre, descripcion) {
+  this->pais = "";
+  this->fechaNacimiento = DTDate();
+}
+
 // Getters
 
 string Estudiante::getPais() {

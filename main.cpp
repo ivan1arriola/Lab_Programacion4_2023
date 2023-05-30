@@ -3,6 +3,10 @@
 
 #include "include/factory/fabrica.h"
 
+//#include "include/interfaces/IControladorCurso.h"
+#include "include/interfaces/IControladorUsuario.h"
+//#include "include/interfaces/IControladorEstadistica.h"
+
 void mensajeDeBienvenida() {
     cout << "------------------------------------" << endl;
     cout << "Bienvenide a la aplicacion de idiomas" << endl;
@@ -66,6 +70,13 @@ int deseaContinuar() {
 
 
 int main() {
+    Fabrica* fabrica = Fabrica::getInstancia();
+
+    IControladorUsuario* controladorUsuario = fabrica->getIControladorUsuario();
+    //IControladorCurso* controladorCurso = fabrica->getIControladorCurso();
+    //IControladorEstadistica* controladorEstadistica = fabrica->getIControladorEstadistica();
+
+
     mensajeDeBienvenida();
     menuDeOpciones();
     int opcion = ingresarOpcion();

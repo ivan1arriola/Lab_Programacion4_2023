@@ -15,7 +15,7 @@ class Idioma {
         Idioma();
         Idioma(string nombre);
         string getNombre();
-        ~Idioma() {}
+        ~Idioma();
 
         void agregarSuscriptor(ISuscriptor suscriptor);
         void eliminarSuscriptor(string nickname);
@@ -23,6 +23,8 @@ class Idioma {
 
         bool contieneSuscriptor(string nickname);
         set<string> getIdiomasProfesor();
+
+        bool operator==(const Idioma& otro);
 
 };
 

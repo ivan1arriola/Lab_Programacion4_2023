@@ -28,6 +28,11 @@ class ControladorUsuario : public IControladorUsuario {
 
         static IControladorUsuario* instancia;
 
+        // Atributos para el caso de uso "Alta de Usuario"
+        string actual_nickname; string actual_password; string actual_name; string actual_desc;
+        string actual_pais;
+        string actual_instituto;
+
     public:
         // Getters
         IControladorUsuario* getInstancia();
