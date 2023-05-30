@@ -1,33 +1,3 @@
-/*
-#ifndef IDIOMA
-#define IDIOMA
-
-#include <string>
-#include <set>
-#include "../interfaces/ISuscriptor.h"
-
-using namespace std;
-
-class Idioma {
-    private:
-        string nombre;
-    public:
-        Idioma() {};
-        string getNombre();
-        ~Idioma() {}
-
-        void agregarSuscriptor(ISuscriptor suscriptor);
-        void eliminarSuscriptor(string nickname);
-        void notificarSuscriptores();
-
-        bool contieneSuscriptor(string nickname);
-        set<string> getIdiomasProfesor();
-
-};
-
-#endif
-*/
-
 #include "../../include/classes/Idioma.h"
 
 #include <string>
@@ -58,31 +28,20 @@ void Idioma::agregarSuscriptor(ISuscriptor suscriptor) {
 
 //void Idioma::eliminarSuscriptor(string nickname);
 
-void 
+
 
 void Idioma::notificarSuscriptores() {
-  for (set<ISuscriptor>::iterator it = this->suscriptores.begin(); it != this->suscriptores.end(); ++it) {
-    it->enviarNotificacion(this->nombre);
-  }
 }
 
-// Queries
-
 bool Idioma::contieneSuscriptor(string nickname) {
-  for (set<ISuscriptor>::iterator it = this->suscriptores.begin(); it != this->suscriptores.end(); ++it) {
-    if (it->getNickname() == nickname) {
-      return true;
-    }
-  }
+  
   return false;
 }
 
 set<string> Idioma::getIdiomasProfesor() {
-  set<string> idiomas;
-  for (set<ISuscriptor>::iterator it = this->suscriptores.begin(); it != this->suscriptores.end(); ++it) {
-    idiomas.insert(it->getNickname());
-  }
-  return idiomas;
+  set<string> idiomasProfesor;
+  
+  return idiomasProfesor;
 }
 
 // Destructor
@@ -91,3 +50,6 @@ Idioma::~Idioma() {
   this->suscriptores.clear();
 }
 
+bool Idioma::operator==(const Idioma& otro) {
+  return this->nombre == otro.getNombre();
+}
