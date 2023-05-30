@@ -1,24 +1,27 @@
 CC = g++
-CFLAGS = -std=c++11
+CFLAGS = -std=c++11 -Wall
 
 # Nombre del ejecutable
-TARGET = programa
+BINARY = programa
+
+# .o de los archivos fuente
+OBJS = main.o
 
 # Ruta del archivo fuente
 SRC = main.cpp
 
-all: $(TARGET)
+all: $(BINARY)
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+$(BINARY): $(SRC)
+	$(CC) $(CFLAGS) -o $(BINARY) $(SRC)
 
-run: $(TARGET)
-	./$(TARGET)
+run: $(BINARY)
+	./$(BINARY)
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(BINARY)
 
-valgrind: $(TARGET)
-	valgrind ./$(TARGET)
+valgrind: $(BINARY)
+	valgrind ./$(BINARY)
 
 .PHONY: all run clean valgrind

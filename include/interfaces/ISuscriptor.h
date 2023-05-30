@@ -5,12 +5,13 @@
 
 using namespace std;
 
+
 class ISuscriptor {
-public:
-    ISuscriptor();
-    virtual void enviarNotificacion(string nombreCurso, string nombreIdioma) = 0;
-    virtual string getNickname() = 0;
-    virtual ~ISuscriptor() {}
+    public:
+        ISuscriptor();
+        virtual void enviarNotificacion(string nombreCurso, string nombreIdioma) = 0;
+        virtual string getNickname() = 0;
+        virtual ~ISuscriptor() {}
 };
 
 #endif
