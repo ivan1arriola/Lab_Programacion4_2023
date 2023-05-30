@@ -4,15 +4,33 @@
 
 #include <string>
 #include <set>
+#include <map>
 
 #include "../interfaces/IControladorUsuario.h"
 
+#include "../classes/Usuario/Usuario.h"
+
 using namespace std;
 
+// Singleton
 class ControladorUsuario : public IControladorUsuario {
-    public:
+
+    private:
+        // Atributos
+        Usuario* usuarioActual;
+
+        //Colecciones
+        map<string, Usuario*> coleccionUsuarios;
+
         ControladorUsuario();
         ~ControladorUsuario();
+
+
+        static IControladorUsuario* instancia;
+
+    public:
+        // Getters
+        IControladorUsuario* getInstancia();
 
         // Operaciones
         void ingresarUsuario(string nickname, string password, string name, string desc);
