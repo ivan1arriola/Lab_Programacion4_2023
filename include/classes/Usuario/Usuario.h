@@ -42,10 +42,10 @@ class Usuario: public ISuscriptor {
     // Operaciones
     void enviarNotificacion(string nombreCurso, string nombreIdioma);
     virtual bool esProfesor() = 0;
-    virtual set<string> obtenerIdiomas() = 0;
+    
     void eliminarNotificacionesRecibidas();
     virtual bool esEstudiante() = 0;
-    virtual set<DTDataCursoProfesor> getCursosProfesor() = 0;
+    
 
     virtual ~Usuario();
 
