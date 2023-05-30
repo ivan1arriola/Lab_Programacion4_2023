@@ -10,29 +10,29 @@
 
 using namespace std;
 
+// Singleton
 class Fabrica {
-public:
+
+private:
     Fabrica() {};
-    virtual Fabrica* getInstancia() = 0;
+
+    static Fabrica* instancia;
+
+     ~Fabrica() {}
+public:
+
+    // Getters
+    static Fabrica* getInstancia();
 
     // Controladores
-    virtual IControladorCurso getIControladorCurso() = 0;
-    virtual IControladorUsuario getIControladorUsuario() = 0;
-    virtual IControladorEstadistica getIControladorEstadistica() = 0;
+    IControladorCurso* getIControladorCurso();
+    IControladorUsuario* getIControladorUsuario();
+    IControladorEstadistica* getIControladorEstadistica();
     
 
     // Interfaces
-    virtual ISuscriptor getSuscriptor(string nickname) = 0; //No se si es necesario el nickname
+    ISuscriptor* getSuscriptor(string nickname);
 
-
-    virtual ~Fabrica() {}
 };
 
 #endif 
-
-/*
-getIControladorCurso():IControladorCurso
-getIControladorUsuario():IControladorUsuario
-getSuscriptor():Suscriptor
-getIControladorEstadistica():IControladorUsuario
-*/
