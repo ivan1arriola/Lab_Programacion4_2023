@@ -170,6 +170,7 @@ roles, y justificar brevemente por qué resuelven los requerimientos.
 
 # Laboratorio 2 - Analisis 
 [Documento de Word](https://onedrive.live.com/edit.aspx?resid=4E0A101CDC8F4A2F!189&ithint=file%2cdocx&authkey=!AKC4te03l7HlkPA)
+[Letra de Laboratorio](https://drive.google.com/file/d/1pWrl68r8fAUNFgne8Zzs5a3b1wM2B2w1/view?usp=sharing)
 
 # Laboratorio 1 - Analisis
 
