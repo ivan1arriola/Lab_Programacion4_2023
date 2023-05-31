@@ -15,7 +15,6 @@ using namespace std;
 
 class IControladorUsuario {
     public:
-        virtual IControladorUsuario* getInstancia() = 0;
         virtual void ingresarUsuario(string nickname, string password, string name, string desc) = 0;
         virtual void ingresarDatosEstudiante(string pais) = 0;
         virtual void altaProfesor(set<string> idiomas) = 0;

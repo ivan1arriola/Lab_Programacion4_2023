@@ -26,7 +26,7 @@ class ControladorUsuario : public IControladorUsuario {
         ~ControladorUsuario();
 
 
-        static IControladorUsuario* instancia;
+        static ControladorUsuario* instancia;
 
         // Atributos para el caso de uso "Alta de Usuario"
         string actual_nickname; string actual_password; string actual_name; string actual_desc;
@@ -35,7 +35,7 @@ class ControladorUsuario : public IControladorUsuario {
 
     public:
         // Getters
-        IControladorUsuario* getInstancia();
+        static IControladorUsuario* getInstancia();
 
         // Operaciones
         void ingresarUsuario(string nickname, string password, string name, string desc);

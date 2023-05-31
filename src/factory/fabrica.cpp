@@ -1,8 +1,17 @@
 #include "../../include/factory/fabrica.h"
 
+// interfaces
 #include "../../include/interfaces/ISuscriptor.h"
 #include "../../include/interfaces/IControladorCurso.h"
 #include "../../include/interfaces/IControladorUsuario.h"
+
+// controladores
+#include "../../include/controllers/ControladorCurso.h"
+#include "../../include/controllers/ControladorUsuario.h"
+#include "../../include/controllers/ControladorEstadistica.h"
+
+
+using namespace std;
 
 Fabrica* Fabrica::instancia = NULL;
 
@@ -13,18 +22,7 @@ Fabrica* Fabrica::getInstancia() {
     return instancia;
 }
 
-IControladorCurso* Fabrica::getIControladorCurso() {
-    return IControladorCurso::getInstancia();
-}
 
 IControladorUsuario* Fabrica::getIControladorUsuario() {
-    return IControladorUsuario::getInstancia();
+    return ControladorUsuario::getInstancia();
 }
-
-ISuscriptor* Fabrica::getSuscriptor(string nickname) {
-    return ISuscriptor::getInstancia(nickname);
-}
-
-
-
-

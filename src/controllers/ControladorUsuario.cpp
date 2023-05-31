@@ -1,63 +1,36 @@
 /*
-#ifndef CONTROLADORUSUARIO
-#define CONTROLADORUSUARIO
+
+#ifndef ICONTROLADORUSUARIO
+#define ICONTROLADORUSUARIO
 
 #include <string>
 #include <set>
-#include <map>
 
-#include "../interfaces/IControladorUsuario.h"
-
-#include "../classes/Usuario/Usuario.h"
+#include "../datatypes/DTUsuario.h"
+#include "../datatypes/DTNotificacion.h"
 
 using namespace std;
 
-// Singleton
-class ControladorUsuario : public IControladorUsuario {
-
-    private:
-        // Atributos
-        Usuario* usuarioActual;
-
-        //Colecciones
-        map<string, Usuario*> coleccionUsuarios;
-
-        ControladorUsuario();
-        ~ControladorUsuario();
-
-
-        static IControladorUsuario* instancia;
-
-        // Atributos para el caso de uso "Alta de Usuario"
-        string actual_nickname; string actual_password; string actual_name; string actual_desc;
-        string actual_pais;
-        string actual_instituto;
-
-
-
+class IControladorUsuario {
     public:
-        // Getters
-        IControladorUsuario* getInstancia();
-
-        // Operaciones
-        void ingresarUsuario(string nickname, string password, string name, string desc);
-        void ingresarDatosEstudiante(string pais);
-        void altaProfesor(set<string> idiomas);
-        DTUsuario getDataUsuarioIngresado();
-        set<string> seleccionarIdioma(string nombre);
-        set<string> listarNombresDeIdiomasDisponibles();
-        void altaEstudiante();
-        void ingresarDatosProfesor(string instituto);
-        set<string> listarNombresIdiomasDeProfesor(string nicknameProfesor);
-        set<string> listarNIcknameProfesores();
-        set<string> listarIdiomasNoSuscriptos(string nickname);
-        set<string> listarIdiomasSuscriptos(string nickname);
-        void seleccionarProfesor(string nicknameProfesor);
-        void suscribirse(string nombreIdioma);
-        set<DTNotificacion> listarNotificaciones(string nickName);
-        void eliminarNotificaciones();
-        void eliminarSuscripcion(string idioma);
-
+        virtual IControladorUsuario* getInstancia() = 0;
+        virtual void ingresarUsuario(string nickname, string password, string name, string desc) = 0;
+        virtual void ingresarDatosEstudiante(string pais) = 0;
+        virtual void altaProfesor(set<string> idiomas) = 0;
+        virtual DTUsuario getDataUsuarioIngresado() = 0;
+        virtual set<string> seleccionarIdioma(string nombre) = 0;
+        virtual set<string> listarNombresDeIdiomasDisponibles() = 0;
+        virtual void altaEstudiante() = 0;
+        virtual void ingresarDatosProfesor(string instituto) = 0;
+        virtual set<string> listarNombresIdiomasDeProfesor(string nicknameProfesor) = 0;
+        virtual set<string> listarNIcknameProfesores() = 0;
+        virtual set<string> listarIdiomasNoSuscriptos(string nickname) = 0;
+        virtual set<string> listarIdiomasSuscriptos(string nickname) = 0;
+        virtual void seleccionarProfesor(string nicknameProfesor) = 0;
+        virtual void suscribirse(string nombreIdioma) = 0;
+        virtual set<DTNotificacion> listarNotificaciones(string nickName) = 0;
+        virtual void eliminarNotificaciones() = 0;
+        virtual void eliminarSuscripcion(string idioma) = 0;
 };
 
 #endif
@@ -83,21 +56,15 @@ class ControladorUsuario : public IControladorUsuario {
 #include <map>
 #include <stdexcept>
 
-//manejo de errores 
-//#include <cassert>
 
 using namespace std;
 
 // Singleton
-IControladorUsuario* ControladorUsuario::instancia = NULL;
+ControladorUsuario* ControladorUsuario::instancia = NULL;
 
-ControladorUsuario::ControladorUsuario() {
-    this->usuarioActual = NULL;
-}
+ControladorUsuario::ControladorUsuario() {}
 
-ControladorUsuario::~ControladorUsuario() {
-
-}
+ControladorUsuario::~ControladorUsuario() {}
 
 IControladorUsuario* ControladorUsuario::getInstancia() {
     if (instancia == NULL) {
@@ -105,6 +72,7 @@ IControladorUsuario* ControladorUsuario::getInstancia() {
     }
     return instancia;
 }
+
 
 // Operaciones
 
