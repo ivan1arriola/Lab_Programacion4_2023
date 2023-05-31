@@ -1,27 +1,30 @@
-CC = g++
-CFLAGS = -std=c++11 -Wall
+# Variables
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
+SRCDIR = src
+OBJDIR = obj
+BINDIR = bin
+EXECUTABLE = $(BINDIR)/app
 
-# Nombre del ejecutable
-BINARY = programa
+# Archivos fuente
+MAIN = main.cpp
+CPP_FILES := $(shell find $(SRCDIR) -type f -name '*.cpp')
 
-# .o de los archivos fuente
-OBJS = main.o
+# Objetos
+OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(CPP_FILES))
 
-# Ruta del archivo fuente
-SRC = main.cpp
+# Regla principal
+all: $(EXECUTABLE)
 
-all: $(BINARY)
+# Regla para el ejecutable
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
-$(BINARY): $(SRC)
-	$(CC) $(CFLAGS) -o $(BINARY) $(SRC)
+# Regla para los objetos
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run: $(BINARY)
-	./$(BINARY)
-
+# Regla para limpiar los archivos generados
 clean:
-	rm -f $(BINARY)
-
-valgrind: $(BINARY)
-	valgrind ./$(BINARY)
-
-.PHONY: all run clean valgrind
+	rm -rf $(OBJDIR)/*.o $(EXECUTABLE)
