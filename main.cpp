@@ -114,9 +114,8 @@ int main() {
                 cout << nickname << " - " << password << " - " << name << " - " << descripcion << endl;
                 //
 
-                /*
+                
                 controladorUsuario->ingresarUsuario(nickname,password,name,descripcion);
-
                 cout << "Tipo de usuario: " << endl;
                 cout << "1. Profesor" << endl;
                 cout << "2. Estudiante" << endl;
@@ -136,13 +135,13 @@ int main() {
                     string pais;
                     cin >> pais;
                     cout << endl;
-                    controladorUsuario->ingresarDatosEstudiante(pais);
+                    //controladorUsuario->ingresarDatosEstudiante(pais);
 
-                    controladorUsuario->altaEstudiante();
+                    //controladorUsuario->altaEstudiante();
 
                     cout << "Estudiante creado con exito" << endl;
                 }
-*/
+
                 break;
             }
             case 2: {

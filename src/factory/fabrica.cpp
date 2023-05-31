@@ -24,6 +24,5 @@ Fabrica* Fabrica::getInstancia() {
 
 
 IControladorUsuario* Fabrica::getIControladorUsuario() {
-    //return ControladorUsuario::getInstancia();
-    return NULL;
+    return ControladorUsuario::getInstancia();
 }
