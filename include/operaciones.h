@@ -6,6 +6,10 @@
 
 using namespace std;
 
+/* Imprime una linea separatoria */
+void imprimirLinea();
+
+/* Imprime un conjunto de strings, con indice */
 void imprimirSet(const set<string>& conjunto);
 
 /* Imprime una linea de guiones, un string, otra linea de guiones y un salto de

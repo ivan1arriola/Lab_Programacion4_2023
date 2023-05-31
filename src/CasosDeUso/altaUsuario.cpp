@@ -16,8 +16,6 @@ void altaUsuario() {
   Fabrica *fabrica = Fabrica::getInstancia();
   IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
-  cout << "Alta de usuario" << endl;
-
   cout << "Ingrese el nickname: ";
   string nickname;
   cin >> nickname;

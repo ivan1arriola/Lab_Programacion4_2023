@@ -14,7 +14,7 @@ int main() {
     menuDeOpciones();
     int opcion = ingresarOpcion(16);
     bool quiereSalir = opcion == 0;
-    cout << "--------------------------------------" << endl;
+    imprimirLinea();
 
     while (!quiereSalir) {
         switch (opcion) {
@@ -25,7 +25,9 @@ int main() {
             }
             case 1: {
                 cout << "Alta de usuario" << endl;
+                imprimirLinea();
                 altaUsuario();
+                imprimirLinea();
                 break;
             }
             case 2: {
@@ -92,7 +94,7 @@ int main() {
                 continue;
             }
         }
-        cout << endl << "--------------------------------------" << endl;
+        imprimirLinea();
         if (!quiereSalir) {
             quiereSalir = deseaContinuar() == 0;
             if (!quiereSalir) {

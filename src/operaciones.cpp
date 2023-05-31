@@ -5,13 +5,13 @@
 
 using namespace std;
 
-static void imprimirLinea(){
-    cout << "--------------------------------------" << endl;
+void imprimirLinea(){
+    cout << "***************" << endl;
 }
 
 void mensajeDeBienvenida() {
     imprimirLinea();
-    cout << "Bienvenide a la aplicacion de idiomas" << endl;
+    cout << "**** Bienvenide a la aplicacion de idiomas ****" << endl;
     imprimirLinea();
     cout << endl;
 }
@@ -64,7 +64,7 @@ int ingresarOpcion(int cantOpciones) {
 
 int deseaContinuar() {
     int opcion;
-    cout << "Desea continuar?" << endl;
+    cout << "Desea realizar otra operacion?" << endl;
     cout << "1. Si " << endl;
     cout << "0. No" << endl;
     cout << endl;
