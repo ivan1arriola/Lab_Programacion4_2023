@@ -36,11 +36,13 @@ void menuDeOpciones() {
     cout << "--------------------------------------" << endl;
 }
 
-/** Lee un numero natural de la entrada estandar. En caso de no ser un numero, lo ignora y lo pide devuelta*/
-int ingresarOpcion() {
+/** Lee un numero por consola. Si no es un numero, lo vuelve a pedir. */
+/** Siempre agrega la opcion 0*/
+int ingresarOpcion(int cantOpciones) {
     int opcion;
     bool esNumero = false;
-    while (!esNumero) {
+    bool esOpcionValida = false;
+    while (!esNumero || !esOpcionValida) {
         cout << "Ingrese una opcion: ";
         cin >> opcion;
         cout << endl;
@@ -50,9 +52,16 @@ int ingresarOpcion() {
             cin.ignore(10000, '\n');
             cout << "Debe ingresar un numero" << endl;
         }
+        if (esNumero && (opcion < 0 || opcion > cantOpciones)) {
+            cout << "Debe ingresar una opcion valida" << endl;
+            esOpcionValida = false;
+        } else {
+            esOpcionValida = true;
+        }
     }
     return opcion;
 }
+
 
 
 int deseaContinuar() {
@@ -62,7 +71,7 @@ int deseaContinuar() {
     cout << "0. No" << endl;
     cout << "(Cualquiero otro numero se interpretara como Sí)" << endl;
     cout << endl;
-    opcion = ingresarOpcion();
+    opcion = ingresarOpcion(1);
     return opcion;
 }
 
@@ -79,7 +88,7 @@ int main() {
 
     mensajeDeBienvenida();
     menuDeOpciones();
-    int opcion = ingresarOpcion();
+    int opcion = ingresarOpcion(16);
     bool quiereSalir = opcion == 0;
     cout << "--------------------------------------" << endl;
 
@@ -117,13 +126,13 @@ int main() {
                 
                 controladorUsuario->ingresarUsuario(nickname,password,name,descripcion);
                 cout << "Tipo de usuario: " << endl;
-                cout << "1. Profesor" << endl;
-                cout << "2. Estudiante" << endl;
+                cout << "0. Profesor" << endl;
+                cout << "1. Estudiante" << endl;
 
-                int tipoUsuario = ingresarOpcion();
+                int tipoUsuario = ingresarOpcion(1);
                 cout << endl;
 
-                if (tipoUsuario == 1) {
+                if (tipoUsuario == 0) {
                     cout << "Ingrese el instituto: ";
                     string instituto;
                     cin >> instituto;
@@ -205,10 +214,7 @@ int main() {
                 break;
             }
             default: {
-                cout << "Opcion no valida. Ingrese nuevamente una opcion" << endl;
-                opcion = ingresarOpcion();
                 continue;
-                break;
             }
         }
         cout << "--------------------------------------" << endl;
@@ -216,7 +222,7 @@ int main() {
             quiereSalir = deseaContinuar() == 0;
             if (!quiereSalir) {
                 menuDeOpciones();
-                opcion = ingresarOpcion();
+                opcion = ingresarOpcion(16);
             }
         }
     }
