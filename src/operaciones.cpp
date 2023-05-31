@@ -5,15 +5,19 @@
 
 using namespace std;
 
+static void imprimirLinea(){
+    cout << "--------------------------------------" << endl;
+}
+
 void mensajeDeBienvenida() {
-    cout << "------------------------------------" << endl;
+    imprimirLinea();
     cout << "Bienvenide a la aplicacion de idiomas" << endl;
-    cout << "------------------------------------" << endl;
+    imprimirLinea();
     cout << endl;
 }
 
 void menuDeOpciones() {
-    cout << "--------------------------------------" << endl;
+    imprimirLinea();
     cout << "1. Alta de usuario" << endl;
     cout << "2. Consulta de usuario" << endl;
     cout << "3. Alta de idioma" << endl;
@@ -31,7 +35,7 @@ void menuDeOpciones() {
     cout << "15. Consulta de notificaciones" << endl;
     cout << "16. Eliminar suscripciones" << endl;
     cout << "0. Salir" << endl;
-    cout << "--------------------------------------" << endl;
+    imprimirLinea();
 }
 
 int ingresarOpcion(int cantOpciones) {
@@ -63,7 +67,6 @@ int deseaContinuar() {
     cout << "Desea continuar?" << endl;
     cout << "1. Si " << endl;
     cout << "0. No" << endl;
-    cout << "(Cualquiero otro numero se interpretara como Sí)" << endl;
     cout << endl;
     opcion = ingresarOpcion(1);
     return opcion;
@@ -82,4 +85,11 @@ void imprimirSet(const set<string>& conjunto) {
         }
         cout << endl;
     }
+}
+
+void imprimirMensaje(string mensaje) {
+    imprimirLinea();
+    cout << mensaje << endl;
+    imprimirLinea();
+    cout << endl;
 }
