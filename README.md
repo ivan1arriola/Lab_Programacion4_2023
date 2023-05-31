@@ -12,6 +12,8 @@ Fecha Limite - lunes, 19 de junio de 2023, 15:00
 - `make valgrind` : compila y ejecuta el programa con valgrind
 
 
+
+
 ## Todos los casos de uso
 - Alta de usuario
 - Consulta de usuario
@@ -29,6 +31,10 @@ Fecha Limite - lunes, 19 de junio de 2023, 15:00
 - Suscribirse a notificaciones
 - Consulta de notificaciones
 - Eliminar suscripciones
+
+Se debe modificar los archivos .h y .cpp de cada caso de uso, y agregar los archivos .h y .cpp de cada entidad que se necesite.
+Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
+
 
 # Laboratorio 3 - Diseño
 [Documento de Word](https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/ERzphtEka7JFuR_Gi3pB9pABNgsM6_nyMeSTR1DvscjRQQ?e=WfN7dr)
