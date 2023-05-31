@@ -5,14 +5,19 @@ SRCDIR = src
 OBJDIR = obj
 BINDIR = bin
 EXECUTABLE = $(BINDIR)/app
+CASOSDEUSODIR = $(SRCDIR)/CasosDeUso
 
 # Archivos fuente
 MAIN = main.cpp
+
+
 CPP_FILES := $(MAIN) \
 	$(SRCDIR)/operaciones.cpp \
 	$(SRCDIR)/factory/fabrica.cpp \
 	$(SRCDIR)/controllers/ControladorUsuario.cpp \
 	$(SRCDIR)/datatypes/DTUsuario.cpp \
+
+CPP_FILES += $(CASOSDEUSODIR)/altaUsuario.cpp
 
 
 # Objetos
