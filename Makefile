@@ -9,6 +9,7 @@ EXECUTABLE = $(BINDIR)/app
 # Archivos fuente
 MAIN = main.cpp
 CPP_FILES := $(MAIN) \
+	$(SRCDIR)/operaciones.cpp \
 	$(SRCDIR)/factory/fabrica.cpp \
 	$(SRCDIR)/controllers/ControladorUsuario.cpp \
 	$(SRCDIR)/datatypes/DTUsuario.cpp \
