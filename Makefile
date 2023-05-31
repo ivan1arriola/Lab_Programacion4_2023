@@ -8,8 +8,10 @@ EXECUTABLE = $(BINDIR)/app
 
 # Archivos fuente
 MAIN = main.cpp
-CPP_FILES := $(shell find $(SRCDIR) -type f -name '*.cpp')
-CPP_FILES += $(MAIN)
+CPP_FILES := $(MAIN) \
+	$(SRCDIR)/factory/fabrica.cpp
+	
+
 
 # Objetos
 OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(CPP_FILES))
