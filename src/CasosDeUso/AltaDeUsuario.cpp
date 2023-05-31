@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+#include "../../include/CasosDeUso/AltaDeUsuario.h"
 
 #include "../../include/factory/fabrica.h"
 #include "../../include/operaciones.h"
@@ -9,10 +10,9 @@
 #include "../../include/interfaces/IControladorEstadistica.h"
 #include "../../include/interfaces/IControladorUsuario.h"
 
-
 using namespace std;
 
-void altaUsuario() {
+void AltaDeUsuario() {
   Fabrica *fabrica = Fabrica::getInstancia();
   IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 

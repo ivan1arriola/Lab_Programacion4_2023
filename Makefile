@@ -17,7 +17,7 @@ CPP_FILES := $(MAIN) \
 	$(SRCDIR)/controllers/ControladorUsuario.cpp \
 	$(SRCDIR)/datatypes/DTUsuario.cpp \
 
-CPP_FILES += $(CASOSDEUSODIR)/altaUsuario.cpp
+CPP_FILES += $(CASOSDEUSODIR)/AltaDeUsuario.cpp
 
 
 # Objetos

@@ -4,7 +4,7 @@
 #include "include/operaciones.h"
 
 // Casos de Uso
-#include "include/CasosDeUso/altaUsuario.h"
+#include "include/CasosDeUso/AltaDeUsuario.h"
 
 using namespace std;
 
@@ -26,7 +26,7 @@ int main() {
             case 1: {
                 cout << "Alta de usuario" << endl;
                 imprimirLinea();
-                altaUsuario();
+                AltaDeUsuario();
                 imprimirLinea();
                 break;
             }
