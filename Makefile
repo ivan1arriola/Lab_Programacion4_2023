@@ -9,6 +9,7 @@ EXECUTABLE = $(BINDIR)/app
 # Archivos fuente
 MAIN = main.cpp
 CPP_FILES := $(shell find $(SRCDIR) -type f -name '*.cpp')
+CPP_FILES += $(MAIN)
 
 # Objetos
 OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(CPP_FILES))
@@ -18,6 +19,7 @@ all: $(EXECUTABLE)
 
 # Regla para el ejecutable
 $(EXECUTABLE): $(OBJECTS)
+	@mkdir -p $(@D)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 # Regla para los objetos
@@ -27,4 +29,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 
 # Regla para limpiar los archivos generados
 clean:
-	rm -rf $(OBJDIR)/*.o $(EXECUTABLE)
+	rm -rf $(OBJDIR) $(EXECUTABLE) $(BINDIR)
+
+run:
+	./$(EXECUTABLE)
