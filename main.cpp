@@ -3,9 +3,9 @@
 
 #include "include/factory/fabrica.h"
 
-//#include "include/interfaces/IControladorCurso.h"
+#include "include/interfaces/IControladorCurso.h"
 #include "include/interfaces/IControladorUsuario.h"
-//#include "include/interfaces/IControladorEstadistica.h"
+#include "include/interfaces/IControladorEstadistica.h"
 
 void mensajeDeBienvenida() {
     cout << "------------------------------------" << endl;
@@ -110,7 +110,11 @@ int main() {
                 string descripcion;
                 cin >> descripcion;
                 cout << endl;
+
+                cout << nickname << " - " << password << " - " << name << " - " << descripcion << endl;
                 //
+
+                /*
                 controladorUsuario->ingresarUsuario(nickname,password,name,descripcion);
 
                 cout << "Tipo de usuario: " << endl;
@@ -138,7 +142,7 @@ int main() {
 
                     cout << "Estudiante creado con exito" << endl;
                 }
-
+*/
                 break;
             }
             case 2: {

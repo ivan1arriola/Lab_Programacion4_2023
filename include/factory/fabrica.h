@@ -22,6 +22,8 @@ private:
 public:
 
     // Getters
+
+    /*Devuelve un puntero la instancia de Fabrica. si no existe, la crea*/
     static Fabrica* getInstancia();
 
     // Controladores
