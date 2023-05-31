@@ -15,7 +15,7 @@ ColeccionIdioma* ColeccionIdioma::getInstancia() {
 
 void ColeccionIdioma::agregarIdioma(Idioma* idioma) {
     if (idioma != nullptr) {
-        idiomas[idioma->obtenerNombre()] = idioma;
+        idiomas[idioma->getNombre()] = idioma;
     }
 }
 
@@ -45,6 +45,6 @@ void ColeccionIdioma::eliminarIdioma(string nombreIdioma) {
 
 void ColeccionIdioma::eliminarIdioma(Idioma* idioma) {
     if (idioma != nullptr) {
-        idiomas.erase(idioma->obtenerNombre());
+        idiomas.erase(idioma->getNombre());
     }
 }

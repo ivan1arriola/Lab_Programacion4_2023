@@ -10,14 +10,14 @@ using namespace std;
 class Idioma {
     private:
         string nombre;
-        set<ISuscriptor> suscriptores;
+        //set<ISuscriptor> suscriptores;
     public:
         Idioma();
         Idioma(string nombre);
         string getNombre();
         ~Idioma();
 
-        void agregarSuscriptor(ISuscriptor suscriptor);
+        void agregarSuscriptor(ISuscriptor* suscriptor);
         void eliminarSuscriptor(string nickname);
         void notificarSuscriptores();
 

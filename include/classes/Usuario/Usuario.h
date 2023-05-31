@@ -1,3 +1,5 @@
+// Usuario.h
+
 #ifndef USUARIO
 #define USUARIO
 
@@ -12,9 +14,9 @@
 
 using namespace std;
 
-/*Clase Abstracta*/
-class Usuario: public ISuscriptor {
-  private:
+/* Clase Abstracta */
+class Usuario : public ISuscriptor {
+private:
     string nickname;
     string contrasenia;
     string nombre;
@@ -22,7 +24,7 @@ class Usuario: public ISuscriptor {
     vector<DTNotificacion> notificacionesRecibidas;
     void agregarNotificacion(DTNotificacion notificacion);
 
-  public:
+public:
     Usuario();
     Usuario(string nickname, string contrasenia, string nombre, string descripcion);
 
@@ -42,13 +44,10 @@ class Usuario: public ISuscriptor {
     // Operaciones
     void enviarNotificacion(string nombreCurso, string nombreIdioma);
     virtual bool esProfesor() = 0;
-    
     void eliminarNotificacionesRecibidas();
     virtual bool esEstudiante() = 0;
-    
 
     virtual ~Usuario();
-
 };
 
 #endif

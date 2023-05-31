@@ -22,8 +22,7 @@ string Idioma::getNombre() {
 
 // Operaciones
 
-void Idioma::agregarSuscriptor(ISuscriptor suscriptor) {
-  this->suscriptores.insert(suscriptor);
+void Idioma::agregarSuscriptor(ISuscriptor* suscriptor) {
 }
 
 //void Idioma::eliminarSuscriptor(string nickname);
@@ -47,9 +46,10 @@ set<string> Idioma::getIdiomasProfesor() {
 // Destructor
 
 Idioma::~Idioma() {
-  this->suscriptores.clear();
+  //this->suscriptores.clear();
 }
 
 bool Idioma::operator==(const Idioma& otro) {
-  return this->nombre == otro.getNombre();
+  const Idioma& otroIdioma = dynamic_cast<const Idioma&>(otro);
+  return this->nombre == otroIdioma.nombre;
 }

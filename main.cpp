@@ -92,6 +92,53 @@ int main() {
             }
             case 1: {
                 cout << "Alta de usuario" << endl;
+
+
+                cout << "Ingrese el nickname: ";
+                string nickname;
+                cin >> nickname;
+                cout << endl;
+                cout << "Ingrese el password: ";
+                string password;
+                cin >> password;
+                cout << endl;
+                cout << "Ingrese el nombre: ";
+                string name;
+                cin >> name;
+                cout << endl;
+                cout << "Ingrese la descripcion: ";
+                string descripcion;
+                cin >> descripcion;
+                cout << endl;
+                //
+                controladorUsuario->ingresarUsuario(nickname,password,name,descripcion);
+
+                cout << "Tipo de usuario: " << endl;
+                cout << "1. Profesor" << endl;
+                cout << "2. Estudiante" << endl;
+
+                int tipoUsuario = ingresarOpcion();
+                cout << endl;
+
+                if (tipoUsuario == 1) {
+                    cout << "Ingrese el instituto: ";
+                    string instituto;
+                    cin >> instituto;
+                    cout << endl;
+                    //controladorUsuario->ingresarProfesor(instituto);
+                    break;
+                } else {
+                    cout << "Ingrese el pais: ";
+                    string pais;
+                    cin >> pais;
+                    cout << endl;
+                    controladorUsuario->ingresarDatosEstudiante(pais);
+
+                    controladorUsuario->altaEstudiante();
+
+                    cout << "Estudiante creado con exito" << endl;
+                }
+
                 break;
             }
             case 2: {
