@@ -41,4 +41,5 @@ clean:
 	rm -rf $(OBJDIR) $(EXECUTABLE) $(BINDIR)
 
 run:
-	./$(EXECUTABLE)
+	@clear
+	@./$(EXECUTABLE)
