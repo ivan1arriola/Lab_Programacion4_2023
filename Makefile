@@ -10,16 +10,32 @@ CASOSDEUSODIR = $(SRCDIR)/CasosDeUso
 # Archivos fuente
 MAIN = main.cpp
 
+CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
+	$(SRCDIR)/datatypes/DTNotificacion.cpp \
+	$(SRCDIR)/datatypes/DTDate.cpp \
+
+CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \
+
+CPP_CLASSES_FILES := $(SRCDIR)/classes/Usuario/Usuario.cpp \
+	$(SRCDIR)/classes/Usuario/Estudiante.cpp \
+	$(SRCDIR)/classes/Usuario/Profesor.cpp \
+	$(SRCDIR)/classes/Idioma.cpp \
+
+CPP_CONTROLLERS_FILES := $(SRCDIR)/controllers/ControladorUsuario.cpp 
+
+CPP_FACTORY_FILES := $(SRCDIR)/factory/fabrica.cpp \
+
+CPP_COLLECTIONS_FILES := $(SRCDIR)/collections/ColeccionIdioma.cpp \
 
 CPP_FILES := $(MAIN) \
 	$(SRCDIR)/operaciones.cpp \
-	$(SRCDIR)/factory/fabrica.cpp \
-	$(SRCDIR)/controllers/ControladorUsuario.cpp \
-	$(SRCDIR)/datatypes/DTUsuario.cpp \
-	$(SRCDIR)/classes/Idioma.cpp \
-	$(SRCDIR)/collections/ColeccionIdioma.cpp \
+	$(CPP_DATATYPES_FILES) \
+	$(CPP_CASOSDEUSO_FILES) \
+	$(CPP_CLASSES_FILES) \
+	$(CPP_CONTROLLERS_FILES) \
+	$(CPP_FACTORY_FILES) \
+	$(CPP_COLLECTIONS_FILES) \
 
-CPP_FILES += $(CASOSDEUSODIR)/AltaDeUsuario.cpp
 
 
 # Objetos

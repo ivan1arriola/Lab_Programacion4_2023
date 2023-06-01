@@ -20,8 +20,8 @@ class ControladorUsuario : public IControladorUsuario {
         // Atributos
         Usuario* usuarioActual;
 
-        //Colecciones
-        map<string, Usuario*> coleccionUsuarios;
+        //Colecciones //TODO: No se si es necesario hacerlo estatico
+        static map<string, Usuario*> coleccionUsuarios;
 
         ControladorUsuario();
         ~ControladorUsuario();

@@ -30,7 +30,14 @@ ControladorUsuario* ControladorUsuario::instancia = NULL;
 
 ControladorUsuario::ControladorUsuario() {}
 
-ControladorUsuario::~ControladorUsuario() {}
+ControladorUsuario::~ControladorUsuario() {
+    // Eliminar los usuarios
+    // map<string, Usuario*>::iterator it;
+    // for (it = coleccionUsuarios.begin(); it != coleccionUsuarios.end(); it++) {
+    //     delete it->second;
+    // }
+    // coleccionUsuarios.clear();
+}
 
 IControladorUsuario* ControladorUsuario::getInstancia() {
     if (instancia == NULL) {
@@ -42,7 +49,10 @@ IControladorUsuario* ControladorUsuario::getInstancia() {
 
 // Operaciones
 
+
 void ControladorUsuario::ingresarUsuario(string nickname, string password, string name, string desc) {
+
+    // Guardar los datos ingresados en el caso de uso "Alta de Usuario"
     this->actual_nickname = nickname;
     this->actual_password = password;
     this->actual_name = name;
