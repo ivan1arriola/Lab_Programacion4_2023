@@ -10,14 +10,10 @@ void imprimirLinea(){
 }
 
 void mensajeDeBienvenida() {
-    imprimirLinea();
-    cout << "**** Bienvenide a la aplicacion de idiomas ****" << endl;
-    imprimirLinea();
-    cout << endl;
+    cout << "Bienvenide a la aplicacion de idiomas" << endl;
 }
 
 void menuDeOpciones() {
-    imprimirLinea();
     cout << "1. Alta de usuario" << endl;
     cout << "2. Consulta de usuario" << endl;
     cout << "3. Alta de idioma" << endl;
@@ -35,7 +31,6 @@ void menuDeOpciones() {
     cout << "15. Consulta de notificaciones" << endl;
     cout << "16. Eliminar suscripciones" << endl;
     cout << "0. Salir" << endl;
-    imprimirLinea();
 }
 
 int ingresarOpcion(int cantOpciones) {
@@ -67,7 +62,6 @@ int deseaContinuar() {
     cout << "Desea realizar otra operacion?" << endl;
     cout << "1. Si " << endl;
     cout << "0. No" << endl;
-    cout << endl;
     opcion = ingresarOpcion(1);
     return opcion;
 }
@@ -75,7 +69,6 @@ int deseaContinuar() {
 void imprimirSet(const set<string>& conjunto) {
     if (conjunto.empty()) {
         cout << "0 - No hay elementos disponibles para elegir" << endl;
-        cout << endl;
     } else {
         int indice = 1;
         cout << "0 - Cancelar" << endl;
@@ -83,13 +76,23 @@ void imprimirSet(const set<string>& conjunto) {
             cout << indice << " - " << elemento << endl;
             ++indice;
         }
-        cout << endl;
+        
     }
 }
 
 void imprimirMensaje(string mensaje) {
-    imprimirLinea();
     cout << mensaje << endl;
-    imprimirLinea();
+}
+
+void imprimirDespedida() {
+    cout << "Gracias por utilizar la aplicacion de idiomas" << endl;
+}
+
+
+string ingresarParametro(string parametro) {
+  string valor;
+  cout << "Ingrese " << parametro << ": ";
+  cin >> valor;
     cout << endl;
+  return valor;
 }

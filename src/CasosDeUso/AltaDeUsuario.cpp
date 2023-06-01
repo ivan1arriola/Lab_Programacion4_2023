@@ -12,70 +12,65 @@
 
 using namespace std;
 
+
+
 void AltaDeUsuario() {
   Fabrica *fabrica = Fabrica::getInstancia();
   IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
-  cout << "Ingrese el nickname: ";
-  string nickname;
-  cin >> nickname;
-  cout << endl;
+  // Ingresar nickname
+  string nickname = ingresarParametro("el nickname");
 
+  // Ingresar password
   string password;
   do {
-    cout << "Ingrese el password: ";
-    cin >> password;
-    cout << endl;
+    password = ingresarParametro("el password");
     if (password.length() < 6) {
       cout << "El password debe tener al menos 6 caracteres" << endl;
     }
   } while (password.length() < 6);
 
-  cout << "Ingrese el nombre: ";
-  string name;
-  cin >> name;
-  cout << endl;
-  cout << "Ingrese la descripcion: ";
-  string descripcion;
-  cin >> descripcion;
-  cout << endl;
+  // Ingresar nombre
+  string nombre = ingresarParametro("el nombre");
 
-  cout << nickname << " - " << password << " - " << name << " - " << descripcion
-       << endl;
-  //
+  // Ingresar descripcion
+  string descripcion = ingresarParametro("la descripcion");
 
-  controladorUsuario->ingresarUsuario(nickname, password, name, descripcion);
+  // Imprimir datos ingresados
+  cout << "Datos ingresados: " << endl;
+  cout << "Nickname: " << nickname << endl;
+  cout << "Password: " << password << endl;
+  cout << "Nombre: " << nombre << endl;
+  cout << "Descripcion: " << descripcion << endl;
+
+  controladorUsuario->ingresarUsuario(nickname, password, nombre, descripcion);
   cout << "Tipo de usuario: " << endl;
   cout << "0. Profesor" << endl;
   cout << "1. Estudiante" << endl;
 
   int tipoUsuario = ingresarOpcion(1);
-  cout << endl;
 
-  if (tipoUsuario == 0) {
-    cout << "Ingrese el instituto: ";
-    string instituto;
-    cin >> instituto;
-    cout << endl;
+  if (tipoUsuario == 0) { // Profesor
+    string instituto = ingresarParametro("el instituto");
+
     controladorUsuario->ingresarDatosProfesor(instituto);
 
     cout << "Lista de Idiomas disponibles " << endl;
-    set<string> idiomas =
-        controladorUsuario->listarNombresDeIdiomasDisponibles();
+    set<string> idiomas = controladorUsuario->listarNombresDeIdiomasDisponibles();
     imprimirSet(idiomas);
 
-    cout << "Ingrese el idioma: ";
-    string idioma;
+    string idioma = ingresarParametro("el idioma");
 
     controladorUsuario->seleccionarIdioma(idioma);
+
+    cout << endl << "Profesor creado con exito" << endl;
     
-  } else {
+  } else if (tipoUsuario == 1) { // Estudiante
     cout << "Ingrese el pais: ";
     string pais;
     cin >> pais;
-    cout << endl;
     controladorUsuario->ingresarDatosEstudiante(pais);
     controladorUsuario->altaEstudiante();
-    cout << "Estudiante creado con exito" << endl;
+    cout << endl << "Estudiante creado con exito" << endl;
   }
 }

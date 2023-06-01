@@ -9,6 +9,9 @@ using namespace std;
 /* Imprime una linea separatoria */
 void imprimirLinea();
 
+/* Imprime un mensaje de despedida */
+void imprimirDespedida();
+
 /* Imprime un conjunto de strings, con indice */
 void imprimirSet(const set<string>& conjunto);
 
@@ -31,5 +34,8 @@ int ingresarOpcion(int cantOpciones);
 /* Pregunta si desea continuar. Devuelve 1 si desea continuar, 0 si no desea
  * continuar */
 int deseaContinuar();
+
+/* Pide un parametro por consola. Devuelve el parametro ingresado */
+string ingresarParametro(string parametro);
 
 #endif
