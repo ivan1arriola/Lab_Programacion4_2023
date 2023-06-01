@@ -22,6 +22,9 @@
 
 using namespace std;
 
+//Coleccion de punteros a Idioma
+ColeccionIdioma* coleccionIdiomas = ColeccionIdioma::getInstancia();
+
 // Singleton
 ControladorUsuario* ControladorUsuario::instancia = NULL;
 
@@ -88,9 +91,9 @@ set<string> ControladorUsuario::seleccionarIdioma(string nombre) {
     return idiomas;
 }
 
-//TODO: Hay que implementar esto
+
 set<string> ControladorUsuario::listarNombresDeIdiomasDisponibles() {
-    set<string> idiomas; // Valor vacío
+    set<string> idiomas = coleccionIdiomas->obtenerNombresIdiomas();
     return idiomas;
 }
 
