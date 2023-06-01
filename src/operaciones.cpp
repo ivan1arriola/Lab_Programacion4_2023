@@ -40,7 +40,6 @@ int ingresarOpcion(int cantOpciones) {
     while (!esNumero || !esOpcionValida) {
         cout << "Ingrese una opcion: ";
         cin >> opcion;
-        cout << endl;
         esNumero = cin.good();
         if (!esNumero) {
             cin.clear();
@@ -66,9 +65,9 @@ int deseaContinuar() {
     return opcion;
 }
 
-void imprimirSet(const set<string>& conjunto) {
+void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
     if (conjunto.empty()) {
-        cout << "0 - No hay elementos disponibles para elegir" << endl;
+        cout << "0 - No hay " << nombreDelConjunto << " disponibles" << endl;
     } else {
         int indice = 1;
         cout << "0 - Cancelar" << endl;
@@ -92,7 +91,6 @@ void imprimirDespedida() {
 string ingresarParametro(string parametro) {
   string valor;
   cout << "Ingrese " << parametro << ": ";
-  cin >> valor;
-    cout << endl;
+  cin >> valor; 
   return valor;
 }
