@@ -29,22 +29,22 @@ public:
     Usuario(string nickname, string contrasenia, string nombre, string descripcion);
 
     // Getters
-    string getNickname();
-    string getContrasenia();
-    string getNombre();
-    string getDescripcion();
-    vector<DTNotificacion> getNotificacionesRecibidas();
+    virtual string getNickname();
+    virtual string getContrasenia();
+    virtual string getNombre();
+    virtual string getDescripcion();
+    virtual vector<DTNotificacion> getNotificacionesRecibidas();
 
     // Setters
-    void setNickname(string nickname);
-    void setContrasenia(string contrasenia);
-    void setNombre(string nombre);
-    void setDescripcion(string descripcion);
+    virtual void setNickname(string nickname);
+    virtual void setContrasenia(string contrasenia);
+    virtual void setNombre(string nombre);
+    virtual void setDescripcion(string descripcion);
 
     // Operaciones
-    void enviarNotificacion(string nombreCurso, string nombreIdioma);
+    virtual void enviarNotificacion(string nombreCurso, string nombreIdioma);
     virtual bool esProfesor() = 0;
-    void eliminarNotificacionesRecibidas();
+    virtual void eliminarNotificacionesRecibidas();
     virtual bool esEstudiante() = 0;
 
     virtual ~Usuario();

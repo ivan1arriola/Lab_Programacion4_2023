@@ -1,4 +1,5 @@
 #include "../../../include/classes/Usuario/Estudiante.h"
+#include "../../../include/classes/Usuario/Usuario.h"
 
 #include <string>
 
@@ -7,16 +8,7 @@
 using namespace std;
 
 // Constructor
-
-Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate fechaNacimiento) : Usuario(nickname, contrasenia, nombre, descripcion) {
-  this->pais = pais;
-  this->fechaNacimiento = fechaNacimiento;
-}
-
-Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion) : Usuario(nickname, contrasenia, nombre, descripcion) {
-  this->pais = "";
-  this->fechaNacimiento = DTDate();
-}
+//TODO: Elimine implementacion de constructores, hay que volverlas a hacer
 
 // Getters
 
@@ -24,7 +16,7 @@ string Estudiante::getPais() {
   return this->pais;
 }
 
-DTDate Estudiante::getFechaNacimiento() {
+DTDate* Estudiante::getFechaNacimiento() {
   return this->fechaNacimiento;
 }
 
@@ -34,17 +26,15 @@ void Estudiante::setPais(string pais) {
   this->pais = pais;
 }
 
-void Estudiante::setFechaNacimiento(DTDate fechaNacimiento) {
+void Estudiante::setFechaNacimiento(DTDate *fechaNacimiento) {
   this->fechaNacimiento = fechaNacimiento;
 }
 
 
 void Estudiante::setFechaNacimiento(int dia, int mes, int anio) {
-    DTDate fechaNacimiento = DTDate(dia, mes, anio);
+    DTDate* fechaNacimiento = new DTDate(dia, mes, anio);
     this->fechaNacimiento = fechaNacimiento;
 }
 
 // Destructor
-
-Estudiante::~Estudiante() {
-}
+//TODO: Elimine implementacion de destrucor, hay que volverla a hacer

@@ -7,9 +7,13 @@
 #include "../../../include/datatypes/DTNotificacion.h"
 #include "../../../include/datatypes/DTDataCursoProfesor.h"
 
+#include "../../../include/interfaces/ISuscriptor.h"
+
 // Constructor
 
-Usuario::Usuario(string nickname, string contrasenia, string nombre, string descripcion) {
+Usuario::Usuario(){}
+
+Usuario::Usuario(string nickname, string contrasenia, string nombre, string descripcion): ISuscriptor()  {
   this->nickname = nickname;
   this->contrasenia = contrasenia;
   this->nombre = nombre;
