@@ -15,22 +15,24 @@ Fecha Limite - lunes, 19 de junio de 2023, 15:00
 
 
 ## Todos los casos de uso
-- Alta de usuario
+- Alta de usuario [x]
 - Consulta de usuario
 - Alta de idioma
 - Consultar idiomas
-- Alta de curso
+- Alta de curso [x]
 - Agregar lección
 - Agregar ejercicio
 - Habilitar curso
-- Eliminar curso
+- Eliminar curso [x]
 - Consultar curso
 - Inscribirse a curso
-- Realizar ejercicio
-- Consultar estadísticas
-- Suscribirse a notificaciones
-- Consulta de notificaciones
-- Eliminar suscripciones
+- Realizar ejercicio [x]
+- Consultar estadísticas [x]
+- Suscribirse a notificaciones [x]
+- Consulta de notificaciones [x]
+- Eliminar suscripciones [x]
+
+Los casos de uso marcados con [x] tienen sus diagramas de comunicacion desde el laboratorio 3.
 
 Se debe modificar los archivos .h y .cpp de cada caso de uso, y agregar los archivos .h y .cpp de cada entidad que se necesite.
 Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
