@@ -14,8 +14,10 @@ ColeccionIdioma* ColeccionIdioma::getInstancia() {
 }
 
 void ColeccionIdioma::agregarIdioma(Idioma* idioma) {
-    if (idioma != nullptr) {
-        idiomas[idioma->getNombre()] = idioma;
+    if (idioma == nullptr) return;
+    string nombreIdioma = idioma->getNombre();
+    if (!existeIdioma(nombreIdioma)) {
+        idiomas[nombreIdioma] = idioma;
     }
 }
 
@@ -31,12 +33,8 @@ bool ColeccionIdioma::existeIdioma(string nombreIdioma) {
 }
 
 bool ColeccionIdioma::existeIdioma(Idioma idioma) {
-    for (const auto& par : idiomas) {
-        if (*(par.second) == idioma) {
-            return true;
-        }
-    }
-    return false;
+    string nombreIdioma = idioma.getNombre();
+    return existeIdioma(nombreIdioma);
 }
 
 void ColeccionIdioma::eliminarIdioma(string nombreIdioma) {
@@ -44,7 +42,14 @@ void ColeccionIdioma::eliminarIdioma(string nombreIdioma) {
 }
 
 void ColeccionIdioma::eliminarIdioma(Idioma* idioma) {
-    if (idioma != nullptr) {
-        idiomas.erase(idioma->getNombre());
+    string nombreIdioma = idioma->getNombre();
+    eliminarIdioma(nombreIdioma);
+}
+
+set<string> ColeccionIdioma::obtenerNombresIdiomas(){
+    set<string> nombresIdiomas;
+    for (auto it = idiomas.begin(); it != idiomas.end(); ++it) {
+        nombresIdiomas.insert(it->first);
     }
+    return nombresIdiomas;
 }

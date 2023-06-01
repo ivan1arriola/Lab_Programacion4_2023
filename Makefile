@@ -16,6 +16,8 @@ CPP_FILES := $(MAIN) \
 	$(SRCDIR)/factory/fabrica.cpp \
 	$(SRCDIR)/controllers/ControladorUsuario.cpp \
 	$(SRCDIR)/datatypes/DTUsuario.cpp \
+	$(SRCDIR)/classes/Idioma.cpp \
+	$(SRCDIR)/collections/ColeccionIdioma.cpp \
 
 CPP_FILES += $(CASOSDEUSODIR)/AltaDeUsuario.cpp
 
