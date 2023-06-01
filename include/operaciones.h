@@ -12,8 +12,9 @@ void imprimirLinea();
 /* Imprime un mensaje de despedida */
 void imprimirDespedida();
 
-/* Imprime un conjunto de strings, con indice */
-void imprimirSet(const set<string>& conjunto);
+/* Imprime un conjunto de strings, con indice . Si el conjunto esta vacio,
+ * imprime un mensaje indicando que no hay elementos disponibles */
+void imprimirSet(const set<string>& conjunto, string nombreDelConjunto);
 
 /* Imprime una linea de guiones, un string, otra linea de guiones y un salto de
  * linea */

@@ -8,6 +8,7 @@
 
 #include "../interfaces/IControladorUsuario.h"
 
+
 #include "../classes/Usuario/Usuario.h"
 
 using namespace std;
@@ -24,6 +25,8 @@ class ControladorUsuario : public IControladorUsuario {
 
         ControladorUsuario();
         ~ControladorUsuario();
+
+
 
 
         static ControladorUsuario* instancia;
