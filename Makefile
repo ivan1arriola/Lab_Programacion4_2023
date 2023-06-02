@@ -80,3 +80,7 @@ clean:
 run:
 	@clear
 	@./$(EXECUTABLE)
+
+valgrind:
+	@clear
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXECUTABLE)
