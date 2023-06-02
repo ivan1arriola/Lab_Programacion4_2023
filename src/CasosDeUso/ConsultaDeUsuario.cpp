@@ -67,18 +67,20 @@ void ConsultaDeUsuario() {
 
     if (dtUsuario->getTipo() == 0) {
         DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);
-        cout << dtProfesor << endl;
+        cout << "Información del profesor:" << endl;
+        cout << "Nickname: " << dtProfesor->getNickname() << endl;
+        cout << "Nombre: " << dtProfesor->getNombre() << endl;
+        cout << "Descripción: " << dtProfesor->getDescripcion() << endl;
+        cout << "Instituto: " << dtProfesor->getInstituto() << endl;
         delete dtProfesor;
     } else {
         DTEstudiante* dtEstudiante = dynamic_cast<DTEstudiante*>(dtUsuario);
-        cout << dtEstudiante << endl;
+        cout << "Información del estudiante:" << endl;
+        cout << "Nickname: " << dtEstudiante->getNickname() << endl;
+        cout << "Nombre: " << dtEstudiante->getNombre() << endl;
+        cout << "Descripción: " << dtEstudiante->getDescripcion() << endl;
+        cout << "País: " << dtEstudiante->getPais() << endl;
         delete dtEstudiante;
     }
-
-
-
-    
-
-    
     
 }

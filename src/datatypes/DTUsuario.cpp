@@ -1,6 +1,7 @@
 #include "../../include/datatypes/DTUsuario.h"
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -43,5 +44,11 @@ DTUsuario::~DTUsuario() {}
 ostream& operator<<(ostream& os, DTUsuario& dtUsuario) {
     dtUsuario.imprimir(os);
     return os;
+}
+
+void DTUsuario::imprimir(ostream& os) {
+    os << "Nickname: " << this->getNickname() << endl;
+    os << "Nombre: " << this->getNombre() << endl;
+    os << "Descripcion: " << this->getDescripcion() << endl;
 }
 
