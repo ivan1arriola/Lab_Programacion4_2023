@@ -14,6 +14,7 @@
 
 #include "../../include/datatypes/DTDate.h"
 
+
 #include <string>
 #include <set>
 #include <map>
@@ -157,9 +158,10 @@ void ControladorUsuario::crearIdioma(string nombre) {
 void ControladorUsuario::altaIdioma() {
     string nombre = this -> idiomaActual->getNombre();
     if (coleccionIdiomas->existeIdioma(nombre)) {
-        throw runtime_error("El idioma ya existe");
+        delete this -> idiomaActual;
+        throw invalid_argument("El idioma ya existe en el sistema");
     }
     coleccionIdiomas->agregarIdioma(this -> idiomaActual);
-    this -> idiomaActual = NULL;
+    delete this -> idiomaActual;
 }
 
