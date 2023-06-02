@@ -26,10 +26,15 @@ using namespace std;
 //Coleccion de punteros a Idioma
 ColeccionIdioma* coleccionIdiomas = ColeccionIdioma::getInstancia();
 
+// Coleccion de punteros a Usuario
+map<string, Usuario*> ControladorUsuario::coleccionUsuarios = map<string, Usuario*>();
+
 // Singleton
 ControladorUsuario* ControladorUsuario::instancia = NULL;
 
 ControladorUsuario::ControladorUsuario() {}
+
+
 
 ControladorUsuario::~ControladorUsuario() {
     // Eliminar los usuarios
@@ -58,6 +63,11 @@ void ControladorUsuario::ingresarUsuario(string nickname, string password, strin
     this->actual_password = password;
     this->actual_name = name;
     this->actual_desc = desc;
+
+    // Verificar si el nickname ya existe
+    if (coleccionUsuarios.count(actual_nickname) > 0) {
+        throw runtime_error("El nickname ya está en uso");
+    }
 }
 
 void ControladorUsuario::ingresarDatosEstudiante(string pais) {
@@ -65,22 +75,29 @@ void ControladorUsuario::ingresarDatosEstudiante(string pais) {
 }
 
 void ControladorUsuario::altaEstudiante() {
-    // Verificar si el nickname ya existe
-    // if (coleccionUsuarios.count(actual_nickname) > 0) {
-    //     throw runtime_error("El nickname ya está en uso");
-    // }
+    /*/ Verificar si el nickname ya existe
+    if (coleccionUsuarios.count(actual_nickname) > 0) {
+        throw runtime_error("El nickname ya está en uso");
+    }
 
-    // // Agregar el nuevo usuario solo si el nickname es único
-    // Usuario* nuevoUsuario = new Estudiante(
-    //     actual_nickname,
-    //     actual_password,
-    //     actual_name,
-    //     actual_desc,
-    //     actual_pais
-    // );
-    // coleccionUsuarios.insert(pair<string, Usuario*>(this->actual_nickname, nuevoUsuario));
+    // Crear el estudiante
+    Estudiante* estudiante = new Estudiante();
+    estudiante->setNickname(actual_nickname);
+    estudiante->setContrasenia(actual_password);
+    estudiante->setNombre(actual_name);
+    estudiante->setDescripcion(actual_desc);
+    estudiante->setPais(actual_pais);
 
+    // Agregar el estudiante a la colección
+    coleccionUsuarios[actual_nickname] = estudiante;
 
+    // Limpiar los datos ingresados
+    this->actual_nickname = "";
+    this->actual_password = "";
+    this->actual_name = "";
+    this->actual_desc = "";
+    this->actual_pais = "";
+*/
 }
 
 
