@@ -5,7 +5,7 @@
 
 DTProfesor::DTProfesor() {}
 
-DTProfesor::DTProfesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto) : DTUsuario(nickname, contrasenia, nombre, descripcion) {
+DTProfesor::DTProfesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto) : DTUsuario(nickname, contrasenia, nombre, descripcion, 0) {
     this->instituto = instituto;
 }
 

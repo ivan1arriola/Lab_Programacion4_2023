@@ -30,6 +30,8 @@
 #include "include/CasosDeUso/ConsultarEstadisticas.h"
 #include "include/CasosDeUso/AgregarLeccion.h"
 
+#include "include/CasosDeUso/CargarDatos.h"
+
 
 using namespace std;
 
@@ -48,7 +50,7 @@ int main() {
     do {
         imprimirMenu();
         
-        int opcion = ingresarOpcion(16);
+        int opcion = ingresarOpcion(17);
         switch (opcion) {
             case 1:
                 AltaDeUsuario();
@@ -97,6 +99,9 @@ int main() {
                 break;
             case 16:
                 EliminarSuscripciones();
+                break;
+            case 17:
+                CargarDatos();
                 break;
             case 0:
                 quiereContinuar = false;

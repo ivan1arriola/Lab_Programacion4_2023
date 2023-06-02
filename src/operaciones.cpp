@@ -30,6 +30,7 @@ void imprimirMenu() {
     cout << "14. Suscribirse a notificaciones" << endl;
     cout << "15. Consulta de notificaciones" << endl;
     cout << "16. Eliminar suscripciones" << endl;
+    cout << "17. Cargar datos de prueba" << endl;
     cout << "0. Salir" << endl;
 }
 

@@ -10,6 +10,10 @@
 #include "../../include/interfaces/IControladorEstadistica.h"
 #include "../../include/interfaces/IControladorUsuario.h"
 
+#include "../../include/datatypes/DTUsuario.h"
+#include "../../include/datatypes/DTProfesor.h"
+#include "../../include/datatypes/DTEstudiante.h"
+
 using namespace std;
 
 /*
@@ -43,11 +47,38 @@ void ConsultaDeUsuario() {
 
     imprimirSet(nicknames, "Usuarios disponibles" ) ;
 
-    // Ingresar nickname
-    string nickname = ingresarParametro("el nickname del usuario");
+    // Seleccionar nickname
+    int index = ingresarOpcion(nicknames.size()) - 1 ;
+
+    if (index < 0) {
+        return;
+    }
+
+    // Obtener nickname
+    
+    string nickname = *next(nicknames.begin(), index);
+    imprimirMensaje("A seleccionado el usuario: " + nickname);
 
     // Obtener informacion del usuario
+    DTUsuario* dtUsuario = controladorUsuario->seleccionarUsuario(nickname);
+
+    // imprimir dtUsuario como estudiante o profesor. getTipo() == 0 -> profesor, getTipo() == 1 -> estudiante
+    // dynamic cast
+
+    if (dtUsuario->getTipo() == 0) {
+        DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);
+        cout << dtProfesor << endl;
+        delete dtProfesor;
+    } else {
+        DTEstudiante* dtEstudiante = dynamic_cast<DTEstudiante*>(dtUsuario);
+        cout << dtEstudiante << endl;
+        delete dtEstudiante;
+    }
+
+
+
     
+
     
     
 }

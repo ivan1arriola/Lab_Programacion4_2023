@@ -117,17 +117,19 @@ void ControladorUsuario::altaProfesor(set<string> idiomas) {
     if (coleccionUsuarios->existeUsuario(actual_nickname)) {
         throw runtime_error("El nickname ya está en uso");
     }
-    // Crear el profesor
-    Profesor* profesor = new Profesor(actual_nickname, actual_password, actual_name, actual_desc, actual_instituto);
-
-    /* Agregar los idiomas al profesor
+   
+   // Mapea los nombres de los idiomas a los punteros a los idiomas
+    set <Idioma*> idiomasMap;
     set<string>::iterator it;
     for (it = idiomas.begin(); it != idiomas.end(); it++) {
         string nombreIdioma = *it;
         Idioma* idioma = coleccionIdiomas->obtenerIdioma(nombreIdioma);
-        profesor->agregarIdioma(idioma);
+        idiomasMap.insert(idioma);
     }
-    */
+
+    // Crear el profesor
+    //Profesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto, set<Idioma*> idiomasDeProfesor);
+    Profesor* profesor = new Profesor(actual_nickname, actual_password, actual_name, actual_desc, actual_instituto, idiomasMap);
 
     // Agregar el profesor a la colección
     coleccionUsuarios->agregarUsuario(profesor);

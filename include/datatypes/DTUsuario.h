@@ -21,18 +21,21 @@ private:
     string contrasenia;
     string nombre;
     string descripcion;
+    int tipo; // 0: profesor, 1: estudiante
 
 public:
 
     // Constructor
     DTUsuario();
-    DTUsuario(string nickname, string contrasenia, string nombre, string descripcion);
+    DTUsuario(int tipo);
+    DTUsuario(string nickname, string contrasenia, string nombre, string descripcion, int tipo);
 
     // Getters
     string getNickname();
     string getContrasenia();
     string getNombre();
     string getDescripcion();
+    int getTipo() { return this->tipo; }
 
     // Destructor
     ~DTUsuario();

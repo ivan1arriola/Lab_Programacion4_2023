@@ -6,11 +6,16 @@ using namespace std;
 
 DTUsuario::DTUsuario() {}
 
-DTUsuario::DTUsuario(string nickname, string contrasenia, string nombre, string descripcion) {
+DTUsuario::DTUsuario(int tipo) {
+    this->tipo = tipo;
+}
+
+DTUsuario::DTUsuario(string nickname, string contrasenia, string nombre, string descripcion, int tipo) {
     this->nickname = nickname;
     this->contrasenia = contrasenia;
     this->nombre = nombre;
     this->descripcion = descripcion;
+    this->tipo = tipo;
 }
 
 // Getters
