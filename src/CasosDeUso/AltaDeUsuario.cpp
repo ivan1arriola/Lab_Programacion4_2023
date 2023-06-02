@@ -31,7 +31,7 @@ void AltaDeUsuario() {
   Fabrica *fabrica = Fabrica::getInstancia();
   IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
-  // Ingresar nickname // TODO: Verificar que no exista
+  // Ingresar nickname 
   string nickname = ingresarParametro("el nickname");
 
   // Ingresar password
@@ -56,7 +56,15 @@ void AltaDeUsuario() {
   cout << "Nombre: " << nombre << endl;
   cout << "Descripcion: " << descripcion << endl;
 
-  controladorUsuario->ingresarUsuario(nickname, password, nombre, descripcion);
+  try {
+    controladorUsuario->ingresarUsuario(nickname, password, nombre, descripcion);
+  } catch (invalid_argument &e) {
+    imprimirMensaje("Error: " + string(e.what()));
+    imprimirMensaje("No se puede crear el usuario");
+    return;
+  }
+
+
   cout << "Tipo de usuario: " << endl;
   cout << "0. Profesor" << endl;
   cout << "1. Estudiante" << endl;

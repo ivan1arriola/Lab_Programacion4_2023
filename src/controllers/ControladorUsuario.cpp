@@ -73,7 +73,7 @@ void ControladorUsuario::ingresarUsuario(string nickname, string password, strin
 
     // Verificar si el nickname ya existe
     if (coleccionUsuarios->existeUsuario(nickname)) {
-        throw runtime_error("El nickname ya está en uso");
+        throw invalid_argument("El nickname ya está en uso");
     }
 }
 
@@ -84,7 +84,7 @@ void ControladorUsuario::ingresarDatosEstudiante(string pais) {
 void ControladorUsuario::altaEstudiante() {
     //Verificar si el nickname ya existe
     if (coleccionUsuarios->existeUsuario(actual_nickname)) {
-        throw runtime_error("El nickname ya está en uso");
+        throw invalid_argument("El nickname ya está en uso");
     }
 
     // Crear el estudiante
@@ -110,7 +110,7 @@ void ControladorUsuario::ingresarDatosProfesor(string instituto) {
 void ControladorUsuario::altaProfesor(set<string> idiomas) {
     // Verificar si el nickname ya existe
     if (coleccionUsuarios->existeUsuario(actual_nickname)) {
-        throw runtime_error("El nickname ya está en uso");
+        throw invalid_argument("El nickname ya está en uso");
     }
    
    // Mapea los nombres de los idiomas a los punteros a los idiomas
