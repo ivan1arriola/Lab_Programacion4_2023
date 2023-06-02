@@ -82,21 +82,16 @@ void ControladorUsuario::ingresarDatosEstudiante(string pais) {
 }
 
 void ControladorUsuario::altaEstudiante() {
-    /*/ Verificar si el nickname ya existe
-    if (coleccionUsuarios.count(actual_nickname) > 0) {
+    //Verificar si el nickname ya existe
+    if (coleccionUsuarios->existeUsuario(actual_nickname)) {
         throw runtime_error("El nickname ya está en uso");
     }
 
     // Crear el estudiante
-    Estudiante* estudiante = new Estudiante();
-    estudiante->setNickname(actual_nickname);
-    estudiante->setContrasenia(actual_password);
-    estudiante->setNombre(actual_name);
-    estudiante->setDescripcion(actual_desc);
-    estudiante->setPais(actual_pais);
+    Estudiante* estudiante = new Estudiante(actual_nickname, actual_password, actual_name, actual_desc, actual_pais);
 
     // Agregar el estudiante a la colección
-    coleccionUsuarios[actual_nickname] = estudiante;
+    coleccionUsuarios->agregarUsuario(estudiante);
 
     // Limpiar los datos ingresados
     this->actual_nickname = "";
@@ -104,7 +99,7 @@ void ControladorUsuario::altaEstudiante() {
     this->actual_name = "";
     this->actual_desc = "";
     this->actual_pais = "";
-*/
+
 }
 
 

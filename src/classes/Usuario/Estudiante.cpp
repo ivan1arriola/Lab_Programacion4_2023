@@ -9,38 +9,64 @@
 
 using namespace std;
 
-// Constructor
-//TODO: Elimine implementacion de constructores, hay que volverlas a hacer
+Estudiante::Estudiante() : Usuario() {}
 
-// Getters
+Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate* fechaNacimiento)
+    : Usuario(nickname, contrasenia, nombre, descripcion) {
+    this->pais = pais;
+    this->fechaNacimiento = fechaNacimiento;
+}
+
+Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion)
+    : Usuario(nickname, contrasenia, nombre, descripcion) {}
+
+Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais)
+    : Usuario(nickname, contrasenia, nombre, descripcion) {
+    this->pais = pais;
+}
 
 string Estudiante::getPais() {
-  return this->pais;
+    return this->pais;
 }
 
 DTDate* Estudiante::getFechaNacimiento() {
-  return this->fechaNacimiento;
+    return this->fechaNacimiento;
+}
+
+bool Estudiante::esProfesor() {
+    return false;
+}
+
+bool Estudiante::esEstudiante() {
+    return true;
 }
 
 DTUsuario* Estudiante::getDT() {
-  return new DTEstudiante(this->getNickname(), this->getContrasenia(), this->getNombre(), this->getDescripcion(), this->pais, this->fechaNacimiento);
+    return new DTEstudiante(getNickname(), getContrasenia(), getNombre(), getDescripcion(), getPais(), getFechaNacimiento());
 }
-
-// Setters
 
 void Estudiante::setPais(string pais) {
-  this->pais = pais;
+    this->pais = pais;
 }
 
-void Estudiante::setFechaNacimiento(DTDate *fechaNacimiento) {
-  this->fechaNacimiento = fechaNacimiento;
+void Estudiante::setFechaNacimiento(DTDate* fechaNacimiento) {
+    this->fechaNacimiento = fechaNacimiento;
 }
 
 
 void Estudiante::setFechaNacimiento(int dia, int mes, int anio) {
-    DTDate* fechaNacimiento = new DTDate(dia, mes, anio);
-    this->fechaNacimiento = fechaNacimiento;
+    if (fechaNacimiento == NULL) {
+        fechaNacimiento = new DTDate(dia, mes, anio);
+    } else {
+        delete fechaNacimiento;
+        fechaNacimiento = new DTDate(dia, mes, anio);
+    }
 }
 
-// Destructor
-//TODO: Elimine implementacion de destrucor, hay que volverla a hacer
+void Estudiante::enviarNotificacion(string nombreCurso, string nombreIdioma) {
+    // TODO
+}
+
+Estudiante::~Estudiante() {
+    delete fechaNacimiento;
+}

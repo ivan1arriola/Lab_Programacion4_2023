@@ -61,10 +61,10 @@ void CargarDatos () {
 
     // Crear Usuarios
     //Crear Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate *fechaNacimiento);
-    /*Usuario* usuario1 = new Estudiante("nick1", "pass1", "nombre1", "descripcion1", "pais1", new DTDate(1, 1, 2001));
+    Usuario* usuario1 = new Estudiante("nick1", "pass1", "nombre1", "descripcion1", "pais1", new DTDate(11, 9, 2001));
     Usuario* usuario2 = new Estudiante("nick2", "pass2", "nombre2", "descripcion2", "pais2", new DTDate(2, 2, 2002));
     Usuario* usuario3 = new Estudiante("nick3", "pass3", "nombre3", "descripcion3", "pais3", new DTDate(3, 3, 2003));
-    Usuario* usuario4 = new Estudiante("nick4", "pass4", "nombre4", "descripcion4", "pais4", new DTDate(4, 4, 2004));*/
+    Usuario* usuario4 = new Estudiante("nick4", "pass4", "nombre4", "descripcion4", "pais4", new DTDate(4, 4, 2004));
 
     //Crear Profesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto, set<Idioma*> idiomasDeProfesor)
     set<Idioma*> idiomasDeProfesor1;
@@ -93,10 +93,10 @@ void CargarDatos () {
     Usuario* usuario8 = new Profesor("nick8", "pass8", "nombre8", "descripcion8", "instituto4", idiomasDeProfesor4);
 
     // Agregar Usuarios a la Coleccion
-    /*usuariosColeccion->agregarUsuario(usuario1);
+    usuariosColeccion->agregarUsuario(usuario1);
     usuariosColeccion->agregarUsuario(usuario2);
     usuariosColeccion->agregarUsuario(usuario3);
-    usuariosColeccion->agregarUsuario(usuario4);*/
+    usuariosColeccion->agregarUsuario(usuario4);
     usuariosColeccion->agregarUsuario(usuario5);
     usuariosColeccion->agregarUsuario(usuario6);
     usuariosColeccion->agregarUsuario(usuario7);

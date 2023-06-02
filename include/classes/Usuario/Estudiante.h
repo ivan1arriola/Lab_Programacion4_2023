@@ -4,16 +4,17 @@
 #include <string>
 
 #include "Usuario.h"
-#include "../../datatypes/DTUsuario.h"
 
 #include "../../datatypes/DTDate.h"
+#include "../../datatypes/DTUsuario.h"
 
 using namespace std;
 
 class Estudiante : public Usuario {
 private:
-    string pais;
-    DTDate* fechaNacimiento;
+
+    string pais = "";
+    DTDate* fechaNacimiento = NULL;
 
 public:
     Estudiante();
@@ -38,7 +39,6 @@ public:
     void enviarNotificacion(string nombreCurso, string nombreIdioma);
 
     ~Estudiante();
-    friend ostream& operator<<(ostream& os, const Estudiante& estudiante);
 };
 
 #endif
