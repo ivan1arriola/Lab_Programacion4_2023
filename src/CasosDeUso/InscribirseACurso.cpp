@@ -13,5 +13,5 @@
 using namespace std;
 
 void InscribirseACurso() {
-    // Implementación
+    imprimirMensaje("Inscribirse a Curso");
 }

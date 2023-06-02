@@ -13,5 +13,5 @@
 using namespace std;
 
 void ConsultarIdiomas() {
-    // Implementación
+    imprimirMensaje("Consultar Idiomas");
 }

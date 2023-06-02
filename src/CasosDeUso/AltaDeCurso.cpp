@@ -13,5 +13,5 @@
 using namespace std;
 
 void AltaDeCurso() {
-    // Implementación
+    imprimirMensaje("Alta de Curso") ;
 }

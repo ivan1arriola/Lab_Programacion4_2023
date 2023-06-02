@@ -13,5 +13,5 @@
 using namespace std;
 
 void EliminarSuscripciones() {
-    // Implementación
+    imprimirMensaje("Eliminar Suscripciones");
 }

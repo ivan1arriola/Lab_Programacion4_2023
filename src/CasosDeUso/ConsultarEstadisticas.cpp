@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../include/CasosDeUso/AgregarLección.h"
+#include "../../include/CasosDeUso/ConsultarEstadisticas.h"
 
 #include "../../include/factory/fabrica.h"
 #include "../../include/operaciones.h"
@@ -12,6 +12,6 @@
 
 using namespace std;
 
-void AgregarLección() {
-    // Implementación
+void ConsultarEstadisticas() {
+    imprimirMensaje("Consultar Estadisticas");
 }

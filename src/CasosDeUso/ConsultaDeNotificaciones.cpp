@@ -13,5 +13,5 @@
 using namespace std;
 
 void ConsultaDeNotificaciones() {
-    // Implementación
+    imprimirMensaje("Consulta de Notificaciones");
 }

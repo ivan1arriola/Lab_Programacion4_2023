@@ -13,5 +13,5 @@
 using namespace std;
 
 void RealizarEjercicio() {
-    // Implementación
+    imprimirMensaje("Realizar Ejercicio");
 }

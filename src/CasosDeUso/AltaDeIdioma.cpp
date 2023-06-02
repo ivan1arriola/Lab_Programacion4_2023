@@ -13,5 +13,5 @@
 using namespace std;
 
 void AltaDeIdioma() {
-    // Implementación
+    imprimirMensaje("Alta de Idioma");
 }

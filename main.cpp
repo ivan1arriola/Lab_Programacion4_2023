@@ -5,6 +5,23 @@
 
 // Casos de Uso
 #include "include/CasosDeUso/AltaDeUsuario.h"
+#include "include/CasosDeUso/ConsultaDeUsuario.h"
+#include "include/CasosDeUso/AltaDeIdioma.h"
+#include "include/CasosDeUso/AltaDeCurso.h"
+#include "include/CasosDeUso/AgregarEjercicio.h"
+#include "include/CasosDeUso/HabilitarCurso.h"
+#include "include/CasosDeUso/EliminarCurso.h"
+#include "include/CasosDeUso/InscribirseACurso.h"
+#include "include/CasosDeUso/RealizarEjercicio.h"
+#include "include/CasosDeUso/SuscribirseANotificaciones.h"
+#include "include/CasosDeUso/ConsultaDeNotificaciones.h"
+#include "include/CasosDeUso/EliminarSuscripciones.h"
+#include "include/CasosDeUso/ConsultarIdiomas.h"
+#include "include/CasosDeUso/ConsultarCurso.h"
+#include "include/CasosDeUso/AgregarLeccion.h"
+#include "include/CasosDeUso/ConsultarEstadisticas.h"
+#include "include/CasosDeUso/AgregarLeccion.h"
+
 
 using namespace std;
 
@@ -24,69 +41,67 @@ int main() {
                 break;
             }
             case 1: {
-                cout << "Alta de usuario" << endl;
                 AltaDeUsuario();
-            
                 break;
             }
             case 2: {
-                cout << "Consulta de usuario" << endl;
+                ConsultaDeUsuario();
                 break;
             }
             case 3: {
-                cout << "Alta de idioma" << endl;
+                AltaDeIdioma();
                 break;
             }
             case 4: {
-                cout << "Consultar idiomas" << endl;
+                ConsultarIdiomas();
                 break;
             }
             case 5: {
-                cout << "Alta de curso" << endl;
+                AltaDeCurso();
                 break;
             }
             case 6: {
-                cout << "Agregar lección" << endl;
+                AgregarLeccion();
                 break;
             }
             case 7: {
-                cout << "Agregar ejercicio" << endl;
+                AgregarEjercicio();
                 break;
             }
             case 8: {
-                cout << "Habilitar curso" << endl;
+                HabilitarCurso();
                 break;
             }
             case 9: {
-                cout << "Eliminar curso" << endl;
+                EliminarCurso();
                 break;
             }
             case 10: {
-                cout << "Consultar curso" << endl;
+                ConsultarCurso();
                 break;
             }
             case 11: {
-                cout << "Inscribirse a curso" << endl;
+                InscribirseACurso();
                 break;
             }
             case 12: {
-                cout << "Realizar ejercicio" << endl;
+                RealizarEjercicio() ;
                 break;
             }
             case 13: {
-                cout << "Consultar estadísticas" << endl;
+                ConsultarEstadisticas();
                 break;
             }
             case 14: {
-                cout << "Suscribirse a notificaciones" << endl;
+                SuscribirseANotificaciones();
                 break;
             }
             case 15: {
-                cout << "Consulta de notificaciones" << endl;
+                ConsultaDeNotificaciones();
                 break;
             }
             case 16: {
-                cout << "Eliminar suscripciones" << endl;
+                EliminarSuscripciones();
                 break;
             }
             default: {

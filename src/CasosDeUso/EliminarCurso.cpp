@@ -13,5 +13,5 @@
 using namespace std;
 
 void EliminarCurso() {
-    // Implementación
+    imprimirMensaje("Eliminar Curso");
 }

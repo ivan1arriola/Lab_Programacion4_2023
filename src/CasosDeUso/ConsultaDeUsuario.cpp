@@ -13,5 +13,5 @@
 using namespace std;
 
 void ConsultaDeUsuario() {
-    // Implementación
+    imprimirMensaje("Consulta de Usuario");
 }

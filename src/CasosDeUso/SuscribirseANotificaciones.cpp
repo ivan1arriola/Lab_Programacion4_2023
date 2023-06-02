@@ -13,5 +13,5 @@
 using namespace std;
 
 void SuscribirseANotificaciones() {
-    // Implementación
+    imprimirMensaje("Suscribirse A Notificaciones");
 }

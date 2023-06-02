@@ -13,5 +13,5 @@
 using namespace std;
 
 void ConsultarCurso() {
-    // Implementación
+    imprimirMensaje("Consultar Curso");
 }

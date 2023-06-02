@@ -14,7 +14,26 @@ CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
 	$(SRCDIR)/datatypes/DTNotificacion.cpp \
 	$(SRCDIR)/datatypes/DTDate.cpp \
 
+
+
+
 CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \
+	$(CASOSDEUSODIR)/AgregarEjercicio.cpp \
+	$(CASOSDEUSODIR)/AgregarLeccion.cpp \
+	$(CASOSDEUSODIR)/AltaDeCurso.cpp \
+	$(CASOSDEUSODIR)/AltaDeIdioma.cpp \
+	$(CASOSDEUSODIR)/ConsultaDeNotificaciones.cpp \
+	$(CASOSDEUSODIR)/ConsultaDeUsuario.cpp \
+	$(CASOSDEUSODIR)/ConsultarCurso.cpp \
+	$(CASOSDEUSODIR)/ConsultarEstadisticas.cpp \
+	$(CASOSDEUSODIR)/ConsultarIdiomas.cpp \
+	$(CASOSDEUSODIR)/EliminarCurso.cpp \
+	$(CASOSDEUSODIR)/EliminarSuscripciones.cpp \
+	$(CASOSDEUSODIR)/HabilitarCurso.cpp \
+	$(CASOSDEUSODIR)/InscribirseACurso.cpp \
+	$(CASOSDEUSODIR)/RealizarEjercicio.cpp \
+	$(CASOSDEUSODIR)/SuscribirseANotificaciones.cpp \
+
 
 CPP_CLASSES_FILES := $(SRCDIR)/classes/Usuario/Usuario.cpp \
 	$(SRCDIR)/classes/Usuario/Estudiante.cpp \

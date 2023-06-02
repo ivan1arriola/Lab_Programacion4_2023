@@ -27,6 +27,7 @@ using namespace std;
 */
 
 void AltaDeUsuario() {
+  imprimirMensaje("Alta de Usuario");
   Fabrica *fabrica = Fabrica::getInstancia();
   IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
