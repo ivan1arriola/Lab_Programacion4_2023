@@ -7,6 +7,7 @@
 #include <map>
 
 #include "../interfaces/IControladorUsuario.h"
+#include "../classes/Idioma.h"
 
 
 #include "../classes/Usuario/Usuario.h"
@@ -25,6 +26,8 @@ class ControladorUsuario : public IControladorUsuario {
 
         ControladorUsuario();
         ~ControladorUsuario();
+
+        Idioma* idiomaActual;
 
 
 
@@ -58,6 +61,10 @@ class ControladorUsuario : public IControladorUsuario {
         set<DTNotificacion> listarNotificaciones(string nickName);
         void eliminarNotificaciones();
         void eliminarSuscripcion(string idioma);
+
+        // Operaciones para el caso de uso "Alta Idioma"
+        void crearIdioma(string nombre);
+        void altaIdioma();
 
 };
 

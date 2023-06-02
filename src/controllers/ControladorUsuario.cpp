@@ -148,3 +148,18 @@ void ControladorUsuario::eliminarNotificaciones() {
 void ControladorUsuario::eliminarSuscripcion(string idioma) {
     // Implementación mínima
 }
+
+void ControladorUsuario::crearIdioma(string nombre) {
+    Idioma *idioma = new Idioma(nombre);
+    this->idiomaActual = idioma;
+}
+
+void ControladorUsuario::altaIdioma() {
+    string nombre = this -> idiomaActual->getNombre();
+    if (coleccionIdiomas->existeIdioma(nombre)) {
+        throw runtime_error("El idioma ya existe");
+    }
+    coleccionIdiomas->agregarIdioma(this -> idiomaActual);
+    this -> idiomaActual = NULL;
+}
+

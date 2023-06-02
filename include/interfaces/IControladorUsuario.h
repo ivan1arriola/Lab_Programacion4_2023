@@ -10,6 +10,7 @@ provisorio
 
 #include "../datatypes/DTUsuario.h"
 #include "../datatypes/DTNotificacion.h"
+#include "../classes/Idioma.h"
 
 using namespace std;
 
@@ -32,6 +33,10 @@ class IControladorUsuario {
         virtual set<DTNotificacion> listarNotificaciones(string nickName) = 0;
         virtual void eliminarNotificaciones() = 0;
         virtual void eliminarSuscripcion(string idioma) = 0;
+
+        // Operaciones para el caso de uso "Alta Idioma"
+        virtual void crearIdioma(string nombre) = 0;
+        virtual void altaIdioma() = 0;
 };
 
 #endif
