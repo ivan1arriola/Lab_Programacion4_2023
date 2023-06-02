@@ -6,12 +6,13 @@ Fecha Limite - lunes, 19 de junio de 2023, 15:00
 [Letra del laboratorio](https://drive.google.com/file/d/1Y0D_zd7lZzLsieHDqj8DCGuhldjupDoa/view?usp=sharing)
 
 ## Funciones de Makefile
-- `make` : compila el programa
+- `make build` o `make` : compila el programa
 - `make run` : compila y ejecuta el programa
 - `make clean` : borra los archivos .o y el ejecutable
 - `make valgrind` : compila y ejecuta el programa con valgrind
 
-
+Ejecutar `make clean build run` para compilar en limpio y ejecutar el programa.
+Ejecutar `make clean build valgrind` para compilar en limpio y ejecutar el programa con valgrind.
 
 
 ## Todos los casos de uso

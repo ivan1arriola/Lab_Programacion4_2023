@@ -61,7 +61,7 @@ CPP_FILES := $(MAIN) \
 OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(CPP_FILES))
 
 # Regla principal
-all: $(EXECUTABLE)
+build: $(EXECUTABLE)
 
 # Regla para el ejecutable
 $(EXECUTABLE): $(OBJECTS)
