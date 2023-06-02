@@ -6,49 +6,37 @@ using namespace std;
 
 DTUsuario::DTUsuario() {}
 
-DTUsuario::DTUsuario(string nickname, string password, string name, string desc, string pais, string instituto, bool esEstudiante, bool esProfesor) {
+DTUsuario::DTUsuario(string nickname, string contrasenia, string nombre, string descripcion) {
     this->nickname = nickname;
-    this->password = password;
-    this->name = name;
-    this->desc = desc;
-    this->pais = pais;
-    this->instituto = instituto;
-    this->esEstudiante = esEstudiante;
-    this->esProfesor = esProfesor;
+    this->contrasenia = contrasenia;
+    this->nombre = nombre;
+    this->descripcion = descripcion;
 }
+
+// Getters
 
 string DTUsuario::getNickname() {
     return this->nickname;
 }
 
-string DTUsuario::getPassword() {
-    return this->password;
+string DTUsuario::getContrasenia() {
+    return this->contrasenia;
 }
 
-string DTUsuario::getName() {
-    return this->name;
+string DTUsuario::getNombre() {
+    return this->nombre;
 }
 
-string DTUsuario::getDesc() {
-    return this->desc;
+string DTUsuario::getDescripcion() {
+    return this->descripcion;
 }
 
-string DTUsuario::getPais() {
-    return this->pais;
-}
-
-string DTUsuario::getInstituto() {
-    return this->instituto;
-}
-
-bool DTUsuario::getEsEstudiante() {
-    return this->esEstudiante;
-}
-
-bool DTUsuario::getEsProfesor() {
-    return this->esProfesor;
-}
+// Destructor
 
 DTUsuario::~DTUsuario() {}
 
+ostream& operator<<(ostream& os, DTUsuario& dtUsuario) {
+    dtUsuario.imprimir(os);
+    return os;
+}
 

@@ -70,17 +70,31 @@ void AltaDeUsuario() {
 
     cout << "Lista de Idiomas disponibles " << endl;
     set<string> idiomas = controladorUsuario->listarNombresDeIdiomasDisponibles();
-    imprimirSet(idiomas, "Idiomas");
+    
 
     if(idiomas.size() == 0){
-      cout << "No se puede crear el profesor" << endl;
+      imprimirMensaje("No hay idiomas disponibles");
+      imprimirMensaje("No se puede crear un profesor");
       return;
     }
 
-    string idioma = ingresarParametro("el idioma");
+    imprimirSet(idiomas, "Idiomas");
 
-    controladorUsuario->seleccionarIdioma(idioma);
+    set<string> idiomasSeleccionados;
 
+    imprimirMensaje("Ingrese los idiomas en los que se especializa el profesor");
+    imprimirMensaje("Ingrese los idiomas uno por uno");
+    imprimirMensaje("Ingrese 0 para terminar de ingresar idiomas");
+
+    string idioma;
+    do {
+      idioma = ingresarParametro("el idioma");
+      if (idioma != "0") {
+        idiomasSeleccionados.insert(idioma);
+      }
+    } while (idioma != "0");
+
+    controladorUsuario->altaProfesor(idiomasSeleccionados);
     cout << "Profesor creado con exito" << endl;
     
   } else if (tipoUsuario == 1) { // Estudiante

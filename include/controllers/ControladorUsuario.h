@@ -8,9 +8,11 @@
 
 #include "../interfaces/IControladorUsuario.h"
 #include "../classes/Idioma.h"
-
+#include "../datatypes/DTUsuario.h"
 
 #include "../classes/Usuario/Usuario.h"
+
+#include "../collections/ColeccionUsuario.h"
 
 using namespace std;
 
@@ -21,16 +23,10 @@ class ControladorUsuario : public IControladorUsuario {
         // Atributos
         Usuario* usuarioActual;
 
-        //Colecciones //TODO: No se si es necesario hacerlo estatico
-        static map<string, Usuario*> coleccionUsuarios;
-
         ControladorUsuario();
         ~ControladorUsuario();
 
         Idioma* idiomaActual;
-
-
-
 
         static ControladorUsuario* instancia;
 
@@ -47,7 +43,7 @@ class ControladorUsuario : public IControladorUsuario {
         void ingresarUsuario(string nickname, string password, string name, string desc);
         void ingresarDatosEstudiante(string pais);
         void altaProfesor(set<string> idiomas);
-        DTUsuario getDataUsuarioIngresado();
+        DTUsuario* getDataUsuarioIngresado();
         set<string> seleccionarIdioma(string nombre);
         set<string> listarNombresDeIdiomasDisponibles();
         void altaEstudiante();
@@ -65,6 +61,10 @@ class ControladorUsuario : public IControladorUsuario {
         // Operaciones para el caso de uso "Alta Idioma"
         void crearIdioma(string nombre);
         void altaIdioma();
+
+        // Operaciones para el caso de uso "Consulta de usuario"
+        set<string> listarNicknameUsuarios();
+        DTUsuario* seleccionarUsuario(string nickname);
 
 };
 

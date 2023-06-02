@@ -7,6 +7,7 @@
 using namespace std;
 
 #include "Usuario.h"
+#include "../../datatypes/DTUsuario.h"
 
 class Profesor : public Usuario {
     private:
@@ -19,6 +20,8 @@ class Profesor : public Usuario {
         string getInstituto();
         bool esProfesor();
         bool esEstudiante();
+
+        DTUsuario* getDT();
 
         // Setters
         void setInstituto(string instituto);

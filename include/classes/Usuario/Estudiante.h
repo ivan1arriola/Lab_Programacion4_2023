@@ -2,7 +2,9 @@
 #define ESTUDIANTE
 
 #include <string>
+
 #include "Usuario.h"
+#include "../../datatypes/DTUsuario.h"
 
 #include "../../datatypes/DTDate.h"
 
@@ -24,6 +26,8 @@ public:
     DTDate* getFechaNacimiento();
     bool esProfesor();
     bool esEstudiante();
+
+    DTUsuario* getDT();
 
     // Setters
     void setPais(string pais);

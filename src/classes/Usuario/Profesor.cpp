@@ -1,45 +1,11 @@
-/*#ifndef PROFESOR
-#define PROFESOR
-
-#include <string>
-#include <set>
-
-using namespace std;
-
-#include "Usuario.h"
-
-class Profesor : public Usuario {
-    private:
-        string instituto;
-    public:
-        Profesor();
-        Profesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto);
-
-        // Getters
-        string getInstituto();
-        bool esProfesor();
-        bool esEstudiante();
-
-        // Setters
-        void setInstituto(string instituto);
-
-        // Operaciones
-        void enviarNotificacion(string nombreCurso, string nombreIdioma);
-        set<string> obtenerIdiomas();
-        void agregarAIdiomasDeProfesor();
-        set<DTDataCursoProfesor> getCursosProfesor();
-
-
-        ~Profesor();
-};
-
-#endif*/
-
 #include "../../../include/classes/Usuario/Profesor.h"
 
 #include <string>
 
 #include "../../../include/classes/Usuario/Usuario.h"
+
+#include "../../../include/datatypes/DTUsuario.h"
+#include "../../../include/datatypes/DTProfesor.h"
 
 using namespace std;
 
@@ -53,6 +19,11 @@ Profesor::Profesor(string nickname, string contrasenia, string nombre, string de
 
 string Profesor::getInstituto() {
   return this->instituto;
+}
+
+DTUsuario* Profesor::getDT() {
+  DTUsuario* dtUsuario = new DTProfesor(this->getNickname(), this->getContrasenia(), this->getNombre(), this->getDescripcion(), this->getInstituto());
+  return dtUsuario;
 }
 
 // Setters

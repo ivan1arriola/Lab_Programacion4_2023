@@ -4,6 +4,8 @@
 #include <string>
 
 #include "../../../include/datatypes/DTDate.h"
+#include "../../../include/datatypes/DTUsuario.h"
+#include "../../../include/datatypes/DTEstudiante.h"
 
 using namespace std;
 
@@ -18,6 +20,10 @@ string Estudiante::getPais() {
 
 DTDate* Estudiante::getFechaNacimiento() {
   return this->fechaNacimiento;
+}
+
+DTUsuario* Estudiante::getDT() {
+  return new DTEstudiante(this->getNickname(), this->getContrasenia(), this->getNombre(), this->getDescripcion(), this->pais, this->fechaNacimiento);
 }
 
 // Setters

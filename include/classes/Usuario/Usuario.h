@@ -9,6 +9,7 @@
 
 #include "../../datatypes/DTNotificacion.h"
 #include "../../datatypes/DTDataCursoProfesor.h"
+#include "../../datatypes/DTUsuario.h"
 
 #include "../../interfaces/ISuscriptor.h"
 
@@ -34,6 +35,8 @@ public:
     virtual string getNombre();
     virtual string getDescripcion();
     virtual vector<DTNotificacion> getNotificacionesRecibidas();
+
+    virtual DTUsuario* getDT() = 0;
 
     // Setters
     virtual void setNickname(string nickname);

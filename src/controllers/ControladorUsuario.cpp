@@ -7,14 +7,20 @@
 #include "../../include/classes/Usuario/Profesor.h"
 
 #include "../../include/classes/Idioma.h"
+
 #include "../../include/collections/ColeccionIdioma.h"
+#include "../../include/collections/ColeccionUsuario.h"
 
 #include "../../include/datatypes/DTUsuario.h"
+#include "../../include/datatypes/DTEstudiante.h"
+#include "../../include/datatypes/DTProfesor.h"
+
 #include "../../include/datatypes/DTNotificacion.h"
 
 #include "../../include/datatypes/DTDate.h"
 
 
+#include <iostream>
 #include <string>
 #include <set>
 #include <map>
@@ -23,11 +29,12 @@
 
 using namespace std;
 
-//Coleccion de punteros a Idioma
+//Coleccion de punteros a Idiomas
 ColeccionIdioma* coleccionIdiomas = ColeccionIdioma::getInstancia();
 
-// Coleccion de punteros a Usuario
-map<string, Usuario*> ControladorUsuario::coleccionUsuarios = map<string, Usuario*>();
+
+//Coleccion de punteros a Usuarios
+ColeccionUsuario* coleccionUsuarios = ColeccionUsuario::getInstancia();
 
 // Singleton
 ControladorUsuario* ControladorUsuario::instancia = NULL;
@@ -65,7 +72,7 @@ void ControladorUsuario::ingresarUsuario(string nickname, string password, strin
     this->actual_desc = desc;
 
     // Verificar si el nickname ya existe
-    if (coleccionUsuarios.count(actual_nickname) > 0) {
+    if (coleccionUsuarios->existeUsuario(nickname)) {
         throw runtime_error("El nickname ya está en uso");
     }
 }
@@ -106,13 +113,35 @@ void ControladorUsuario::ingresarDatosProfesor(string instituto) {
 }
 
 void ControladorUsuario::altaProfesor(set<string> idiomas) {
-    // Implementación mínima
+    // Verificar si el nickname ya existe
+    if (coleccionUsuarios->existeUsuario(actual_nickname)) {
+        throw runtime_error("El nickname ya está en uso");
+    }
+    // Crear el profesor
+    Profesor* profesor = new Profesor(actual_nickname, actual_password, actual_name, actual_desc, actual_instituto);
+
+    /* Agregar los idiomas al profesor
+    set<string>::iterator it;
+    for (it = idiomas.begin(); it != idiomas.end(); it++) {
+        string nombreIdioma = *it;
+        Idioma* idioma = coleccionIdiomas->obtenerIdioma(nombreIdioma);
+        profesor->agregarIdioma(idioma);
+    }
+    */
+
+    // Agregar el profesor a la colección
+    coleccionUsuarios->agregarUsuario(profesor);
+     
+    // Limpiar los datos ingresados
+    this->actual_nickname = "";
+    this->actual_password = "";
+    this->actual_name = "";
+    this->actual_desc = "";
+    this->actual_instituto = "";
+
 }
 
-DTUsuario ControladorUsuario::getDataUsuarioIngresado() {
-    DTUsuario dtUsuario; // Valor vacío
-    return dtUsuario;
-}
+
 
 set<string> ControladorUsuario::seleccionarIdioma(string nombre) {
     set<string> idiomas; // Valor vacío
@@ -181,4 +210,21 @@ void ControladorUsuario::altaIdioma() {
     coleccionIdiomas->agregarIdioma(this -> idiomaActual);
     delete this -> idiomaActual;
 }
+
+DTUsuario* ControladorUsuario::getDataUsuarioIngresado() {
+    DTUsuario* dtUsuario = NULL;
+    return dtUsuario;
+}
+
+set<string> ControladorUsuario::listarNicknameUsuarios() {
+    set<string> nicknames = coleccionUsuarios -> obtenerNicknamesUsuarios();
+    return nicknames;
+}
+
+DTUsuario* ControladorUsuario::seleccionarUsuario(string nickname) {
+    Usuario * usuario = coleccionUsuarios -> obtenerUsuario(nickname);
+    DTUsuario * dtUsuario = usuario -> getDT();
+    return dtUsuario;
+}
+
 

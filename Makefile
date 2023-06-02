@@ -11,6 +11,8 @@ CASOSDEUSODIR = $(SRCDIR)/CasosDeUso
 MAIN = main.cpp
 
 CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
+	$(SRCDIR)/datatypes/DTEstudiante.cpp \
+	$(SRCDIR)/datatypes/DTProfesor.cpp \
 	$(SRCDIR)/datatypes/DTNotificacion.cpp \
 	$(SRCDIR)/datatypes/DTDate.cpp \
 
@@ -45,6 +47,7 @@ CPP_CONTROLLERS_FILES := $(SRCDIR)/controllers/ControladorUsuario.cpp
 CPP_FACTORY_FILES := $(SRCDIR)/factory/fabrica.cpp \
 
 CPP_COLLECTIONS_FILES := $(SRCDIR)/collections/ColeccionIdioma.cpp \
+	$(SRCDIR)/collections/ColeccionUsuario.cpp \
 
 CPP_FILES := $(MAIN) \
 	$(SRCDIR)/operaciones.cpp \
