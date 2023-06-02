@@ -11,8 +11,17 @@ using namespace std;
 
 // Constructor
 
+Profesor::Profesor() : Usuario() {
+  this->instituto = "";
+}
+
 Profesor::Profesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto) : Usuario(nickname, contrasenia, nombre, descripcion) {
   this->instituto = instituto;
+}
+
+Profesor::Profesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto, set<Idioma*> idiomasDeProfesor) : Usuario(nickname, contrasenia, nombre, descripcion) {
+  this->instituto = instituto;
+  this->idiomasDeProfesor = idiomasDeProfesor;
 }
 
 // Getters
@@ -35,9 +44,11 @@ void Profesor::setInstituto(string instituto) {
 // Operaciones
 
 set<string> Profesor::obtenerIdiomas() {
-  set<string> idiomas;
-  idiomas.insert(this->getDescripcion());
-  return idiomas;
+  set<string> nombresIdiomas;
+  for (set<Idioma*>::iterator it = this->idiomasDeProfesor.begin(); it != this->idiomasDeProfesor.end(); it++) {
+    nombresIdiomas.insert((*it)->getNombre());
+  }
+  return nombresIdiomas;
 }
 
 bool Profesor::esProfesor() {
