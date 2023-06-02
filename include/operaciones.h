@@ -10,7 +10,7 @@ using namespace std;
 void imprimirLinea();
 
 /* Imprime un mensaje de despedida */
-void imprimirDespedida();
+void imprimirMensajeDespedida();
 
 /* Imprime un conjunto de strings, con indice . Si el conjunto esta vacio,
  * imprime un mensaje indicando que no hay elementos disponibles */
@@ -21,10 +21,15 @@ void imprimirSet(const set<string>& conjunto, string nombreDelConjunto);
 void imprimirMensaje(string mensaje);
 
 /* Imprime un mensaje de bienvenida */
-void mensajeDeBienvenida();
+void imprimirMensajeBienvenida();
 
 /* Imprime una lista de todos los casos de uso disponibles */
-void menuDeOpciones();
+void imprimirMenu();
+
+/* Imprime un conjunto de strings, con indice . Si el conjunto esta vacio,
+ * imprime un mensaje indicando que no hay elementos disponibles. Ademas, agrega
+ * una opcion 0 para cancelar */
+void imprimirOpcionesSet(const set<string>& conjunto, string nombreDelConjunto);
 
 /* Lee un numero por consola.Si es un numero, verifica que sea una opcion valida
  * (entre 0 y cantOpciones). Si no es un numero, pide que se ingrese un numero.
@@ -32,9 +37,9 @@ void menuDeOpciones();
  * valida. Devuelve la opcion elegida. */
 int ingresarOpcion(int cantOpciones);
 
-/* Pregunta si desea continuar. Devuelve 1 si desea continuar, 0 si no desea
- * continuar */
-int deseaContinuar();
+/* Pregunta por consola si se desea realizar otra operacion. Devuelve true si se desea
+ * realizar otra operacion, false en caso contrario */
+bool deseaRealizarOtraOperacion();
 
 /* Pide un parametro por consola. Devuelve el parametro ingresado */
 string ingresarParametro(string parametro);

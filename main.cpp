@@ -3,6 +3,14 @@
 
 #include "include/operaciones.h"
 
+// Interfaces
+#include "include/interfaces/IControladorUsuario.h"
+#include "include/interfaces/IControladorCurso.h"
+#include "include/interfaces/IControladorEstadistica.h"
+
+// Factory
+#include "include/factory/fabrica.h"
+
 // Casos de Uso
 #include "include/CasosDeUso/AltaDeUsuario.h"
 #include "include/CasosDeUso/ConsultaDeUsuario.h"
@@ -27,96 +35,81 @@ using namespace std;
 
 
 int main() {
-    mensajeDeBienvenida();
-    menuDeOpciones();
-    int opcion = ingresarOpcion(16);
-    bool quiereSalir = opcion == 0;
+    imprimirMensajeBienvenida();
+    bool quiereContinuar = true;
 
+    // Inicializar sistema
+    //Fabrica *fabrica = Fabrica::getInstancia();
 
-    while (!quiereSalir) {
+    //IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
+    //IControladorCurso *controladorCurso = fabrica->getIControladorCurso();
+    //IControladorEstadistica *controladorEstadistica = fabrica->getIControladorEstadistica();
+
+    do {
+        imprimirMenu();
+        
+        int opcion = ingresarOpcion(16);
         switch (opcion) {
-            case 0 : {
-                cout << "Saliendo..." << endl;
-                quiereSalir = true;
-                break;
-            }
-            case 1: {
+            case 1:
                 AltaDeUsuario();
                 break;
-            }
-            case 2: {
+            case 2:
                 ConsultaDeUsuario();
                 break;
-            }
-            case 3: {
+            case 3:
                 AltaDeIdioma();
                 break;
-            }
-            case 4: {
+            case 4:
                 ConsultarIdiomas();
                 break;
-            }
-            case 5: {
+            case 5:
                 AltaDeCurso();
                 break;
-            }
-            case 6: {
+            case 6:
                 AgregarLeccion();
                 break;
-            }
-            case 7: {
+            case 7:
                 AgregarEjercicio();
                 break;
-            }
-            case 8: {
+            case 8:
                 HabilitarCurso();
                 break;
-            }
-            case 9: {
+            case 9:
                 EliminarCurso();
                 break;
-            }
-            case 10: {
+            case 10:
                 ConsultarCurso();
                 break;
-            }
-            case 11: {
+            case 11:
                 InscribirseACurso();
                 break;
-            }
-            case 12: {
-                RealizarEjercicio() ;
+            case 12:
+                RealizarEjercicio();
                 break;
-            }
-            case 13: {
+            case 13:
                 ConsultarEstadisticas();
                 break;
-            }
-            case 14: {
+            case 14:
                 SuscribirseANotificaciones();
                 break;
-            }
-            case 15: {
+            case 15:
                 ConsultaDeNotificaciones();
                 break;
-            }
-            case 16: {
+            case 16:
                 EliminarSuscripciones();
                 break;
-            }
-            default: {
-                continue;
-            }
+            case 0:
+                quiereContinuar = false;
+                break;
         }
-        
-        if (!quiereSalir) {
-            quiereSalir = deseaContinuar() == 0;
-            if (!quiereSalir) {
-                menuDeOpciones();
-                opcion = ingresarOpcion(16);
-            }
+        if (opcion != 0) {
+            quiereContinuar = deseaRealizarOtraOperacion();
         }
-    }
 
-    imprimirDespedida();
+    } while (quiereContinuar);
+
+    // Liberar memoria
+    //TODO: liberar memoria de los controladores y de la fabrica?
+
+    imprimirMensajeDespedida();
 }

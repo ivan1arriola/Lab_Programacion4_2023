@@ -9,11 +9,11 @@ void imprimirLinea(){
     cout << "***************" << endl;
 }
 
-void mensajeDeBienvenida() {
+void imprimirMensajeBienvenida() {
     cout << "Bienvenide a la aplicacion de idiomas" << endl;
 }
 
-void menuDeOpciones() {
+void imprimirMenu() {
     cout << "1. Alta de usuario" << endl;
     cout << "2. Consulta de usuario" << endl;
     cout << "3. Alta de idioma" << endl;
@@ -56,13 +56,13 @@ int ingresarOpcion(int cantOpciones) {
     return opcion;
 }
 
-int deseaContinuar() {
+bool deseaRealizarOtraOperacion() {
     int opcion;
     cout << "Desea realizar otra operacion?" << endl;
     cout << "1. Si " << endl;
     cout << "0. No" << endl;
     opcion = ingresarOpcion(1);
-    return opcion;
+    return opcion == 1;
 }
 
 void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
@@ -70,7 +70,6 @@ void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
         cout << "0 - No hay " << nombreDelConjunto << " disponibles" << endl;
     } else {
         int indice = 1;
-        cout << "0 - Cancelar" << endl;
         for (const string& elemento : conjunto) {
             cout << indice << " - " << elemento << endl;
             ++indice;
@@ -79,12 +78,27 @@ void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
     }
 }
 
+void imprimirOpcionesSet(const set<string>& conjunto, string nombreDelConjunto) {
+    if (conjunto.empty()) {
+        cout << "0 - No hay " << nombreDelConjunto << " disponibles para elegir" << endl;
+    } else {
+        int indice = 1;
+        cout << "0 - Cancelar" << endl;
+        for (const string& elemento : conjunto) {
+            cout << indice << " - " << elemento << endl;
+            ++indice;
+        }
+    }
+}
+
 void imprimirMensaje(string mensaje) {
     cout << mensaje << endl;
 }
 
-void imprimirDespedida() {
-    cout << "Gracias por utilizar la aplicacion de idiomas" << endl;
+void imprimirMensajeDespedida() {
+    imprimirMensaje("Gracias por utilizar la aplicacion de idiomas");
+    imprimirMensaje("Saliendo del sistema...");
+    imprimirMensaje("Hasta luego!");
 }
 
 
