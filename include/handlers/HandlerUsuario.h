@@ -1,5 +1,5 @@
-#ifndef COLECCIONUSUARIO
-#define COLECCIONUSUARIO
+#ifndef HANDLERUSUARIO
+#define HANDLERUSUARIO
 
 #include <map>
 #include <set>
@@ -9,14 +9,14 @@
 
 using namespace std;
 
-class ColeccionUsuario {
+class HandlerUsuario {
 private:
     map<string, Usuario*> usuarios; // Colección de punteros a Usuario
-    ColeccionUsuario();
-    static ColeccionUsuario* instancia;
+    HandlerUsuario();
+    static HandlerUsuario* instancia;
 
 public:
-    static ColeccionUsuario* getInstancia();
+    static HandlerUsuario* getInstancia();
 
     // Agregar
     void agregarUsuario(Usuario* usuario);

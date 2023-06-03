@@ -1,5 +1,5 @@
-#ifndef COLECCIONIDIOMA
-#define COLECCIONIDIOMA
+#ifndef HANDLERIDIOMA
+#define HANDLERIDIOMA
 
 #include <map>
 #include <set>
@@ -9,14 +9,14 @@
 
 using namespace std;
 
-class ColeccionIdioma {
+class HandlerIdioma {
 private:
     map<string, Idioma*> idiomas; //Coleccion de punteros a Idioma
-    ColeccionIdioma();
-    static ColeccionIdioma* instancia;
+    HandlerIdioma();
+    static HandlerIdioma* instancia;
 
 public:
-    static ColeccionIdioma* getInstancia();
+    static HandlerIdioma* getInstancia();
 
     // Agregar
     void agregarIdioma(Idioma* idioma);

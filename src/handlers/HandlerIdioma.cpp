@@ -1,19 +1,19 @@
 #include "../../include/classes/Idioma.h"
-#include "../../include/collections/ColeccionIdioma.h"
+#include "../../include/handlers/HandlerIdioma.h"
 
 
-ColeccionIdioma* ColeccionIdioma::instancia = nullptr;
+HandlerIdioma* HandlerIdioma::instancia = nullptr;
 
-ColeccionIdioma::ColeccionIdioma() {}
+HandlerIdioma::HandlerIdioma() {}
 
-ColeccionIdioma* ColeccionIdioma::getInstancia() {
+HandlerIdioma* HandlerIdioma::getInstancia() {
     if (instancia == nullptr) {
-        instancia = new ColeccionIdioma();
+        instancia = new HandlerIdioma();
     }
     return instancia;
 }
 
-void ColeccionIdioma::agregarIdioma(Idioma* idioma) {
+void HandlerIdioma::agregarIdioma(Idioma* idioma) {
     if (idioma == nullptr) return;
     string nombreIdioma = idioma->getNombre();
     if (!existeIdioma(nombreIdioma)) {
@@ -21,32 +21,32 @@ void ColeccionIdioma::agregarIdioma(Idioma* idioma) {
     }
 }
 
-Idioma* ColeccionIdioma::obtenerIdioma(string nombreIdioma) {
+Idioma* HandlerIdioma::obtenerIdioma(string nombreIdioma) {
     if (existeIdioma(nombreIdioma)) {
         return idiomas[nombreIdioma];
     }
     return nullptr;
 }
 
-bool ColeccionIdioma::existeIdioma(string nombreIdioma) {
+bool HandlerIdioma::existeIdioma(string nombreIdioma) {
     return idiomas.find(nombreIdioma) != idiomas.end();
 }
 
-bool ColeccionIdioma::existeIdioma(Idioma idioma) {
+bool HandlerIdioma::existeIdioma(Idioma idioma) {
     string nombreIdioma = idioma.getNombre();
     return existeIdioma(nombreIdioma);
 }
 
-void ColeccionIdioma::eliminarIdioma(string nombreIdioma) {
+void HandlerIdioma::eliminarIdioma(string nombreIdioma) {
     idiomas.erase(nombreIdioma);
 }
 
-void ColeccionIdioma::eliminarIdioma(Idioma* idioma) {
+void HandlerIdioma::eliminarIdioma(Idioma* idioma) {
     string nombreIdioma = idioma->getNombre();
     eliminarIdioma(nombreIdioma);
 }
 
-set<string> ColeccionIdioma::obtenerNombresIdiomas(){
+set<string> HandlerIdioma::obtenerNombresIdiomas(){
     set<string> nombresIdiomas;
     for (auto it = idiomas.begin(); it != idiomas.end(); ++it) {
         nombresIdiomas.insert(it->first);

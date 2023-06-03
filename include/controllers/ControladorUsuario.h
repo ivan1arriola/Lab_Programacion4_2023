@@ -12,7 +12,6 @@
 
 #include "../classes/Usuario/Usuario.h"
 
-#include "../collections/ColeccionUsuario.h"
 
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "../../include/collections/ColeccionUsuario.h"
+#include "../../include/handlers/HandlerUsuario.h"
 
 #include <map>
 #include <set>
@@ -10,20 +10,20 @@
 
 using namespace std;
 
-ColeccionUsuario* ColeccionUsuario::instancia = NULL;
+HandlerUsuario* HandlerUsuario::instancia = NULL;
 
-ColeccionUsuario::ColeccionUsuario() {}
+HandlerUsuario::HandlerUsuario() {}
 
-ColeccionUsuario* ColeccionUsuario::getInstancia() {
+HandlerUsuario* HandlerUsuario::getInstancia() {
     if (instancia == NULL) {
-        instancia = new ColeccionUsuario();
+        instancia = new HandlerUsuario();
     }
     return instancia;
 }
 
 // Agregar
 
-void ColeccionUsuario::agregarUsuario(Usuario* usuario) {
+void HandlerUsuario::agregarUsuario(Usuario* usuario) {
     string nickname = usuario->getNickname();
     usuarios.insert(pair<string, Usuario*>(nickname, usuario));
 
@@ -31,11 +31,11 @@ void ColeccionUsuario::agregarUsuario(Usuario* usuario) {
 
 // Obtener
 
-Usuario* ColeccionUsuario::obtenerUsuario(string nickname) {
+Usuario* HandlerUsuario::obtenerUsuario(string nickname) {
     return usuarios[nickname];
 }
 
-set<string> ColeccionUsuario::obtenerNicknamesUsuarios() {
+set<string> HandlerUsuario::obtenerNicknamesUsuarios() {
     set<string> nicknames;
     for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
         nicknames.insert(it->first);
@@ -45,21 +45,21 @@ set<string> ColeccionUsuario::obtenerNicknamesUsuarios() {
 
 // Consultar
 
-bool ColeccionUsuario::existeUsuario(string nickname) {
+bool HandlerUsuario::existeUsuario(string nickname) {
     return usuarios.find(nickname) != usuarios.end();
 }
 
-bool ColeccionUsuario::existeUsuario(Usuario* usuario) {
+bool HandlerUsuario::existeUsuario(Usuario* usuario) {
     return existeUsuario(usuario->getNickname());
 }
 
 // Eliminar
 
-void ColeccionUsuario::eliminarUsuario(string nickname) {
+void HandlerUsuario::eliminarUsuario(string nickname) {
     usuarios.erase(nickname);
 }
 
-void ColeccionUsuario::eliminarUsuario(Usuario* usuario) {
+void HandlerUsuario::eliminarUsuario(Usuario* usuario) {
     eliminarUsuario(usuario->getNickname());
 }
 

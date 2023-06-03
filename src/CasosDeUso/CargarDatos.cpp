@@ -13,8 +13,8 @@
 
 #include "../../include/classes/Idioma.h"
 
-#include "../../include/collections/ColeccionIdioma.h"
-#include "../../include/collections/ColeccionUsuario.h"
+#include "../../include/handlers/HandlerIdioma.h"
+#include "../../include/handlers/HandlerUsuario.h"
 
 #include "../../include/datatypes/DTUsuario.h"
 
@@ -23,10 +23,10 @@
 using namespace std;
 
 //Coleccion de punteros a Idiomas
-ColeccionIdioma* idiomasColeccion = ColeccionIdioma::getInstancia();
+HandlerIdioma* idiomaHandler = HandlerIdioma::getInstancia();
 
 //Coleccion de punteros a Usuarios
-ColeccionUsuario* usuariosColeccion = ColeccionUsuario::getInstancia();
+HandlerUsuario* usuariosHandler = HandlerUsuario::getInstancia();
 
 void CargarDatos () {
 
@@ -46,18 +46,18 @@ void CargarDatos () {
   
 
     // Agregar Idiomas a la Coleccion
-    idiomasColeccion->agregarIdioma(idioma1);
-    idiomasColeccion->agregarIdioma(idioma2);
-    idiomasColeccion->agregarIdioma(idioma3);
-    idiomasColeccion->agregarIdioma(idioma4);
-    idiomasColeccion->agregarIdioma(idioma5);
-    idiomasColeccion->agregarIdioma(idioma6);
-    idiomasColeccion->agregarIdioma(idioma7);
-    idiomasColeccion->agregarIdioma(idioma8);
-    idiomasColeccion->agregarIdioma(idioma9);
-    idiomasColeccion->agregarIdioma(idioma10);
-    idiomasColeccion->agregarIdioma(idioma11);
-    idiomasColeccion->agregarIdioma(idioma12);
+    idiomaHandler->agregarIdioma(idioma1);
+    idiomaHandler->agregarIdioma(idioma2);
+    idiomaHandler->agregarIdioma(idioma3);
+    idiomaHandler->agregarIdioma(idioma4);
+    idiomaHandler->agregarIdioma(idioma5);
+    idiomaHandler->agregarIdioma(idioma6);
+    idiomaHandler->agregarIdioma(idioma7);
+    idiomaHandler->agregarIdioma(idioma8);
+    idiomaHandler->agregarIdioma(idioma9);
+    idiomaHandler->agregarIdioma(idioma10);
+    idiomaHandler->agregarIdioma(idioma11);
+    idiomaHandler->agregarIdioma(idioma12);
 
     // Crear Usuarios
     //Crear Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate *fechaNacimiento);
@@ -93,14 +93,12 @@ void CargarDatos () {
     Usuario* usuario8 = new Profesor("nick8", "pass8", "nombre8", "descripcion8", "instituto4", idiomasDeProfesor4);
 
     // Agregar Usuarios a la Coleccion
-    usuariosColeccion->agregarUsuario(usuario1);
-    usuariosColeccion->agregarUsuario(usuario2);
-    usuariosColeccion->agregarUsuario(usuario3);
-    usuariosColeccion->agregarUsuario(usuario4);
-    usuariosColeccion->agregarUsuario(usuario5);
-    usuariosColeccion->agregarUsuario(usuario6);
-    usuariosColeccion->agregarUsuario(usuario7);
-    usuariosColeccion->agregarUsuario(usuario8);
-
-
+    usuariosHandler->agregarUsuario(usuario1);
+    usuariosHandler->agregarUsuario(usuario2);
+    usuariosHandler->agregarUsuario(usuario3);
+    usuariosHandler->agregarUsuario(usuario4);
+    usuariosHandler->agregarUsuario(usuario5);
+    usuariosHandler->agregarUsuario(usuario6);
+    usuariosHandler->agregarUsuario(usuario7);
+    usuariosHandler->agregarUsuario(usuario8);
 }

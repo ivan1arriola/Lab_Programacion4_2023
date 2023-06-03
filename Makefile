@@ -46,8 +46,8 @@ CPP_CONTROLLERS_FILES := $(SRCDIR)/controllers/ControladorUsuario.cpp
 
 CPP_FACTORY_FILES := $(SRCDIR)/factory/fabrica.cpp \
 
-CPP_COLLECTIONS_FILES := $(SRCDIR)/collections/ColeccionIdioma.cpp \
-	$(SRCDIR)/collections/ColeccionUsuario.cpp \
+CPP_COLLECTIONS_FILES := $(SRCDIR)/handlers/HandlerIdioma.cpp \
+	$(SRCDIR)/handlers/HandlerUsuario.cpp \
 
 CPP_FILES := $(MAIN) \
 	$(SRCDIR)/operaciones.cpp \

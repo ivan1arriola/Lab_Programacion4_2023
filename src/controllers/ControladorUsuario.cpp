@@ -1,6 +1,5 @@
-#include "../../include/controllers/ControladorUsuario.h"
-
 #include "../../include/interfaces/IControladorUsuario.h"
+#include "../../include/controllers/ControladorUsuario.h"
 
 #include "../../include/classes/Usuario/Usuario.h"
 #include "../../include/classes/Usuario/Estudiante.h"
@@ -8,8 +7,8 @@
 
 #include "../../include/classes/Idioma.h"
 
-#include "../../include/collections/ColeccionIdioma.h"
-#include "../../include/collections/ColeccionUsuario.h"
+#include "../../include/handlers/HandlerIdioma.h"
+#include "../../include/handlers/HandlerUsuario.h"
 
 #include "../../include/datatypes/DTUsuario.h"
 #include "../../include/datatypes/DTEstudiante.h"
@@ -26,31 +25,23 @@
 #include <map>
 #include <stdexcept>
 
+#include <iostream>
 
 using namespace std;
 
 //Coleccion de punteros a Idiomas
-ColeccionIdioma* coleccionIdiomas = ColeccionIdioma::getInstancia();
+HandlerIdioma* coleccionIdiomas = HandlerIdioma::getInstancia();
 
 
 //Coleccion de punteros a Usuarios
-ColeccionUsuario* coleccionUsuarios = ColeccionUsuario::getInstancia();
+HandlerUsuario* coleccionUsuarios = HandlerUsuario::getInstancia();
 
 // Singleton
 ControladorUsuario* ControladorUsuario::instancia = NULL;
 
 ControladorUsuario::ControladorUsuario() {}
 
-
-
-ControladorUsuario::~ControladorUsuario() {
-    // Eliminar los usuarios
-    // map<string, Usuario*>::iterator it;
-    // for (it = coleccionUsuarios.begin(); it != coleccionUsuarios.end(); it++) {
-    //     delete it->second;
-    // }
-    // coleccionUsuarios.clear();
-}
+ControladorUsuario::~ControladorUsuario() {}
 
 IControladorUsuario* ControladorUsuario::getInstancia() {
     if (instancia == NULL) {
@@ -61,8 +52,6 @@ IControladorUsuario* ControladorUsuario::getInstancia() {
 
 
 // Operaciones
-
-
 void ControladorUsuario::ingresarUsuario(string nickname, string password, string name, string desc) {
 
     // Guardar los datos ingresados en el caso de uso "Alta de Usuario"
@@ -75,6 +64,7 @@ void ControladorUsuario::ingresarUsuario(string nickname, string password, strin
     if (coleccionUsuarios->existeUsuario(nickname)) {
         throw invalid_argument("El nickname ya está en uso");
     }
+    
 }
 
 void ControladorUsuario::ingresarDatosEstudiante(string pais) {
@@ -123,7 +113,6 @@ void ControladorUsuario::altaProfesor(set<string> idiomas) {
     }
 
     // Crear el profesor
-    //Profesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto, set<Idioma*> idiomasDeProfesor);
     Profesor* profesor = new Profesor(actual_nickname, actual_password, actual_name, actual_desc, actual_instituto, idiomasMap);
 
     // Agregar el profesor a la colección
