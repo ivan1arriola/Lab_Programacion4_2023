@@ -10,7 +10,12 @@ void imprimirLinea(){
 }
 
 void imprimirMensajeBienvenida() {
-    cout << "Bienvenide a la aplicacion de idiomas" << endl;
+    std::cout << "*******************************************" << std::endl;
+    std::cout << "*                                         *" << std::endl;
+    std::cout << "*     Bienvenide a la aplicación de        *" << std::endl;
+    std::cout << "*                idiomas                  *" << std::endl;
+    std::cout << "*                                         *" << std::endl;
+    std::cout << "*******************************************" << std::endl;
 }
 
 void imprimirMenu() {
