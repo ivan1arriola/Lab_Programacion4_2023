@@ -6,8 +6,17 @@
 
 using namespace std;
 
-/* Imprime una linea separatoria */
+/* Limpia la consola en Linux */
+void limpiarConsola();
+
+/*Imprime una linea de - */
 void imprimirLinea();
+
+/* Imprime un mensaje de error */
+void imprimirMensajeDeError(string mensaje);
+
+/* Imprime un espacio, una linea de - y espacio */
+void imprimirLineaDeSeparacion();
 
 /* Imprime un mensaje de despedida */
 void imprimirMensajeDespedida();

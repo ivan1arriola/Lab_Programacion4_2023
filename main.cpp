@@ -111,6 +111,8 @@ int main() {
             quiereContinuar = deseaRealizarOtraOperacion();
         }
 
+        limpiarConsola();
+
     } while (quiereContinuar);
 
     // Liberar memoria

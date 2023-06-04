@@ -5,20 +5,43 @@
 
 using namespace std;
 
-void imprimirLinea(){
-    cout << "***************" << endl;
+void limpiarConsola () {
+    system("clear");
 }
 
+void imprimirLinea() {
+    cout << "-------------------------------------------" << endl;
+}
+
+void imprimirLineaDeSeparacion() {
+    cout << endl;
+    imprimirLinea();
+    cout << endl;
+}
+
+void imprimirMensajeDeError (string mensaje) {
+    cout << endl;
+    imprimirLinea();
+    cout << "ERROR: " << mensaje << endl;
+    imprimirLinea();
+    cout << endl;
+}
+
+
+
 void imprimirMensajeBienvenida() {
-    std::cout << "*******************************************" << std::endl;
-    std::cout << "*                                         *" << std::endl;
-    std::cout << "*     Bienvenide a la aplicación de        *" << std::endl;
-    std::cout << "*                idiomas                  *" << std::endl;
-    std::cout << "*                                         *" << std::endl;
-    std::cout << "*******************************************" << std::endl;
+    cout << endl;
+    cout << "*******************************************" << endl;
+    cout << "*                                         *" << endl;
+    cout << "*     Bienvenide a la aplicación de       *" << endl;
+    cout << "*                idiomas                  *" << endl;
+    cout << "*                                         *" << endl;
+    cout << "*******************************************" << endl;
+    cout << endl;
 }
 
 void imprimirMenu() {
+    cout << "Menu de opciones:" << endl;
     cout << "1. Alta de usuario" << endl;
     cout << "2. Consulta de usuario" << endl;
     cout << "3. Alta de idioma" << endl;
@@ -37,6 +60,7 @@ void imprimirMenu() {
     cout << "16. Eliminar suscripciones" << endl;
     cout << "17. Cargar datos de prueba" << endl;
     cout << "0. Salir" << endl;
+    cout << endl;
 }
 
 int ingresarOpcion(int cantOpciones) {
@@ -64,15 +88,18 @@ int ingresarOpcion(int cantOpciones) {
 
 bool deseaRealizarOtraOperacion() {
     int opcion;
+    cout << endl;
     cout << "Desea realizar otra operacion?" << endl;
     cout << "1. Si " << endl;
     cout << "0. No" << endl;
     opcion = ingresarOpcion(1);
+    cout << endl;
     return opcion == 1;
 }
 
 void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
     if (conjunto.empty()) {
+        cout << endl;
         cout << "0 - No hay " << nombreDelConjunto << " disponibles" << endl;
     } else {
         int indice = 1;
@@ -80,12 +107,14 @@ void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
             cout << indice << " - " << elemento << endl;
             ++indice;
         }
+        cout << endl;
         
     }
 }
 
 void imprimirOpcionesSet(const set<string>& conjunto, string nombreDelConjunto) {
     if (conjunto.empty()) {
+        cout << endl;
         cout << "0 - No hay " << nombreDelConjunto << " disponibles para elegir" << endl;
     } else {
         int indice = 1;
@@ -94,6 +123,7 @@ void imprimirOpcionesSet(const set<string>& conjunto, string nombreDelConjunto) 
             cout << indice << " - " << elemento << endl;
             ++indice;
         }
+        cout << endl;
     }
 }
 
