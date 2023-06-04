@@ -1,6 +1,4 @@
-/*
-provisorio
-*/
+
 
 #ifndef ICONTROLADORUSUARIO
 #define ICONTROLADORUSUARIO

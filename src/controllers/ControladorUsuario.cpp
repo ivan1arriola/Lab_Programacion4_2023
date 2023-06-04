@@ -32,7 +32,6 @@ using namespace std;
 //Coleccion de punteros a Idiomas
 HandlerIdioma* coleccionIdiomas = HandlerIdioma::getInstancia();
 
-
 //Coleccion de punteros a Usuarios
 HandlerUsuario* coleccionUsuarios = HandlerUsuario::getInstancia();
 
@@ -41,7 +40,18 @@ ControladorUsuario* ControladorUsuario::instancia = NULL;
 
 ControladorUsuario::ControladorUsuario() {}
 
-ControladorUsuario::~ControladorUsuario() {}
+ControladorUsuario::~ControladorUsuario() {
+    if (coleccionIdiomas != NULL) {
+        coleccionIdiomas->deleteInstancia();
+        coleccionIdiomas = NULL;
+    }
+
+    if (coleccionUsuarios != NULL) {
+        coleccionUsuarios->deleteInstancia();
+        coleccionUsuarios = NULL;
+    }
+
+}
 
 IControladorUsuario* ControladorUsuario::getInstancia() {
     if (instancia == NULL) {

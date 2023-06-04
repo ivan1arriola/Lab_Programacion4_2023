@@ -23,7 +23,6 @@ class ControladorUsuario : public IControladorUsuario {
         Usuario* usuarioActual;
 
         ControladorUsuario();
-        ~ControladorUsuario();
 
         Idioma* idiomaActual;
 
@@ -65,6 +64,8 @@ class ControladorUsuario : public IControladorUsuario {
         set<string> listarNicknameUsuarios();
         DTUsuario* seleccionarUsuario(string nickname);
 
+        // Destructor
+        ~ControladorUsuario();
 };
 
 #endif
