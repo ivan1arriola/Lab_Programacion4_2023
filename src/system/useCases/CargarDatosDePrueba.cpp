@@ -1,4 +1,4 @@
-#include "../../include/CasosDeUso/CargarDatos.h"
+#include "../../../include/system/Sistema.h"
 
 #include <iostream>
 #include <string>
@@ -7,18 +7,18 @@
 #include <sstream>
 
 
-#include "../../include/classes/Usuario/Usuario.h"
-#include "../../include/classes/Usuario/Estudiante.h"
-#include "../../include/classes/Usuario/Profesor.h"
+#include "../../../include/classes/Usuario/Usuario.h"
+#include "../../../include/classes/Usuario/Estudiante.h"
+#include "../../../include/classes/Usuario/Profesor.h"
 
-#include "../../include/classes/Idioma.h"
+#include "../../../include/classes/Idioma.h"
 
-#include "../../include/handlers/HandlerIdioma.h"
-#include "../../include/handlers/HandlerUsuario.h"
+#include "../../../include/handlers/HandlerIdioma.h"
+#include "../../../include/handlers/HandlerUsuario.h"
 
-#include "../../include/datatypes/DTUsuario.h"
+#include "../../../include/datatypes/DTUsuario.h"
 
-#include "../../include/datatypes/DTDate.h"
+#include "../../../include/datatypes/DTDate.h"
 
 using namespace std;
 
@@ -28,7 +28,7 @@ HandlerIdioma* idiomaHandler = HandlerIdioma::getInstancia();
 //Coleccion de punteros a Usuarios
 HandlerUsuario* usuariosHandler = HandlerUsuario::getInstancia();
 
-void CargarDatos () {
+void Sistema::cargarDatosdePrueba() {
 
     // Crear Idiomas
     Idioma* idioma1 = new Idioma("Español");

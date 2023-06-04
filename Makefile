@@ -5,7 +5,7 @@ SRCDIR = src
 OBJDIR = obj
 BINDIR = bin
 EXECUTABLE = $(BINDIR)/app
-CASOSDEUSODIR = $(SRCDIR)/CasosDeUso
+CASOSDEUSODIR = $(SRCDIR)/system/useCases
 
 # Archivos fuente
 MAIN = main.cpp
@@ -50,14 +50,15 @@ CPP_COLLECTIONS_FILES := $(SRCDIR)/handlers/HandlerIdioma.cpp \
 	$(SRCDIR)/handlers/HandlerUsuario.cpp \
 
 CPP_FILES := $(MAIN) \
-	$(SRCDIR)/operaciones.cpp \
+	$(SRCDIR)/system/operaciones.cpp \
+	$(SRCDIR)/system/Sistema.cpp \
 	$(CPP_DATATYPES_FILES) \
 	$(CPP_CASOSDEUSO_FILES) \
 	$(CPP_CLASSES_FILES) \
 	$(CPP_CONTROLLERS_FILES) \
 	$(CPP_FACTORY_FILES) \
 	$(CPP_COLLECTIONS_FILES) \
-	$(CASOSDEUSODIR)/CargarDatos.cpp \
+	$(CASOSDEUSODIR)/CargarDatosDePrueba.cpp \
 
 
 

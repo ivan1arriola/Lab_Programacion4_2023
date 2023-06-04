@@ -1,14 +1,10 @@
 #include <iostream>
 #include <string>
 
-#include "../../include/CasosDeUso/AltaDeIdioma.h"
+#include "../../../include/system/Sistema.h"
 
-#include "../../include/factory/fabrica.h"
-#include "../../include/operaciones.h"
-
-#include "../../include/interfaces/IControladorCurso.h"
-#include "../../include/interfaces/IControladorEstadistica.h"
-#include "../../include/interfaces/IControladorUsuario.h"
+#include "../../../include/factory/fabrica.h"
+#include "../../../include/system/operaciones.h"
 
 
 using namespace std;
@@ -22,12 +18,8 @@ using namespace std;
     error y no se da de alta el idioma.
 */
 
-void AltaDeIdioma() {
+void Sistema::altaDeIdioma() {
     imprimirMensaje("Alta de Idioma");
-
-    // Obtener instancia de IControladorUsuario
-    Fabrica *fabrica = Fabrica::getInstancia();
-    IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
     // Ingresar nombre del idioma
     string nombre = ingresarParametro("el nombre del idioma");

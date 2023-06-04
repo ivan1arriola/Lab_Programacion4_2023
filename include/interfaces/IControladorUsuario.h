@@ -34,6 +34,9 @@ class IControladorUsuario {
         virtual void eliminarNotificaciones() = 0;
         virtual void eliminarSuscripcion(string idioma) = 0;
 
+        // Destructor
+        virtual ~IControladorUsuario() {};
+
         // Operaciones para el caso de uso "Alta Idioma"
         virtual void crearIdioma(string nombre) = 0;
         virtual void altaIdioma() = 0;
@@ -41,6 +44,8 @@ class IControladorUsuario {
         // Operaciones para el caso de uso "Consulta de usuario"
         virtual set<string> listarNicknameUsuarios() = 0;
         virtual DTUsuario* seleccionarUsuario(string nickname) = 0;
+
+
 };
 
 #endif

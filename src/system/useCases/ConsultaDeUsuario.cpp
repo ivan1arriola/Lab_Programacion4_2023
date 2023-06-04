@@ -1,18 +1,18 @@
 #include <iostream>
 #include <string>
 
-#include "../../include/CasosDeUso/ConsultaDeUsuario.h"
+#include "../../../include/system/Sistema.h"
 
-#include "../../include/factory/fabrica.h"
-#include "../../include/operaciones.h"
+#include "../../../include/factory/fabrica.h"
+#include "../../../include/system/operaciones.h"
 
-#include "../../include/interfaces/IControladorCurso.h"
-#include "../../include/interfaces/IControladorEstadistica.h"
-#include "../../include/interfaces/IControladorUsuario.h"
+#include "../../../include/interfaces/IControladorCurso.h"
+#include "../../../include/interfaces/IControladorEstadistica.h"
+#include "../../../include/interfaces/IControladorUsuario.h"
 
-#include "../../include/datatypes/DTUsuario.h"
-#include "../../include/datatypes/DTProfesor.h"
-#include "../../include/datatypes/DTEstudiante.h"
+#include "../../../include/datatypes/DTUsuario.h"
+#include "../../../include/datatypes/DTProfesor.h"
+#include "../../../include/datatypes/DTEstudiante.h"
 
 using namespace std;
 
@@ -28,12 +28,8 @@ using namespace std;
     especializa.
 */
 
-void ConsultaDeUsuario() {
+void Sistema::consultaDeUsuario() {
     imprimirMensaje("Consulta de Usuario");
-
-    // Obtener instancia de IControladorUsuario
-    Fabrica *fabrica = Fabrica::getInstancia();
-    IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
     // Obtener coleccion de usuarios
     set<string> nicknames = controladorUsuario->listarNicknameUsuarios();

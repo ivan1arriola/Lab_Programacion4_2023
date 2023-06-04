@@ -1,36 +1,14 @@
 #include <string>
 #include <iostream>
 
-#include "include/operaciones.h"
+#include "include/system/operaciones.h"
 
-// Interfaces
-#include "include/interfaces/IControladorUsuario.h"
-#include "include/interfaces/IControladorCurso.h"
-#include "include/interfaces/IControladorEstadistica.h"
 
 // Factory
 #include "include/factory/fabrica.h"
 
-// Casos de Uso
-#include "include/CasosDeUso/AltaDeUsuario.h"
-#include "include/CasosDeUso/ConsultaDeUsuario.h"
-#include "include/CasosDeUso/AltaDeIdioma.h"
-#include "include/CasosDeUso/AltaDeCurso.h"
-#include "include/CasosDeUso/AgregarEjercicio.h"
-#include "include/CasosDeUso/HabilitarCurso.h"
-#include "include/CasosDeUso/EliminarCurso.h"
-#include "include/CasosDeUso/InscribirseACurso.h"
-#include "include/CasosDeUso/RealizarEjercicio.h"
-#include "include/CasosDeUso/SuscribirseANotificaciones.h"
-#include "include/CasosDeUso/ConsultaDeNotificaciones.h"
-#include "include/CasosDeUso/EliminarSuscripciones.h"
-#include "include/CasosDeUso/ConsultarIdiomas.h"
-#include "include/CasosDeUso/ConsultarCurso.h"
-#include "include/CasosDeUso/AgregarLeccion.h"
-#include "include/CasosDeUso/ConsultarEstadisticas.h"
-#include "include/CasosDeUso/AgregarLeccion.h"
-
-#include "include/CasosDeUso/CargarDatos.h"
+// Sistema
+#include "include/system/Sistema.h"
 
 
 using namespace std;
@@ -41,11 +19,7 @@ int main() {
     bool quiereContinuar = true;
 
     // Inicializar sistema
-    //Fabrica *fabrica = Fabrica::getInstancia();
-
-    //IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
-    //IControladorCurso *controladorCurso = fabrica->getIControladorCurso();
-    //IControladorEstadistica *controladorEstadistica = fabrica->getIControladorEstadistica();
+    Sistema *sistema = Sistema::getInstancia();
 
     do {
         imprimirMenu();
@@ -53,55 +27,55 @@ int main() {
         int opcion = ingresarOpcion(17);
         switch (opcion) {
             case 1:
-                AltaDeUsuario();
+                sistema->altaDeUsuario();
                 break;
             case 2:
-                ConsultaDeUsuario();
+                sistema->consultaDeUsuario();
                 break;
             case 3:
-                AltaDeIdioma();
+                sistema->altaDeIdioma();
                 break;
             case 4:
-                ConsultarIdiomas();
+                sistema->consultarIdiomas();
                 break;
             case 5:
-                AltaDeCurso();
+                sistema->altaDeCurso();
                 break;
             case 6:
-                AgregarLeccion();
+                sistema ->agregarLeccion();
                 break;
             case 7:
-                AgregarEjercicio();
+                sistema->agregarEjercicio();
                 break;
             case 8:
-                HabilitarCurso();
+                sistema->habilitarCurso();
                 break;
             case 9:
-                EliminarCurso();
+                sistema->eliminarCurso();
                 break;
             case 10:
-                ConsultarCurso();
+                sistema->consultarCurso();
                 break;
             case 11:
-                InscribirseACurso();
+                sistema->inscribirseACurso();
                 break;
             case 12:
-                RealizarEjercicio();
+                sistema->realizarEjercicio();
                 break;
             case 13:
-                ConsultarEstadisticas();
+                sistema ->consultarEstadisticas();
                 break;
             case 14:
-                SuscribirseANotificaciones();
+                sistema ->suscribirseANotificaciones();
                 break;
             case 15:
-                ConsultaDeNotificaciones();
+                sistema ->consultaDeNotificaciones();
                 break;
             case 16:
-                EliminarSuscripciones();
+                sistema ->eliminarSuscripciones();
                 break;
             case 17:
-                CargarDatos();
+                sistema ->cargarDatosdePrueba();
                 break;
             case 0:
                 quiereContinuar = false;
@@ -116,7 +90,7 @@ int main() {
     } while (quiereContinuar);
 
     // Liberar memoria
-    //TODO: liberar memoria de los controladores y de la fabrica?
+    sistema->destruirInstancia();
 
     imprimirMensajeDespedida();
 }

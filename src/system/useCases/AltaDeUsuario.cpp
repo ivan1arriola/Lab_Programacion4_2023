@@ -1,14 +1,11 @@
 #include <iostream>
 #include <string>
 
-#include "../../include/CasosDeUso/AltaDeUsuario.h"
+#include "../../../include/system/Sistema.h"
 
-#include "../../include/factory/fabrica.h"
-#include "../../include/operaciones.h"
+#include "../../../include/factory/fabrica.h"
+#include "../../../include/system/operaciones.h"
 
-#include "../../include/interfaces/IControladorCurso.h"
-#include "../../include/interfaces/IControladorEstadistica.h"
-#include "../../include/interfaces/IControladorUsuario.h"
 
 using namespace std;
 
@@ -26,10 +23,8 @@ using namespace std;
   el Sistema comunica el error y no se da de alta el usuario.
 */
 
-void AltaDeUsuario() {
+void Sistema::altaDeUsuario() {
   imprimirMensaje("Alta de Usuario");
-  Fabrica *fabrica = Fabrica::getInstancia();
-  IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
   // Ingresar nickname 
   string nickname = ingresarParametro("el nickname");

@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 
-#include "../../include/CasosDeUso/ConsultarIdiomas.h"
+#include "../../../include/system/Sistema.h"
 
-#include "../../include/factory/fabrica.h"
-#include "../../include/operaciones.h"
+#include "../../../include/factory/fabrica.h"
+#include "../../../include/system/operaciones.h"
 
-#include "../../include/interfaces/IControladorCurso.h"
-#include "../../include/interfaces/IControladorEstadistica.h"
-#include "../../include/interfaces/IControladorUsuario.h"
+#include "../../../include/interfaces/IControladorCurso.h"
+#include "../../../include/interfaces/IControladorEstadistica.h"
+#include "../../../include/interfaces/IControladorUsuario.h"
 
 using namespace std;
 
@@ -19,12 +19,8 @@ using namespace std;
     Para ello, el Sistema lista los nombres de todos los idiomas existentes.
 */
 
-void ConsultarIdiomas() {
+void Sistema::consultarIdiomas() {
     imprimirMensaje("Consultar Idiomas");
-
-    // Obtener instancia de IControladorUsuario
-    Fabrica *fabrica = Fabrica::getInstancia();
-    IControladorUsuario *controladorUsuario = fabrica->getIControladorUsuario();
 
     // Obtener coleccion de idiomas
     set<string> nombreIdiomas = controladorUsuario->listarNombresDeIdiomasDisponibles();
