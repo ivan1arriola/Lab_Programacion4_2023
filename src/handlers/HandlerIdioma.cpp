@@ -1,5 +1,6 @@
 #include "../../include/classes/Idioma.h"
 #include "../../include/handlers/HandlerIdioma.h"
+#include <iostream>
 
 
 HandlerIdioma* HandlerIdioma::instancia = nullptr;

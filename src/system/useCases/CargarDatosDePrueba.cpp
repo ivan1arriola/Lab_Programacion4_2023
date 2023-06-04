@@ -24,6 +24,27 @@ using namespace std;
 
 void Sistema::cargarDatosdePrueba() {
 
+
+    //Crear Notificaciones Sueltas
+    DTNotificacion* notificacion1 = new DTNotificacion("nombreCurso1", "nombreIdioma1");
+    DTNotificacion* notificacion2 = new DTNotificacion("nombreCurso2", "nombreIdioma2");
+    DTNotificacion* notificacion3 = new DTNotificacion("nombreCurso3", "nombreIdioma3");
+    DTNotificacion* notificacion4 = new DTNotificacion("nombreCurso4", "nombreIdioma4");
+
+    // Imprimir las Notificaciones
+    cout << "Notificacion 1: " << endl << *notificacion1 << endl;
+    cout << "Notificacion 2: " << endl << *notificacion2 << endl;
+    cout << "Notificacion 3: " << endl << *notificacion3 << endl;
+    cout << "Notificacion 4: " << endl << *notificacion4 << endl;
+
+    // Liberar Memoria
+    delete notificacion1;
+    delete notificacion2;
+    delete notificacion3;
+    delete notificacion4;
+
+
+
     // Crear Idiomas
     Idioma* idioma1 = new Idioma("Español");
     Idioma* idioma2 = new Idioma("Inglés");
@@ -96,21 +117,5 @@ void Sistema::cargarDatosdePrueba() {
     handlerUsuario->agregarUsuario(usuario7);
     handlerUsuario->agregarUsuario(usuario8);
 
-    //Crear Notificaciones Sueltas
-    DTNotificacion* notificacion1 = new DTNotificacion("nombreCurso1", "nombreIdioma1");
-    DTNotificacion* notificacion2 = new DTNotificacion("nombreCurso2", "nombreIdioma2");
-    DTNotificacion* notificacion3 = new DTNotificacion("nombreCurso3", "nombreIdioma3");
-    DTNotificacion* notificacion4 = new DTNotificacion("nombreCurso4", "nombreIdioma4");
-
-    // Imprimir las Notificaciones
-    cout << "Notificacion 1: " << endl << *notificacion1 << endl;
-    cout << "Notificacion 2: " << endl << *notificacion2 << endl;
-    cout << "Notificacion 3: " << endl << *notificacion3 << endl;
-    cout << "Notificacion 4: " << endl << *notificacion4 << endl;
-
-    // Liberar Memoria
-    delete notificacion1;
-    delete notificacion2;
-    delete notificacion3;
-    delete notificacion4;
+    
 }

@@ -18,6 +18,8 @@ HandlerIdioma *Sistema::handlerIdioma = NULL;
 Sistema::Sistema() {
     fabricaSistema = Fabrica::getInstancia();
     controladorUsuario = fabricaSistema->getIControladorUsuario();
+    handlerUsuario = HandlerUsuario::getInstancia();
+    handlerIdioma = HandlerIdioma::getInstancia();
 }
 
 Sistema::~Sistema() {
