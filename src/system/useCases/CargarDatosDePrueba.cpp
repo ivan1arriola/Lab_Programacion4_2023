@@ -13,20 +13,14 @@
 
 #include "../../../include/classes/Idioma.h"
 
-#include "../../../include/handlers/HandlerIdioma.h"
-#include "../../../include/handlers/HandlerUsuario.h"
 
 #include "../../../include/datatypes/DTUsuario.h"
 
 #include "../../../include/datatypes/DTDate.h"
+#include "../../../include/datatypes/DTNotificacion.h"
 
 using namespace std;
 
-//Coleccion de punteros a Idiomas
-HandlerIdioma* idiomaHandler = HandlerIdioma::getInstancia();
-
-//Coleccion de punteros a Usuarios
-HandlerUsuario* usuariosHandler = HandlerUsuario::getInstancia();
 
 void Sistema::cargarDatosdePrueba() {
 
@@ -46,18 +40,18 @@ void Sistema::cargarDatosdePrueba() {
   
 
     // Agregar Idiomas a la Coleccion
-    idiomaHandler->agregarIdioma(idioma1);
-    idiomaHandler->agregarIdioma(idioma2);
-    idiomaHandler->agregarIdioma(idioma3);
-    idiomaHandler->agregarIdioma(idioma4);
-    idiomaHandler->agregarIdioma(idioma5);
-    idiomaHandler->agregarIdioma(idioma6);
-    idiomaHandler->agregarIdioma(idioma7);
-    idiomaHandler->agregarIdioma(idioma8);
-    idiomaHandler->agregarIdioma(idioma9);
-    idiomaHandler->agregarIdioma(idioma10);
-    idiomaHandler->agregarIdioma(idioma11);
-    idiomaHandler->agregarIdioma(idioma12);
+    handlerIdioma->agregarIdioma(idioma1);
+    handlerIdioma->agregarIdioma(idioma2);
+    handlerIdioma->agregarIdioma(idioma3);
+    handlerIdioma->agregarIdioma(idioma4);
+    handlerIdioma->agregarIdioma(idioma5);
+    handlerIdioma->agregarIdioma(idioma6);
+    handlerIdioma->agregarIdioma(idioma7);
+    handlerIdioma->agregarIdioma(idioma8);
+    handlerIdioma->agregarIdioma(idioma9);
+    handlerIdioma->agregarIdioma(idioma10);
+    handlerIdioma->agregarIdioma(idioma11);
+    handlerIdioma->agregarIdioma(idioma12);
 
     // Crear Usuarios
     //Crear Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate *fechaNacimiento);
@@ -93,12 +87,30 @@ void Sistema::cargarDatosdePrueba() {
     Usuario* usuario8 = new Profesor("nick8", "pass8", "nombre8", "descripcion8", "instituto4", idiomasDeProfesor4);
 
     // Agregar Usuarios a la Coleccion
-    usuariosHandler->agregarUsuario(usuario1);
-    usuariosHandler->agregarUsuario(usuario2);
-    usuariosHandler->agregarUsuario(usuario3);
-    usuariosHandler->agregarUsuario(usuario4);
-    usuariosHandler->agregarUsuario(usuario5);
-    usuariosHandler->agregarUsuario(usuario6);
-    usuariosHandler->agregarUsuario(usuario7);
-    usuariosHandler->agregarUsuario(usuario8);
+    handlerUsuario->agregarUsuario(usuario1);
+    handlerUsuario->agregarUsuario(usuario2);
+    handlerUsuario->agregarUsuario(usuario3);
+    handlerUsuario->agregarUsuario(usuario4);
+    handlerUsuario->agregarUsuario(usuario5);
+    handlerUsuario->agregarUsuario(usuario6);
+    handlerUsuario->agregarUsuario(usuario7);
+    handlerUsuario->agregarUsuario(usuario8);
+
+    //Crear Notificaciones Sueltas
+    DTNotificacion* notificacion1 = new DTNotificacion("nombreCurso1", "nombreIdioma1");
+    DTNotificacion* notificacion2 = new DTNotificacion("nombreCurso2", "nombreIdioma2");
+    DTNotificacion* notificacion3 = new DTNotificacion("nombreCurso3", "nombreIdioma3");
+    DTNotificacion* notificacion4 = new DTNotificacion("nombreCurso4", "nombreIdioma4");
+
+    // Imprimir las Notificaciones
+    cout << "Notificacion 1: " << endl << *notificacion1 << endl;
+    cout << "Notificacion 2: " << endl << *notificacion2 << endl;
+    cout << "Notificacion 3: " << endl << *notificacion3 << endl;
+    cout << "Notificacion 4: " << endl << *notificacion4 << endl;
+
+    // Liberar Memoria
+    delete notificacion1;
+    delete notificacion2;
+    delete notificacion3;
+    delete notificacion4;
 }

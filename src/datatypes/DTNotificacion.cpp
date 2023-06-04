@@ -1,26 +1,3 @@
-/*
-#ifndef DTNOTIFICACION
-#define DTNOTIFICACION
-
-#include <string>
-
-
-using namespace std;
-
-class DTNotificacion {
-    private:
-        string nombreCurso;
-        string nombreIdioma;
-    public:
-        DTNotificacion(string nombreCurso, string nombreIdioma);
-        string getNombreCurso();
-        string getNombreIdioma();
-        ~DTNotificacion();
-        friend ostream& operator<<(ostream& os, const DTNotificacion& dtNotificacion);
-};
-
-#endif*/
-
 #include "../../include/datatypes/DTNotificacion.h"
 
 #include <string>
@@ -33,15 +10,18 @@ DTNotificacion::DTNotificacion(string nombreCurso, string nombreIdioma) {
     this->nombreIdioma = nombreIdioma;
 }
 
-string DTNotificacion::getNombreCurso() {
+string DTNotificacion::getNombreCurso() const {
     return this->nombreCurso;
 }
 
-string DTNotificacion::getNombreIdioma() {
+string DTNotificacion::getNombreIdioma() const {
     return this->nombreIdioma;
 }
 
+
 DTNotificacion::~DTNotificacion() {}
+
+
 
 ostream& operator<<(ostream& os, const DTNotificacion& dtNotificacion) {
     os << "Nombre del curso: " << dtNotificacion.nombreCurso << endl;

@@ -53,7 +53,7 @@ class ControladorUsuario : public IControladorUsuario {
         set<string> listarIdiomasSuscriptos(string nickname);
         void seleccionarProfesor(string nicknameProfesor);
         void suscribirse(string nombreIdioma);
-        set<DTNotificacion> listarNotificaciones(string nickName);
+        set<DTNotificacion*> listarNotificaciones(string nickName);
         void eliminarNotificaciones();
         void eliminarSuscripcion(string idioma);
 

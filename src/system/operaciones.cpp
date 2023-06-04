@@ -65,7 +65,7 @@ void imprimirMenu() {
 
 int ingresarOpcion(int cantOpciones) {
     int opcion;
-    bool esNumero = false;
+    bool esNumero = false; 
     bool esOpcionValida = false;
     while (!esNumero || !esOpcionValida) {
         cout << "Ingrese una opcion: ";

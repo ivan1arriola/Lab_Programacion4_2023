@@ -15,8 +15,12 @@ private:
     HandlerIdioma();
     static HandlerIdioma* instancia;
 
+    // Destructor
+    ~HandlerIdioma();
+
 public:
     static HandlerIdioma* getInstancia();
+    static void deleteInstancia();
 
     // Agregar
     void agregarIdioma(Idioma* idioma);

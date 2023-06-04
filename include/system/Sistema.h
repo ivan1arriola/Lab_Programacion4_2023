@@ -4,7 +4,13 @@
 #include <set>
 #include <string>
 
+#include "../factory/Fabrica.h"
+
 #include "../interfaces/IControladorUsuario.h"
+
+// Handlers de colecciones
+#include "../handlers/handlerUsuario.h"
+#include "../handlers/handlerIdioma.h"
 
 using namespace std;
 
@@ -14,9 +20,17 @@ class Sistema {
         Sistema();
         ~Sistema();
 
+        // Fabrica
+        static Fabrica *fabricaSistema;
+        
+        // Controladores
         static IControladorUsuario *controladorUsuario;
         //IControladorCurso *controladorCurso;
         //IControladorEstadistica *controladorEstadistica;
+
+        // Handlers de colecciones
+        static HandlerUsuario *handlerUsuario;
+        static HandlerIdioma *handlerIdioma;
 
     public:
 

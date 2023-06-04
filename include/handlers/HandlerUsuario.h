@@ -15,8 +15,12 @@ private:
     HandlerUsuario();
     static HandlerUsuario* instancia;
 
+    // Destructor
+    ~HandlerUsuario();
+
 public:
     static HandlerUsuario* getInstancia();
+    static void deleteInstancia();
 
     // Agregar
     void agregarUsuario(Usuario* usuario);
@@ -32,6 +36,9 @@ public:
     // Eliminar
     void eliminarUsuario(string nickname);
     void eliminarUsuario(Usuario* usuario);
+
+
+    
 };
 
 #endif

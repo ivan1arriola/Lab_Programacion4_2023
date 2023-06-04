@@ -1,14 +1,23 @@
 #include "../../include/system/Sistema.h"
 #include "../../include/interfaces/IControladorUsuario.h"
-#include "../../include/factory/fabrica.h"
+#include "../../include/factory/Fabrica.h"
 
 Sistema *Sistema::instancia = NULL;
+
+// Fabrica
+Fabrica *Sistema::fabricaSistema = NULL;
+
+// Controladores
 IControladorUsuario *Sistema::controladorUsuario = NULL;
 
+// Handlers de colecciones
+HandlerUsuario *Sistema::handlerUsuario = NULL;
+HandlerIdioma *Sistema::handlerIdioma = NULL;
 
 
 Sistema::Sistema() {
-    controladorUsuario = Fabrica::getInstancia()->getIControladorUsuario();
+    fabricaSistema = Fabrica::getInstancia();
+    controladorUsuario = fabricaSistema->getIControladorUsuario();
 }
 
 Sistema::~Sistema() {
@@ -25,8 +34,34 @@ Sistema *Sistema::getInstancia() {
 }
 
 void Sistema::destruirInstancia() {
-    if (instancia != NULL) {
+    // Liberar memoria de la fabrica
+    if(fabricaSistema != NULL) {
+        fabricaSistema->deleteInstancia();
+        fabricaSistema = NULL;
+    }
+
+    // Liberar memoria de los controladores
+    if(controladorUsuario != NULL) {
+        delete controladorUsuario;
+        controladorUsuario = NULL;
+    }
+
+    // Liberar memoria de los handlers
+    if(handlerUsuario != NULL) {
+        handlerUsuario->deleteInstancia();
+        handlerUsuario = NULL;
+    }
+
+    if(handlerIdioma != NULL) {
+        handlerIdioma->deleteInstancia();
+        handlerIdioma = NULL;
+    }
+
+    // Liberar memoria de la instancia
+    if(instancia != NULL) {
         delete instancia;
         instancia = NULL;
     }
+
+
 }

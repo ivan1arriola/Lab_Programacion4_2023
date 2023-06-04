@@ -53,3 +53,18 @@ set<string> HandlerIdioma::obtenerNombresIdiomas(){
     }
     return nombresIdiomas;
 }
+
+// Destructor
+HandlerIdioma::~HandlerIdioma() {
+    for (auto it = idiomas.begin(); it != idiomas.end(); ++it) {
+        delete it->second;
+    }
+    idiomas.clear();
+}
+
+void HandlerIdioma::deleteInstancia() {
+    if (instancia != nullptr) {
+        delete instancia;
+        instancia = nullptr;
+    }
+}

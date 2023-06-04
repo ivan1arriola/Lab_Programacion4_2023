@@ -22,6 +22,13 @@ Fabrica* Fabrica::getInstancia() {
     return instancia;
 }
 
+void Fabrica::deleteInstancia() {
+    if (instancia != NULL) {
+        delete instancia;
+        instancia = NULL;
+    }
+}
+
 
 IControladorUsuario* Fabrica::getIControladorUsuario() {
     return ControladorUsuario::getInstancia();

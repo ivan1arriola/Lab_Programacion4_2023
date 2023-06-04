@@ -25,6 +25,7 @@ public:
 
     /*Devuelve un puntero la instancia de Fabrica. si no existe, la crea*/
     static Fabrica* getInstancia();
+    static void deleteInstancia();
 
     // Controladores
     IControladorCurso* getIControladorCurso();

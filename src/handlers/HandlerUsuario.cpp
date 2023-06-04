@@ -64,3 +64,17 @@ void HandlerUsuario::eliminarUsuario(Usuario* usuario) {
 }
 
 
+//Destructor
+
+HandlerUsuario::~HandlerUsuario() {
+    for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
+        delete it->second;
+    }
+}
+
+void HandlerUsuario::deleteInstancia() {
+    if (instancia != NULL) {
+        delete instancia;
+        instancia = NULL;
+    }
+}

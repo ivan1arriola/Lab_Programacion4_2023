@@ -169,13 +169,17 @@ void ControladorUsuario::suscribirse(string nombreIdioma) {
     // Implementación mínima
 }
 
-set<DTNotificacion> ControladorUsuario::listarNotificaciones(string nickName) {
-    set<DTNotificacion> notificaciones; // Valor vacío
+set<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName) {
+    this->actual_nickname = nickName;
+    set<DTNotificacion*> notificaciones; // Valor vacío
     return notificaciones;
 }
 
 void ControladorUsuario::eliminarNotificaciones() {
     // Implementación mínima
+
+    // Limpiar los datos ingresados
+    this->actual_nickname = "";
 }
 
 void ControladorUsuario::eliminarSuscripcion(string idioma) {

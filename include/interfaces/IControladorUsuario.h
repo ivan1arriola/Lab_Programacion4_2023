@@ -30,7 +30,7 @@ class IControladorUsuario {
         virtual set<string> listarIdiomasSuscriptos(string nickname) = 0;
         virtual void seleccionarProfesor(string nicknameProfesor) = 0;
         virtual void suscribirse(string nombreIdioma) = 0;
-        virtual set<DTNotificacion> listarNotificaciones(string nickName) = 0;
+        virtual set<DTNotificacion*> listarNotificaciones(string nickName) = 0;
         virtual void eliminarNotificaciones() = 0;
         virtual void eliminarSuscripcion(string idioma) = 0;
 
