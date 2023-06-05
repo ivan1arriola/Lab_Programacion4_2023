@@ -50,16 +50,18 @@ void Sistema::consultaDeUsuario() {
         return;
     }
 
+    
+
     // Obtener nickname
     
     string nickname = *next(nicknames.begin(), index);
     imprimirMensaje("A seleccionado el usuario: " + nickname);
 
+    cout << endl;
+
     // Obtener informacion del usuario
     DTUsuario* dtUsuario = controladorUsuario->seleccionarUsuario(nickname);
 
-    // imprimir dtUsuario como estudiante o profesor. getTipo() == 0 -> profesor, getTipo() == 1 -> estudiante
-    // dynamic cast
 
     if (dtUsuario->getTipo() == 0) {
         DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);

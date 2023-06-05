@@ -83,6 +83,7 @@ int ingresarOpcion(int cantOpciones) {
             esOpcionValida = true;
         }
     }
+    cout << endl;
     return opcion;
 }
 
