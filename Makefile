@@ -41,6 +41,11 @@ CPP_CLASSES_FILES := $(SRCDIR)/classes/Usuario/Usuario.cpp \
 	$(SRCDIR)/classes/Usuario/Estudiante.cpp \
 	$(SRCDIR)/classes/Usuario/Profesor.cpp \
 	$(SRCDIR)/classes/Idioma.cpp \
+	$(SRCDIR)/classes/Curso/Curso.cpp \
+	$(SRCDIR)/classes/Curso/Leccion.cpp \
+	$(SRCDIR)/classes/Curso/Ejercicio.cpp \
+	$(SRCDIR)/classes/Curso/Completar.cpp \
+	$(SRCDIR)/classes/Curso/Traducir.cpp \
 
 CPP_CONTROLLERS_FILES := $(SRCDIR)/controllers/ControladorUsuario.cpp 
 
@@ -48,6 +53,7 @@ CPP_FACTORY_FILES := $(SRCDIR)/factory/fabrica.cpp \
 
 CPP_COLLECTIONS_FILES := $(SRCDIR)/handlers/HandlerIdioma.cpp \
 	$(SRCDIR)/handlers/HandlerUsuario.cpp \
+	$(SRCDIR)/handlers/HandlerCurso.cpp \
 
 CPP_FILES := $(MAIN) \
 	$(SRCDIR)/system/operaciones.cpp \

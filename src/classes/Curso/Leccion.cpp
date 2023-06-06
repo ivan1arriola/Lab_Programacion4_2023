@@ -1,3 +1,38 @@
 #include "../../../include/classes/Curso/Leccion.h"
 
-// Implementations for Leccion can go here
+Leccion::Leccion() {
+    // Implementación del constructor por defecto
+}
+
+Leccion::Leccion(string descripcion) {
+    // Implementación del constructor con parámetros
+}
+
+string Leccion::getTema() {
+    return tema;
+}
+
+string Leccion::getObjetivo() {
+    return objetivo;
+}
+
+void Leccion::setTema(string tema) {
+    this->tema = tema;
+}
+
+void Leccion::setObjetivo(string objetivo) {
+    this->objetivo = objetivo;
+}
+
+void Leccion::crearEjercicioYAgregarlo(string desc) {
+    // Implementación de la función crearEjercicioYAgregarlo()
+}
+
+set<Ejercicio> Leccion::getEjercicios() {
+    // Implementación de la función getEjercicios()
+    return set<Ejercicio>();
+}
+
+Leccion::~Leccion() {
+    // Implementación del destructor
+}

@@ -13,13 +13,19 @@ IControladorUsuario *Sistema::controladorUsuario = NULL;
 // Handlers de colecciones
 HandlerUsuario *Sistema::handlerUsuario = NULL;
 HandlerIdioma *Sistema::handlerIdioma = NULL;
+HandlerCurso *Sistema::handlerCurso = NULL;
 
 
 Sistema::Sistema() {
     fabricaSistema = Fabrica::getInstancia();
+
+
     controladorUsuario = fabricaSistema->getIControladorUsuario();
+
+
     handlerUsuario = HandlerUsuario::getInstancia();
     handlerIdioma = HandlerIdioma::getInstancia();
+    handlerCurso = HandlerCurso::getInstancia();
 }
 
 Sistema::~Sistema() {
@@ -57,6 +63,11 @@ void Sistema::destruirInstancia() {
     if(handlerIdioma != NULL) {
         handlerIdioma->deleteInstancia();
         handlerIdioma = NULL;
+    }
+
+    if(handlerCurso != NULL) {
+        handlerCurso->deleteInstancia();
+        handlerCurso = NULL;
     }
 
     // Liberar memoria de la instancia

@@ -9,8 +9,9 @@
 #include "../interfaces/IControladorUsuario.h"
 
 // Handlers de colecciones
-#include "../handlers/handlerUsuario.h"
-#include "../handlers/handlerIdioma.h"
+#include "../handlers/HandlerUsuario.h"
+#include "../handlers/HandlerIdioma.h"
+#include "../handlers/HandlerCurso.h"
 
 using namespace std;
 
@@ -31,6 +32,7 @@ class Sistema {
         // Handlers de colecciones
         static HandlerUsuario *handlerUsuario;
         static HandlerIdioma *handlerIdioma;
+        static HandlerCurso *handlerCurso;
 
     public:
 

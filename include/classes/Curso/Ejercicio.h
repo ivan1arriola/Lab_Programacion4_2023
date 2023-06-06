@@ -17,14 +17,14 @@ class Ejercicio {
         Ejercicio(string nombre, string descripcion);
 
         // Getters
-        virtual string getNombre()=0;
-        virtual string getDescripcion()=0;
+        string getNombre();
+        string getDescripcion();
 
         // Setters
-        virtual void setNombre(string nombre)=0;
-        virtual void setDescripcion(string descripcion)=0;
+        void setNombre(string nombre);
+        void setDescripcion(string descripcion);
 
-        virtual ~Ejercicio()=0;
+        virtual ~Ejercicio();
 
 };
 
