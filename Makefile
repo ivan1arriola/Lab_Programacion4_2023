@@ -51,7 +51,7 @@ CPP_CLASSES_FILES := $(SRCDIR)/classes/Usuario/Usuario.cpp \
 CPP_CONTROLLERS_FILES := $(SRCDIR)/controllers/ControladorUsuario.cpp \
 	$(SRCDIR)/controllers/ControladorCurso.cpp \
 
-CPP_FACTORY_FILES := $(SRCDIR)/factory/fabrica.cpp \
+CPP_FACTORY_FILES := $(SRCDIR)/factory/Fabrica.cpp \
 
 CPP_COLLECTIONS_FILES := $(SRCDIR)/handlers/HandlerIdioma.cpp \
 	$(SRCDIR)/handlers/HandlerUsuario.cpp \

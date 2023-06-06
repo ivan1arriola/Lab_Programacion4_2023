@@ -4,9 +4,6 @@
 #include "include/system/operaciones.h"
 
 
-// Factory
-#include "include/factory/fabrica.h"
-
 // Sistema
 #include "include/system/Sistema.h"
 
