@@ -4,6 +4,8 @@
 
 using namespace std;
 
+DTEjercicio::DTEjercicio() {}
+
 DTEjercicio::DTEjercicio(string tipoEjercicio, string desc) {
     this->tipoEjercicio = tipoEjercicio;
     this->desc = desc;

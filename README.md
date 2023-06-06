@@ -32,7 +32,7 @@ Ejecutar `make clean build valgrind` para compilar en limpio y ejecutar el progr
 - Realizar ejercicio :memo:
 - Consultar estadísticas :memo:
 - Suscribirse a notificaciones :memo:
-- Consulta de notificaciones :memo:
+- Consulta de notificaciones :memo: :white_check_mark:
 - Eliminar suscripciones :memo:
 
 Los casos de uso marcados con :memo: tienen sus diagramas de comunicacion desde el laboratorio 3.
