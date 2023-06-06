@@ -12,6 +12,7 @@ class DTEjercicio {
         string tipoEjercicio;
         string desc;
     public:
+        DTEjercicio();
         DTEjercicio(string tipoEjercicio, string desc);
         string getTipoEjercicio();
         string getDesc();
