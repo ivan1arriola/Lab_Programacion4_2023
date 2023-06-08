@@ -38,3 +38,4 @@ programa
 # Specific folders
 /.vscode
 /bin
+.vscode.zip

@@ -5,9 +5,14 @@
 
 using namespace std;
 
-void limpiarConsola () {
-    system("clear");
+void limpiarConsola() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 }
+
 
 void imprimirLinea() {
     cout << "-------------------------------------------" << endl;

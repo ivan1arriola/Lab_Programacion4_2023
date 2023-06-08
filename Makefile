@@ -1,6 +1,8 @@
 # Variables
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall -g
+LDFLAGS =
+
 SRCDIR = src
 OBJDIR = obj
 BINDIR = bin
@@ -16,9 +18,6 @@ CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
 	$(SRCDIR)/datatypes/DTNotificacion.cpp \
 	$(SRCDIR)/datatypes/DTDate.cpp \
 	$(SRCDIR)/datatypes/DTEjercicio.cpp \
-
-
-
 
 CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \
 	$(CASOSDEUSODIR)/AgregarEjercicio.cpp \
@@ -36,7 +35,6 @@ CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \
 	$(CASOSDEUSODIR)/InscribirseACurso.cpp \
 	$(CASOSDEUSODIR)/RealizarEjercicio.cpp \
 	$(CASOSDEUSODIR)/SuscribirseANotificaciones.cpp \
-
 
 CPP_CLASSES_FILES := $(SRCDIR)/classes/Usuario/Usuario.cpp \
 	$(SRCDIR)/classes/Usuario/Estudiante.cpp \
@@ -68,8 +66,6 @@ CPP_FILES := $(MAIN) \
 	$(CPP_COLLECTIONS_FILES) \
 	$(CASOSDEUSODIR)/CargarDatosDePrueba.cpp \
 
-
-
 # Objetos
 OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(CPP_FILES))
 
@@ -81,7 +77,7 @@ build: $(EXECUTABLE)
 # Regla para el ejecutable
 $(EXECUTABLE): $(OBJECTS)
 	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 # Regla para los objetos
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
@@ -99,4 +95,3 @@ run:
 valgrind:
 	@clear
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXECUTABLE)
-
