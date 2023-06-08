@@ -43,6 +43,7 @@ Se debe modificar los archivos .h y .cpp de cada caso de uso, y agregar los arch
 Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
 
 # Laboratorio 3 - Diseño
+- [Entrega Lab3 PDF](https://drive.google.com/file/d/1FOBptdt1T7hQU1j6JmTW7PGJ0ZjRWWeR/view?usp=sharing)
 - [Documento de Word](https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/ERzphtEka7JFuR_Gi3pB9pABNgsM6_nyMeSTR1DvscjRQQ?e=WfN7dr)
 - [Letra PDF](https://drive.google.com/file/d/17chVHTmNlhoKWHBJRXUi1Gq9RBr7hDw0/view?usp=drive_link)
 - [Carpeta General de archivos del laboratorio](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas, los links, archivos de drawio, etc
@@ -117,10 +118,11 @@ Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
 
 
 # Laboratorio 2 - Analisis 
+[Entrega Lab2 PDF](https://drive.google.com/file/d/1XZk5mLVTXmB-N_btT0q83ra_-iMs5LPq/view?usp=sharing)
 [Documento de Word](https://onedrive.live.com/edit.aspx?resid=4E0A101CDC8F4A2F!189&ithint=file%2cdocx&authkey=!AKC4te03l7HlkPA)
 [Letra de Laboratorio](https://drive.google.com/file/d/1pWrl68r8fAUNFgne8Zzs5a3b1wM2B2w1/view?usp=sharing)
 
 # Laboratorio 1 - Analisis
-
-[Diagrama de Laboratorio 1](https://lucid.app/documents/view/f7ecc9ab-83bd-4ba7-abec-bfbdf07caae4).
+- [Entrega Lab 1 PDF](https://drive.google.com/file/d/1QW85vXEYGw5HqPxjwc7JzThDw41vKz3Z/view?usp=sharing)
+- [Diagrama de Laboratorio 1](https://lucid.app/documents/view/f7ecc9ab-83bd-4ba7-abec-bfbdf07caae4).
 
