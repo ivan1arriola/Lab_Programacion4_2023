@@ -118,9 +118,9 @@ Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
 
 
 # Laboratorio 2 - Analisis 
-[Entrega Lab2 PDF](https://drive.google.com/file/d/1XZk5mLVTXmB-N_btT0q83ra_-iMs5LPq/view?usp=sharing)
-[Documento de Word](https://onedrive.live.com/edit.aspx?resid=4E0A101CDC8F4A2F!189&ithint=file%2cdocx&authkey=!AKC4te03l7HlkPA)
-[Letra de Laboratorio](https://drive.google.com/file/d/1pWrl68r8fAUNFgne8Zzs5a3b1wM2B2w1/view?usp=sharing)
+- [Entrega Lab2 PDF](https://drive.google.com/file/d/1XZk5mLVTXmB-N_btT0q83ra_-iMs5LPq/view?usp=sharing)
+- [Documento de Word](https://onedrive.live.com/edit.aspx?resid=4E0A101CDC8F4A2F!189&ithint=file%2cdocx&authkey=!AKC4te03l7HlkPA)
+- [Letra de Laboratorio](https://drive.google.com/file/d/1pWrl68r8fAUNFgne8Zzs5a3b1wM2B2w1/view?usp=sharing)
 
 # Laboratorio 1 - Analisis
 - [Entrega Lab 1 PDF](https://drive.google.com/file/d/1QW85vXEYGw5HqPxjwc7JzThDw41vKz3Z/view?usp=sharing)
