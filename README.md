@@ -50,8 +50,6 @@ Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
 ## Diagramas de Comunicacion por Caso de Uso
 
 ### Alta de usuario
-
-Diagramas:
 - Alta Estudiante
 - Ingresar Datos Profesor
 - Alta Profesor
@@ -61,16 +59,25 @@ Diagramas:
 - Seleccionar Idiomas
 
 ### Alta de curso
-
+- Agregar Ejercicio
+- Alta curso
+- Listar Nicknames Profesores
+- Listar Nombres Idiomas Profesor
+- Seleccionar Curso
+- Agregar Leccion
+- Seleccionar Idioma
+- Listar Cursos Habilitados
+- Seleccionar Profesor
+- Ingresar Datos Curso
+- Ingresar Frase Completar
+- Ingresar Frase Traducir
+- Agregar Ejercicio a Leccion
 
 ### Eliminar curso
-Diagramas:
 - Obtener Cursos :question:
 - Eliminar Curso
 
 ### Realizar ejercicio
-
-Diagramas:
 - Ingresar Nickname Estudiante
 - Listar Cursos Inscriptos
 - MOstrar Cursos No Aprobados
@@ -84,8 +91,6 @@ Diagramas:
 - Marcar Ejercicio No Aprobado
 - 
 ### Consultar estadísticas
-
-Diagramas:
 - Listar Nicknames Estudiantes :question:
 - Seleccionar Estudiante :question:
 - Listar Cursos Estudiante 
@@ -97,18 +102,15 @@ Diagramas:
 - Listar Info Curso
 
 ### Suscribirse a notificaciones
-Diagramas:
 - Listar Idiomas No Suscriptos
 - Suscribirse
 
 ### Consulta de notificaciones
-Diagramas:
 - Listar Notificaciones
 - Eliminar Notificaciones
 
 
 ### Eliminar suscripciones
-Diagramas:
 - Listar Idiomas Suscriptos
 - Eliminar Suscripcion
 
