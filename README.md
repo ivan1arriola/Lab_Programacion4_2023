@@ -1,20 +1,19 @@
 # prog4_2023_gr01
 
-# Laboratorio 4 - Implementacion
-Fecha Limite - lunes, 19 de junio de 2023, 15:00
+# Laboratorio 4 - Implementación
+Fecha Límite - lunes, 19 de junio de 2023, 15:00
 
 [Letra del laboratorio](https://drive.google.com/file/d/1Y0D_zd7lZzLsieHDqj8DCGuhldjupDoa/view?usp=sharing)
 
 ## Funciones de Makefile
-- `make` : compila el programa en limpio y lo ejecuta. Equivale a `make clean build run` o `make rerun`
+- `make`: compila el programa en limpio y lo ejecuta. Equivale a `make clean build run` o `make rerun`
 - `make build`: compila el programa
-- `make run` : ejecuta el programa
-- `make clean` : borra los archivos .o y el ejecutable
-- `make valgrind` : ejecuta el programa con valgrind
+- `make run`: ejecuta el programa
+- `make clean`: borra los archivos .o y el ejecutable
+- `make valgrind`: ejecuta el programa con valgrind
 
-Ejecutar  para compilar en limpio y ejecutar el programa.
-Ejecutar `make clean build valgrind` para compilar en limpio y ejecutar el programa con valgrind.
-
+Ejecuta para compilar en limpio y ejecutar el programa.
+Ejecuta `make clean build valgrind` para compilar en limpio y ejecutar el programa con valgrind.
 
 ## Todos los casos de uso
 - :memo: Alta de usuario  :white_check_mark:
@@ -34,23 +33,23 @@ Ejecutar `make clean build valgrind` para compilar en limpio y ejecutar el progr
 - :memo: Consulta de notificaciones :white_check_mark:
 - :memo: Eliminar suscripciones
 
-Los casos de uso marcados con :memo: tienen sus diagramas de comunicacion desde el laboratorio 3.
-Los casos de uso marcados con :white_check_mark: estan implementados.
+Los casos de uso marcados con :memo: tienen sus diagramas de comunicación desde el laboratorio 3.
+Los casos de uso marcados con :white_check_mark: están implementados.
 
 Se debe modificar los archivos .h y .cpp de cada caso de uso, y agregar los archivos .h y .cpp de cada entidad que se necesite.
-Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
+Después, se tiene que modificar el Makefile para que compile los archivos nuevos.
 
-### diagramas nuevos
-- Alta de idioma - [Diagrama de comunicacion](https://lucid.app/lucidchart/bd189033-7811-47d9-8ed5-b375405f4afd/edit?viewport_loc=89%2C-35%2C1966%2C1054%2C0_0&invitationId=inv_79068b57-019b-4de9-a9d3-1806658e2078)
+### Diagramas nuevos
+- Alta de idioma - [Diagrama de comunicación](https://lucid.app/lucidchart/bd189033-7811-47d9-8ed5-b375405f4afd/edit?viewport_loc=89%2C-35%2C1966%2C1054%2C0_0&invitationId=inv_79068b57-019b-4de9-a9d3-1806658e2078)
 
 # Laboratorio 3 - Diseño
 - [Entrega Lab3 PDF](https://drive.google.com/file/d/1eTmGxfd2WR2FJMvlEBxYaVORVtMyeBVh/view?usp=drive_link)
 - [Documento de Word](https://finguy-my.sharepoint.com/:w:/g/personal/ivan_arriola_fing_edu_uy/ERzphtEka7JFuR_Gi3pB9pABNgsM6_nyMeSTR1DvscjRQQ?e=WfN7dr)
 - [Letra PDF](https://drive.google.com/file/d/17chVHTmNlhoKWHBJRXUi1Gq9RBr7hDw0/view?usp=drive_link)
-- [Carpeta General de archivos del laboratorio](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imagenes de los diagramas, los links, archivos de drawio, etc
+- [Carpeta General de archivos del laboratorio](https://drive.google.com/drive/folders/17ClHWC9tWL7NhrbmM17Po3jbBHjzcfmm?usp=sharing) en Drive para subir las imágenes de los diagramas, los enlaces, archivos de drawio, etc.
 - [Diagrama De Clase de Diseño](https://lucid.app/lucidchart/3458c2c8-6672-4edd-9548-c3d645f5ea91/edit?invitationId=inv_7c7f22eb-924c-46ee-8132-b38194db2913)
 
-## Diagramas de Comunicacion por Caso de Uso
+## Diagramas de Comunicación por Caso de Uso
 
 ### Alta de usuario
 - Alta Estudiante
@@ -83,20 +82,20 @@ Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
 ### Realizar ejercicio
 - Ingresar Nickname Estudiante
 - Listar Cursos Inscriptos
-- MOstrar Cursos No Aprobados
+- Mostrar Cursos No Aprobados
 - Seleccionar Curso :question:
 - Mostrar Ejercicio No Aprobados
 - Seleccionar Ejercicio
 - Mostrar Ejercicio
 - Ingresar Sol Completar
-- Ingresar SOl Traducir
+- Ingresar Sol Traducir
 - Marcar Ejercicio Aprobado
 - Marcar Ejercicio No Aprobado
-- 
+
 ### Consultar estadísticas
 - Listar Nicknames Estudiantes :question:
 - Seleccionar Estudiante :question:
-- Listar Cursos Estudiante 
+- Listar Cursos Estudiante
 - Listar Nickname Profesores :question:
 - Seleccionar Profesor :question:
 - Listar Cursos Profesor
@@ -112,18 +111,16 @@ Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
 - Listar Notificaciones
 - Eliminar Notificaciones
 
-
 ### Eliminar suscripciones
 - Listar Idiomas Suscriptos
 - Eliminar Suscripcion
 
-
-# Laboratorio 2 - Analisis 
+# Laboratorio 2 - Análisis
 - [Entrega Lab2 PDF](https://drive.google.com/file/d/1CClxYtyDUOQkkNU7UJgjDbDdh5msP9KP/view?usp=drive_link)
 - [Documento de Word](https://onedrive.live.com/edit.aspx?resid=4E0A101CDC8F4A2F!189&ithint=file%2cdocx&authkey=!AKC4te03l7HlkPA)
 - [Letra de Laboratorio](https://drive.google.com/file/d/1pWrl68r8fAUNFgne8Zzs5a3b1wM2B2w1/view?usp=sharing)
 
-# Laboratorio 1 - Analisis
+# Laboratorio 1 - Análisis
 - [Entrega Lab 1 PDF](https://drive.google.com/file/d/1GlqOHeRIDiy9trB3AGfMMIMgmW7wOcyM/view?usp=drive_link)
 - [Diagrama de Laboratorio 1](https://lucid.app/documents/view/f7ecc9ab-83bd-4ba7-abec-bfbdf07caae4).
 
