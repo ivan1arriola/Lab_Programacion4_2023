@@ -38,7 +38,7 @@ Usuario* HandlerUsuario::obtenerUsuario(string nickname) {
 set<string> HandlerUsuario::obtenerNicknamesUsuarios() {
     set<string> nicknames;
     for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
-        nicknames.insert(it->first);
+        nicknames.insert( it->second ->getNickname());
     }
     return nicknames;
 }
