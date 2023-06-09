@@ -19,8 +19,7 @@ Ejecutar `make clean build valgrind` para compilar en limpio y ejecutar el progr
 ## Todos los casos de uso
 - :memo: Alta de usuario  :white_check_mark:
 - Consulta de usuario :white_check_mark:
-- Alta de idioma :white_check_mark: 
-- - [Diagrama de comunicacion](https://lucid.app/lucidchart/bd189033-7811-47d9-8ed5-b375405f4afd/edit?viewport_loc=89%2C-35%2C1966%2C1054%2C0_0&invitationId=inv_79068b57-019b-4de9-a9d3-1806658e2078)
+- Alta de idioma :white_check_mark:
 - Consultar idiomas :white_check_mark:
 - :memo: Alta de curso
 - Agregar lección
@@ -40,6 +39,9 @@ Los casos de uso marcados con :white_check_mark: estan implementados.
 
 Se debe modificar los archivos .h y .cpp de cada caso de uso, y agregar los archivos .h y .cpp de cada entidad que se necesite.
 Despues se tiene que modificar el Makefile para que compile los archivos nuevos.
+
+### diagramas nuevos
+- Alta de idioma - [Diagrama de comunicacion](https://lucid.app/lucidchart/bd189033-7811-47d9-8ed5-b375405f4afd/edit?viewport_loc=89%2C-35%2C1966%2C1054%2C0_0&invitationId=inv_79068b57-019b-4de9-a9d3-1806658e2078)
 
 # Laboratorio 3 - Diseño
 - [Entrega Lab3 PDF](https://drive.google.com/file/d/1eTmGxfd2WR2FJMvlEBxYaVORVtMyeBVh/view?usp=drive_link)
