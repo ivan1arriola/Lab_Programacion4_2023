@@ -1,5 +1,6 @@
 #include "../../include/system/Sistema.h"
 #include "../../include/interfaces/IControladorUsuario.h"
+#include "../../include/interfaces/IControladorCurso.h"
 #include "../../include/factory/Fabrica.h"
 
 Sistema *Sistema::instancia = NULL;
@@ -9,6 +10,8 @@ Fabrica *Sistema::fabricaSistema = NULL;
 
 // Controladores
 IControladorUsuario *Sistema::controladorUsuario = NULL;
+IControladorCurso *Sistema::controladorCurso = NULL;
+
 
 // Handlers de colecciones
 HandlerUsuario *Sistema::handlerUsuario = NULL;

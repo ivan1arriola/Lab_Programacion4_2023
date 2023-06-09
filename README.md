@@ -7,7 +7,6 @@ Fecha Limite - lunes, 19 de junio de 2023, 15:00
 
 ## Funciones de Makefile
 - `make` : compila el programa en limpio y lo ejecuta. Equivale a `make clean build run` o `make rerun`
-
 - `make build`: compila el programa
 - `make run` : ejecuta el programa
 - `make clean` : borra los archivos .o y el ejecutable

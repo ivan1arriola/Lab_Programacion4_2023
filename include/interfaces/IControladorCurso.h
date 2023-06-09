@@ -36,6 +36,10 @@ class IControladorCurso {
         virtual void marcarEjercicioAprobado() = 0;
         virtual void marcarEjercicioNoAprobado() = 0;
         virtual ~IControladorCurso() {};
+
+        //Operaciones para Consulta Curso
+        virtual set<string> listarNombreCursos() = 0;
+        virtual DTDataCurso mostrarDatosCurso() = 0; 
 };
 
 #endif

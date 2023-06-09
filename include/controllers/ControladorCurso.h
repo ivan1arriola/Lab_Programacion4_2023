@@ -39,6 +39,11 @@ public:
     void marcarEjercicioNoAprobado();
 
     ~ControladorCurso();  // Destructor
+
+    //Operaciones para Consulta Curso
+    set<string> listarNombreCursos();
+        //void seleccionarCurso();
+    DTDataCurso mostrarDatosCurso(); 
 };
 
 #endif

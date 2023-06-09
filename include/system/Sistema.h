@@ -26,7 +26,7 @@ class Sistema {
         
         // Controladores
         static IControladorUsuario *controladorUsuario;
-        //IControladorCurso *controladorCurso;
+        static IControladorCurso *controladorCurso;
         //IControladorEstadistica *controladorEstadistica;
 
         // Handlers de colecciones

@@ -1,4 +1,5 @@
 #include "../../include/controllers/ControladorCurso.h"
+#include "../../include/datatypes/DTDataCurso.h"
 
 #include <string>
 
@@ -34,9 +35,6 @@ void ControladorCurso::seleccionarIdioma(string nombreIdioma) {
     this->nombreIdioma = nombreIdioma;
 }
 
-void ControladorCurso::seleccionarCurso(string nombreCurso) {
-    this->nombreCurso = nombreCurso;
-}
 
 void ControladorCurso::altaCurso(bool disponible) {
     // Implementación de la función altaCurso
@@ -152,4 +150,24 @@ void ControladorCurso::marcarEjercicioAprobado() {
 void ControladorCurso::marcarEjercicioNoAprobado() {
     // Implementación de la función marcarEjercicioNoAprobado
     // Código para marcar el ejercicio actual como no aprobado en el Controlador de Ejercicio
+}
+
+//Operaciones para Consulta Curso
+
+
+set<string> ControladorCurso::listarNombreCursos() {
+    set<string> cursos;
+    // Implementación de la función listarNombreCursos
+    // Código para obtener la lista de cursos disponibles
+    return cursos;
+}
+
+void ControladorCurso::seleccionarCurso(string nombreCurso) {
+    this->nombreCurso = nombreCurso;
+}
+
+DTDataCurso ControladorCurso::mostrarDatosCurso() {
+    // Implementación de la función mostrarDatosCurso
+    // Código para obtener los datos del curso seleccionado
+    return DTDataCurso();
 }
