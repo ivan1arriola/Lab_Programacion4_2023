@@ -76,14 +76,14 @@ Después, se tiene que modificar el Makefile para que compile los archivos nuevo
 - Agregar Ejercicio a Leccion
 
 ### Eliminar curso
-- Obtener Cursos :question:
+- Obtener Cursos
 - Eliminar Curso
 
 ### Realizar ejercicio
 - Ingresar Nickname Estudiante
 - Listar Cursos Inscriptos
 - Mostrar Cursos No Aprobados
-- Seleccionar Curso :question:
+- Seleccionar Curso
 - Mostrar Ejercicio No Aprobados
 - Seleccionar Ejercicio
 - Mostrar Ejercicio
@@ -93,14 +93,14 @@ Después, se tiene que modificar el Makefile para que compile los archivos nuevo
 - Marcar Ejercicio No Aprobado
 
 ### Consultar estadísticas
-- Listar Nicknames Estudiantes :question:
-- Seleccionar Estudiante :question:
+- Listar Nicknames Estudiantes
+- Seleccionar Estudiante
 - Listar Cursos Estudiante
-- Listar Nickname Profesores :question:
-- Seleccionar Profesor :question:
+- Listar Nickname Profesores
+- Seleccionar Profesor
 - Listar Cursos Profesor
-- Listar Cursos :question:
-- Seleccionar Curso :question:
+- Listar Cursos
+- Seleccionar Curso
 - Listar Info Curso
 
 ### Suscribirse a notificaciones
