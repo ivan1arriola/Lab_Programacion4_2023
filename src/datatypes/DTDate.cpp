@@ -7,6 +7,12 @@ using namespace std;
 
 DTDate::DTDate() {}
 
+DTDate::DTDate( DTDate* dtDate) {
+    this->day = dtDate->getDay();
+    this->month = dtDate->getMonth();
+    this->year = dtDate->getYear();
+}
+
 DTDate::DTDate(int day, int month, int year) {
     this->day = day;
     this->month = month;
