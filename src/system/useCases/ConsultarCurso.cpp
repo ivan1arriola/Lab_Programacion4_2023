@@ -27,7 +27,7 @@ void Sistema::consultarCurso() {
     set<string> listaCursos = controladorCurso -> listarNombreCursos ();
 
     if(listaCursos.empty()) {
-        imprimirMensaje("No hay idiomas cargados en el sistema");
+        imprimirMensaje("No hay Cursos cargados en el sistema");
         imprimirMensaje("Cancelando operacion");
         return;
     }
