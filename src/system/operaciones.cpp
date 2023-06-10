@@ -162,7 +162,8 @@ void imprimirMensajeDespedida() {
 string ingresarParametro(string parametro) {
   string valor;
   cout << "Ingrese " << parametro << ": ";
-  cin >> valor; 
+  cin >> ws;  // Descartar espacios en blanco iniciales
+  getline(cin, valor, '\n');
   return valor;
 }
 

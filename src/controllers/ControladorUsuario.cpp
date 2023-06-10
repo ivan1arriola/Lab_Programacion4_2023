@@ -204,7 +204,9 @@ set<string> ControladorUsuario::listarIdiomasSuscriptos(string nickname) {
 }
 
 void ControladorUsuario::seleccionarProfesor(string nicknameProfesor) { //TODO: Tiene que existir el profesor
-    
+    if(!(coleccionUsuarios->existeUsuario(nicknameProfesor))){
+        throw invalid_argument("");
+    }
 }
 
 void ControladorUsuario::suscribirse(string nombreIdioma) {
