@@ -18,6 +18,8 @@ static void cancelarOperacion(string error = "") {
 void Sistema::altaDeCurso() {
     imprimirMensaje("Alta de Curso") ;
 
+    //el caso de uso comienza listando los nickname de los profesores disponibles
+
     set<string> profesores = controladorUsuario->listarNIcknameProfesores() ;
 
     if (profesores.size() == 0) {
@@ -28,12 +30,15 @@ void Sistema::altaDeCurso() {
     string nicknameProfesor;
     int opcion = -1;
 
+    //se imprime la lista con profesores
+
     imprimirMensaje("Seleccione un profesor de la lista:") ;
     imprimirSet(profesores, "Profesores") ;
 
     opcion = ingresarOpcion(profesores.size()) ;
     
     if (opcion == 0) {
+        cancelarOperacion("A seleccionado cancelar la operación") ;
         return ;
     }
 
@@ -47,13 +52,23 @@ void Sistema::altaDeCurso() {
         return ;
     }
 
-    string nombreCurso = ingresarParametro("el nombre del curso") ;
+    string nombreCurso = ingresarParametro("el nombre del curso");
 
-    string descripcionCurso = ingresarParametro("la descripción del curso") ;
+    //controlar que no exista el nombre y que no sea vacío
+    if(handlerCurso->existeCurso(nombreCurso) || nombreCurso == ""){
+        if(nombreCurso == ""){
+            cancelarOperacion("Ingrese un nombre para el curso no vacío") ;
+        }else{
+            cancelarOperacion("Ya existe un curso con el nombre " + nombreCurso) ;
+        }
+        return ;
+    }
+
+    string descripcionCurso = ingresarParametro("la descripción del curso");
 
     imprimirMensaje("Ingrese la dificultad del curso:") ;
-    imprimirMensaje("1. Básico") ;
-    imprimirMensaje("2. Intermedio") ;
+    imprimirMensaje("1. Principiante") ;
+    imprimirMensaje("2. Medio") ;
     imprimirMensaje("3. Avanzado") ;
 
     opcion = ingresarOpcion(3) ;
