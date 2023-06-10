@@ -18,7 +18,7 @@ jobs:
 
     - name: Build and check for errors
       run: |
-        g++ -o my_program main.cpp
+        make
         if [ $? -eq 0 ]; then
           echo "Build successful. No errors."
         else
