@@ -55,6 +55,10 @@ set<string> HandlerIdioma::obtenerNombresIdiomas(){
     return nombresIdiomas;
 }
 
+map<string, Idioma*> HandlerIdioma::obtenerIdiomas(){
+    return idiomas;
+}
+
 // Destructor
 HandlerIdioma::~HandlerIdioma() {
     for (auto it = idiomas.begin(); it != idiomas.end(); ++it) {

@@ -28,6 +28,7 @@ public:
     // Obtener
     Idioma* obtenerIdioma(string nombreIdioma);
     set<string> obtenerNombresIdiomas();
+    map<string, Idioma*> obtenerIdiomas();
 
     // Consultar
     bool existeIdioma(string nombreIdioma);
