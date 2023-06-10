@@ -13,6 +13,21 @@ void limpiarConsola() {
     #endif
 }
 
+string seleccionarElemento(set<string> elementos, string nombreElemento) {
+    int opcion = -1;
+
+    imprimirMensaje("Seleccione un " + nombreElemento + " de la lista:") ;
+    imprimirSet(elementos, nombreElemento + "s") ;
+
+    opcion = ingresarOpcion(elementos.size()) ;
+
+    if (opcion == 0) {
+        return string();
+    }
+
+    return obtenerOpcion(elementos, opcion) ;
+}
+
 
 void imprimirLinea() {
     cout << "-------------------------------------------" << endl;

@@ -24,7 +24,7 @@ fecha en la que se realizó la inscripción correspondiente.
 void Sistema::consultarCurso() {
     imprimirMensaje("Consultar Curso");
 
-    set<string> listaCursos = controladorCurso -> listarNombreCursos ();
+    set<string> listaCursos = controladorCurso -> listarNombreCursos();
 
     if(listaCursos.empty()) {
         imprimirMensaje("No hay Cursos cargados en el sistema");
