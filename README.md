@@ -9,8 +9,6 @@ Fecha Límite - lunes, 19 de junio de 2023, 15:00
 
 Este es un Makefile utilizado para compilar y ejecutar este proyecto. Para utilizarlo, es necesario tener instalado GNU Make y g++.
 
-#### Uso
-
 El Makefile tiene las siguientes reglas:
 
 - `rebuild`: Limpia los archivos generados y compila nuevamente el programa.
@@ -27,6 +25,7 @@ make run
 
 Ejecutar el comando `make` sin argumentos ejecutará la regla `rebuild`.
 
+Los warnings se tratan como errores, por lo que si el programa no compila, es necesario corregir los warnings.
 
 ### Todos los casos de uso
 - :memo: Alta de usuario  :white_check_mark:
