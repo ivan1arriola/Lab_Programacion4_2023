@@ -73,7 +73,7 @@ CPP_FILES := $(MAIN) \
 OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(CPP_FILES))
 
 # Regla principal
-rerun: clean build run
+rebuild: clean build
 
 build: $(EXECUTABLE)
 
@@ -91,10 +91,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 clean:
 	rm -rf $(OBJDIR) $(EXECUTABLE) $(BINDIR)
 
-run:
+run: $(EXECUTABLE)
 	@clear
 	@./$(EXECUTABLE)
 
-valgrind:
+valgrind: $(EXECUTABLE)
 	@clear
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXECUTABLE)

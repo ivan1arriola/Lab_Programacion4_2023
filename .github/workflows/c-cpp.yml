@@ -13,5 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: make
+    - name: Build
       run: make
+    - name: Check for warnings and errors
+      run: |
+        warnings=$(make 2>&1 >/dev/null | grep -E '(warning|error)' | wc -l)
+        echo "Number of warnings: $warnings"

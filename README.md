@@ -5,15 +5,28 @@ Fecha Límite - lunes, 19 de junio de 2023, 15:00
 
 [Letra del laboratorio](https://drive.google.com/file/d/1Y0D_zd7lZzLsieHDqj8DCGuhldjupDoa/view?usp=sharing)
 
-### Funciones de Makefile
-- `make`: compila el programa en limpio y lo ejecuta. Equivale a `make clean build run` o `make rerun`
-- `make build`: compila el programa
-- `make run`: ejecuta el programa
-- `make clean`: borra los archivos .o y el ejecutable
-- `make valgrind`: ejecuta el programa con valgrind
+### Makefile
 
-Ejecuta para compilar en limpio y ejecutar el programa.
-Ejecuta `make clean build valgrind` para compilar en limpio y ejecutar el programa con valgrind.
+Este es un Makefile utilizado para compilar y ejecutar este proyecto. Para utilizarlo, es necesario tener instalado GNU Make y g++.
+
+#### Uso
+
+El Makefile tiene las siguientes reglas:
+
+- `rebuild`: Limpia los archivos generados y compila nuevamente el programa.
+- `build`: Compila el programa sin limpiar los archivos generados.
+- `clean`: Elimina los archivos generados por la compilación.
+- `run`: Compila y ejecuta el programa.
+- `valgrind`: Ejecuta el programa utilizando Valgrind para detectar fugas de memoria.
+
+Para utilizar una regla, simplemente ejecuta el comando `make` seguido del nombre de la regla. Por ejemplo, para compilar y ejecutar el programa, puedes ejecutar el siguiente comando:
+
+```
+make run
+```
+
+Ejecutar el comando `make` sin argumentos ejecutará la regla `rebuild`.
+
 
 ### Todos los casos de uso
 - :memo: Alta de usuario  :white_check_mark:
