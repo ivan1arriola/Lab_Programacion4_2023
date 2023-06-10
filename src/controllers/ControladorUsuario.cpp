@@ -208,7 +208,7 @@ void ControladorUsuario::altaIdioma() {
         throw invalid_argument("El idioma ya existe en el sistema");
     }
     coleccionIdiomas->agregarIdioma(this -> idiomaActual);
-    delete this -> idiomaActual;
+    this -> idiomaActual = NULL;
 }
 
 DTUsuario* ControladorUsuario::getDataUsuarioIngresado() {
