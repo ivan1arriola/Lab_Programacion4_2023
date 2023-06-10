@@ -19,6 +19,7 @@ CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
 	$(SRCDIR)/datatypes/DTDate.cpp \
 	$(SRCDIR)/datatypes/DTEjercicio.cpp \
 	$(SRCDIR)/datatypes/DTDataCurso.cpp \
+	$(SRCDIR)/datatypes/DTDataCursoEstudiante.cpp \
 
 CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \
 	$(CASOSDEUSODIR)/AgregarEjercicio.cpp \
@@ -49,6 +50,7 @@ CPP_CLASSES_FILES := $(SRCDIR)/classes/Usuario/Usuario.cpp \
 
 CPP_CONTROLLERS_FILES := $(SRCDIR)/controllers/ControladorUsuario.cpp \
 	$(SRCDIR)/controllers/ControladorCurso.cpp \
+	$(SRCDIR)/controllers/ControladorEstadistica.cpp \
 
 CPP_FACTORY_FILES := $(SRCDIR)/factory/Fabrica.cpp \
 

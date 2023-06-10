@@ -33,3 +33,7 @@ void Fabrica::deleteInstancia() {
 IControladorUsuario* Fabrica::getIControladorUsuario() {
     return ControladorUsuario::getInstancia();
 }
+
+IControladorCurso* Fabrica::getIControladorCurso() {
+    return ControladorCurso::getInstancia();
+}

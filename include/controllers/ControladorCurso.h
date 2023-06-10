@@ -2,12 +2,16 @@
 #define CONTROLADORCURSO_H
 
 #include "../interfaces/IControladorCurso.h"
+#include "../handlers/HandlerCurso.h"
 
 class ControladorCurso : public IControladorCurso {
 private:
     string nombreIdioma;
     string nombreCurso;
     static ControladorCurso* instancia;
+
+    // Colecion de cursos
+    static HandlerCurso* coleccionCursos;
 
     ControladorCurso();
 

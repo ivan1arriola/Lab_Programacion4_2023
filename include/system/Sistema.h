@@ -7,6 +7,8 @@
 #include "../factory/Fabrica.h"
 
 #include "../interfaces/IControladorUsuario.h"
+#include "../interfaces/IControladorCurso.h"
+#include "../interfaces/IControladorEstadistica.h"
 
 // Handlers de colecciones
 #include "../handlers/HandlerUsuario.h"
@@ -19,7 +21,6 @@ class Sistema {
     private:
         static Sistema *instancia;
         Sistema();
-        ~Sistema();
 
         // Fabrica
         static Fabrica *fabricaSistema;
@@ -27,7 +28,7 @@ class Sistema {
         // Controladores
         static IControladorUsuario *controladorUsuario;
         static IControladorCurso *controladorCurso;
-        //IControladorEstadistica *controladorEstadistica;
+        static IControladorEstadistica *controladorEstadistica;
 
         // Handlers de colecciones
         static HandlerUsuario *handlerUsuario;
@@ -37,7 +38,7 @@ class Sistema {
     public:
 
         static Sistema *getInstancia();
-        void destruirInstancia();
+        ~Sistema();
         
         // Casos de uso / Implementadas en sus respectivos .cpp
         void altaDeUsuario();

@@ -1,6 +1,11 @@
 #include "../../include/system/Sistema.h"
+
+// Interfaces - Controladores
 #include "../../include/interfaces/IControladorUsuario.h"
 #include "../../include/interfaces/IControladorCurso.h"
+#include "../../include/interfaces/IControladorEstadistica.h"
+
+// Fabrica
 #include "../../include/factory/Fabrica.h"
 
 Sistema *Sistema::instancia = NULL;
@@ -11,6 +16,8 @@ Fabrica *Sistema::fabricaSistema = NULL;
 // Controladores
 IControladorUsuario *Sistema::controladorUsuario = NULL;
 IControladorCurso *Sistema::controladorCurso = NULL;
+IControladorEstadistica *Sistema::controladorEstadistica = NULL;
+
 
 
 // Handlers de colecciones
@@ -24,6 +31,7 @@ Sistema::Sistema() {
 
 
     controladorUsuario = fabricaSistema->getIControladorUsuario();
+    controladorCurso = fabricaSistema->getIControladorCurso();
 
 
     handlerUsuario = HandlerUsuario::getInstancia();
@@ -32,19 +40,6 @@ Sistema::Sistema() {
 }
 
 Sistema::~Sistema() {
-    if (controladorUsuario != NULL) {
-        delete controladorUsuario;
-    }
-}
-
-Sistema *Sistema::getInstancia() {
-    if (instancia == NULL) {
-        instancia = new Sistema();
-    }
-    return instancia;
-}
-
-void Sistema::destruirInstancia() {
     // Liberar memoria de la fabrica
     if(fabricaSistema != NULL) {
         fabricaSistema->deleteInstancia();
@@ -55,6 +50,16 @@ void Sistema::destruirInstancia() {
     if(controladorUsuario != NULL) {
         delete controladorUsuario;
         controladorUsuario = NULL;
+    }
+
+    if(controladorCurso != NULL) {
+        delete controladorCurso;
+        controladorCurso = NULL;
+    }
+
+    if(controladorEstadistica != NULL) {
+        delete controladorEstadistica;
+        controladorEstadistica = NULL;
     }
 
     // Liberar memoria de los handlers
@@ -72,12 +77,13 @@ void Sistema::destruirInstancia() {
         handlerCurso->deleteInstancia();
         handlerCurso = NULL;
     }
-
-    // Liberar memoria de la instancia
-    if(instancia != NULL) {
-        delete instancia;
-        instancia = NULL;
-    }
-
-
 }
+
+Sistema *Sistema::getInstancia() {
+    if (instancia == NULL) {
+        instancia = new Sistema();
+    }
+    return instancia;
+}
+
+

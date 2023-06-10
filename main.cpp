@@ -87,7 +87,7 @@ int main() {
     } while (quiereContinuar);
 
     // Liberar memoria
-    sistema->destruirInstancia();
+    delete sistema;
 
     imprimirMensajeDespedida();
 }

@@ -1,20 +1,29 @@
 #include "../../include/controllers/ControladorCurso.h"
 #include "../../include/datatypes/DTDataCurso.h"
 
+#include "../../include/handlers/HandlerCurso.h"
+
 #include <string>
 
 using namespace std;
 
 ControladorCurso* ControladorCurso::instancia = NULL;
 
+HandlerCurso* ControladorCurso::coleccionCursos = NULL;
+
 
 
 ControladorCurso::ControladorCurso() {
-    // Implementación del constructor por defecto
+    ControladorCurso::coleccionCursos = HandlerCurso::getInstancia();
 }
 
 ControladorCurso::~ControladorCurso() {
-    // Implementación del destructor
+
+    if (ControladorCurso::coleccionCursos != NULL) {
+        ControladorCurso::coleccionCursos->deleteInstancia();
+        ControladorCurso::coleccionCursos = NULL;
+    }
+    
 }
 
 IControladorCurso* ControladorCurso::getInstancia() {
@@ -156,10 +165,12 @@ void ControladorCurso::marcarEjercicioNoAprobado() {
 
 
 set<string> ControladorCurso::listarNombreCursos() {
-    set<string> cursos;
-    // Implementación de la función listarNombreCursos
-    // Código para obtener la lista de cursos disponibles
-    return cursos;
+    map<string, Curso*> cursos = ControladorCurso::coleccionCursos->obtenerCursos();
+    set<string> nombresCursos;
+    for (map<string, Curso*>::iterator it = cursos.begin(); it != cursos.end(); ++it) {
+        nombresCursos.insert(it->first);
+    }
+    return nombresCursos;
 }
 
 void ControladorCurso::seleccionarCurso(string nombreCurso) {
