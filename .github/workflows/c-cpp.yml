@@ -27,7 +27,7 @@ jobs:
 
     - name: Check for warnings
       run: |
-        warnings=$(g++ -Wall -o my_program main.cpp 2>&1 | grep -E '(warning|error)' | wc -l)
+        warnings=$(make 2>&1 | grep -E '(warning|error)' | wc -l)
         echo "Number of warnings: $warnings"
         if [ "$warnings" -gt "0" ]; then
           echo "Warning: There are warnings in the code."
