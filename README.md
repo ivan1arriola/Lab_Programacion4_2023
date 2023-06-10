@@ -32,12 +32,12 @@ Los warnings se tratan como errores, por lo que si el programa no compila, es ne
 - Consulta de usuario :white_check_mark:
 - Alta de idioma :white_check_mark:
 - Consultar idiomas :white_check_mark:
-- :memo: Alta de curso
+- :memo: Alta de curso  :warning:
 - Agregar lección
 - Agregar ejercicio
 - Habilitar curso
 - :memo: Eliminar curso
-- Consultar curso
+- Consultar curso  :warning:
 - Inscribirse a curso
 - :memo: Realizar ejercicio
 - :memo: Consultar estadísticas
@@ -47,6 +47,7 @@ Los warnings se tratan como errores, por lo que si el programa no compila, es ne
 
 Los casos de uso marcados con :memo: tienen sus diagramas de comunicación desde el laboratorio 3.
 Los casos de uso marcados con :white_check_mark: están implementados.
+Los casosd de uso que estan a medio implementar tienen un :warning:.
 
 Se debe modificar los archivos .h y .cpp de cada caso de uso, y agregar los archivos .h y .cpp de cada entidad que se necesite.
 Después, se tiene que modificar el Makefile para que compile los archivos nuevos.
