@@ -40,6 +40,8 @@ void imprimirMenu();
  * una opcion 0 para cancelar */
 void imprimirOpcionesSet(const set<string>& conjunto, string nombreDelConjunto);
 
+string obtenerOpcion(const set<string>& conjunto, int opcion);
+
 /* Lee un numero por consola.Si es un numero, verifica que sea una opcion valida
  * (entre 0 y cantOpciones). Si no es un numero, pide que se ingrese un numero.
  * Si es un numero pero no es una opcion valida, pide que se ingrese una opcion

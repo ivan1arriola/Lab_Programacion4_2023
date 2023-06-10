@@ -150,3 +150,14 @@ string ingresarParametro(string parametro) {
   cin >> valor; 
   return valor;
 }
+
+string obtenerOpcion(const set<string>& conjunto, int opcion) {
+    int indice = 1;
+    for (const string& elemento : conjunto) {
+        if (indice == opcion) {
+            return elemento;
+        }
+        ++indice;
+    }
+    return "";
+}
