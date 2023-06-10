@@ -44,7 +44,7 @@ void Sistema::altaDeUsuario() {
   string descripcion = ingresarParametro("la descripcion");
 
   // Imprimir datos ingresados
-  cout << "Datos ingresados: " << endl;
+  cout << endl << "Datos ingresados: " << endl;
   cout << "Nickname: " << nickname << endl;
   cout << "Password: " << password << endl;
   cout << "Nombre: " << nombre << endl;
@@ -70,36 +70,54 @@ void Sistema::altaDeUsuario() {
     string instituto = ingresarParametro("el instituto");
     controladorUsuario->ingresarDatosProfesor(instituto);
 
-    cout << "Lista de Idiomas disponibles " << endl;
+    imprimirMensaje("Lista de Idiomas disponibles");
     set<string> idiomas = controladorUsuario->listarNombresDeIdiomasDisponibles();
     
 
     if(idiomas.size() == 0){
       imprimirMensaje("No hay idiomas disponibles");
       imprimirMensaje("No se puede crear un profesor");
+      imprimirMensaje("Cancelando alta de usuario");
       return;
     }
 
     imprimirSet(idiomas, "Idiomas");
 
+    //TODO: Deberia ser un set de idiomas
     set<string> idiomasSeleccionados;
 
-    imprimirMensaje("Ingrese los idiomas en los que se especializa el profesor");
+    imprimirMensaje("Ingrese el indice de los idiomas en los que se especializa el profesor");
     imprimirMensaje("Ingrese los idiomas uno por uno");
     imprimirMensaje("Ingrese 0 para terminar de ingresar idiomas");
 
-    string idioma;
+    int opcion = -1;
     do {
-      idioma = ingresarParametro("el idioma");
-      if (idioma != "0") {
+      if (opcion != -1) imprimirSet(idiomas, "Idiomas");
+      opcion = ingresarOpcion(idiomas.size());
+      if (opcion != 0) {
+        string idioma = obtenerOpcion(idiomas, opcion);
         idiomasSeleccionados.insert(idioma);
       }
-    } while (idioma != "0");
+    } while (opcion != 0);
+
+
+
+    if (idiomasSeleccionados.size() == 0) {
+      imprimirMensaje("Debe seleccionar al menos un idioma");
+      imprimirMensaje("No se puede crear un profesor");
+      imprimirMensaje("Cancelando alta de usuario");
+      return;
+    } 
+
+    imprimirMensaje("Idiomas seleccionados");
+    imprimirSet(idiomasSeleccionados, "Idiomas");
 
     controladorUsuario->altaProfesor(idiomasSeleccionados);
     cout << "Profesor creado con exito" << endl;
     
-  } else if (tipoUsuario == 1) { // Estudiante
+  }
+  
+  if (tipoUsuario == 1) { // Estudiante
     cout << "Ingrese el pais: ";
     string pais;
     cin >> pais;
