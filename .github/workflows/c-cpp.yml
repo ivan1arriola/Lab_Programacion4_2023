@@ -8,14 +8,27 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build
-      run: make
-    - name: Check for warnings and errors
+
+    - name: Set up C++ compiler
+      run: sudo apt-get install g++
+
+    - name: Build and check for errors
       run: |
-        warnings=$(make 2>&1 >/dev/null | grep -E '(warning|error)' | wc -l)
+        g++ -o my_program main.cpp
+        if [ $? -eq 0 ]; then
+          echo "Build successful. No errors."
+        else
+          echo "Build failed. Check for errors."
+        fi
+
+    - name: Check for warnings
+      run: |
+        warnings=$(g++ -Wall -o my_program main.cpp 2>&1 | grep -E '(warning|error)' | wc -l)
         echo "Number of warnings: $warnings"
+        if [ "$warnings" -gt "0" ]; then
+          echo "Warning: There are warnings in the code."
+        fi
