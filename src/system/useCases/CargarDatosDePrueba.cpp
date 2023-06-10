@@ -124,5 +124,52 @@ void Sistema::cargarDatosdePrueba() {
     handlerUsuario->agregarUsuario(usuario7);
     handlerUsuario->agregarUsuario(usuario8);
 
+
+    //Crear vectores de Lecciones
+    vector<Leccion*> lecciones1;
+    vector<Leccion*> lecciones2;
+    vector<Leccion*> lecciones3;
+    vector<Leccion*> lecciones4;
+
+    //Crear Lecciones
+    Leccion* leccion1 = new Leccion("nombreLeccion1", "objetivoLeccion1");
+    Leccion* leccion2 = new Leccion("nombreLeccion2", "objetivoLeccion2");
+    Leccion* leccion3 = new Leccion("nombreLeccion3", "objetivoLeccion3");
+    Leccion* leccion4 = new Leccion("nombreLeccion4", "objetivoLeccion4");
+    Leccion* leccion5 = new Leccion("nombreLeccion5", "objetivoLeccion5");
+    Leccion* leccion6 = new Leccion("nombreLeccion6", "objetivoLeccion6");
+    Leccion* leccion7 = new Leccion("nombreLeccion7", "objetivoLeccion7");
+    Leccion* leccion8 = new Leccion("nombreLeccion8", "objetivoLeccion8");
+
+    //Agregar Lecciones a los vectores
+    lecciones1.push_back(leccion1);
+    lecciones1.push_back(leccion2);
+    lecciones2.push_back(leccion3);
+    lecciones2.push_back(leccion4);
+    lecciones3.push_back(leccion5);
+    lecciones3.push_back(leccion6);
+    lecciones4.push_back(leccion7);
+    lecciones4.push_back(leccion8);
+
+    // Niveles
+    Nivel nivel1 = PRICIPIANTE;
+    Nivel nivel2 = MEDIO;
+    Nivel nivel3 = AVANZADO;
+
+    // Crear Cursos
+    //Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones)
+    Curso * curso1 = new Curso("nombreCurso1", "descripcionCurso1", nivel1, true, idioma1, dynamic_cast<Profesor*>(usuario5), lecciones1);
+    Curso * curso2 = new Curso("nombreCurso2", "descripcionCurso2", nivel2, true, idioma2, dynamic_cast<Profesor*>(usuario6), lecciones2);
+    Curso * curso3 = new Curso("nombreCurso3", "descripcionCurso3", nivel1, true, idioma3, dynamic_cast<Profesor*>(usuario7), lecciones3);
+    Curso * curso4 = new Curso("nombreCurso4", "descripcionCurso4", nivel3, true, idioma4, dynamic_cast<Profesor*>(usuario8), lecciones4);
+
+    // Agregar Cursos a la Coleccion
+    handlerCurso->agregarCurso(curso1);
+    handlerCurso->agregarCurso(curso2);
+    handlerCurso->agregarCurso(curso3);
+    handlerCurso->agregarCurso(curso4);
+
+
+
     
 }
