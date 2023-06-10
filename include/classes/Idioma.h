@@ -3,6 +3,7 @@
 
 #include <string>
 #include <set>
+#include <map>
 #include "../interfaces/ISuscriptor.h"
 
 using namespace std;
@@ -10,7 +11,7 @@ using namespace std;
 class Idioma {
     private:
         string nombre;
-        //set<ISuscriptor> suscriptores;
+        map<string, ISuscriptor*> suscriptores;
     public:
         Idioma();
         Idioma(string nombre);
@@ -19,7 +20,7 @@ class Idioma {
 
         void agregarSuscriptor(ISuscriptor* suscriptor);
         void eliminarSuscriptor(string nickname);
-        void notificarSuscriptores();
+        void notificarSuscriptores(string nombreCurso);
 
         bool contieneSuscriptor(string nickname);
         set<string> getIdiomasProfesor();

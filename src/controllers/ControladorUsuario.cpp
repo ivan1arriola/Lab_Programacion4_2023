@@ -18,6 +18,8 @@
 
 #include "../../include/datatypes/DTDate.h"
 
+#include "../../include/interfaces/ISuscriptor.h"
+
 
 #include <iostream>
 #include <string>
@@ -181,8 +183,19 @@ set<string> ControladorUsuario::listarNIcknameProfesores() {
 }
 
 set<string> ControladorUsuario::listarIdiomasNoSuscriptos(string nickname) {
-    set<string> idiomas; // Valor vacío
-    return idiomas;
+    this->actual_nickname = nickname;
+    map<string, Idioma*> idiomas = coleccionIdiomas->obtenerIdiomas();
+    map<string, Idioma*>::iterator it;
+    set<string> nombresIdiomas;
+    for (it = idiomas.begin(); it != idiomas.end(); it++) {
+        string nombreIdioma = it->first;
+        Idioma* idioma = it->second;
+        if (!idioma->contieneSuscriptor(nickname)) {
+            nombresIdiomas.insert(nombreIdioma);
+        }
+    }
+    return nombresIdiomas;
+
 }
 
 set<string> ControladorUsuario::listarIdiomasSuscriptos(string nickname) {
@@ -195,7 +208,8 @@ void ControladorUsuario::seleccionarProfesor(string nicknameProfesor) { //TODO: 
 }
 
 void ControladorUsuario::suscribirse(string nombreIdioma) {
-    // Implementación mínima
+    ISuscriptor* suscriptor = dynamic_cast<ISuscriptor*>(coleccionUsuarios->obtenerUsuario(actual_nickname));
+    coleccionIdiomas->obtenerIdioma(nombreIdioma)->agregarSuscriptor(suscriptor);
 }
 
 set<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName) {
