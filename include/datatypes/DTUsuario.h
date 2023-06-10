@@ -38,7 +38,7 @@ public:
     int getTipo() { return this->tipo; }
 
     // Destructor
-    ~DTUsuario();
+    virtual ~DTUsuario();
 
     virtual void imprimir(ostream& os) = 0;
 

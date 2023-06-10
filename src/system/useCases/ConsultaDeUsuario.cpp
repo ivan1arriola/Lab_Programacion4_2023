@@ -65,7 +65,6 @@ void Sistema::consultaDeUsuario() {
         cout << "Nombre: " << dtProfesor->getNombre() << endl;
         cout << "Descripción: " << dtProfesor->getDescripcion() << endl;
         cout << "Instituto: " << dtProfesor->getInstituto() << endl;
-        delete dtProfesor; //TODO: Warning: deleting object of polymorphic class type ‘DTProfesor’ which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
     } else {
         DTEstudiante* dtEstudiante = dynamic_cast<DTEstudiante*>(dtUsuario);
         cout << "Información del estudiante:" << endl;
@@ -73,7 +72,8 @@ void Sistema::consultaDeUsuario() {
         cout << "Nombre: " << dtEstudiante->getNombre() << endl;
         cout << "Descripción: " << dtEstudiante->getDescripcion() << endl;
         cout << "País: " << dtEstudiante->getPais() << endl;
-        delete dtEstudiante; //TODO: Warning: deleting object of polymorphic class type ‘DTEstudiante’ which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
     }
+
+    delete dtUsuario;
     
 }
