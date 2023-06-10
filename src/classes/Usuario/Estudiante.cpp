@@ -18,7 +18,10 @@ Estudiante::Estudiante(string nickname, string contrasenia, string nombre, strin
 }
 
 Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion)
-    : Usuario(nickname, contrasenia, nombre, descripcion) {}
+    : Usuario(nickname, contrasenia, nombre, descripcion) {
+    this->pais = "";
+    this->fechaNacimiento = NULL;
+}
 
 Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais)
     : Usuario(nickname, contrasenia, nombre, descripcion) {
