@@ -39,5 +39,5 @@ set<Ejercicio> Leccion::getEjercicios() {
 }
 
 Leccion::~Leccion() {
-    // Implementación del destructor
+    // Borrar todos los ejercicios
 }
