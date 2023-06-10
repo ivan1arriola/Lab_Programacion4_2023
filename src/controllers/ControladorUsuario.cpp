@@ -152,12 +152,31 @@ set<string> ControladorUsuario::listarNombresDeIdiomasDisponibles() {
 
 
 set<string> ControladorUsuario::listarNombresIdiomasDeProfesor(string nicknameProfesor) {
-    set<string> idiomas; // Valor vacío
-    return idiomas;
+    if (!coleccionUsuarios->existeUsuario(nicknameProfesor)) {
+        throw invalid_argument("El nickname no existe");
+    }
+    Profesor* profesor = dynamic_cast<Profesor*>(coleccionUsuarios->obtenerUsuario(nicknameProfesor));
+    set<Idioma*> idiomas = profesor->getIdiomas();
+    set<Idioma*>::iterator it;
+    set<string> nombresIdiomas;
+
+    for (it = idiomas.begin(); it != idiomas.end(); it++) {
+        Idioma* idioma = *it;
+        nombresIdiomas.insert(idioma->getNombre());
+    }
+    return nombresIdiomas;
 }
 
 set<string> ControladorUsuario::listarNIcknameProfesores() {
-    set<string> nicknames; // Valor vacío
+    set<string> nicknames; 
+    set<Usuario*> usuarios = coleccionUsuarios->obtenerUsuarios();
+    set<Usuario*>::iterator it;
+    for (it = usuarios.begin(); it != usuarios.end(); it++) {
+        Usuario* usuario = *it;
+        if (usuario->esProfesor()) {
+            nicknames.insert(usuario->getNickname());
+        }
+    }
     return nicknames;
 }
 
@@ -171,8 +190,8 @@ set<string> ControladorUsuario::listarIdiomasSuscriptos(string nickname) {
     return idiomas;
 }
 
-void ControladorUsuario::seleccionarProfesor(string nicknameProfesor) {
-    // Implementación mínima
+void ControladorUsuario::seleccionarProfesor(string nicknameProfesor) { //TODO: Tiene que existir el profesor
+    
 }
 
 void ControladorUsuario::suscribirse(string nombreIdioma) {

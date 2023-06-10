@@ -8,6 +8,16 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible) {
     // Implementación del constructor con parámetros
 }
 
+Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones) {
+    this->nombre = nombre;
+    this->descripcion = descripcion;
+    this->nivel = nivel;
+    this->disponible = disponible;
+    this->lecciones = lecciones;
+    this->idioma = idioma;
+    this->profesor = profesor;
+}
+
 string Curso::getNombre() {
     return nombre;
 }
@@ -45,8 +55,8 @@ set<string> Curso::obtenerEjNoAprobados() {
     return set<string>();
 }
 
-void Curso::agregarALeccion(string desc) {
-    // Implementación de la función agregarALeccion()
+void Curso::agregarLeccion(Leccion* leccion) {
+    this->lecciones.push_back(leccion);
 }
 
 float Curso::getCantEjsTotal() {

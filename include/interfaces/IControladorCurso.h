@@ -8,14 +8,14 @@
 #include "../datatypes/DTDataLeccion.h"
 #include "../datatypes/DTEjercicio.h"
 
+#include "../enums/NIVEL.h"
+
 using namespace std;
 
 class IControladorCurso {
     public:
-        virtual set<string> listarCursosHabilitados() = 0;
-        virtual void seleccionarIdioma(string nombreIdioma) = 0;
-        virtual void seleccionarCurso(string nombreCurso) = 0;
-        virtual void altaCurso(bool disponible) = 0;
+        
+        
         virtual set<string> obtenerCursos() = 0;
         virtual string getNombreCurso() = 0;
         virtual set<string> getDataCurso() = 0;
@@ -23,10 +23,8 @@ class IControladorCurso {
         virtual set<string> getNombresCursosPrevios() = 0;
         virtual set<DTDataLeccion> getLecciones() = 0;
         virtual void eliminarCurso(string nombre) = 0;
-        virtual void agregarLeccion(string tema, string objetivo) = 0;
-        virtual void agregarEjercicio(string tipoEjercicio, string descEjercicio) = 0;
+        
         virtual void ingresarNicknameEstudiante(string nomEstudiante) = 0;
-        virtual void ingresarDatosCurso(string nombre, string desc, string dificultad) = 0;
         virtual set<string> listarCursosInscrip() = 0;
         virtual set<string> mostrarCursosNoAprobados() = 0;
         virtual set<string> mostrarEjerciciosNoAprobados() = 0;
@@ -40,6 +38,19 @@ class IControladorCurso {
         //Operaciones para Consulta Curso
         virtual set<string> listarNombreCursos() = 0;
         virtual DTDataCurso mostrarDatosCurso() = 0; 
+
+        //Operaciones para Alta Curso
+        virtual void seleccionarProfesor(string nickname) = 0;
+        virtual void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad) = 0;
+        virtual void seleccionarIdioma(string nombreIdioma) = 0;
+        virtual set<string> listarCursosHabilitados() = 0;
+        virtual void seleccionarCurso(string nombreCurso) = 0;
+        virtual void agregarLeccion(string tema, string objetivo) = 0;
+        virtual void agregarEjercicio(string tipoEjercicio, string descEjercicio) = 0;
+        virtual void altaCurso(bool disponible) = 0;
+
+
+
 };
 
 #endif

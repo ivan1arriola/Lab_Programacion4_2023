@@ -15,6 +15,7 @@ class Leccion {
     public:
         Leccion();
         Leccion(string descripcion);
+        Leccion(string tema, string objetivo);
 
         // Getters
         string getTema();

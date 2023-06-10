@@ -35,6 +35,8 @@ class Profesor : public Usuario {
         void agregarAIdiomasDeProfesor();
         set<DTDataCursoProfesor> getCursosProfesor();
 
+        set<Idioma*> getIdiomas();
+
 
         ~Profesor();
 };

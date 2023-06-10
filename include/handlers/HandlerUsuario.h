@@ -26,6 +26,7 @@ public:
     void agregarUsuario(Usuario* usuario);
 
     // Obtener
+    set<Usuario*> obtenerUsuarios();
     Usuario* obtenerUsuario(string nickname);
     set<string> obtenerNicknamesUsuarios();
 

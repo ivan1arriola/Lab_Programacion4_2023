@@ -1,7 +1,11 @@
 #include "../../include/controllers/ControladorCurso.h"
 #include "../../include/datatypes/DTDataCurso.h"
 
+#include "../../include/classes/Curso/Curso.h"
+
 #include "../../include/handlers/HandlerCurso.h"
+#include "../../include/handlers/HandlerUsuario.h"
+#include "../../include/handlers/HandlerIdioma.h"
 
 #include <string>
 
@@ -10,11 +14,15 @@ using namespace std;
 ControladorCurso* ControladorCurso::instancia = NULL;
 
 HandlerCurso* ControladorCurso::coleccionCursos = NULL;
+HandlerUsuario* ControladorCurso::coleccionUsuarios = NULL;
+HandlerIdioma* ControladorCurso::coleccionIdiomas = NULL;
 
 
 
 ControladorCurso::ControladorCurso() {
     ControladorCurso::coleccionCursos = HandlerCurso::getInstancia();
+    ControladorCurso::coleccionUsuarios = HandlerUsuario::getInstancia();
+    ControladorCurso::coleccionIdiomas = HandlerIdioma::getInstancia();
 }
 
 ControladorCurso::~ControladorCurso() {
@@ -41,13 +49,35 @@ set<string> ControladorCurso::listarCursosHabilitados() {
 }
 
 void ControladorCurso::seleccionarIdioma(string nombreIdioma) {
-    this->nombreIdioma = nombreIdioma;
+    if (coleccionIdiomas->existeIdioma(nombreIdioma))
+        this->idiomaCursoActual = coleccionIdiomas->obtenerIdioma(nombreIdioma);
+    else
+        throw invalid_argument("No existe el idioma");
 }
 
 
 void ControladorCurso::altaCurso(bool disponible) {
-    // Implementación de la función altaCurso
-    // Código para dar de alta un nuevo curso con los parámetros proporcionados
+    if(coleccionCursos->existeCurso(this->nombreCurso)){
+        this->nombreCursoActual = "";
+        this->descripcionCursoActual = "";
+        this->idiomaCursoActual = NULL;
+        this->nicknameProfesorActual = "";
+        this->usuarioActual = NULL;
+
+        this->leccionesCursoActual.clear();
+        //this->cursosPreviosCursoActual.clear();
+
+        throw invalid_argument("Ya existe un curso con ese nombre");
+    }else {
+
+        Profesor* profesor = dynamic_cast<Profesor*>(this->usuarioActual);
+
+        //Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones)
+        Curso* cursoNuevo = new Curso(this->nombreCurso, this->descripcionCursoActual, this->dificultadlCursoActual,
+                                        disponible, this->idiomaCursoActual, profesor,
+                                        this->leccionesCursoActual);
+        coleccionCursos->agregarCurso(cursoNuevo);
+    }
 }
 
 set<string> ControladorCurso::obtenerCursos() {
@@ -95,8 +125,8 @@ void ControladorCurso::eliminarCurso(string nombre) {
 }
 
 void ControladorCurso::agregarLeccion(string tema, string objetivo) {
-    // Implementación de la función agregarLeccion
-    // Código para agregar una nueva lección al curso seleccionado con los parámetros proporcionados
+    Leccion* leccion = new Leccion(tema, objetivo);
+    this->leccionesCursoActual.push_back(leccion);
 }
 
 void ControladorCurso::agregarEjercicio(string tipoEjercicio, string descEjercicio) {
@@ -109,9 +139,13 @@ void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante) {
     // Código para ingresar el nickname del estudiante para realizar ejercicios
 }
 
-void ControladorCurso::ingresarDatosCurso(string nombre, string desc, string dificultad) {
-    // Implementación de la función ingresarDatosCurso
-    // Código para ingresar los datos del nuevo curso a crear
+void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel dificultad) {
+    this->nombreCursoActual = nombre;
+    this->descripcionCursoActual = desc;
+    this->dificultadlCursoActual = dificultad;
+
+    this->nicknameProfesorActual = this->usuarioActual->getNickname();
+    
 }
 
 set<string> ControladorCurso::listarCursosInscrip() {
@@ -181,4 +215,13 @@ DTDataCurso ControladorCurso::mostrarDatosCurso() {
     // Implementación de la función mostrarDatosCurso
     // Código para obtener los datos del curso seleccionado
     return DTDataCurso();
+}
+
+void ControladorCurso::seleccionarProfesor(string nickname) {
+    //Averigua si existe el profesor, lo busca en la coleccion de usuarios y lo asigna a usuarioActual
+    if (coleccionUsuarios->existeUsuario(nickname)) {
+        this->usuarioActual = coleccionUsuarios->obtenerUsuario(nickname);
+    } else {
+        throw invalid_argument("No existe el profesor");
+    }
 }

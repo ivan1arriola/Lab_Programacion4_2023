@@ -8,6 +8,11 @@ Leccion::Leccion(string descripcion) {
     // Implementación del constructor con parámetros
 }
 
+Leccion::Leccion(string tema, string objetivo) {
+    this->tema = tema;
+    this->objetivo = objetivo;
+}
+
 string Leccion::getTema() {
     return tema;
 }

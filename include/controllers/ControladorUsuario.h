@@ -21,6 +21,7 @@ class ControladorUsuario : public IControladorUsuario {
     private:
         // Atributos
         Usuario* usuarioActual;
+        
 
         ControladorUsuario();
 

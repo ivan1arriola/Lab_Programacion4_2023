@@ -3,10 +3,15 @@
 
 #include <string>
 #include <set>
+#include <vector>
 
 using namespace std;
 
 #include "../../enums/NIVEL.h"
+
+#include "Leccion.h"
+#include "../Idioma.h"
+#include "../Usuario/Profesor.h"
 
 class Curso {
     private:
@@ -14,15 +19,24 @@ class Curso {
         string descripcion;
         Nivel nivel;
         bool disponible;
+
+        //pseudoatributos
+        vector<Leccion*> lecciones; // Las lecciones tienen ejercicios / Las lecciones estan ordenadas
+        Idioma* idioma;
+        Profesor* profesor;
+
+
     public:
         Curso();
         Curso(string nombre, string descripcion, Nivel nivel, bool disponible);
+        Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones);
 
         // Getters
         string getNombre();
         string getDescripcion();
         Nivel getNivel();
         bool getDisponible();
+        vector<Leccion*> getLecciones();
 
         // Setters
         void setNombre(string nombre);
@@ -32,7 +46,7 @@ class Curso {
 
         // Operaciones
         set<string> obtenerEjNoAprobados();
-        void agregarALeccion(string desc);
+        void agregarLeccion(Leccion* leccion);
         float getCantEjsTotal();
         float calcPromedioAvance();
 
