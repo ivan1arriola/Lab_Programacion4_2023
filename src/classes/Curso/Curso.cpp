@@ -70,5 +70,9 @@ float Curso::calcPromedioAvance() {
 }
 
 Curso::~Curso() {
-    // Implementación del destructor
+    // Borrar todos las lecciones
+
+    for (long unsigned int i = 0; i < lecciones.size(); i++) {
+        delete lecciones[i];
+    }
 }
