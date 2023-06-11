@@ -22,8 +22,8 @@ private:
     string contrasenia;
     string nombre;
     string descripcion;
-    vector<DTNotificacion> notificacionesRecibidas;
-    void agregarNotificacion(DTNotificacion notificacion);
+    vector<DTNotificacion*> notificacionesRecibidas;
+    void agregarNotificacion(DTNotificacion * notificacion);
 
 public:
     Usuario();
@@ -34,7 +34,7 @@ public:
     virtual string getContrasenia();
     virtual string getNombre();
     virtual string getDescripcion();
-    virtual vector<DTNotificacion> getNotificacionesRecibidas();
+    virtual vector<DTNotificacion*> getNotificacionesRecibidas();
 
     virtual DTUsuario* getDT() = 0;
 
@@ -45,7 +45,7 @@ public:
     virtual void setDescripcion(string descripcion);
 
     // Operaciones
-    virtual void enviarNotificacion(string nombreCurso, string nombreIdioma);
+    void enviarNotificacion(string nombreCurso, string nombreIdioma);
     virtual bool esProfesor() = 0;
     virtual void eliminarNotificacionesRecibidas();
     virtual bool esEstudiante() = 0;

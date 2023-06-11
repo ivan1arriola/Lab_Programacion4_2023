@@ -30,7 +30,6 @@ class Profesor : public Usuario {
         void setInstituto(string instituto);
 
         // Operaciones
-        void enviarNotificacion(string nombreCurso, string nombreIdioma);
         set<string> obtenerIdiomas();
         void agregarAIdiomasDeProfesor();
         set<DTDataCursoProfesor> getCursosProfesor();

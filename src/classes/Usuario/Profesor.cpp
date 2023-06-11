@@ -64,9 +64,6 @@ set<DTDataCursoProfesor> Profesor::getCursosProfesor() {
   return cursosProfesor;
 }
 
-void Profesor::enviarNotificacion(string nombreCurso, string nombreIdioma){
-//TODO: Sin implementar
-}
 
 set<Idioma*> Profesor::getIdiomas() {
   return this->idiomasDeProfesor;

@@ -36,7 +36,6 @@ public:
     void setFechaNacimiento(int dia, int mes, int anio);
 
     // Operaciones
-    void enviarNotificacion(string nombreCurso, string nombreIdioma);
 
     ~Estudiante();
 };
