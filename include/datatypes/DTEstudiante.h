@@ -9,16 +9,6 @@
 
 using namespace std;
 
-/*
-DTEstudiante
-- nickname: string
-- contrasenia: string
-- nombre: string
-- descripcion: string
-- pais: string
-- fechaNacimiento: DTDate*
-*/
-
 class DTEstudiante : public DTUsuario {
 private:
     string pais;

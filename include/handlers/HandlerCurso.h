@@ -12,6 +12,7 @@ class HandlerCurso {
 private:
     map<string, Curso*> cursos; // Colección de punteros a Curso
     HandlerCurso();
+    
     static HandlerCurso* instancia;
 
     // Destructor

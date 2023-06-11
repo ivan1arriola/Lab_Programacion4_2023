@@ -12,6 +12,8 @@ void limpiarConsola();
 /* Imprime un espacio */
 void espacioSimple();
 
+/* Pide que se seleccione un elemento de una lista de elementos. Devuelve el
+ * elemento seleccionado. Si se ingresa 0, devuelve un string vacio */
 string seleccionarElemento(set<string> elementos, string nombreElemento);
 
 /*Imprime una linea de - */

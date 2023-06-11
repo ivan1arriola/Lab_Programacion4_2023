@@ -42,9 +42,7 @@ IControladorCurso* ControladorCurso::getInstancia() {
 
 
 set<string> ControladorCurso::listarCursosHabilitados() {
-    // set<string> cursos;
-    // Implementación de la función listarCursosHabilitados
-    // Código para obtener la lista de cursos habilitados
+    
     HandlerCurso *h = HandlerCurso::getInstancia();
     map<string, Curso*> mapCursos = h->obtenerCursos();
     set<string> cursos;
@@ -52,7 +50,8 @@ set<string> ControladorCurso::listarCursosHabilitados() {
 
     for(auto it = mapCursos.begin(); it != mapCursos.end(); ++it){
         insertar = it->second->getNombre();
-        cursos.insert(insertar);
+        if(it->second->getDisponible())
+            cursos.insert(insertar);
     }
 
     return cursos;

@@ -110,6 +110,7 @@ void ControladorUsuario::ingresarDatosProfesor(string instituto) {
 }
 
 void ControladorUsuario::altaProfesor(set<string> idiomas) {
+    
     // Verificar si el nickname ya existe
     if (coleccionUsuarios->existeUsuario(actual_nickname)) {
         throw invalid_argument("El nickname ya está en uso");
