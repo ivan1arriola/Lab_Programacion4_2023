@@ -43,6 +43,12 @@ void Sistema::suscribirseANotificaciones() {
 
     set<string> idiomas = controladorUsuario->listarIdiomasNoSuscriptos(nickname);
 
+    if (idiomas.empty()) {
+        imprimirMensaje("El usuario ya está suscripto a todos los idiomas");
+        imprimirMensaje("Cancelando suscripción a notificaciones");
+        return;
+    }
+
     bool deseaSuscribirse = true;
 
     imprimirMensaje("Idiomas a los que no está suscripto:");
@@ -61,6 +67,10 @@ void Sistema::suscribirseANotificaciones() {
             deseaSuscribirse = false;
         }
     } while (deseaSuscribirse && !idiomas.empty());
+
+    if (idiomas.empty()) {
+        imprimirMensaje("El usuario ya está suscripto a todos los idiomas");
+    }
 
 
 

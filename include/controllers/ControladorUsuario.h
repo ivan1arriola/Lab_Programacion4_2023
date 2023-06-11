@@ -5,6 +5,7 @@
 #include <string>
 #include <set>
 #include <map>
+#include <vector>
 
 #include "../interfaces/IControladorUsuario.h"
 #include "../classes/Idioma.h"
@@ -53,7 +54,7 @@ class ControladorUsuario : public IControladorUsuario {
         set<string> listarIdiomasSuscriptos(string nickname);
         void seleccionarProfesor(string nicknameProfesor);
         void suscribirse(string nombreIdioma);
-        set<DTNotificacion*> listarNotificaciones(string nickName);
+        vector<DTNotificacion*> listarNotificaciones(string nickName);
         void eliminarNotificaciones();
         void eliminarSuscripcion(string idioma);
 

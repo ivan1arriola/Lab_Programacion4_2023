@@ -214,9 +214,10 @@ void ControladorUsuario::suscribirse(string nombreIdioma) {
     coleccionIdiomas->obtenerIdioma(nombreIdioma)->agregarSuscriptor(suscriptor);
 }
 
-set<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName) {
+vector<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName) {
     this->actual_nickname = nickName;
-    set<DTNotificacion*> notificaciones; // Valor vacío
+    Usuario* usuario = coleccionUsuarios->obtenerUsuario(nickName);
+    vector<DTNotificacion*> notificaciones = usuario->getNotificacionesRecibidas();
     return notificaciones;
 }
 
