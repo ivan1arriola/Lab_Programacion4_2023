@@ -16,6 +16,8 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
     this->lecciones = lecciones;
     this->idioma = idioma;
     this->profesor = profesor;
+
+    idioma->notificarSuscriptores(nombre);
 }
 
 string Curso::getNombre() {

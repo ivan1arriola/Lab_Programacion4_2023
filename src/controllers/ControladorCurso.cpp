@@ -67,7 +67,7 @@ void ControladorCurso::seleccionarIdioma(string nombreIdioma) {
 
 
 void ControladorCurso::altaCurso(bool disponible) {
-    if(coleccionCursos->existeCurso(this->nombreCurso)){
+    if(!coleccionCursos->existeCurso(this->nombreCurso)){
         this->nombreCursoActual = "";
         this->descripcionCursoActual = "";
         this->idiomaCursoActual = NULL;
