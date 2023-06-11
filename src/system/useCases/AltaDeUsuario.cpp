@@ -118,9 +118,7 @@ void Sistema::altaDeUsuario() {
   }
   
   if (tipoUsuario == 1) { // Estudiante
-    cout << "Ingrese el pais: ";
-    string pais;
-    cin >> pais;
+    string pais = ingresarParametro("el pais");
     controladorUsuario->ingresarDatosEstudiante(pais);
     controladorUsuario->altaEstudiante();
     cout << "Estudiante creado con exito" << endl;

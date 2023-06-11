@@ -93,7 +93,7 @@ int ingresarOpcion(int cantOpciones) {
     while (!esNumero || !esOpcionValida) {
         cout << "Ingrese una opcion: ";
         cin >> opcion;
-        esNumero = cin.good();
+        esNumero = cin.good(); // Chequea que sea numero / eso creo?
         if (!esNumero) {
             cin.clear();
             cin.ignore(10000, '\n');
@@ -162,6 +162,7 @@ void imprimirMensajeDespedida() {
 }
 
 
+ 
 string ingresarParametro(string parametro) {
   string valor;
   cout << "Ingrese " << parametro << ": ";

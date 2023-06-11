@@ -23,6 +23,7 @@ class Idioma {
         void notificarSuscriptores(string nombreCurso);
 
         bool contieneSuscriptor(string nickname);
+        
         set<string> getIdiomasProfesor();
 
         bool operator==(const Idioma& otro);

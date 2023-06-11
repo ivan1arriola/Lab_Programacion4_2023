@@ -150,7 +150,7 @@ void Sistema::cargarDatosdePrueba()
      // Crear Cursos
      Curso *curso1 = new Curso("Programación en C++", "Aprende a programar en C++ desde cero", nivel1, true, idioma1, dynamic_cast<Profesor *>(usuario5), lecciones1);
      Curso *curso2 = new Curso("Diseño Gráfico Avanzado", "Explora técnicas avanzadas de diseño gráfico", nivel2, true, idioma2, dynamic_cast<Profesor *>(usuario6), lecciones2);
-     Curso *curso3 = new Curso("Marketing Digital para Emprendedores", "Descubre estrategias de marketing para impulsar tu negocio", nivel1, true, idioma3, dynamic_cast<Profesor *>(usuario7), lecciones3);
+     Curso *curso3 = new Curso("Marketing Digital para Emprendedores", "Descubre estrategias de marketing para impulsar tu negocio", nivel1, false, idioma3, dynamic_cast<Profesor *>(usuario7), lecciones3);
      Curso *curso4 = new Curso("Introducción a la Inteligencia Artificial", "Aprende los conceptos básicos de la IA y sus aplicaciones", nivel3, true, idioma4, dynamic_cast<Profesor *>(usuario8), lecciones4);
 
      // Agregar Cursos a la Coleccion
