@@ -9,6 +9,9 @@ using namespace std;
 /* Limpia la consola en Linux */
 void limpiarConsola();
 
+/* Imprime un espacio */
+void espacioSimple();
+
 string seleccionarElemento(set<string> elementos, string nombreElemento);
 
 /*Imprime una linea de - */
