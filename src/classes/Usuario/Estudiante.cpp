@@ -66,9 +66,7 @@ void Estudiante::setFechaNacimiento(int dia, int mes, int anio) {
     }
 }
 
-void Estudiante::enviarNotificacion(string nombreCurso, string nombreIdioma) {
-    // TODO
-}
+
 
 Estudiante::~Estudiante() {
     delete fechaNacimiento;

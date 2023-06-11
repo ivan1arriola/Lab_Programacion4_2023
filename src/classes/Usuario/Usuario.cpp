@@ -18,6 +18,8 @@ Usuario::Usuario(string nickname, string contrasenia, string nombre, string desc
   this->contrasenia = contrasenia;
   this->nombre = nombre;
   this->descripcion = descripcion;
+
+  this->notificacionesRecibidas = vector<DTNotificacion*>();
 }
 
 // Getters
@@ -38,7 +40,7 @@ string Usuario::getDescripcion() {
   return this->descripcion;
 }
 
-vector<DTNotificacion> Usuario::getNotificacionesRecibidas() {
+vector<DTNotificacion*> Usuario::getNotificacionesRecibidas() {
   return this->notificacionesRecibidas;
 }
 
@@ -62,12 +64,12 @@ void Usuario::setDescripcion(string descripcion) {
 
 // Operaciones
 
-void Usuario::agregarNotificacion(DTNotificacion notificacion) {
+void Usuario::agregarNotificacion(DTNotificacion * notificacion) {
   this->notificacionesRecibidas.push_back(notificacion);
 }
 
 void Usuario::enviarNotificacion(string nombreCurso, string nombreIdioma) {
-  DTNotificacion notificacion = DTNotificacion(nombreCurso, nombreIdioma);
+  DTNotificacion * notificacion = new DTNotificacion(nombreCurso, nombreIdioma);
   this->agregarNotificacion(notificacion);
 }
 
@@ -80,8 +82,8 @@ void Usuario::eliminarNotificacionesRecibidas() {
 Usuario::~Usuario() {
 
     // Llama al destructor de cada elemento del vector notificacionesRecibidas
-    for (vector<DTNotificacion>::iterator it = this->notificacionesRecibidas.begin(); it != this->notificacionesRecibidas.end(); ++it) {
-        it->~DTNotificacion();
+    for (vector<DTNotificacion*>::iterator it = this->notificacionesRecibidas.begin(); it != this->notificacionesRecibidas.end(); ++it) {
+        delete *it;
     }
 
 }
