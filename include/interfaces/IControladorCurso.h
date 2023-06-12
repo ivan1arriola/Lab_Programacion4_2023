@@ -49,6 +49,9 @@ class IControladorCurso {
         virtual void agregarEjercicio(string tipoEjercicio, string descEjercicio) = 0;
         virtual void altaCurso(bool disponible) = 0;
 
+        //operaciones para habilitar curso
+        virtual set<string> listarCursosNoHabilitados()=0;
+
 
 
 };
