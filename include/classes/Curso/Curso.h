@@ -13,6 +13,8 @@ using namespace std;
 #include "../Idioma.h"
 #include "../Usuario/Profesor.h"
 
+#include "../../datatypes/DTDataCurso.h"
+
 class Curso {
     private:
         string nombre;
@@ -37,6 +39,8 @@ class Curso {
         Nivel getNivel();
         bool getDisponible();
         vector<Leccion*> getLecciones();
+
+        DTDataCurso* getDT();
 
         // Setters
         void setNombre(string nombre);

@@ -78,3 +78,7 @@ Curso::~Curso() {
         delete lecciones[i];
     }
 }
+
+DTDataCurso* Curso::getDT() {
+    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNombre());
+}

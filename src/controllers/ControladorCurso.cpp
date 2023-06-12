@@ -220,10 +220,10 @@ void ControladorCurso::seleccionarCurso(string nombreCurso) {
     this->nombreCurso = nombreCurso;
 }
 
-DTDataCurso ControladorCurso::mostrarDatosCurso() {
-    // Implementación de la función mostrarDatosCurso
-    // Código para obtener los datos del curso seleccionado
-    return DTDataCurso();
+DTDataCurso* ControladorCurso::mostrarDatosCurso() {
+    string nombreCurso = this->nombreCurso;
+    Curso * curso = coleccionCursos->obtenerCurso(nombreCurso);
+    return curso->getDT();
 }
 
 void ControladorCurso::seleccionarProfesor(string nickname) {
