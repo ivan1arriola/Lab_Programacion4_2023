@@ -46,7 +46,7 @@ void Sistema::consultarCurso() {
     // Obtener información del curso
     DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
 
-    cout << dtCurso << endl;
+    cout << *dtCurso << endl;
 
     cout << endl;  /**
 
