@@ -31,6 +31,10 @@ class DTDataCurso {
 
 
         ~DTDataCurso();
+
+        friend ostream& operator<<(ostream& os, const DTDataCurso& dtCurso);
 };
+
+
 
 #endif

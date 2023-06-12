@@ -37,7 +37,7 @@ class IControladorCurso {
 
         //Operaciones para Consulta Curso
         virtual set<string> listarNombreCursos() = 0;
-        virtual DTDataCurso mostrarDatosCurso() = 0; 
+        virtual DTDataCurso* mostrarDatosCurso() = 0; 
 
         //Operaciones para Alta Curso
         virtual void seleccionarProfesor(string nickname) = 0;
