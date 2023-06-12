@@ -2,11 +2,14 @@
 #define ESTUDIANTE
 
 #include <string>
+#include <map>
 
 #include "Usuario.h"
 
 #include "../../datatypes/DTDate.h"
 #include "../../datatypes/DTUsuario.h"
+
+class Inscripcion;
 
 using namespace std;
 
@@ -15,6 +18,8 @@ private:
 
     string pais = "";
     DTDate* fechaNacimiento = NULL;
+
+    map<string, Inscripcion*> inscripciones; // nicknameCurso, Inscripcion
 
 public:
     Estudiante();
@@ -27,6 +32,7 @@ public:
     DTDate* getFechaNacimiento();
     bool esProfesor();
     bool esEstudiante();
+    map<string, Inscripcion*> getInscripciones();
 
     DTUsuario* getDT();
 
@@ -40,4 +46,7 @@ public:
     ~Estudiante();
 };
 
+#include "../Inscripcion.h"
+
 #endif
+

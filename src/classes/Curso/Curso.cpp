@@ -18,6 +18,7 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
     this->profesor = profesor;
 
     idioma->notificarSuscriptores(nombre);
+    this->inscripciones = map<string, Inscripcion*>();
 }
 
 string Curso::getNombre() {
@@ -90,4 +91,8 @@ Curso::~Curso() {
 
 DTDataCurso* Curso::getDT() {
     return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNombre());
+}
+
+map<string, Inscripcion*> Curso::getInscripciones() {
+    return inscripciones;
 }

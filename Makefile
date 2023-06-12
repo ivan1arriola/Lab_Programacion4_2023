@@ -47,6 +47,7 @@ CPP_CLASSES_FILES := $(SRCDIR)/classes/Usuario/Usuario.cpp \
 	$(SRCDIR)/classes/Curso/Ejercicio.cpp \
 	$(SRCDIR)/classes/Curso/Completar.cpp \
 	$(SRCDIR)/classes/Curso/Traducir.cpp \
+	$(SRCDIR)/classes/Inscripcion.cpp \
 
 CPP_CONTROLLERS_FILES := $(SRCDIR)/controllers/ControladorUsuario.cpp \
 	$(SRCDIR)/controllers/ControladorCurso.cpp \
