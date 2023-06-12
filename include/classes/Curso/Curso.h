@@ -47,8 +47,9 @@ class Curso {
         // Operaciones
         set<string> obtenerEjNoAprobados();
         void agregarLeccion(Leccion* leccion);
-        float getCantEjsTotal();
+        int getCantEjsTotal();
         float calcPromedioAvance();
+        int getCantLecciones();
 
         ~Curso();
 

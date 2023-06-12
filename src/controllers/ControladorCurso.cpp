@@ -234,3 +234,16 @@ void ControladorCurso::seleccionarProfesor(string nickname) {
         throw invalid_argument("No existe el profesor");
     }
 }
+
+set<string> ControladorCurso::listarCursosNoHabilitados(){
+    HandlerCurso* h= HandlerCurso::getInstancia();
+    map<string,Curso*> o= h->obtenerCursos();
+    set<string> resultado;
+
+    for(map<string,Curso*>::iterator it=o.begin();it!=o.end();++it){
+        if(it->second->getDisponible()==false){
+            resultado.insert(it->second->getNombre());
+        }
+    }
+    return resultado;
+}

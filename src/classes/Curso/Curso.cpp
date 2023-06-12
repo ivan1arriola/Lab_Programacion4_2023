@@ -61,14 +61,23 @@ void Curso::agregarLeccion(Leccion* leccion) {
     this->lecciones.push_back(leccion);
 }
 
-float Curso::getCantEjsTotal() {
+int Curso::getCantEjsTotal() {
+    int total=0;
+    for(vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end();++it){
+        Leccion* l=*it;
+        total=l->getCantEj();
+        }
     // Implementación de la función getCantEjsTotal()
-    return 0;
+    return total;
 }
 
 float Curso::calcPromedioAvance() {
     // Implementación de la función calcPromedioAvance()
     return 0;
+}
+
+int Curso::getCantLecciones(){
+    return lecciones.size();
 }
 
 Curso::~Curso() {

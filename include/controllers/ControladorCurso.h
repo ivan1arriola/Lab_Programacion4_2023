@@ -73,6 +73,9 @@ public:
     void agregarLeccion(string tema, string objetivo);
     void agregarEjercicio(string tipoEjercicio, string descEjercicio);
     void altaCurso(bool disponible);
+
+    //operaciones para habilitar curso
+    set<string> listarCursosNoHabilitados();
 };
 
 #endif
