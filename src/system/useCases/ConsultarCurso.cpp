@@ -48,9 +48,12 @@ void Sistema::consultarCurso() {
 
     cout << *dtCurso << endl;
 
-    cout << endl;  /**
+    cout << endl; 
+  
+    }
 
-    // Obtener lecciones del curso
+    /***
+     * // Obtener lecciones del curso
     vector<dtLeccionMostrar*> lecciones = dtCurso->getLecciones();
 
     if (lecciones.empty()) {
@@ -96,5 +99,3 @@ void Sistema::consultarCurso() {
         }
     }
 */
-  
-    }
