@@ -4,6 +4,7 @@
 #include <string>
 #include <set>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ using namespace std;
 #include "Leccion.h"
 #include "../Idioma.h"
 #include "../Usuario/Profesor.h"
+#include "../Inscripcion.h"
 
 #include "../../datatypes/DTDataCurso.h"
 
@@ -27,6 +29,7 @@ class Curso {
         Idioma* idioma;
         Profesor* profesor;
 
+        map<string, Inscripcion*> inscripciones; // nicknameEstudiante, Inscripcion
 
     public:
         Curso();
@@ -39,6 +42,7 @@ class Curso {
         Nivel getNivel();
         bool getDisponible();
         vector<Leccion*> getLecciones();
+        map<string, Inscripcion*> getInscripciones();
 
         DTDataCurso* getDT();
 

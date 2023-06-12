@@ -1,5 +1,6 @@
 #include "../../../include/classes/Usuario/Estudiante.h"
 #include "../../../include/classes/Usuario/Usuario.h"
+#include "../../../include/classes/Inscripcion.h"
 
 #include <string>
 
@@ -15,17 +16,20 @@ Estudiante::Estudiante(string nickname, string contrasenia, string nombre, strin
     : Usuario(nickname, contrasenia, nombre, descripcion) {
     this->pais = pais;
     this->fechaNacimiento = fechaNacimiento;
+    this->inscripciones = map<string, Inscripcion*>();
 }
 
 Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion)
     : Usuario(nickname, contrasenia, nombre, descripcion) {
     this->pais = "";
     this->fechaNacimiento = NULL;
+    this->inscripciones = map<string, Inscripcion*>();
 }
 
 Estudiante::Estudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais)
     : Usuario(nickname, contrasenia, nombre, descripcion) {
     this->pais = pais;
+    this->inscripciones = map<string, Inscripcion*>();
 }
 
 string Estudiante::getPais() {
@@ -66,6 +70,9 @@ void Estudiante::setFechaNacimiento(int dia, int mes, int anio) {
     }
 }
 
+map<string, Inscripcion*> Estudiante::getInscripciones() {
+    return this->inscripciones;
+}
 
 
 Estudiante::~Estudiante() {
