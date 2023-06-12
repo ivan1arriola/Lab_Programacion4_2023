@@ -79,6 +79,7 @@ build: $(EXECUTABLE)
 
 # Regla para el ejecutable
 $(EXECUTABLE): $(OBJECTS)
+	@clear
 	@mkdir -p $(@D)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 

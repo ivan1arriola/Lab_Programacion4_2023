@@ -62,7 +62,7 @@ public:
 
     //Operaciones para Consulta Curso
     set<string> listarNombreCursos();
-    DTDataCurso mostrarDatosCurso(); 
+    DTDataCurso* mostrarDatosCurso(); 
 
     //Operaciones para Alta Curso
     void seleccionarProfesor(string nickname);
