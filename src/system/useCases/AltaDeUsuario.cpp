@@ -103,7 +103,6 @@ void Sistema::altaDeUsuario() {
 
     
 
-    //TODO: Deberia ser un set de idiomas
     set<string> idiomasSeleccionados;
 
     imprimirMensaje("Seleccione los idiomas en los que se especializa el profesor");
