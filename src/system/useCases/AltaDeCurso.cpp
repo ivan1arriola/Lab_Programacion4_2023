@@ -7,13 +7,6 @@
 
 using namespace std;
 
-static void cancelarOperacion(string error = "") {
-    if (error != "") {
-        imprimirMensaje(error) ;
-    }
-    imprimirMensaje("No se puede dar de alta el curso") ;
-    imprimirMensaje("Cancelando operación") ;
-}
 
 void Sistema::altaDeCurso() {
     imprimirMensaje("Alta de Curso") ;

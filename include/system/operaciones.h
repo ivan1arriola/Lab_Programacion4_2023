@@ -67,4 +67,8 @@ string ingresarParametro(string parametro);
  * continuar, false en caso contrario */
 bool deseaContinuar(string mensaje);
 
+
+/* Imprime un mensaje de error y cancela la operacion */
+void cancelarOperacion(string error = "");
+
 #endif
