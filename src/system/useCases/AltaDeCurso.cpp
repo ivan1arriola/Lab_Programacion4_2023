@@ -7,6 +7,8 @@
 
 using namespace std;
 
+typedef unsigned long int nat;
+
 /*Nombre Alta de curso
 Actores Usuario
 Sinopsis El caso de uso comienza cuando un usuario desea dar de alta un nuevo curso en el
@@ -38,6 +40,43 @@ dejándolo no disponible para los estudiantes hasta tanto no se ejecute el caso 
 “Habilitar curso”.*/
 
 
+static nat contarEspaciosACompletar (string frase) {
+    nat contador = 0 ;
+    // Si es menor a 5 no puede tener 3 guiones seguidos
+    if (frase.size() < 5) {
+        return 0 ;
+    }
+    // Cuenta cuantas secuencias de 3 guiones seguidos hay y que esten rodeados de espacios
+    for (nat i = 0; i < frase.size() - 3; i++) {
+        if (frase[i] == ' ' && frase[i+1] == '-' && frase[i+2] == '-' && frase[i+3] == '-') {
+            contador++ ;
+        }
+    }
+    return contador ;
+}
+
+
+static string ingresarFraseACompletar () {
+    string frase = ingresarParametro("la frase a completar") ;
+    // Controla que tenga al menos 3 guiones seguidos
+    while (contarEspaciosACompletar(frase) == 0) {
+        imprimirMensaje("La frase debe tener al menos una secuencia de 3 guiones seguidos") ;
+        frase = ingresarParametro("la frase a completar") ;
+    }
+    return frase ;
+
+}
+
+static vector<string> ingresarConjuntoDePalabras (int cantEspacios) {
+    vector<string> solucion ;
+    for (int i = 0; i < cantEspacios; i++) {
+        string palabra = ingresarParametro("la palabra que completa el espacio " + to_string(i+1) + ":") ;
+        solucion.push_back(palabra) ;
+    }
+    return solucion ;
+}
+
+
 void Sistema::altaDeCurso() {
     imprimirMensaje("Alta de Curso") ;
 
@@ -45,69 +84,63 @@ void Sistema::altaDeCurso() {
 
     set<string> profesores = controladorUsuario->listarNIcknameProfesores() ;
 
+    espacioSimple() ;
+
     if (profesores.size() == 0) {
         cancelarOperacion("No hay profesores registrados en el sistema", "Alta de Curso");
         return ;
     }
 
-    string nicknameProfesor;
-    int opcion = -1;
+    string nicknameProfesor = seleccionarElemento(profesores, "profesor") ;
 
-    //se imprime la lista con profesores
-
-    imprimirMensaje("Seleccione un profesor de la lista:") ;
-    imprimirSet(profesores, "Profesores") ;
-
-    opcion = ingresarOpcion(profesores.size()) ;
+    espacioSimple() ;
     
-    if (opcion == 0) {
+    if (nicknameProfesor == "") {
         cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
         return ;
     }
 
-    nicknameProfesor = obtenerOpcion(profesores, opcion) ;
-
     try {
         controladorCurso->seleccionarProfesor(nicknameProfesor) ;
         imprimirMensaje("Seleccionó el profesor con nickname: " + nicknameProfesor);
+        espacioSimple() ;
     } catch (invalid_argument& e) {
         cancelarOperacion("No existe un profesor con el nickname " + nicknameProfesor, "Alta de Curso") ;
         return ;
     }
 
     string nombreCurso = ingresarParametro("el nombre del curso");
+    espacioSimple() ;
 
     //controlar que no exista el nombre y que no sea vacío
-    if(handlerCurso->existeCurso(nombreCurso) || nombreCurso == ""){
-        if(nombreCurso == ""){
-            cancelarOperacion("Ingrese un nombre para el curso no vacío", "Alta de Curso") ;
-        }else{
-            cancelarOperacion("Ya existe un curso con el nombre " + nombreCurso, "Alta de Curso") ;
-        }
+    if(handlerCurso->existeCurso(nombreCurso)) {
+        cancelarOperacion("Ya existe un curso con el nombre " + nombreCurso, "Alta de Curso") ;
         return ;
     }
 
     string descripcionCurso = ingresarParametro("la descripción del curso");
+
+    espacioSimple() ;
 
     imprimirMensaje("Ingrese la dificultad del curso:") ;
     imprimirMensaje("1. Principiante") ;
     imprimirMensaje("2. Medio") ;
     imprimirMensaje("3. Avanzado") ;
 
-    opcion = ingresarOpcion(3) ;
+    int opcion = ingresarOpcion(3) ;
 
     if (opcion == 0) {
         cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
         return ;
     }
 
-    Nivel dificultad ;
+    Nivel dificultad;
 
     if (opcion == 1 || opcion == 2 || opcion == 3) {
-        dificultad = static_cast<Nivel>(opcion-1) ;
+        dificultad = static_cast<Nivel>(opcion - 1);
     } else {
-        cancelarOperacion("Opción inválida", "Alta de Curso") ;
-        return ;
+        cancelarOperacion("Opción inválida", "Alta de Curso");
+        return;
     }
 
 
@@ -120,18 +153,13 @@ void Sistema::altaDeCurso() {
         return ;
     }
 
-    imprimirMensaje("Seleccione un idioma de la lista:") ;
-    imprimirMensaje("0. Cancelar") ;
-    imprimirSet(idiomasDeProfesor, "Idiomas") ;
 
-    opcion = ingresarOpcion(idiomasDeProfesor.size()) ;
+    string nombreIdioma = seleccionarElemento(idiomasDeProfesor, "idioma") ;
 
-    if (opcion == 0) {
+    if (nombreIdioma == "") {
         cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
         return ;
     }
-
-    string nombreIdioma = obtenerOpcion(idiomasDeProfesor, opcion) ;
 
     try {
         controladorCurso->seleccionarIdioma(nombreIdioma) ;
@@ -143,43 +171,91 @@ void Sistema::altaDeCurso() {
 
     //TODO: No esta contemplado las previas de un curso
 
-    imprimirMensaje("¿Desea agregar lecciones al curso?") ;
-    imprimirMensaje("0. Cancelar") ;
-    imprimirMensaje("1. Si") ;
-    imprimirMensaje("2. No") ;
-    
-    opcion = ingresarOpcion(2) ;
+    bool quiereAgregarLecciones = deseaContinuar("¿Desea agregar lecciones al curso?") ;
 
-    if (opcion == 0) {
+    if (!quiereAgregarLecciones) {
         cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
         return ;
-    }
-
-    if (opcion == 1) {
-        bool quiereAgregarLecciones = true ;
+    } else {
         do {
+
+            
 
             string tema = ingresarParametro("el tema de la lección") ;
 
             string objetivo = ingresarParametro("el objetivo de la lección") ;
 
+            
+
+            bool quiereAgregarUnEjercicio = deseaContinuar("¿Desea agregar un Ejercicio a la Leccion?") ;
+
+            while (quiereAgregarUnEjercicio) {
+
+                string nombreEjercicio = ingresarParametro("el nombre del ejercicio") ;
+
+                imprimirMensaje("Ingrese el tipo de ejercicio:") ;
+                imprimirMensaje("1. Traducción") ;
+                imprimirMensaje("2. Completar Frase") ;
+
+                int tipoEjercicio = ingresarOpcion(2) ;
+
+                if (opcion == 0) {
+                    cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
+                    return ;
+                }
+
+                string descripcion = ingresarParametro("la descripción del ejercicio") ;
+
+                if (tipoEjercicio == 1) {
+
+                    try {
+                        controladorCurso->agregarEjercicio(nombreEjercicio, "Traducir", descripcion) ;
+                    } catch (invalid_argument& e) {
+                        cancelarOperacion( e.what(), "Alta de Curso") ;
+                        return ;
+                    }
+
+                    string fraseATraducir = ingresarParametro("la frase a traducir");
+                    string fraseTraducida = ingresarParametro("la frase traducida") ;
+
+                    try {
+                        controladorCurso->agregarFraseTraducir(fraseATraducir, fraseTraducida) ;
+                    } catch (invalid_argument& e) {
+                        cancelarOperacion( e.what(), "Alta de Curso") ;
+                        return ;
+                    }
+
+                } else if (tipoEjercicio == 2) {
+
+                    try {
+                        controladorCurso->agregarEjercicio(nombreEjercicio, "Completar", descripcion) ;
+                    } catch (invalid_argument& e) {
+                        cancelarOperacion( e.what(), "Alta de Curso") ;
+                        return ;
+                    }
+
+                    string fraseACompletar = ingresarFraseACompletar() ;
+                    nat cantEspacios = contarEspaciosACompletar(fraseACompletar) ;
+                    vector<string> conjuntoDePalabras = ingresarConjuntoDePalabras(cantEspacios) ;
+
+                    try {
+                        controladorCurso->agregarFraseCompletar(fraseACompletar, conjuntoDePalabras);
+                    } catch (invalid_argument& e) {
+                        cancelarOperacion( e.what(), "Alta de Curso") ;
+                        return ;
+                    }
+                }
+
+                quiereAgregarUnEjercicio = deseaContinuar("¿Desea agregar otro Ejercicio a la Leccion?") ;
+
+                espacioSimple() ;
+            }
+            
             controladorCurso->agregarLeccion(tema, objetivo) ;
 
-            imprimirMensaje("¿Desea agregar otra lección al curso?") ;
-            imprimirMensaje("0. Cancelar") ;
-            imprimirMensaje("1. Si") ;
-            imprimirMensaje("2. No") ;
-            
-            opcion = ingresarOpcion(2) ;
+            quiereAgregarLecciones = deseaContinuar("¿Desea agregar otra lección al curso?") ;
 
-            if (opcion == 0) {
-                cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
-                return ;
-            }
-
-            if (opcion == 2) {
-                quiereAgregarLecciones = false ;
-            }
+            espacioSimple() ;
 
         } while (quiereAgregarLecciones) ;
     }
@@ -197,6 +273,7 @@ void Sistema::altaDeCurso() {
         controladorCurso->altaCurso(false) ;
         imprimirMensaje("Se ha dado de alta el curso") ;
     } catch (invalid_argument& e) {
+        imprimirMensaje( e.what() ) ;
         cancelarOperacion("No se pudo dar de alta el curso", "Alta de Curso") ;
         return ;
     }

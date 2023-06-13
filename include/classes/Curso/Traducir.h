@@ -13,6 +13,7 @@ class Traducir : public Ejercicio {
         string fraseCorrecta;
     public:
         Traducir();
+        Traducir(string nombre, string descripcion);
         Traducir(string nombre, string descripcion, string fraseATraducir, string fraseCorrecta);
 
         // Getters

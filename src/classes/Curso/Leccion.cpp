@@ -13,7 +13,7 @@ Leccion::Leccion(string tema, string objetivo) {
     this->objetivo = objetivo;
 }
 
-Leccion::Leccion(string tema,string objetivo,set<Ejercicio*> ejercicios){
+Leccion::Leccion(string tema ,string objetivo, set<Ejercicio*> ejercicios){
     this->tema=tema;
     this->objetivo=objetivo;
     this->ejercicios=ejercicios;

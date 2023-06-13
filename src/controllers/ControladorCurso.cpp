@@ -7,6 +7,12 @@
 #include "../../include/handlers/HandlerUsuario.h"
 #include "../../include/handlers/HandlerIdioma.h"
 
+#include "../../include/classes/Curso/Completar.h"
+#include "../../include/classes/Curso/Curso.h"
+#include "../../include/classes/Curso/Ejercicio.h"
+#include "../../include/classes/Curso/Leccion.h"
+#include "../../include/classes/Curso/Traducir.h"
+
 #include <string>
 
 using namespace std;
@@ -72,9 +78,14 @@ void ControladorCurso::altaCurso(bool disponible) {
         this->idiomaCursoActual = NULL;
         this->nicknameProfesorActual = "";
         this->usuarioActual = NULL;
-
         this->leccionesCursoActual.clear();
         //this->cursosPreviosCursoActual.clear();
+
+        this->ejercicioActual = NULL;
+        for (auto it = this->ejerciciosLeccionActual->begin(); it != this->ejerciciosLeccionActual->end(); ++it)
+            delete *it;
+        this->ejerciciosLeccionActual->clear();
+        delete this->ejerciciosLeccionActual;
 
         throw invalid_argument("Ya existe un curso con ese nombre");
     }else {
@@ -134,13 +145,26 @@ void ControladorCurso::eliminarCurso(string nombre) {
 }
 
 void ControladorCurso::agregarLeccion(string tema, string objetivo) {
-    Leccion* leccion = new Leccion(tema, objetivo);
+    Leccion* leccion = new Leccion(tema, objetivo, * this->ejerciciosLeccionActual);
     this->leccionesCursoActual.push_back(leccion);
 }
 
-void ControladorCurso::agregarEjercicio(string tipoEjercicio, string descEjercicio) {
-    // Implementación de la función agregarEjercicio
-    // Código para agregar un nuevo ejercicio a la lección actual con los parámetros proporcionados
+void ControladorCurso::agregarEjercicio(string nombreEjercicio, string tipoEjercicio, string descEjercicio) {
+    if (this->ejerciciosLeccionActual == NULL)
+        this->ejerciciosLeccionActual = new set<Ejercicio*>();
+
+    if (tipoEjercicio == "Traducir" ) {
+        this->ejercicioActual = new Traducir(nombreEjercicio, descEjercicio);
+        this->ejerciciosLeccionActual->insert(this->ejercicioActual);
+        return;
+    }
+    if (tipoEjercicio == "Completar" ) {
+        this->ejercicioActual = new Completar(nombreEjercicio, descEjercicio);
+        this->ejerciciosLeccionActual->insert(this->ejercicioActual);
+        return;
+    }
+
+    throw invalid_argument("Tipo de ejercicio no válido");
 }
 
 void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante) {
@@ -246,4 +270,28 @@ set<string> ControladorCurso::listarCursosNoHabilitados(){
         }
     }
     return resultado;
+}
+
+
+void ControladorCurso::agregarFraseTraducir(string fraseATraducir, string fraseTraducida){
+    if (this->ejercicioActual == NULL)
+        throw invalid_argument("No hay ejercicio seleccionado");
+
+    Traducir* traducir = dynamic_cast<Traducir*>(this->ejercicioActual);
+    if (traducir == NULL)
+        throw invalid_argument("El ejercicio seleccionado no es de tipo Traducir");
+
+    traducir->setFraseATraducir(fraseATraducir);
+    traducir->setFraseCorrecta(fraseTraducida);
+}
+
+void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<string> palabras){
+    if (this->ejercicioActual == NULL)
+        throw invalid_argument("No hay ejercicio seleccionado");
+
+    Completar* completar = dynamic_cast<Completar*>(this->ejercicioActual);
+    if (completar == NULL)
+        throw invalid_argument("El ejercicio seleccionado no es de tipo Completar");
+    completar->setFraseACompletar(fraseACompletar);
+    completar->setPalabrasFaltantes(palabras);
 }

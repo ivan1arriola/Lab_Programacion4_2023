@@ -10,36 +10,43 @@
 
 #include "../enums/NIVEL.h"
 
-class ControladorCurso : public IControladorCurso {
+class ControladorCurso : public IControladorCurso
+{
 private:
     string nombreIdioma;
     string nombreCurso;
 
-    Usuario* usuarioActual;
+    Usuario *usuarioActual;
 
     // Datos del curso actual
     string nombreCursoActual;
     string nicknameProfesorActual;
     string descripcionCursoActual;
     Nivel dificultadlCursoActual;
-    Idioma* idiomaCursoActual;
-    vector<Leccion*> leccionesCursoActual;
+    Idioma *idiomaCursoActual;
+    vector<Leccion *> leccionesCursoActual;
 
-    static ControladorCurso* instancia;
+    // Datos de la leccion actual
+
+    // Datos del ejercicio actual
+    Ejercicio *ejercicioActual;
+    set<Ejercicio *> *ejerciciosLeccionActual;
+
+    static ControladorCurso *instancia;
 
     // Colecion de cursos
-    static HandlerCurso* coleccionCursos;
+    static HandlerCurso *coleccionCursos;
 
     // Coleccion de Usuarios
-    static HandlerUsuario* coleccionUsuarios;
+    static HandlerUsuario *coleccionUsuarios;
 
     // Coleccion de Idiomas
-    static HandlerIdioma* coleccionIdiomas;
+    static HandlerIdioma *coleccionIdiomas;
 
     ControladorCurso();
 
 public:
-    static IControladorCurso* getInstancia();
+    static IControladorCurso *getInstancia();
 
     set<string> obtenerCursos();
     string getNombreCurso();
@@ -58,23 +65,25 @@ public:
     void marcarEjercicioAprobado();
     void marcarEjercicioNoAprobado();
 
-    ~ControladorCurso();  // Destructor
+    ~ControladorCurso(); // Destructor
 
-    //Operaciones para Consulta Curso
+    // Operaciones para Consulta Curso
     set<string> listarNombreCursos();
-    DTDataCurso* mostrarDatosCurso(); 
+    DTDataCurso *mostrarDatosCurso();
 
-    //Operaciones para Alta Curso
+    // Operaciones para Alta Curso
     void seleccionarProfesor(string nickname);
     void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad);
     void seleccionarIdioma(string nombreIdioma);
     set<string> listarCursosHabilitados();
     void seleccionarCurso(string nombreCurso);
     void agregarLeccion(string tema, string objetivo);
-    void agregarEjercicio(string tipoEjercicio, string descEjercicio);
+    void agregarEjercicio(string nombreEjercicio, string tipoEjercicio, string descEjercicio);
     void altaCurso(bool disponible);
+    void agregarFraseTraducir(string fraseATraducir, string fraseTraducida);
+    void agregarFraseCompletar(string fraseACompletar, vector<string> palabras);
 
-    //operaciones para habilitar curso
+    // operaciones para habilitar curso
     set<string> listarCursosNoHabilitados();
 };
 

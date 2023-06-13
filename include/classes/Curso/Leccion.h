@@ -22,6 +22,8 @@ class Leccion {
         // Getters
         string getTema();
         string getObjetivo();
+        set<Ejercicio*> getEjercicios();
+        int getCantEj();
 
         // Setters
         void setTema(string tema);
@@ -29,8 +31,7 @@ class Leccion {
 
         // Operaciones
         void crearEjercicioYAgregarlo(string desc);
-        set<Ejercicio*> getEjercicios(); // Aun no esta linkeado con Ejercicio
-        int getCantEj();
+       
 
         ~Leccion();
 

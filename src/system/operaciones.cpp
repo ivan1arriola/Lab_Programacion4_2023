@@ -134,9 +134,9 @@ bool deseaRealizarOtraOperacion() {
 bool deseaContinuar (string mensaje) {
     imprimirMensaje(mensaje) ;
     imprimirMensaje("1. Sí") ;
-    imprimirMensaje("2. No") ;
+    imprimirMensaje("0. No") ;
 
-    int opcion = ingresarOpcion(2) ;
+    int opcion = ingresarOpcion(1) ;
 
     return opcion == 1 ;
 }
@@ -188,6 +188,8 @@ string ingresarParametro(string parametro) {
   cout << "Ingrese " << parametro << ": ";
   cin >> ws;  // Descartar espacios en blanco iniciales
   getline(cin, valor, '\n');
+
+  espacioSimple();
   return valor;
 }
 
