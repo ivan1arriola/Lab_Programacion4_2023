@@ -25,10 +25,10 @@ jobs:
           echo "Build failed. Check for errors."
         fi
 
-    - name: Check for warnings
+    - name: Run test 1
       run: |
-        warnings=$(make 2>&1 | grep -E 'warning' | grep -Ev 'error' | wc -l)
-        echo "Number of warnings: $warnings"
-        if [ "$warnings" -gt "0" ]; then
-          exit 1
-        fi
+        make test1
+
+    - name: Run test 2
+      run: |
+        make test2

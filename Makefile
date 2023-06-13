@@ -104,14 +104,17 @@ valgrind: $(EXECUTABLE)
 	@clear
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXECUTABLE)
 
-test: $(EXECUTABLE)
-	@clear
+test: test1 test2
+
+test1:
 	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test1.in > $(TESTSALIDADIR)/test1.out 2> $(TESTSALIDADIR)/test1_valgrind.out
 	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/test1_valgrind.out; then \
 		echo "No se encontraron fugas de memoria en test1"; \
 	else \
 		echo "Se detectaron fugas de memoria en test1"; \
 	fi
+
+test2:
 	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test2.in > $(TESTSALIDADIR)/test2.out 2> $(TESTSALIDADIR)/test2_valgrind.out
 	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/test2_valgrind.out; then \
 		echo "No se encontraron fugas de memoria en test2"; \
