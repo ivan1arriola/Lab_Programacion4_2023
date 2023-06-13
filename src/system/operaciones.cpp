@@ -114,7 +114,7 @@ void cancelarOperacion(string error = "", string operacion = "") {
     if (error != "") {
         imprimirMensaje(error) ;
     }
-    imprimirMensaje("No se puede completar la operación") ;
+    imprimirMensaje("No se puede completar la operación " + operacion + ".") ;
     imprimirMensaje("Cancelando operación") ;
 }
 

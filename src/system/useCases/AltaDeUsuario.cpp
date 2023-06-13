@@ -111,7 +111,7 @@ void Sistema::altaDeUsuario() {
     do
     {
       string idioma = seleccionarElemento(idiomasDisponibles, "Idiomas");
-      if (idioma == "0") {
+      if (idioma == "") {
         break;
       }
       idiomasSeleccionados.insert(idioma);

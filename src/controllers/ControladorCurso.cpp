@@ -72,7 +72,7 @@ void ControladorCurso::seleccionarIdioma(string nombreIdioma) {
 
 
 void ControladorCurso::altaCurso(bool disponible) {
-    if(!coleccionCursos->existeCurso(this->nombreCurso)){
+    if(coleccionCursos->existeCurso(this->nombreCurso)){
         this->nombreCursoActual = "";
         this->descripcionCursoActual = "";
         this->idiomaCursoActual = NULL;
@@ -93,7 +93,7 @@ void ControladorCurso::altaCurso(bool disponible) {
         Profesor* profesor = dynamic_cast<Profesor*>(this->usuarioActual);
 
         //Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones)
-        Curso* cursoNuevo = new Curso(this->nombreCurso, this->descripcionCursoActual, this->dificultadlCursoActual,
+        Curso* cursoNuevo = new Curso(this->nombreCursoActual, this->descripcionCursoActual, this->dificultadlCursoActual,
                                         disponible, this->idiomaCursoActual, profesor,
                                         this->leccionesCursoActual);
         coleccionCursos->agregarCurso(cursoNuevo);
