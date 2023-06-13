@@ -22,15 +22,6 @@ jobs:
     - name: Build and check for errors
       run: make build
 
-    - name: Abre y cierra la aplicacion
-      run: |
-        make test1
-        if [ $? -eq 0 ]; then
-          echo "Test 1 passed."
-        else
-          echo "Test 1 failed."
-        fi
-
     - name: Run test 2
       run: |
         make test2
@@ -38,4 +29,13 @@ jobs:
           echo "Test 2 passed."
         else
           echo "Test 2 failed."
+        fi
+
+    - name: Run test 3
+      run: |
+        make test3
+        if [ $? -eq 0 ]; then
+          echo "Test 3 passed."
+        else
+          echo "Test 3 failed."
         fi
