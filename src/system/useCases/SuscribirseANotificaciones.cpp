@@ -7,16 +7,6 @@
 
 using namespace std;
 
-static bool ingresarOpcionSiONo(string mensaje) {
-    imprimirMensaje(mensaje) ;
-    imprimirMensaje("1. Sí") ;
-    imprimirMensaje("2. No") ;
-
-    int opcion = ingresarOpcion(2) ;
-
-    return opcion == 1 ;
-}
-
 
 /**
  * Nombre Suscribirse a notificaciones
@@ -62,7 +52,7 @@ void Sistema::suscribirseANotificaciones() {
     
 
         if(!idiomas.empty()) {
-            deseaSuscribirse = ingresarOpcionSiONo("¿Desea suscribirse a otro idioma? (S/N)");
+            deseaSuscribirse = deseaContinuar("¿Desea suscribirse a otro idioma? (S/N)");
         } else {
             deseaSuscribirse = false;
         }
