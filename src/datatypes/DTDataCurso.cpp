@@ -52,6 +52,5 @@ ostream& operator<<(ostream& os, const DTDataCurso& dtCurso) {
     os << "Disponible: " << dtCurso.disponible << endl;
     os << "Idioma: " << dtCurso.nombreIdioma << endl;
     os << "Profesor: " << dtCurso.nombreProfesor << endl;
-
     return os;
 }
