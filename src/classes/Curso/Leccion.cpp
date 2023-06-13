@@ -49,5 +49,8 @@ int Leccion::getCantEj(){
 }
 
 Leccion::~Leccion() {
+    for (set<Ejercicio*>::iterator it=ejercicios.begin(); it!=ejercicios.end();++it) {
+        delete *it;
+    }
     // Borrar todos los ejercicios
 }

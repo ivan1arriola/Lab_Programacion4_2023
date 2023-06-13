@@ -38,7 +38,9 @@ public:
     // Metodos
     string obtenerNombreCurso();
     float calcPorcentajeAvance();
-    float getCantEjsAprob();    
+    float getCantEjsAprob(); 
+
+    ~Inscripcion();   
     
 };
 
