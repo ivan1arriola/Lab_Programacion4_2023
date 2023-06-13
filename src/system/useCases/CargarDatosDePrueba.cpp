@@ -150,6 +150,7 @@ void Sistema::cargarDatosdePrueba()
     Nivel nivel2 = MEDIO;
     Nivel nivel3 = AVANZADO;
 
+
     // Crear Cursos
     Curso *curso1 = new Curso("Programación en C++", "Aprende a programar en C++ desde cero", nivel1, true, idioma1, dynamic_cast<Profesor *>(usuario5), lecciones1);
     Curso *curso2 = new Curso("Diseño Gráfico Avanzado", "Explora técnicas avanzadas de diseño gráfico", nivel2, true, idioma2, dynamic_cast<Profesor *>(usuario6), lecciones2);
