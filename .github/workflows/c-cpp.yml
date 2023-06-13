@@ -21,3 +21,12 @@ jobs:
 
     - name: Build and check for errors
       run: make clean build
+     
+    - name: Run test 1
+      run: |
+        make test1
+
+    - name: Run test 2
+      run: |
+        make test2
+

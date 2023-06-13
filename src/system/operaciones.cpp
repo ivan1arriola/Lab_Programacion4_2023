@@ -86,29 +86,31 @@ void imprimirMenu() {
     espacioSimple();
 }
 
+#include <iostream>
+#include <sstream>
+
 int ingresarOpcion(int cantOpciones) {
-    int opcion;
-    bool esNumero = false; 
-    bool esOpcionValida = false;
-    while (!esNumero || !esOpcionValida) {
+    static istringstream iss;
+    string entrada;
+
+    if (!iss || iss.eof()) {
         cout << "Ingrese una opcion: ";
-        cin >> opcion;
-        esNumero = cin.good(); // Chequea que sea numero / eso creo?
-        if (!esNumero) {
-            cin.clear();
-            cin.ignore(10000, '\n');
-            cout << "Debe ingresar un numero" << endl;
-        }
-        if (esNumero && (opcion < 0 || opcion > cantOpciones)) {
-            cout << "Debe ingresar una opcion valida" << endl;
-            esOpcionValida = false;
-        } else {
-            esOpcionValida = true;
-        }
+        getline(cin, entrada);
+        iss.str(entrada);
+        iss.clear();
     }
-    espacioSimple();
-    return opcion;
+
+    int opcion;
+    if (iss >> opcion && opcion >= 0 && opcion <= cantOpciones) {
+        cout << endl;
+        return opcion;
+    } else {
+        cout << "Debe ingresar una opcion valida" << endl;
+        return ingresarOpcion(cantOpciones);
+    }
 }
+
+
 
 bool deseaRealizarOtraOperacion() {
     int opcion;
