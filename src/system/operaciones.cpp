@@ -121,6 +121,16 @@ bool deseaRealizarOtraOperacion() {
     return opcion == 1;
 }
 
+bool deseaContinuar (string mensaje) {
+    imprimirMensaje(mensaje) ;
+    imprimirMensaje("1. Sí") ;
+    imprimirMensaje("2. No") ;
+
+    int opcion = ingresarOpcion(2) ;
+
+    return opcion == 1 ;
+}
+
 void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
     if (conjunto.empty()) {
         espacioSimple();
@@ -181,3 +191,4 @@ string obtenerOpcion(const set<string>& conjunto, int opcion) {
     }
     return "";
 }
+

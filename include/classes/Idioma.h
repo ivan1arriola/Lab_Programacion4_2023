@@ -11,7 +11,7 @@ using namespace std;
 class Idioma {
     private:
         string nombre;
-        map<string, ISuscriptor*> suscriptores;
+        map<string, ISuscriptor*> suscriptores; // nickname, puntero a suscriptor
     public:
         Idioma();
         Idioma(string nombre);

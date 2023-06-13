@@ -62,4 +62,9 @@ bool deseaRealizarOtraOperacion();
 /* Pide un parametro por consola. Devuelve el parametro ingresado */
 string ingresarParametro(string parametro);
 
+
+/* Pregunta por consola si se desea continuar. Devuelve true si se desea
+ * continuar, false en caso contrario */
+bool deseaContinuar(string mensaje);
+
 #endif
