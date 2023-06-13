@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 /**
  * Nombre Suscribirse a notificaciones
 Actores Usuario
