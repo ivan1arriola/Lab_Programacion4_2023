@@ -110,11 +110,11 @@ int ingresarOpcion(int cantOpciones) {
     }
 }
 
-void cancelarOperacion(string error = "") {
+void cancelarOperacion(string error = "", string operacion = "") {
     if (error != "") {
         imprimirMensaje(error) ;
     }
-    imprimirMensaje("No se puede dar de alta el curso") ;
+    imprimirMensaje("No se puede completar la operación") ;
     imprimirMensaje("Cancelando operación") ;
 }
 

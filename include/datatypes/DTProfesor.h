@@ -22,7 +22,7 @@ public:
         // Destructor
         ~DTProfesor();
 
-        void imprimir(ostream& os);
+        friend ostream& operator<<(ostream& os, DTProfesor& dtProfesor);
     };
 
 #endif

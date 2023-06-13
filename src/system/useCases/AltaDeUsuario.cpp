@@ -28,6 +28,8 @@ void Sistema::altaDeUsuario() {
   // Ingresar nickname 
   string nickname = ingresarParametro("el nickname");
 
+  espacioSimple();
+
   // Ingresar password
   string password;
   do {
@@ -37,90 +39,107 @@ void Sistema::altaDeUsuario() {
     }
   } while (password.length() < 6);
 
+  espacioSimple();
+
   // Ingresar nombre
   string nombre = ingresarParametro("el nombre");
+
+  espacioSimple();
 
   // Ingresar descripcion
   string descripcion = ingresarParametro("la descripcion");
 
+  espacioSimple();
+
   // Imprimir datos ingresados
-  cout << endl << "Datos ingresados: " << endl;
+  cout << "Datos ingresados: " << endl;
   cout << "Nickname: " << nickname << endl;
   cout << "Password: " << password << endl;
   cout << "Nombre: " << nombre << endl;
   cout << "Descripcion: " << descripcion << endl;
 
+  espacioSimple();
+
   try {
     controladorUsuario->ingresarUsuario(nickname, password, nombre, descripcion);
   } catch (invalid_argument &e) {
-    imprimirMensaje("Error: " + string(e.what()));
-    imprimirMensaje("No se puede crear el usuario");
+    cancelarOperacion(e.what(), "Alta de usuario");
     return;
   }
 
 
   cout << "Tipo de usuario: " << endl;
-  cout << "0. Profesor" << endl;
-  cout << "1. Estudiante" << endl;
+  cout << endl;
+  cout << "1. Profesor" << endl;
+  cout << "2. Estudiante" << endl;
+  cout << "0. Para cancelar" << endl;
+  cout << endl;
 
-  int tipoUsuario = ingresarOpcion(1);
+  int tipoUsuario = ingresarOpcion(2);
 
-  if (tipoUsuario == 0) { // Profesor
+  if (tipoUsuario == 0) {
+    cancelarOperacion("Se ha seleccionado cancelar", "Alta de usuario");
+    return;
+  }
+
+  espacioSimple();
+
+  // Profesor
+  if (tipoUsuario == 1) { 
   
     string instituto = ingresarParametro("el instituto");
     controladorUsuario->ingresarDatosProfesor(instituto);
 
     imprimirMensaje("Lista de Idiomas disponibles");
-    set<string> idiomas = controladorUsuario->listarNombresDeIdiomasDisponibles();
+    set<string> idiomasDisponibles = controladorUsuario->listarNombresDeIdiomasDisponibles();
     
 
-    if(idiomas.size() == 0){
+    if(idiomasDisponibles.size() == 0){
       imprimirMensaje("No hay idiomas disponibles");
       imprimirMensaje("No se puede crear un profesor");
       imprimirMensaje("Cancelando alta de usuario");
       return;
     }
 
-    imprimirSet(idiomas, "Idiomas");
+    
 
     //TODO: Deberia ser un set de idiomas
     set<string> idiomasSeleccionados;
 
-    imprimirMensaje("Ingrese el indice de los idiomas en los que se especializa el profesor");
-    imprimirMensaje("Ingrese los idiomas uno por uno");
-    imprimirMensaje("Ingrese 0 para terminar de ingresar idiomas");
+    imprimirMensaje("Seleccione los idiomas en los que se especializa el profesor");
 
-    int opcion = -1;
-    do {
-      if (opcion != -1) imprimirSet(idiomas, "Idiomas");
-      opcion = ingresarOpcion(idiomas.size());
-      if (opcion != 0) {
-        string idioma = obtenerOpcion(idiomas, opcion);
-        idiomasSeleccionados.insert(idioma);
+    do
+    {
+      string idioma = seleccionarElemento(idiomasDisponibles, "Idiomas");
+      if (idioma == "0") {
+        break;
       }
-    } while (opcion != 0);
+      idiomasSeleccionados.insert(idioma);
+      idiomasDisponibles.erase(idioma);
+
+      espacioSimple();
+
+    } while (idiomasDisponibles.size() > 0);
 
 
 
     if (idiomasSeleccionados.size() == 0) {
-      imprimirMensaje("Debe seleccionar al menos un idioma");
-      imprimirMensaje("No se puede crear un profesor");
-      imprimirMensaje("Cancelando alta de usuario");
+      cancelarOperacion("Se debe seleccionar al menos un idioma", "Alta de usuario");
       return;
     } 
 
-    imprimirMensaje("Idiomas seleccionados");
-    imprimirSet(idiomasSeleccionados, "Idiomas");
+    imprimirSet(idiomasSeleccionados, "Idiomas seleccionados");
 
     controladorUsuario->altaProfesor(idiomasSeleccionados);
-    cout << "Profesor creado con exito" << endl;
+    
+    imprimirMensaje("Profesor creado con exito");
     
   }
   
-  if (tipoUsuario == 1) { // Estudiante
+  if (tipoUsuario == 2) { // Estudiante
     string pais = ingresarParametro("el pais");
     controladorUsuario->ingresarDatosEstudiante(pais);
     controladorUsuario->altaEstudiante();
-    cout << "Estudiante creado con exito" << endl;
+    imprimirMensaje("Estudiante creado con exito");
   }
 }

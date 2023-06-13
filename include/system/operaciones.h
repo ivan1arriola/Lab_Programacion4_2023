@@ -69,6 +69,6 @@ bool deseaContinuar(string mensaje);
 
 
 /* Imprime un mensaje de error y cancela la operacion */
-void cancelarOperacion(string error = "");
+void cancelarOperacion(string error, string operacion);
 
 #endif

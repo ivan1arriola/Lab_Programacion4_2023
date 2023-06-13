@@ -21,13 +21,13 @@ public:
         DTEstudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate *fechaNacimiento);
     
         // Getters
-        string getPais();
-        DTDate* getFechaNacimiento();
+        string getPais() const;
+        DTDate* getFechaNacimiento() const;
     
         // Destructor
         ~DTEstudiante();
 
-        void imprimir(ostream& os);
+        friend ostream& operator<<(ostream& os, const DTEstudiante& dtEstudiante);
     };
 
 #endif

@@ -1,5 +1,3 @@
-// version provisional
-
 #ifndef DTUSUARIO
 #define DTUSUARIO
 
@@ -31,18 +29,14 @@ public:
     DTUsuario(string nickname, string contrasenia, string nombre, string descripcion, int tipo);
 
     // Getters
-    string getNickname();
-    string getContrasenia();
-    string getNombre();
-    string getDescripcion();
-    int getTipo() { return this->tipo; }
+    string getNickname() const;
+    string getContrasenia() const;
+    string getNombre() const;
+    string getDescripcion() const;
+    int getTipo() const;
 
     // Destructor
     virtual ~DTUsuario();
-
-    virtual void imprimir(ostream& os) = 0;
-
-    friend ostream& operator<<(ostream& os, DTUsuario& dtUsuario);
 };
 
 #endif

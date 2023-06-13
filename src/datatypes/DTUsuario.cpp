@@ -21,34 +21,27 @@ DTUsuario::DTUsuario(string nickname, string contrasenia, string nombre, string 
 
 // Getters
 
-string DTUsuario::getNickname() {
+string DTUsuario::getNickname() const {
     return this->nickname;
 }
 
-string DTUsuario::getContrasenia() {
+string DTUsuario::getContrasenia() const {
     return this->contrasenia;
 }
 
-string DTUsuario::getNombre() {
+string DTUsuario::getNombre() const {
     return this->nombre;
 }
 
-string DTUsuario::getDescripcion() {
+string DTUsuario::getDescripcion() const {
     return this->descripcion;
 }
+
+int DTUsuario::getTipo() const {
+    return this->tipo;
+}
+
 
 // Destructor
 
 DTUsuario::~DTUsuario() {}
-
-ostream& operator<<(ostream& os, DTUsuario& dtUsuario) {
-    dtUsuario.imprimir(os);
-    return os;
-}
-
-void DTUsuario::imprimir(ostream& os) {
-    os << "Nickname: " << this->getNickname() << endl;
-    os << "Nombre: " << this->getNombre() << endl;
-    os << "Descripcion: " << this->getDescripcion() << endl;
-}
-
