@@ -11,7 +11,7 @@ using namespace std;
 class Idioma {
     private:
         string nombre;
-        map<string, ISuscriptor*> suscriptores;
+        map<string, ISuscriptor*> suscriptores; // nickname, puntero a suscriptor
     public:
         Idioma();
         Idioma(string nombre);
@@ -23,6 +23,7 @@ class Idioma {
         void notificarSuscriptores(string nombreCurso);
 
         bool contieneSuscriptor(string nickname);
+        
         set<string> getIdiomasProfesor();
 
         bool operator==(const Idioma& otro);

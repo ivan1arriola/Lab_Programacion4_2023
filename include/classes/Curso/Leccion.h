@@ -12,14 +12,18 @@ class Leccion {
     private:
         string tema;
         string objetivo;
+        set<Ejercicio*> ejercicios;
     public:
         Leccion();
         Leccion(string descripcion);
         Leccion(string tema, string objetivo);
+        Leccion(string tema,string objetivo,set<Ejercicio*>);
 
         // Getters
         string getTema();
         string getObjetivo();
+        set<Ejercicio*> getEjercicios();
+        int getCantEj();
 
         // Setters
         void setTema(string tema);
@@ -27,7 +31,7 @@ class Leccion {
 
         // Operaciones
         void crearEjercicioYAgregarlo(string desc);
-        set<Ejercicio> getEjercicios(); // Aun no esta linkeado con Ejercicio
+       
 
         ~Leccion();
 

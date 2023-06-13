@@ -3,6 +3,7 @@
 
 #include <string>
 #include <set>
+#include <vector>
 
 #include "../datatypes/DTDataCurso.h"
 #include "../datatypes/DTDataLeccion.h"
@@ -37,7 +38,7 @@ class IControladorCurso {
 
         //Operaciones para Consulta Curso
         virtual set<string> listarNombreCursos() = 0;
-        virtual DTDataCurso mostrarDatosCurso() = 0; 
+        virtual DTDataCurso* mostrarDatosCurso() = 0; 
 
         //Operaciones para Alta Curso
         virtual void seleccionarProfesor(string nickname) = 0;
@@ -46,8 +47,14 @@ class IControladorCurso {
         virtual set<string> listarCursosHabilitados() = 0;
         virtual void seleccionarCurso(string nombreCurso) = 0;
         virtual void agregarLeccion(string tema, string objetivo) = 0;
-        virtual void agregarEjercicio(string tipoEjercicio, string descEjercicio) = 0;
+        virtual void agregarEjercicio(string nombreEjercicio, string tipoEjercicio, string descEjercicio) = 0;
         virtual void altaCurso(bool disponible) = 0;
+
+        virtual void agregarFraseTraducir(string fraseATraducir, string fraseTraducida) = 0;
+        virtual void agregarFraseCompletar(string fraseACompletar, vector<string> palabras) = 0;
+
+        //operaciones para habilitar curso
+        virtual set<string> listarCursosNoHabilitados()=0;
 
 
 

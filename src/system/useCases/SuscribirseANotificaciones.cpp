@@ -7,17 +7,6 @@
 
 using namespace std;
 
-static bool ingresarOpcionSiONo(string mensaje) {
-    imprimirMensaje(mensaje) ;
-    imprimirMensaje("1. Sí") ;
-    imprimirMensaje("2. No") ;
-
-    int opcion = ingresarOpcion(2) ;
-
-    return opcion == 1 ;
-}
-
-
 /**
  * Nombre Suscribirse a notificaciones
 Actores Usuario
@@ -43,6 +32,12 @@ void Sistema::suscribirseANotificaciones() {
 
     set<string> idiomas = controladorUsuario->listarIdiomasNoSuscriptos(nickname);
 
+    if (idiomas.empty()) {
+        imprimirMensaje("El usuario ya está suscripto a todos los idiomas");
+        imprimirMensaje("Cancelando suscripción a notificaciones");
+        return;
+    }
+
     bool deseaSuscribirse = true;
 
     imprimirMensaje("Idiomas a los que no está suscripto:");
@@ -56,11 +51,15 @@ void Sistema::suscribirseANotificaciones() {
     
 
         if(!idiomas.empty()) {
-            deseaSuscribirse = ingresarOpcionSiONo("¿Desea suscribirse a otro idioma? (S/N)");
+            deseaSuscribirse = deseaContinuar("¿Desea suscribirse a otro idioma? (S/N)");
         } else {
             deseaSuscribirse = false;
         }
     } while (deseaSuscribirse && !idiomas.empty());
+
+    if (idiomas.empty()) {
+        imprimirMensaje("El usuario ya está suscripto a todos los idiomas");
+    }
 
 
 

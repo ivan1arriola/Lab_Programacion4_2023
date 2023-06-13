@@ -39,20 +39,10 @@ void Sistema::consultaDeUsuario() {
     imprimirSet(nicknames, "Usuarios disponibles" ) ;
 
     // Seleccionar nickname
-    int index = ingresarOpcion(nicknames.size()) - 1 ;
-
-    if (index < 0) {
-        return;
-    }
-
-    
-
-    // Obtener nickname
-    
-    string nickname = *next(nicknames.begin(), index);
+    string nickname = seleccionarElemento(nicknames, "el usuario");
     imprimirMensaje("A seleccionado el usuario: " + nickname);
 
-    cout << endl;
+    espacioSimple();
 
     // Obtener informacion del usuario
     DTUsuario* dtUsuario = controladorUsuario->seleccionarUsuario(nickname);
@@ -60,18 +50,10 @@ void Sistema::consultaDeUsuario() {
 
     if (dtUsuario->getTipo() == 0) {
         DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);
-        cout << "Información del profesor:" << endl;
-        cout << "Nickname: " << dtProfesor->getNickname() << endl;
-        cout << "Nombre: " << dtProfesor->getNombre() << endl;
-        cout << "Descripción: " << dtProfesor->getDescripcion() << endl;
-        cout << "Instituto: " << dtProfesor->getInstituto() << endl;
+        cout << *dtProfesor << endl;
     } else {
         DTEstudiante* dtEstudiante = dynamic_cast<DTEstudiante*>(dtUsuario);
-        cout << "Información del estudiante:" << endl;
-        cout << "Nickname: " << dtEstudiante->getNickname() << endl;
-        cout << "Nombre: " << dtEstudiante->getNombre() << endl;
-        cout << "Descripción: " << dtEstudiante->getDescripcion() << endl;
-        cout << "País: " << dtEstudiante->getPais() << endl;
+        cout << *dtEstudiante << endl;
     }
 
     delete dtUsuario;

@@ -110,6 +110,7 @@ void ControladorUsuario::ingresarDatosProfesor(string instituto) {
 }
 
 void ControladorUsuario::altaProfesor(set<string> idiomas) {
+    
     // Verificar si el nickname ya existe
     if (coleccionUsuarios->existeUsuario(actual_nickname)) {
         throw invalid_argument("El nickname ya está en uso");
@@ -199,8 +200,18 @@ set<string> ControladorUsuario::listarIdiomasNoSuscriptos(string nickname) {
 }
 
 set<string> ControladorUsuario::listarIdiomasSuscriptos(string nickname) {
-    set<string> idiomas; // Valor vacío
-    return idiomas;
+    this->actual_nickname = nickname;
+    map<string, Idioma*> idiomas = coleccionIdiomas->obtenerIdiomas();
+    map<string, Idioma*>::iterator it;
+    set<string> nombresIdiomasSuscriptos;
+    for (it = idiomas.begin(); it != idiomas.end(); it++) {
+        string nombreIdioma = it->first;
+        Idioma* idioma = it->second;
+        if (idioma->contieneSuscriptor(nickname)) {
+            nombresIdiomasSuscriptos.insert(nombreIdioma);
+        }
+    }
+    return nombresIdiomasSuscriptos;
 }
 
 void ControladorUsuario::seleccionarProfesor(string nicknameProfesor) { //TODO: Tiene que existir el profesor
@@ -214,9 +225,10 @@ void ControladorUsuario::suscribirse(string nombreIdioma) {
     coleccionIdiomas->obtenerIdioma(nombreIdioma)->agregarSuscriptor(suscriptor);
 }
 
-set<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName) {
+vector<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName) {
     this->actual_nickname = nickName;
-    set<DTNotificacion*> notificaciones; // Valor vacío
+    Usuario* usuario = coleccionUsuarios->obtenerUsuario(nickName);
+    vector<DTNotificacion*> notificaciones = usuario->getNotificacionesRecibidas();
     return notificaciones;
 }
 
@@ -228,7 +240,7 @@ void ControladorUsuario::eliminarNotificaciones() {
 }
 
 void ControladorUsuario::eliminarSuscripcion(string idioma) {
-    // Implementación mínima
+    coleccionIdiomas->obtenerIdioma(idioma)->eliminarSuscriptor(this->actual_nickname);
 }
 
 void ControladorUsuario::crearIdioma(string nombre) {

@@ -1,5 +1,8 @@
 #include "../../include/datatypes/DTDataCurso.h"
 
+#include <string>
+#include <iostream>
+
 DTDataCurso::DTDataCurso() {
 // Constructor por defecto
 }
@@ -39,4 +42,15 @@ return nombreProfesor;
 
 DTDataCurso::~DTDataCurso() {
 // Destructor
+}
+
+ostream& operator<<(ostream& os, const DTDataCurso& dtCurso) {
+    os << "Datos del Curso:" << endl;
+    os << "Nombre: " << dtCurso.nombre << endl;
+    os << "Descripcion: " << dtCurso.descripcion << endl;
+    os << "Nivel: " << dtCurso.nivel << endl;
+    os << "Disponible: " << dtCurso.disponible << endl;
+    os << "Idioma: " << dtCurso.nombreIdioma << endl;
+    os << "Profesor: " << dtCurso.nombreProfesor << endl;
+    return os;
 }

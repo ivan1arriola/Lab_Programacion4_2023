@@ -6,8 +6,15 @@ Traducir::Traducir() {
     // Implementación del constructor por defecto
 }
 
-Traducir::Traducir(string nombre, string descripcion, string fraseATraducir, string fraseCorrecta) {
-    // Implementación del constructor con parámetros
+Traducir::Traducir(string nombre, string descripcion) : Ejercicio(nombre, descripcion) {
+    this->fraseATraducir = "";
+    this->fraseCorrecta = "";
+
+}
+
+Traducir::Traducir(string nombre, string descripcion, string fraseATraducir, string fraseCorrecta) : Ejercicio(nombre, descripcion) {
+    this->fraseATraducir = fraseATraducir;
+    this->fraseCorrecta = fraseCorrecta;
 }
 
 string Traducir::getFraseATraducir() {
@@ -27,7 +34,6 @@ void Traducir::setFraseCorrecta(string fraseCorrecta) {
 }
 
 Traducir::~Traducir() {
-    // Implementación del destructor
 }
 
 ostream& operator<<(ostream& os, const Traducir& traducir) {

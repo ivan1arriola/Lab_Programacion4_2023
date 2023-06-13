@@ -16,6 +16,9 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
     this->lecciones = lecciones;
     this->idioma = idioma;
     this->profesor = profesor;
+
+    idioma->notificarSuscriptores(nombre);
+    this->inscripciones = map<string, Inscripcion*>();
 }
 
 // Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
@@ -86,13 +89,22 @@ void Curso::agregarLeccion(Leccion* leccion) {
 // }
 
 float Curso::getCantEjsTotal() {
-    // Implementación de la función getCantEjsTotal()
-    return 0;
+    int total=0;
+    for(vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end();++it){
+        Leccion* l=*it;
+        total=l->getCantEj();
+        }
+
+    return total;
 }
 
 float Curso::calcPromedioAvance() {
     // Implementación de la función calcPromedioAvance()
     return 0;
+}
+
+int Curso::getCantLecciones(){
+    return lecciones.size();
 }
 
 Curso::~Curso() {
@@ -101,4 +113,12 @@ Curso::~Curso() {
     for (long unsigned int i = 0; i < lecciones.size(); i++) {
         delete lecciones[i];
     }
+}
+
+DTDataCurso* Curso::getDT() {
+    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNombre());
+}
+
+map<string, Inscripcion*> Curso::getInscripciones() {
+    return inscripciones;
 }

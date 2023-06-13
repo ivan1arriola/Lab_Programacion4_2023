@@ -17,6 +17,8 @@ El Makefile tiene las siguientes reglas:
 - `run`: Compila y ejecuta el programa.
 - `valgrind`: Ejecuta el programa utilizando Valgrind para detectar fugas de memoria.
 
+- `test`: Ejecuta los tests unitarios.
+
 Para utilizar una regla, simplemente ejecuta el comando `make` seguido del nombre de la regla. Por ejemplo, para compilar y ejecutar el programa, puedes ejecutar el siguiente comando:
 
 ```
@@ -32,18 +34,18 @@ Los warnings se tratan como errores, por lo que si el programa no compila, es ne
 - Consulta de usuario :white_check_mark:
 - Alta de idioma :white_check_mark:
 - Consultar idiomas :white_check_mark:
-- :memo: Alta de curso  :warning:
+- :memo: Alta de curso  :white_check_mark:
 - Agregar lección
 - Agregar ejercicio
-- Habilitar curso
+- Habilitar curso :white_check_mark:
 - :memo: Eliminar curso
 - Consultar curso  :warning:
 - Inscribirse a curso
 - :memo: Realizar ejercicio
 - :memo: Consultar estadísticas
-- :memo: Suscribirse a notificaciones
+- :memo: Suscribirse a notificaciones :white_check_mark:
 - :memo: Consulta de notificaciones :white_check_mark:
-- :memo: Eliminar suscripciones
+- :memo: Eliminar suscripciones :white_check_mark:
 
 Los casos de uso marcados con :memo: tienen sus diagramas de comunicación desde el laboratorio 3.
 Los casos de uso marcados con :white_check_mark: están implementados.

@@ -13,6 +13,12 @@ Leccion::Leccion(string tema, string objetivo) {
     this->objetivo = objetivo;
 }
 
+Leccion::Leccion(string tema ,string objetivo, set<Ejercicio*> ejercicios){
+    this->tema=tema;
+    this->objetivo=objetivo;
+    this->ejercicios=ejercicios;
+}
+
 string Leccion::getTema() {
     return tema;
 }
@@ -33,9 +39,13 @@ void Leccion::crearEjercicioYAgregarlo(string desc) {
     // Implementación de la función crearEjercicioYAgregarlo()
 }
 
-set<Ejercicio> Leccion::getEjercicios() {
+set<Ejercicio*> Leccion::getEjercicios() {
     // Implementación de la función getEjercicios()
-    return set<Ejercicio>();
+    return ejercicios;
+}
+
+int Leccion::getCantEj(){
+    return ejercicios.size();
 }
 
 Leccion::~Leccion() {

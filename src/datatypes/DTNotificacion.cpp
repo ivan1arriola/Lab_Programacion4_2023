@@ -24,7 +24,8 @@ DTNotificacion::~DTNotificacion() {}
 
 
 ostream& operator<<(ostream& os, const DTNotificacion& dtNotificacion) {
-    os << "Nombre del curso: " << dtNotificacion.nombreCurso << endl;
-    os << "Nombre del idioma: " << dtNotificacion.nombreIdioma << endl;
+    os << "Notificacion:" << endl;
+    os << "Se creo el curso de nombre " << '"' << dtNotificacion.nombreCurso << '"' << endl;
+    os << "Un curso del idioma: " << dtNotificacion.nombreIdioma;
     return os;
 }

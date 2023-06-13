@@ -20,9 +20,11 @@ string DTProfesor::getInstituto() {
 DTProfesor::~DTProfesor() {}
 
 
-void DTProfesor::imprimir(ostream& os) {
-    os << "Nickname: " << this->getNickname() << endl;
-    os << "Nombre: " << this->getNombre() << endl;
-    os << "Descripcion: " << this->getDescripcion() << endl;
-    os << "Instituto: " << this->getInstituto() << endl;
+ostream& operator<<(ostream& os, DTProfesor& dtProfesor) {
+    os << "Tipo: Profesor" << endl;
+    os << "Nickname: " << dtProfesor.getNickname() << endl;
+    os << "Nombre: " << dtProfesor.getNombre() << endl;
+    os << "Descripcion: " << dtProfesor.getDescripcion() << endl;
+    os << "Instituto: " << dtProfesor.getInstituto() << endl;
+    return os;
 }

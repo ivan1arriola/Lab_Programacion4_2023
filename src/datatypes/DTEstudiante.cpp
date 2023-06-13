@@ -17,13 +17,14 @@ DTEstudiante::DTEstudiante(string nickname, string contrasenia, string nombre, s
 
 // Getters
 
-string DTEstudiante::getPais() {
+string DTEstudiante::getPais() const {
     return this->pais;
 }
 
-DTDate* DTEstudiante::getFechaNacimiento() {
+DTDate* DTEstudiante::getFechaNacimiento() const {
     return this->fechaNacimiento;
 }
+
 
 
 // Destructor
@@ -32,11 +33,13 @@ DTEstudiante::~DTEstudiante() {
     delete this->fechaNacimiento;
 }
 
-void DTEstudiante::imprimir(ostream& os) {
-    os << "Nickname: " << this->getNickname() << endl;
-    os << "Nombre: " << this->getNombre() << endl;
-    os << "Descripcion: " << this->getDescripcion() << endl;
-    os << "Pais: " << this->getPais() << endl;
-    os << "Fecha de nacimiento: " << this->getFechaNacimiento() << endl;
+ostream& operator<<(ostream& os, const DTEstudiante& dtEstudiante) {
+    os << "Tipo: Estudiante" << endl;
+    os << "Nickname: " << dtEstudiante.getNickname() << endl;
+    os << "Nombre: " << dtEstudiante.getNombre() << endl;
+    os << "Descripcion: " << dtEstudiante.getDescripcion() << endl;
+    os << "Pais: " << dtEstudiante.getPais() << endl;
+    os << "Fecha de nacimiento: " << * dtEstudiante.getFechaNacimiento() << endl;
+    return os;
 }
 

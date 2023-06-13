@@ -27,7 +27,9 @@ void Idioma::agregarSuscriptor(ISuscriptor* suscriptor) {
   this->suscriptores.insert(pair<string, ISuscriptor*>(suscriptor->getNickname(), suscriptor));
 }
 
-//void Idioma::eliminarSuscriptor(string nickname);
+void Idioma::eliminarSuscriptor(string nickname) {
+  this->suscriptores.erase(nickname);
+}
 
 
 

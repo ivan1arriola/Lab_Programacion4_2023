@@ -9,6 +9,11 @@ using namespace std;
 /* Limpia la consola en Linux */
 void limpiarConsola();
 
+/* Imprime un espacio */
+void espacioSimple();
+
+/* Pide que se seleccione un elemento de una lista de elementos. Devuelve el
+ * elemento seleccionado. Si se ingresa 0, devuelve un string vacio */
 string seleccionarElemento(set<string> elementos, string nombreElemento);
 
 /*Imprime una linea de - */
@@ -56,5 +61,14 @@ bool deseaRealizarOtraOperacion();
 
 /* Pide un parametro por consola. Devuelve el parametro ingresado */
 string ingresarParametro(string parametro);
+
+
+/* Pregunta por consola si se desea continuar. Devuelve true si se desea
+ * continuar, false en caso contrario */
+bool deseaContinuar(string mensaje);
+
+
+/* Imprime un mensaje de error y cancela la operacion */
+void cancelarOperacion(string error, string operacion);
 
 #endif

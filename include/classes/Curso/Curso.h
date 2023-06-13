@@ -4,6 +4,7 @@
 #include <string>
 #include <set>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -12,6 +13,9 @@ using namespace std;
 #include "Leccion.h"
 #include "../Idioma.h"
 #include "../Usuario/Profesor.h"
+#include "../Inscripcion.h"
+
+#include "../../datatypes/DTDataCurso.h"
 
 class Curso {
     private:
@@ -26,6 +30,7 @@ class Curso {
         Profesor* profesor;
         set<Curso*> cursosPrevios;
 
+        map<string, Inscripcion*> inscripciones; // nicknameEstudiante, Inscripcion
 
     public:
         Curso();
@@ -41,6 +46,10 @@ class Curso {
         vector<Leccion*> getLecciones();
         set<Curso*> getCursosPrevios();
 
+        map<string, Inscripcion*> getInscripciones();
+
+        DTDataCurso* getDT();
+
         // Setters
         void setNombre(string nombre);
         void setDescripcion(string descripcion);
@@ -54,6 +63,7 @@ class Curso {
         // void agregarCursoPrevio(Curso* cursoPrevio);
         float getCantEjsTotal();
         float calcPromedioAvance();
+        int getCantLecciones();
 
         ~Curso();
 

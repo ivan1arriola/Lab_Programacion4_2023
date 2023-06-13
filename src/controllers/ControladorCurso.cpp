@@ -7,6 +7,12 @@
 #include "../../include/handlers/HandlerUsuario.h"
 #include "../../include/handlers/HandlerIdioma.h"
 
+#include "../../include/classes/Curso/Completar.h"
+#include "../../include/classes/Curso/Curso.h"
+#include "../../include/classes/Curso/Ejercicio.h"
+#include "../../include/classes/Curso/Leccion.h"
+#include "../../include/classes/Curso/Traducir.h"
+
 #include <string>
 
 using namespace std;
@@ -42,6 +48,7 @@ IControladorCurso* ControladorCurso::getInstancia() {
 
 
 set<string> ControladorCurso::listarCursosHabilitados() {
+
     HandlerCurso *h = HandlerCurso::getInstancia();
     map<string, Curso*> mapCursos = h->obtenerCursos();
     set<string> cursosDisponibles;
@@ -73,8 +80,13 @@ void ControladorCurso::altaCurso(bool disponible) {
         this->idiomaCursoActual = NULL;
         this->nicknameProfesorActual = "";
         this->usuarioActual = NULL;
-
         this->leccionesCursoActual.clear();
+
+        this->ejercicioActual = NULL;
+        for (auto it = this->ejerciciosLeccionActual->begin(); it != this->ejerciciosLeccionActual->end(); ++it)
+            delete *it;
+        this->ejerciciosLeccionActual->clear();
+        delete this->ejerciciosLeccionActual;
 
         throw invalid_argument("Ya existe un curso con ese nombre");
     }else {
@@ -82,7 +94,7 @@ void ControladorCurso::altaCurso(bool disponible) {
         Profesor* profesor = dynamic_cast<Profesor*>(this->usuarioActual);
 
         //Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones)
-        Curso* cursoNuevo = new Curso(this->nombreCurso, this->descripcionCursoActual, this->dificultadlCursoActual,
+        Curso* cursoNuevo = new Curso(this->nombreCursoActual, this->descripcionCursoActual, this->dificultadlCursoActual,
                                         disponible, this->idiomaCursoActual, profesor,
                                         this->leccionesCursoActual);
         coleccionCursos->agregarCurso(cursoNuevo);
@@ -134,13 +146,26 @@ void ControladorCurso::eliminarCurso(string nombre) {
 }
 
 void ControladorCurso::agregarLeccion(string tema, string objetivo) {
-    Leccion* leccion = new Leccion(tema, objetivo);
+    Leccion* leccion = new Leccion(tema, objetivo, * this->ejerciciosLeccionActual);
     this->leccionesCursoActual.push_back(leccion);
 }
 
-void ControladorCurso::agregarEjercicio(string tipoEjercicio, string descEjercicio) {
-    // Implementación de la función agregarEjercicio
-    // Código para agregar un nuevo ejercicio a la lección actual con los parámetros proporcionados
+void ControladorCurso::agregarEjercicio(string nombreEjercicio, string tipoEjercicio, string descEjercicio) {
+    if (this->ejerciciosLeccionActual == NULL)
+        this->ejerciciosLeccionActual = new set<Ejercicio*>();
+
+    if (tipoEjercicio == "Traducir" ) {
+        this->ejercicioActual = new Traducir(nombreEjercicio, descEjercicio);
+        this->ejerciciosLeccionActual->insert(this->ejercicioActual);
+        return;
+    }
+    if (tipoEjercicio == "Completar" ) {
+        this->ejercicioActual = new Completar(nombreEjercicio, descEjercicio);
+        this->ejerciciosLeccionActual->insert(this->ejercicioActual);
+        return;
+    }
+
+    throw invalid_argument("Tipo de ejercicio no válido");
 }
 
 void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante) {
@@ -220,10 +245,10 @@ void ControladorCurso::seleccionarCurso(string nombreCurso) {
     this->nombreCurso = nombreCurso;
 }
 
-DTDataCurso ControladorCurso::mostrarDatosCurso() {
-    // Implementación de la función mostrarDatosCurso
-    // Código para obtener los datos del curso seleccionado
-    return DTDataCurso();
+DTDataCurso* ControladorCurso::mostrarDatosCurso() {
+    string nombreCurso = this->nombreCurso;
+    Curso * curso = coleccionCursos->obtenerCurso(nombreCurso);
+    return curso->getDT();
 }
 
 void ControladorCurso::seleccionarProfesor(string nickname) {
@@ -233,4 +258,41 @@ void ControladorCurso::seleccionarProfesor(string nickname) {
     } else {
         throw invalid_argument("No existe el profesor");
     }
+}
+
+set<string> ControladorCurso::listarCursosNoHabilitados(){
+    HandlerCurso* h= HandlerCurso::getInstancia();
+    map<string,Curso*> o= h->obtenerCursos();
+    set<string> resultado;
+
+    for(map<string,Curso*>::iterator it=o.begin();it!=o.end();++it){
+        if(it->second->getDisponible()==false){
+            resultado.insert(it->second->getNombre());
+        }
+    }
+    return resultado;
+}
+
+
+void ControladorCurso::agregarFraseTraducir(string fraseATraducir, string fraseTraducida){
+    if (this->ejercicioActual == NULL)
+        throw invalid_argument("No hay ejercicio seleccionado");
+
+    Traducir* traducir = dynamic_cast<Traducir*>(this->ejercicioActual);
+    if (traducir == NULL)
+        throw invalid_argument("El ejercicio seleccionado no es de tipo Traducir");
+
+    traducir->setFraseATraducir(fraseATraducir);
+    traducir->setFraseCorrecta(fraseTraducida);
+}
+
+void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<string> palabras){
+    if (this->ejercicioActual == NULL)
+        throw invalid_argument("No hay ejercicio seleccionado");
+
+    Completar* completar = dynamic_cast<Completar*>(this->ejercicioActual);
+    if (completar == NULL)
+        throw invalid_argument("El ejercicio seleccionado no es de tipo Completar");
+    completar->setFraseACompletar(fraseACompletar);
+    completar->setPalabrasFaltantes(palabras);
 }

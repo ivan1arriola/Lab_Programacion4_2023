@@ -22,18 +22,80 @@ fecha en la que se realizó la inscripción correspondiente.
 */
 
 void Sistema::consultarCurso() {
-    imprimirMensaje("Consultar Curso");
+    imprimirMensaje("Consultar curso");
 
-    set<string> listaCursos = controladorCurso -> listarNombreCursos();
+    // Obtener colección de cursos
+    set<string> nombresCursos = controladorCurso->listarNombreCursos();
 
-    if(listaCursos.empty()) {
-        imprimirMensaje("No hay Cursos cargados en el sistema");
-        imprimirMensaje("Cancelando operacion");
+    // Imprimir cursos disponibles
+    if (nombresCursos.empty()) {
+        imprimirMensaje("No hay cursos disponibles");
         return;
     }
 
-    
+    imprimirSet(nombresCursos, "Cursos disponibles");
 
+    // Seleccionar curso
+    string nombreCurso = seleccionarElemento(nombresCursos, "curso");
+    imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
 
-    
-}
+    controladorCurso->seleccionarCurso(nombreCurso);
+
+    cout << endl;
+
+    // Obtener información del curso
+    DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
+
+    cout << *dtCurso << endl;
+
+    cout << endl; 
+  
+    }
+
+    /***
+     * // Obtener lecciones del curso
+    vector<dtLeccionMostrar*> lecciones = dtCurso->getLecciones();
+
+    if (lecciones.empty()) {
+        imprimirMensaje("El curso no tiene lecciones disponibles");
+    } else {
+        cout << "Lecciones del curso:" << endl;
+
+        for (const auto& dtLeccionMostrar : lecciones) {
+            cout << "Tema: " << dtLeccionMostrar->getTema() << endl;
+            cout << "Objetivo: " << dtLeccionMostrar->getObjetivo() << endl;
+
+            // Obtener ejercicios de la lección
+            vector<DTEjercicioMostrar*> ejercicios = DataEjercicioMostrar();
+
+            if (ejercicios.empty()) {
+                imprimirMensaje("La lección no tiene ejercicios disponibles");
+            } else {
+                cout << "Ejercicios de la lección:" << endl;
+
+                for (const auto& DTEjercicioMostrar : ejercicios) {
+                    cout << "Descripción: " << DTEjercicioMostrar->getDescEjercicio() << endl;
+                    cout << "Tipo de ejercicio: " << DTEjercicioMostrar->getTipoEjercicio() << endl;
+                    cout << endl;
+                }
+            }
+
+            cout << endl;
+        }
+    }
+
+    // Obtener inscripciones del curso
+    vector<DTInscripcion*> inscripciones = DataInscripciones();
+
+    if (inscripciones.empty()) {
+        imprimirMensaje("El curso no tiene inscripciones");
+    } else {
+        cout << "Inscripciones del curso:" << endl;
+
+        for (const auto& dtInscripcion : inscripciones) {
+            cout << "Estudiante: " << dtInscripcion->getEstudiante() << endl;
+            cout << "Fecha de inscripción: " << dtInscripcion->getFecha() << endl;
+            cout << endl;
+        }
+    }
+*/
