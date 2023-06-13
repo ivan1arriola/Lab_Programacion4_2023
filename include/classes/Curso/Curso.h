@@ -28,6 +28,7 @@ class Curso {
         vector<Leccion*> lecciones; // Las lecciones tienen ejercicios / Las lecciones estan ordenadas
         Idioma* idioma;
         Profesor* profesor;
+        set<Curso*> cursosPrevios;
 
         map<string, Inscripcion*> inscripciones; // nicknameEstudiante, Inscripcion
 
@@ -35,6 +36,7 @@ class Curso {
         Curso();
         Curso(string nombre, string descripcion, Nivel nivel, bool disponible);
         Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones);
+        // Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios);
 
         // Getters
         string getNombre();
@@ -42,6 +44,8 @@ class Curso {
         Nivel getNivel();
         bool getDisponible();
         vector<Leccion*> getLecciones();
+        set<Curso*> getCursosPrevios();
+
         map<string, Inscripcion*> getInscripciones();
 
         DTDataCurso* getDT();
@@ -51,11 +55,13 @@ class Curso {
         void setDescripcion(string descripcion);
         void setNivel(Nivel nivel);
         void setDisponible(bool disponible);
+        void setCursosPrevios(set<Curso*> cursosPrevios);
 
         // Operaciones
         set<string> obtenerEjNoAprobados();
         void agregarLeccion(Leccion* leccion);
-        int getCantEjsTotal();
+        // void agregarCursoPrevio(Curso* cursoPrevio);
+        float getCantEjsTotal();
         float calcPromedioAvance();
         int getCantLecciones();
 

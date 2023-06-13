@@ -22,7 +22,6 @@ using namespace std;
 
 void Sistema::cargarDatosdePrueba()
 {
-
      // Crear Idiomas
      Idioma *idioma1 = new Idioma("Español");
      Idioma *idioma2 = new Idioma("Inglés");
@@ -200,5 +199,5 @@ void Sistema::cargarDatosdePrueba()
 
 
 
-     
+
 }

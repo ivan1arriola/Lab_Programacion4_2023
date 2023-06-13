@@ -21,6 +21,17 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
     this->inscripciones = map<string, Inscripcion*>();
 }
 
+// Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
+//     this->nombre = nombre;
+//     this->descripcion = descripcion;
+//     this->nivel = nivel;
+//     this->disponible = disponible;
+//     this->lecciones = lecciones;
+//     this->idioma = idioma;
+//     this->profesor = profesor;
+//     this->cursosPrevios = cursosPrevios;
+// }
+
 string Curso::getNombre() {
     return nombre;
 }
@@ -35,6 +46,13 @@ Nivel Curso::getNivel() {
 
 bool Curso::getDisponible() {
     return disponible;
+}
+vector<Leccion *> Curso::getLecciones(){
+    return lecciones;
+}
+
+set<Curso*> Curso::getCursosPrevios(){
+    return cursosPrevios;
 }
 
 void Curso::setNombre(string nombre) {
@@ -53,6 +71,10 @@ void Curso::setDisponible(bool disponible) {
     this->disponible = disponible;
 }
 
+void Curso::setCursosPrevios(set<Curso*> cursosPrevios){
+    this->cursosPrevios = cursosPrevios;
+}
+
 set<string> Curso::obtenerEjNoAprobados() {
     // Implementación de la función obtenerEjNoAprobados()
     return set<string>();
@@ -62,13 +84,17 @@ void Curso::agregarLeccion(Leccion* leccion) {
     this->lecciones.push_back(leccion);
 }
 
-int Curso::getCantEjsTotal() {
+// void Curso::agregarCursoPrevio(Curso* cursoPrevio){
+//     this->cursosPrevios.insert(cursoPrevio);
+// }
+
+float Curso::getCantEjsTotal() {
     int total=0;
     for(vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end();++it){
         Leccion* l=*it;
         total=l->getCantEj();
         }
-    // Implementación de la función getCantEjsTotal()
+
     return total;
 }
 

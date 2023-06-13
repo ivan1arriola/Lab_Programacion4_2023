@@ -48,19 +48,21 @@ IControladorCurso* ControladorCurso::getInstancia() {
 
 
 set<string> ControladorCurso::listarCursosHabilitados() {
-    
+
     HandlerCurso *h = HandlerCurso::getInstancia();
     map<string, Curso*> mapCursos = h->obtenerCursos();
-    set<string> cursos;
+    set<string> cursosDisponibles;
     string insertar;
 
     for(auto it = mapCursos.begin(); it != mapCursos.end(); ++it){
-        insertar = it->second->getNombre();
-        if(it->second->getDisponible())
-            cursos.insert(insertar);
+        //Si el curso se encuentra disponible (habilitado) lo agregamos a la lista de cursos
+        if(it->second->getDisponible()){
+            insertar = it->second->getNombre();
+            cursosDisponibles.insert(insertar);
+        }
     }
 
-    return cursos;
+    return cursosDisponibles;
 }
 
 void ControladorCurso::seleccionarIdioma(string nombreIdioma) {
@@ -79,7 +81,6 @@ void ControladorCurso::altaCurso(bool disponible) {
         this->nicknameProfesorActual = "";
         this->usuarioActual = NULL;
         this->leccionesCursoActual.clear();
-        //this->cursosPreviosCursoActual.clear();
 
         this->ejercicioActual = NULL;
         for (auto it = this->ejerciciosLeccionActual->begin(); it != this->ejerciciosLeccionActual->end(); ++it)
