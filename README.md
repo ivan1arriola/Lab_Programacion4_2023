@@ -43,7 +43,7 @@ Los warnings se tratan como errores, por lo que si el programa no compila, es ne
 - :memo: Consultar estadísticas
 - :memo: Suscribirse a notificaciones :white_check_mark:
 - :memo: Consulta de notificaciones :white_check_mark:
-- :memo: Eliminar suscripciones
+- :memo: Eliminar suscripciones :white_check_mark:
 
 Los casos de uso marcados con :memo: tienen sus diagramas de comunicación desde el laboratorio 3.
 Los casos de uso marcados con :white_check_mark: están implementados.
