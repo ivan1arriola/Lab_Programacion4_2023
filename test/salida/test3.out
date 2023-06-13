@@ -1,0 +1,206 @@
+
+*******************************************
+*                                         *
+*     Bienvenide a la aplicación de       *
+*                idiomas                  *
+*                                         *
+*******************************************
+
+Menu de opciones:
+1. Alta de usuario
+2. Consulta de usuario
+3. Alta de idioma
+4. Consultar idiomas
+5. Alta de curso
+6. Agregar lección
+7. Agregar ejercicio
+8. Habilitar curso
+9. Eliminar curso
+10. Consultar curso
+11. Inscribirse a curso
+12. Realizar ejercicio
+13. Consultar estadísticas
+14. Suscribirse a notificaciones
+15. Consulta de notificaciones
+16. Eliminar suscripciones
+17. Cargar datos de prueba
+0. Salir
+
+Debe ingresar una opcion valida
+Ingrese una opcion: 
+
+Usuarios disponibles:
+-------------------
+John Doe
+Jane Smith
+Luis Pérez
+Anna Kovac
+John Smith
+Maria García
+Michael Müller
+Sakura Tanaka
+
+Cursos disponibles:
+-------------------
+Diseño Gráfico Avanzado
+Introducción a la Inteligencia Artificial
+Marketing Digital para Emprendedores
+Programación en C++
+
+Idiomas disponibles:
+-------------------
+Alemán
+Chino
+Coreano
+Español
+Francés
+Hindi
+Inglés
+Italiano
+Japonés
+Portugués
+Ruso
+Árabe
+
+Desea realizar otra operacion?
+1. Si 
+0. No
+Ingrese una opcion: 
+
+[H[2J[3JMenu de opciones:
+1. Alta de usuario
+2. Consulta de usuario
+3. Alta de idioma
+4. Consultar idiomas
+5. Alta de curso
+6. Agregar lección
+7. Agregar ejercicio
+8. Habilitar curso
+9. Eliminar curso
+10. Consultar curso
+11. Inscribirse a curso
+12. Realizar ejercicio
+13. Consultar estadísticas
+14. Suscribirse a notificaciones
+15. Consulta de notificaciones
+16. Eliminar suscripciones
+17. Cargar datos de prueba
+0. Salir
+
+Ingrese una opcion: 
+Consulta de Usuario
+1 - anna_kovac
+2 - jane_smith
+3 - john_doe
+4 - johnsmith
+5 - luis_perez
+6 - mariagarcia
+7 - michaelmuller
+8 - sakuratanaka
+
+Ingrese una opcion: 
+A seleccionado el usuario: luis_perez
+
+Información del estudiante:
+Nickname: luis_perez
+Nombre: Luis Pérez
+Descripción: Entusiasta de las matemáticas y la ciencia
+País: México
+
+Desea realizar otra operacion?
+1. Si 
+0. No
+Ingrese una opcion: 
+
+[H[2J[3JMenu de opciones:
+1. Alta de usuario
+2. Consulta de usuario
+3. Alta de idioma
+4. Consultar idiomas
+5. Alta de curso
+6. Agregar lección
+7. Agregar ejercicio
+8. Habilitar curso
+9. Eliminar curso
+10. Consultar curso
+11. Inscribirse a curso
+12. Realizar ejercicio
+13. Consultar estadísticas
+14. Suscribirse a notificaciones
+15. Consulta de notificaciones
+16. Eliminar suscripciones
+17. Cargar datos de prueba
+0. Salir
+
+Ingrese una opcion: 
+Consulta de Notificaciones
+-------------------------------------------
+
+1 - anna_kovac
+2 - jane_smith
+3 - john_doe
+4 - johnsmith
+5 - luis_perez
+6 - mariagarcia
+7 - michaelmuller
+8 - sakuratanaka
+
+Ingrese una opcion: 
+Usuario seleccionado: sakuratanaka
+-------------------------------------------
+
+Notificaciones:
+
+Notificacion:
+Se creo el curso de nombre "Diseño Gráfico Avanzado"
+Un curso del idioma: Inglés
+-------------------------------------------
+Notificacion:
+Se creo el curso de nombre "Introducción a la Inteligencia Artificial"
+Un curso del idioma: Francés
+-------------------------------------------
+
+
+Desea realizar otra operacion?
+1. Si 
+0. No
+Ingrese una opcion: Debe ingresar una opcion valida
+Ingrese una opcion: 
+
+[H[2J[3JMenu de opciones:
+1. Alta de usuario
+2. Consulta de usuario
+3. Alta de idioma
+4. Consultar idiomas
+5. Alta de curso
+6. Agregar lección
+7. Agregar ejercicio
+8. Habilitar curso
+9. Eliminar curso
+10. Consultar curso
+11. Inscribirse a curso
+12. Realizar ejercicio
+13. Consultar estadísticas
+14. Suscribirse a notificaciones
+15. Consulta de notificaciones
+16. Eliminar suscripciones
+17. Cargar datos de prueba
+0. Salir
+
+Ingrese una opcion: 
+Habilitar Curso
+Ingrese el indice del curso a habilitar
+0 - Cancelar
+1 - Marketing Digital para Emprendedores
+
+Ingrese una opcion: 
+No se puede habilitar el curso, aun no tiene lecciones con ejercicios
+
+Desea realizar otra operacion?
+1. Si 
+0. No
+Ingrese una opcion: 
+
+[H[2J[3JGracias por utilizar la aplicacion de idiomas
+Saliendo del sistema...
+Hasta luego!
