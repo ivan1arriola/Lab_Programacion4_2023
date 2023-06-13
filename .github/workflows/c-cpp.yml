@@ -17,10 +17,19 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Set up C++ compiler
-      run: sudo apt-get install g++
+      run: sudo apt-get install g++ valgrind
 
     - name: Build and check for errors
       run: make build
+
+    - name: Run test 1
+      run: |
+        make test1
+        if [ $? -eq 0 ]; then
+          echo "Test 1 passed."
+        else
+          echo "Test 1 failed."
+        fi
 
     - name: Run test 2
       run: |
