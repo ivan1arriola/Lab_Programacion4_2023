@@ -108,7 +108,7 @@ valgrind: $(EXECUTABLE)
 create_dirs:
 	@mkdir -p $(TESTSALIDADIR)
 
-test: $(EXECUTABLE) create_dirs test1 test2
+test: $(EXECUTABLE) create_dirs test1 test2 test3 test4
 
 test1: $(EXECUTABLE) create_dirs
 	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test1.in > $(TESTSALIDADIR)/test1.out 2> $(TESTSALIDADIR)/test1_valgrind.out
@@ -124,4 +124,20 @@ test2: $(EXECUTABLE) create_dirs
 		echo "No se encontraron fugas de memoria en test2"; \
 	else \
 		echo "Se detectaron fugas de memoria en test2"; \
+	fi
+
+test3: $(EXECUTABLE) create_dirs
+	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test3.in > $(TESTSALIDADIR)/test3.out 2> $(TESTSALIDADIR)/test3_valgrind.out
+	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/test3_valgrind.out; then \
+		echo "No se encontraron fugas de memoria en test3"; \
+	else \
+		echo "Se detectaron fugas de memoria en test3"; \
+	fi
+
+test4: $(EXECUTABLE) create_dirs
+	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test4.in > $(TESTSALIDADIR)/test4.out 2> $(TESTSALIDADIR)/test4_valgrind.out
+	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/test4_valgrind.out; then \
+		echo "No se encontraron fugas de memoria en test4"; \
+	else \
+		echo "Se detectaron fugas de memoria en test4"; \
 	fi

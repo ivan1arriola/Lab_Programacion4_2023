@@ -20,13 +20,22 @@ jobs:
       run: sudo apt-get install g++
 
     - name: Build and check for errors
-      run: make clean build
-     
-    - name: Run test 1
+      run: make build
+
+    - name: Abre y cierra la aplicacion
       run: |
         make test1
+        if [ $? -eq 0 ]; then
+          echo "Test 1 passed."
+        else
+          echo "Test 1 failed."
+        fi
 
     - name: Run test 2
       run: |
         make test2
-
+        if [ $? -eq 0 ]; then
+          echo "Test 2 passed."
+        else
+          echo "Test 2 failed."
+        fi
