@@ -150,7 +150,7 @@ void ControladorCurso::agregarLeccion(string tema, string objetivo) {
     this->leccionesCursoActual.push_back(leccion);
 }
 
-void ControladorCurso::agregarEjercicio(string nombreEjercicio, string tipoEjercicio, string descEjercicio) {
+void ControladorCurso::agregarEjercicio(string tipoEjercicio, string descEjercicio) {
     if (this->ejerciciosLeccionActual == NULL)
         this->ejerciciosLeccionActual = new set<Ejercicio*>();
 

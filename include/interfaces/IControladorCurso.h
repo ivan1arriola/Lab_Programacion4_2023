@@ -47,7 +47,7 @@ class IControladorCurso {
         virtual set<string> listarCursosHabilitados() = 0;
         virtual void seleccionarCurso(string nombreCurso) = 0;
         virtual void agregarLeccion(string tema, string objetivo) = 0;
-        virtual void agregarEjercicio(string nombreEjercicio, string tipoEjercicio, string descEjercicio) = 0;
+        virtual void agregarEjercicio(string tipoEjercicio, string descEjercicio) = 0;
         virtual void altaCurso(bool disponible) = 0;
 
         virtual void agregarFraseTraducir(string fraseATraducir, string fraseTraducida) = 0;

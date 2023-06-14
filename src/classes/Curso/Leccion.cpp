@@ -37,6 +37,7 @@ void Leccion::setObjetivo(string objetivo) {
 
 void Leccion::crearEjercicioYAgregarlo(string desc) {
     // Implementación de la función crearEjercicioYAgregarlo()
+    ejercicios.push_back(desc);
 }
 
 set<Ejercicio*> Leccion::getEjercicios() {

@@ -29,7 +29,102 @@ ordenada de lecciones y sus ejercicios, en caso de existir.
 */
 
 void Sistema::agregarLeccion() {
-    imprimirMensaje("Agregar Lección");
+    
+
+ 
+        imprimirMensaje("Agregar lección");
+
+        // Listar cursos no habilitados
+        // ...
+        set<string> nombresCursos = controladorCurso->listarCursosNoHabilitados();
+     // Imprimir cursos disponibles
+        if (nombresCursos.empty()) {
+        imprimirMensaje("No hay cursos disponibles");
+        return;
+        }
+        imprimirSet(nombresCursos, "Cursos disponibles");
+        // Seleccionar curso
+        // ...
+         string nombreCurso = seleccionarElemento(nombresCursos, "curso");
+         imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
+
+        controladorCurso->seleccionarCurso(nombreCurso);
+
+        cout << endl;
+
+        // Ingresar tema
+        string tema = ingresarParametro("el tema");
+
+        espacioSimple();
+
+        // Ingresar objetivo
+        string objetivo = ingresarParametro("el objetivo");
+
+        espacioSimple();
+
+        // Crear lección
+        Leccion leccion(tema, objetivo);
+
+       // Agregar ejercicios (opcionalmente)
+        cout << "Desea agregar ejercicios? (1. Sí, 0. No): ";
+        int agregarEjercicios = ingresarOpcion(1);
+        while (agregarEjercicios == 1) {
+            espacioSimple();
+            cout << "Tipo de ejercicio:" << endl;
+            cout << "1. Completar palabras" << endl;
+            cout << "2. Traducción" << endl;
+            int tipoEjercicio = ingresarOpcion(2);
+
+            espacioSimple();
+
+            string descripcion = ingresarParametro("la descripción");
+
+            espacioSimple();
+
+            if (tipoEjercicio == 1) {
+                string frase = ingresarParametro("la frase a completar");
+                string solucion = ingresarParametro("la solución (palabras separadas por comas)");
+
+                Ejercicio ejercicio("Completar palabras", descripcion + " - Frase: " + frase + ", Solución: " + solucion);
+                leccion.crearEjercicioYAgregarlo(ejercicio);
+            } else if (tipoEjercicio == 2) {
+                string frase = ingresarParametro("la frase a traducir");
+                string traduccion = ingresarParametro("la traducción");
+
+                Ejercicio ejercicio("Traducción", descripcion + " - Frase: " + frase + ", Traducción: " + traduccion);
+                leccion.crearEjercicioYAgregarlo(ejercicio);
+            }
+
+            espacioSimple();
+
+            cout << "Desea agregar otro ejercicio? (1. Sí, 0. No): ";
+            agregarEjercicios = ingresarOpcion(1);
+        }
+
+        espacioSimple();
+
+        // Imprimir datos ingresados
+        cout << "Datos ingresados:" << endl;
+        cout << "Tema: " << leccion.tema << endl;
+        cout << "Objetivo: " << leccion.objetivo << endl;
+        cout << "Ejercicios:" << endl;
+        for (const auto& ejercicio : leccion.ejercicios) {
+            cout << "- Tipo: " << ejercicio.tipo << endl;
+            cout << "  Descripción: " << ejercicio.descripcion << endl;
+        }
+
+        espacioSimple();
+
+        // Dar de alta la lección
+        // ...
+        controladorCurso->agregarLeccion(leccion.tema, leccion.objetivo);
+        for (const auto& ejercicio : leccion.ejercicios) {
+            controladorCurso->agregarEjercicio(string nombreEjercicio, ejercicio.tipo, ejercicio.descripcion)
+        }
+
+        cout << "Lección agregada con éxito" << endl;
+    
+
 }
 
 
