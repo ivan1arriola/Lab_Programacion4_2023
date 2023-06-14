@@ -109,9 +109,15 @@ int Curso::getCantLecciones(){
 
 Curso::~Curso() {
     // Borrar todos las lecciones
+    if (idioma!=NULL)idioma=NULL;
+    if(profesor!=NULL)profesor=NULL;
 
-    for (long unsigned int i = 0; i < lecciones.size(); i++) {
-        delete lecciones[i];
+    for (vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end(); ++it) {
+        delete *it;
+    }
+    
+    for (map<string,Inscripcion*>::iterator it=inscripciones.begin();it!=inscripciones.end();++it){
+        delete it->second;
     }
 }
 

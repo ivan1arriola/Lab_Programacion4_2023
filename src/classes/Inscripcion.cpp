@@ -58,3 +58,9 @@ float Inscripcion::getCantEjsAprob() {
     }
     return 0.0;
 }
+
+Inscripcion::~Inscripcion(){
+    delete fechaInscripcion;
+    if(estudiante!=NULL)estudiante=NULL;
+    if(curso!=NULL)curso=NULL;
+}

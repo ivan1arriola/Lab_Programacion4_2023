@@ -102,7 +102,12 @@ void ControladorCurso::altaCurso(bool disponible) {
 }
 
 set<string> ControladorCurso::obtenerCursos() {
+    HandlerCurso *h = HandlerCurso::getInstancia();
+    map<string, Curso*> mapCursos = h->obtenerCursos();
     set<string> cursos;
+    for(auto it = mapCursos.begin(); it != mapCursos.end(); ++it){
+        cursos.insert(it->second->getNombre());
+    }
     // Implementación de la función obtenerCursos
     // Código para obtener la lista de cursos disponibles
     return cursos;
@@ -141,6 +146,10 @@ set<DTDataLeccion> ControladorCurso::getLecciones() {
 }
 
 void ControladorCurso::eliminarCurso(string nombre) {
+    HandlerCurso* h= HandlerCurso::getInstancia();
+  
+    h->eliminarCurso(nombre);
+    
     // Implementación de la función eliminarCurso
     // Código para eliminar el curso con el nombre proporcionado
 }

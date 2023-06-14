@@ -18,4 +18,14 @@ el curso.
 
 void Sistema::eliminarCurso() {
     imprimirMensaje("Eliminar Curso");
+    set<string> f= controladorCurso->obtenerCursos(); //obtenercursos()
+    imprimirMensaje("Ingrese el indice del curso a eliminar");
+    imprimirOpcionesSet(f,"Cursos");
+    int opcion=ingresarOpcion(f.size());
+    if (opcion!=0){
+        string nom=obtenerOpcion(f,opcion);
+        controladorCurso->eliminarCurso(nom);
+        imprimirMensaje("Curso eliminado con exito");
+    }
+
 }
