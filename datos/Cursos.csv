@@ -1,0 +1,7 @@
+Ref;Nombre;Descripcion;Dificultad;Profesor;Idioma;Habilitado
+C1;Ingles para principiantes;Curso para personas con poco o ningun conocimiento de ingles. Se enfoca en vocabulario basico, gramatica y habilidades de conversacion.;Principiante;U11;I1;Si
+C2;Curso de ingles basico;Construye una base solida en el idioma. Cubre gramatica, vocabulario, comprension auditiva y expresion oral.;Principiante;U11;I1;No
+C3;Ingles intermedio: mejora tu nivel;Para estudiantes con conocimientos basicos de ingles que desean avanzar en su habilidad comunicativa. Se centra en la fluidez oral, lectura comprensiva y escritura.;Medio;U12;I1;Si
+C4;Curso avanzado de ingles;Dirigido a personas con un nivel intermedio-alto que desean perfeccionar sus habilidades en todos los aspectos del idioma. Incluye gramatica avanzada, vocabulario y comprension escrita y auditiva.;Avanzado;U12;I1;Si
+C5;Portugues intermedio;Curso para aquellos que tienen conocimientos basicos de portugues y desean mejorar su nivel. Incluye practica de lectura, escritura y comprension auditiva.;Medio;U12;I3;Si
+C6;Portugues avanzado;Curso avanzado para personas con un nivel intermedio-alto de portugues que desean perfeccionar su fluidez y dominio del idioma. Se trabaja en la gramatica avanzada y la expresion oral.;Avanzado;U14;I3;No
