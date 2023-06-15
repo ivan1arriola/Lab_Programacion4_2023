@@ -9,11 +9,15 @@ using namespace std;
 
 class DTEjercicio {
     private:
+        string nombre;
         string tipoEjercicio;
         string desc;
     public:
         DTEjercicio();
-        DTEjercicio(string tipoEjercicio, string desc);
+        DTEjercicio(string nombre, string tipoEjercicio, string desc);
+        DTEjercicio(string nombre, string tipoEjercicio, string desc, set<DTEjercicio*> ejercicios); 
+
+        string getNombre();
         string getTipoEjercicio();
         string getDesc();
         ~DTEjercicio();

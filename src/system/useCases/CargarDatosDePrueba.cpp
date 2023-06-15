@@ -56,6 +56,12 @@ void Sistema::cargarDatosdePrueba()
      DTDate *fechaNacimiento3 = new DTDate(3, 3, 2003);
      DTDate *fechaNacimiento4 = new DTDate(4, 4, 2004);
 
+     //Imprimir fechas de nacimiento
+     cout << "Fecha de nacimiento 1: " << *fechaNacimiento1 << endl;
+     cout << "Fecha de nacimiento 2: " << *fechaNacimiento2 << endl;
+     cout << "Fecha de nacimiento 3: " << *fechaNacimiento3 << endl;
+     cout << "Fecha de nacimiento 4: " << *fechaNacimiento4 << endl;
+
      // Crear Usuarios
      Usuario *usuario1 = new Estudiante("john_doe", "password1", "John Doe", "Estudiante de programación interesado en desarrollo web", "Estados Unidos", fechaNacimiento1);
      Usuario *usuario2 = new Estudiante("jane_smith", "password2", "Jane Smith", "Apasionada por el diseño gráfico y la ilustración", "Canadá", fechaNacimiento2);

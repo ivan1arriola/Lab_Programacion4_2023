@@ -39,7 +39,8 @@ ostream& operator<<(ostream& os, const DTEstudiante& dtEstudiante) {
     os << "Nombre: " << dtEstudiante.getNombre() << endl;
     os << "Descripcion: " << dtEstudiante.getDescripcion() << endl;
     os << "Pais: " << dtEstudiante.getPais() << endl;
-    // os << "Fecha de nacimiento: " << * dtEstudiante.getFechaNacimiento() << endl;
+    if (dtEstudiante.getFechaNacimiento() != NULL)
+        os << "Fecha de nacimiento: " << * dtEstudiante.getFechaNacimiento() << endl;
     return os;
 }
 
