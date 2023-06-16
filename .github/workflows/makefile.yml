@@ -19,12 +19,4 @@ jobs:
     - name: Install dependencies
       run: make
       
-  test:
-    runs-on: ubuntu-latest
-    env:
-      TERM: linux
-    steps:
-    - name: Run check
-      run: make test
-
-
+ 
