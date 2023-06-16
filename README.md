@@ -35,8 +35,8 @@ Los warnings se tratan como errores, por lo que si el programa no compila, es ne
 - Alta de idioma :white_check_mark:
 - Consultar idiomas :white_check_mark:
 - :memo: Alta de curso  :white_check_mark:
-- Agregar lección
-- Agregar ejercicio
+- Agregar lección :white_check_mark:
+- Agregar ejercicio :white_check_mark:
 - Habilitar curso :white_check_mark:
 - :memo: Eliminar curso
 - Consultar curso  :warning:
