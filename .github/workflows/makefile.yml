@@ -25,6 +25,6 @@ jobs:
       TERM: linux
     steps:
     - name: Run check
-      run: make build test
+      run: make test
 
 
