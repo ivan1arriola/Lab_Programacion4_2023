@@ -27,6 +27,7 @@ private:
     vector<Leccion *> leccionesCursoActual;
 
     // Datos de la leccion actual
+    Leccion *leccionActual;
 
     // Datos del ejercicio actual
     Ejercicio *ejercicioActual;
@@ -64,6 +65,7 @@ public:
     void ingresarSolucionTraducir(string solT);
     void marcarEjercicioAprobado();
     void marcarEjercicioNoAprobado();
+    void setLeccionActual(Leccion *leccion);
 
     ~ControladorCurso(); // Destructor
 
@@ -85,6 +87,12 @@ public:
 
     //Operacion agregarLeccion
     void agregarLeccionACurso(Leccion *leccion);
+
+    //Operaciones para agregarEjercicio
+    //Lista los temas de cada leccion en orden
+    vector<string> listarLecciones(Curso *curso);
+    void darDeAltaCompletar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes);
+    void darDeAltaTraducir(string descripcion, string fraseATraducir, string fraseTraducida);
 
     // operaciones para habilitar curso
     set<string> listarCursosNoHabilitados();

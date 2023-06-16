@@ -18,6 +18,7 @@ void espacioSimple();
 /* Pide que se seleccione un elemento de una lista de elementos. Devuelve el
  * elemento seleccionado. Si se ingresa 0, devuelve un string vacio */
 string seleccionarElemento(set<string> elementos, string nombreElemento);
+int seleccionarElemento(vector<string> elementos, string nombreElemento);
 
 /*Imprime una linea de - */
 void imprimirLinea();
@@ -35,6 +36,10 @@ void imprimirMensajeDespedida();
  * imprime un mensaje indicando que no hay elementos disponibles */
 void imprimirSet(const set<string>& conjunto, string nombreDelConjunto);
 
+/* Imprime un vector de strings, con indice . Si el conjunto esta vacio,
+ * imprime un mensaje indicando que no hay elementos disponibles */
+void imprimirVector(const vector<string>& conjunto, string nombreDelConjunto);
+
 /* Imprime una linea de guiones, un string, otra linea de guiones y un salto de
  * linea */
 void imprimirMensaje(string mensaje);
@@ -51,6 +56,7 @@ void imprimirMenu();
 void imprimirOpcionesSet(const set<string>& conjunto, string nombreDelConjunto);
 
 string obtenerOpcion(const set<string>& conjunto, int opcion);
+string obtenerOpcion(const vector<string>& conjunto, int opcion);
 
 /* Lee un numero por consola.Si es un numero, verifica que sea una opcion valida
  * (entre 0 y cantOpciones). Si no es un numero, pide que se ingrese un numero.

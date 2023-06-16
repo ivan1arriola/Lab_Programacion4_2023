@@ -34,6 +34,24 @@ string seleccionarElemento(set<string> elementos, string nombreElemento) {
     return obtenerOpcion(elementos, opcion) ;
 }
 
+int seleccionarElemento(vector<string> elementos, string nombreElemento) {
+    int opcion = -1;
+
+    imprimirMensaje("Seleccione una " + nombreElemento + " de la lista:") ;
+    imprimirVector(elementos, nombreElemento + "s") ;
+
+    opcion = ingresarOpcion(elementos.size()) ;
+
+    if (opcion == 0) {
+        return -1;
+    }
+
+    //devuelvo la posicion en el vector
+    opcion--;
+
+    return opcion;
+}
+
 
 void imprimirLinea() {
     cout << "-------------------------------------------" << endl;
@@ -158,6 +176,19 @@ void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
     }
 }
 
+void imprimirVector(const vector<string>& conjunto, string nombreDelConjunto){
+    if(conjunto.empty()){
+        espacioSimple();
+        cout << "0 - No hay " << nombreDelConjunto << " disponibles" << endl;
+    }else{
+        int indice =1;
+        for(const string& elemento : conjunto){
+            cout << indice << " - " << elemento << endl;
+            indice++;
+        }
+    }
+}
+
 void imprimirOpcionesSet(const set<string>& conjunto, string nombreDelConjunto) {
     if (conjunto.empty()) {
         espacioSimple();
@@ -219,6 +250,17 @@ string ingresarPalabra(string parametro) {
 }
 
 string obtenerOpcion(const set<string>& conjunto, int opcion) {
+    int indice = 1;
+    for (const string& elemento : conjunto) {
+        if (indice == opcion) {
+            return elemento;
+        }
+        ++indice;
+    }
+    return "";
+}
+
+string obtenerOpcion(const vector<string>& conjunto, int opcion) {
     int indice = 1;
     for (const string& elemento : conjunto) {
         if (indice == opcion) {

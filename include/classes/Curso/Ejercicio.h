@@ -5,6 +5,8 @@ descripcion: String*/
 #define EJERCICIO
 
 #include <string>
+// #include "Traducir.h"
+// #include "Completar.h"
 
 using namespace std;
 

@@ -113,6 +113,10 @@ set<string> ControladorCurso::obtenerCursos() {
     return cursos;
 }
 
+void ControladorCurso::setLeccionActual(Leccion *leccion){
+    this->leccionActual = leccion;
+}
+
 string ControladorCurso::getNombreCurso() {
     return nombreCurso;
 }
@@ -288,6 +292,29 @@ set<string> ControladorCurso::listarCursosNoHabilitados(){
     return resultado;
 }
 
+vector<string> ControladorCurso::listarLecciones(Curso *curso){
+    vector<string> lecciones;
+    
+    vector<Leccion*> l = curso->getLecciones();
+    string tema;
+
+    for(auto it=l.begin(); it != l.end(); ++it){
+        tema = (*it)->getTema();
+        lecciones.push_back(tema);
+    }
+
+    return lecciones;
+}
+
+void ControladorCurso::darDeAltaCompletar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes){
+    Leccion *leccion = this->leccionActual;
+    leccion->crearEjercicioCompletarYAgregarlo("", descripcion, fraseACompletar, palabrasFaltantes);
+}
+
+void ControladorCurso::darDeAltaTraducir(string descripcion, string fraseATraducir, string fraseTraducida){
+    Leccion *leccion = this->leccionActual;
+    leccion->crearEjercicioTraducirYAgregarlo("", descripcion, fraseATraducir, fraseTraducida);
+}
 
 void ControladorCurso::agregarFraseTraducir(string fraseATraducir, string fraseTraducida){
     if (this->ejercicioActual == NULL)

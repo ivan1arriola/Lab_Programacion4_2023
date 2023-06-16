@@ -9,6 +9,7 @@
 #include "../datatypes/DTDataLeccion.h"
 #include "../datatypes/DTEjercicio.h"
 #include "../../include/classes/Curso/Leccion.h"
+#include "../../include/classes/Curso/Curso.h"
 
 #include "../enums/NIVEL.h"
 
@@ -25,6 +26,7 @@ class IControladorCurso {
         virtual set<string> getNombresCursosPrevios() = 0;
         virtual set<DTDataLeccion> getLecciones() = 0;
         virtual void eliminarCurso(string nombre) = 0;
+        virtual void setLeccionActual(Leccion *leccion) = 0;
         
         virtual void ingresarNicknameEstudiante(string nomEstudiante) = 0;
         virtual set<string> listarCursosInscrip() = 0;
@@ -55,6 +57,10 @@ class IControladorCurso {
         virtual void agregarFraseCompletar(string fraseACompletar, vector<string> palabras) = 0;
 
         virtual void agregarLeccionACurso(Leccion *leccion) = 0;
+
+        virtual vector<string> listarLecciones(Curso *curso) = 0;
+        virtual void darDeAltaCompletar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes) = 0;
+        virtual void darDeAltaTraducir(string descripcion, string fraseATraducir, string fraseTraducida) = 0;
 
         //operaciones para habilitar curso
         virtual set<string> listarCursosNoHabilitados()=0;
