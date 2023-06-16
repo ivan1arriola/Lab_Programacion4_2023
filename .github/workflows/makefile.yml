@@ -10,14 +10,21 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      TERM: linux
 
     steps:
     - uses: actions/checkout@v3
 
     - name: Install dependencies
       run: make
-
+      
+  test:
+    runs-on: ubuntu-latest
+    env:
+      TERM: linux
+    steps:
     - name: Run check
-      run: make test
+      run: make build test
 
 
