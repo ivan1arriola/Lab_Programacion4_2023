@@ -3,6 +3,7 @@
 
 #include <string>
 #include <set>
+#include <vector>
 
 #include "Ejercicio.h"
 
@@ -30,7 +31,8 @@ class Leccion {
         void setObjetivo(string objetivo);
 
         // Operaciones
-        void crearEjercicioYAgregarlo(string desc);
+        void crearEjercicioCompletarYAgregarlo(string nombre, string desc, string fraseCompletar, vector<string> palabrasFaltantes);
+        void crearEjercicioTraducirYAgregarlo(string nombre, string desc, string fraseTraducir, string fraseTraducida);
        
 
         ~Leccion();

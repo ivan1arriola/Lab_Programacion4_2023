@@ -159,22 +159,28 @@ void ControladorCurso::agregarLeccion(string tema, string objetivo) {
     this->leccionesCursoActual.push_back(leccion);
 }
 
-void ControladorCurso::agregarEjercicio(string tipoEjercicio, string descEjercicio) {
+void ControladorCurso::agregarEjercicio(string nombre, string tipoEjercicio, string descEjercicio) {
     if (this->ejerciciosLeccionActual == NULL)
         this->ejerciciosLeccionActual = new set<Ejercicio*>();
 
     if (tipoEjercicio == "Traducir" ) {
-        this->ejercicioActual = new Traducir(nombreEjercicio, descEjercicio);
+        this->ejercicioActual = new Traducir(nombre, descEjercicio);
         this->ejerciciosLeccionActual->insert(this->ejercicioActual);
         return;
     }
     if (tipoEjercicio == "Completar" ) {
-        this->ejercicioActual = new Completar(nombreEjercicio, descEjercicio);
+        this->ejercicioActual = new Completar(nombre, descEjercicio);
         this->ejerciciosLeccionActual->insert(this->ejercicioActual);
         return;
     }
 
     throw invalid_argument("Tipo de ejercicio no válido");
+}
+
+void ControladorCurso::agregarLeccionACurso(Leccion *leccion){
+    //curso al que queremos agregar leccion
+    Curso *curso = coleccionCursos->obtenerCurso(this->nombreCurso);
+    curso->agregarLeccion(leccion);
 }
 
 void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante) {

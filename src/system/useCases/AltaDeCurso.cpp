@@ -49,48 +49,6 @@ nuevo curso con los datos ingresados y sus lecciones y ejercicios, en caso de ex
 dejándolo no disponible para los estudiantes hasta tanto no se ejecute el caso de uso
 “Habilitar curso”.*/
 
-static nat contarEspaciosACompletar(string frase)
-{
-    nat contador = 0;
-    // Si es menor a 5 no puede tener 3 guiones seguidos
-    if (frase.size() < 5)
-    {
-        return 0;
-    }
-    // Cuenta cuantas secuencias de 3 guiones seguidos hay y que esten rodeados de espacios
-    for (nat i = 0; i < frase.size() - 3; i++)
-    {
-        if (frase[i] == ' ' && frase[i + 1] == '-' && frase[i + 2] == '-' && frase[i + 3] == '-')
-        {
-            contador++;
-        }
-    }
-    return contador;
-}
-
-static string ingresarFraseACompletar()
-{
-    string frase = ingresarParametro("la frase a completar");
-    // Controla que tenga al menos 3 guiones seguidos
-    while (contarEspaciosACompletar(frase) == 0)
-    {
-        imprimirMensaje("La frase debe tener al menos una secuencia de 3 guiones seguidos");
-        frase = ingresarParametro("la frase a completar");
-    }
-    return frase;
-}
-
-static vector<string> ingresarConjuntoDePalabras(int cantEspacios)
-{
-    vector<string> solucion;
-    for (int i = 0; i < cantEspacios; i++)
-    {
-        string palabra = ingresarParametro("la palabra que completa el espacio " + to_string(i + 1) + ":");
-        solucion.push_back(palabra);
-    }
-    return solucion;
-}
-
 void Sistema::altaDeCurso()
 {
     imprimirMensaje("Alta de Curso");
@@ -299,10 +257,10 @@ void Sistema::altaDeCurso()
 
     bool quiereAgregarLecciones = deseaContinuar("¿Desea agregar lecciones al curso?") ;
 
-    if (!quiereAgregarLecciones) {
-        cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
-        return ;
-    } else {
+    if (quiereAgregarLecciones) {
+    //     cancelarOperacion("A seleccionado cancelar la operación", "Alta de Curso") ;
+    //     return ;
+    // } else {
         do {
 
             

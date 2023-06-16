@@ -3,8 +3,11 @@
 
 #include <set>
 #include <string>
+#include <vector>
 
 using namespace std;
+
+typedef unsigned long int nat;
 
 /* Limpia la consola en Linux */
 void limpiarConsola();
@@ -62,6 +65,8 @@ bool deseaRealizarOtraOperacion();
 /* Pide un parametro por consola. Devuelve el parametro ingresado */
 string ingresarParametro(string parametro);
 
+string ingresarPalabra(string parametro);
+
 
 /* Pregunta por consola si se desea continuar. Devuelve true si se desea
  * continuar, false en caso contrario */
@@ -70,5 +75,11 @@ bool deseaContinuar(string mensaje);
 
 /* Imprime un mensaje de error y cancela la operacion */
 void cancelarOperacion(string error, string operacion);
+
+nat contarEspaciosACompletar(string frase);
+
+string ingresarFraseACompletar();
+
+vector<string> ingresarConjuntoDePalabras(int cantEspacios);
 
 #endif

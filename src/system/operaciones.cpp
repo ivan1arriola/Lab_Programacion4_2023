@@ -5,6 +5,8 @@
 
 using namespace std;
 
+typedef unsigned long int nat;
+
 void limpiarConsola() {
     #ifdef _WIN32
         system("cls");
@@ -26,7 +28,7 @@ string seleccionarElemento(set<string> elementos, string nombreElemento) {
     opcion = ingresarOpcion(elementos.size()) ;
 
     if (opcion == 0) {
-        return string();
+        return "";
     }
 
     return obtenerOpcion(elementos, opcion) ;
@@ -193,6 +195,29 @@ string ingresarParametro(string parametro) {
   return valor;
 }
 
+string ingresarPalabra(string parametro) {
+  string valor;
+  cout << "Ingrese " << parametro << ": ";
+  cin >> ws;  // Descartar espacios en blanco iniciales
+  getline(cin, valor, '\n');
+  int i=0;
+  int posicion = -1;
+  char espacio = ' ';
+
+  for(char c : valor){
+    if(c == espacio){
+        posicion = i;
+        break;
+    }
+    i++;
+  }
+  
+  valor = valor.substr(0, posicion);
+
+  espacioSimple();
+  return valor;
+}
+
 string obtenerOpcion(const set<string>& conjunto, int opcion) {
     int indice = 1;
     for (const string& elemento : conjunto) {
@@ -204,3 +229,44 @@ string obtenerOpcion(const set<string>& conjunto, int opcion) {
     return "";
 }
 
+nat contarEspaciosACompletar(string frase)
+{
+    nat contador = 0;
+    // Si es menor a 5 no puede tener 3 guiones seguidos
+    if (frase.size() < 5)
+    {
+        return 0;
+    }
+    // Cuenta cuantas secuencias de 3 guiones seguidos hay y que esten rodeados de espacios
+    for (nat i = 0; i < frase.size() - 3; i++)
+    {
+        if (frase[i] == ' ' && frase[i + 1] == '-' && frase[i + 2] == '-' && frase[i + 3] == '-')
+        {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+string ingresarFraseACompletar()
+{
+    string frase = ingresarParametro("la frase a completar");
+    // Controla que tenga al menos 3 guiones seguidos
+    while (contarEspaciosACompletar(frase) == 0)
+    {
+        imprimirMensaje("La frase debe tener al menos una secuencia de 3 guiones seguidos");
+        frase = ingresarParametro("la frase a completar");
+    }
+    return frase;
+}
+
+vector<string> ingresarConjuntoDePalabras(int cantEspacios)
+{
+    vector<string> solucion;
+    for (int i = 0; i < cantEspacios; i++)
+    {
+        string palabra = ingresarPalabra("la palabra que completa el espacio " + to_string(i + 1) + ":");
+        solucion.push_back(palabra);
+    }
+    return solucion;
+}

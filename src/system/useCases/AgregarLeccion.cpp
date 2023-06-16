@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 #include "../../../include/system/Sistema.h"
 
@@ -28,6 +29,41 @@ ordenada de lecciones y sus ejercicios, en caso de existir.
  * 
 */
 
+// static vector<string> convertirFraseAPalabras(string frase){
+//     vector<string> palabras;
+
+//     //traemos la cantidad de veces que aparece ","
+//     int cantidadDeComas;
+
+//     for(char c : frase){
+//         if(c == ','){
+//             cantidadDeComas++;
+//         }
+//     };
+
+//     int posicionComa;
+//     string palabra;
+    
+//     //Recorremos según sea la cantidad de comas
+//     for(int i=1; i<= cantidadDeComas; i++){
+//         //la posicion en la que aparece la coma
+//         posicionComa = frase.find(",");
+
+//         palabra = frase.substr(0, posicionComa);
+
+//         //agregamos la palabra al conjunto de palabras
+//         palabras.push_back(palabra);
+
+//         frase.erase(0, posicionComa+2); //elimino hasta ", "
+//     };
+
+//     if(!frase.empty()){
+//         palabras.push_back(frase);
+//     };
+
+//     return palabras;
+// };
+
 void Sistema::agregarLeccion() {
     
 
@@ -46,7 +82,12 @@ void Sistema::agregarLeccion() {
         // Seleccionar curso
         // ...
          string nombreCurso = seleccionarElemento(nombresCursos, "curso");
-         imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
+        if(nombreCurso != ""){
+            imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
+        }else{
+            imprimirMensaje("Elija una opcion correcta la proxima");
+            return ;
+        }
 
         controladorCurso->seleccionarCurso(nombreCurso);
 
@@ -63,7 +104,7 @@ void Sistema::agregarLeccion() {
         espacioSimple();
 
         // Crear lección
-        Leccion leccion(tema, objetivo);
+        Leccion *leccion = new Leccion(tema, objetivo);
 
        // Agregar ejercicios (opcionalmente)
         cout << "Desea agregar ejercicios? (1. Sí, 0. No): ";
@@ -77,22 +118,31 @@ void Sistema::agregarLeccion() {
 
             espacioSimple();
 
-            string descripcion = ingresarParametro("la descripción");
+            string nombre = ingresarParametro("el nombre del ejercicio");
+
+            espacioSimple();
+
+            string descripcion = ingresarParametro("la descripción del ejercicio");
 
             espacioSimple();
 
             if (tipoEjercicio == 1) {
-                string frase = ingresarParametro("la frase a completar");
-                string solucion = ingresarParametro("la solución (palabras separadas por comas)");
+                imprimirMensaje("Ha seleccionado la opción 1. Completar Palabras");
+                espacioSimple();
+                string frase = ingresarFraseACompletar();
 
-                Ejercicio ejercicio("Completar palabras", descripcion + " - Frase: " + frase + ", Solución: " + solucion);
-                leccion.crearEjercicioYAgregarlo(ejercicio);
+                nat cantEspacios = contarEspaciosACompletar(frase);
+
+                vector<string> palabrasFaltantes = ingresarConjuntoDePalabras(cantEspacios);
+
+                leccion->crearEjercicioCompletarYAgregarlo(nombre, descripcion, frase, palabrasFaltantes);
+
             } else if (tipoEjercicio == 2) {
+                imprimirMensaje("Ha seleccionado la opción 2. Traducción");
                 string frase = ingresarParametro("la frase a traducir");
                 string traduccion = ingresarParametro("la traducción");
 
-                Ejercicio ejercicio("Traducción", descripcion + " - Frase: " + frase + ", Traducción: " + traduccion);
-                leccion.crearEjercicioYAgregarlo(ejercicio);
+                leccion->crearEjercicioTraducirYAgregarlo(nombre, descripcion, frase, traduccion);
             }
 
             espacioSimple();
@@ -105,22 +155,26 @@ void Sistema::agregarLeccion() {
 
         // Imprimir datos ingresados
         cout << "Datos ingresados:" << endl;
-        cout << "Tema: " << leccion.tema << endl;
-        cout << "Objetivo: " << leccion.objetivo << endl;
+        cout << "Tema: " << leccion->getTema() << endl;
+        cout << "Objetivo: " << leccion->getObjetivo() << endl;
         cout << "Ejercicios:" << endl;
-        for (const auto& ejercicio : leccion.ejercicios) {
-            cout << "- Tipo: " << ejercicio.tipo << endl;
-            cout << "  Descripción: " << ejercicio.descripcion << endl;
+        for (const auto& ejercicio : leccion->getEjercicios()) {
+            cout << "- Nombre: " << ejercicio->getNombre() << endl;
+            cout << "  Descripción: " << ejercicio->getDescripcion() << endl;
+        }
+
+        if(leccion->getEjercicios().empty()){
+            imprimirMensaje("No hay ejercicios en la leccion");
         }
 
         espacioSimple();
 
         // Dar de alta la lección
-        // ...
-        controladorCurso->agregarLeccion(leccion.tema, leccion.objetivo);
-        for (const auto& ejercicio : leccion.ejercicios) {
-            controladorCurso->agregarEjercicio(string nombreEjercicio, ejercicio.tipo, ejercicio.descripcion)
-        }
+        controladorCurso->agregarLeccionACurso(leccion);
+        
+        // for (const auto& ejercicio : leccion->getEjercicios()) {
+        //     controladorCurso->agregarEjercicio(string nombreEjercicio, ejercicio.tipo, ejercicio.descripcion)
+        // }
 
         cout << "Lección agregada con éxito" << endl;
     

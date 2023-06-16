@@ -78,11 +78,13 @@ public:
     set<string> listarCursosHabilitados();
     void seleccionarCurso(string nombreCurso);
     void agregarLeccion(string tema, string objetivo);
-    void agregarEjercicio(string tipoEjercicio, string descEjercicio);
+    void agregarEjercicio(string nombre, string tipoEjercicio, string descEjercicio);
     void altaCurso(bool disponible);
     void agregarFraseTraducir(string fraseATraducir, string fraseTraducida);
     void agregarFraseCompletar(string fraseACompletar, vector<string> palabras);
 
+    //Operacion agregarLeccion
+    void agregarLeccionACurso(Leccion *leccion);
 
     // operaciones para habilitar curso
     set<string> listarCursosNoHabilitados();

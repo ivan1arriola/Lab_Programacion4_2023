@@ -95,6 +95,8 @@ void ControladorUsuario::altaEstudiante() {
     // Agregar el estudiante a la colección
     coleccionUsuarios->agregarUsuario(estudiante);
 
+    estudiante->setFechaNacimiento(NULL);
+
     // Limpiar los datos ingresados
     this->actual_nickname = "";
     this->actual_password = "";

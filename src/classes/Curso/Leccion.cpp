@@ -1,4 +1,6 @@
 #include "../../../include/classes/Curso/Leccion.h"
+#include "../../../include/classes/Curso/Completar.h"
+#include "../../../include/classes/Curso/Traducir.h"
 
 Leccion::Leccion() {
     // Implementación del constructor por defecto
@@ -35,9 +37,18 @@ void Leccion::setObjetivo(string objetivo) {
     this->objetivo = objetivo;
 }
 
-void Leccion::crearEjercicioYAgregarlo(string desc) {
-    // Implementación de la función crearEjercicioYAgregarlo()
-    ejercicios.push_back(desc);
+void Leccion::crearEjercicioCompletarYAgregarlo(string nombre, string desc, string fraseCompletar, vector<string> palabrasFaltantes) {
+
+    Completar *ejCompletar = new Completar(nombre, desc, fraseCompletar, palabrasFaltantes);
+
+    ejercicios.insert(ejCompletar);
+    
+}
+
+void Leccion::crearEjercicioTraducirYAgregarlo(string nombre, string desc, string fraseTraducir, string fraseTraducida){
+    Traducir *ejTraducir = new Traducir(nombre, desc, fraseTraducir, fraseTraducida);
+
+    ejercicios.insert(ejTraducir);
 }
 
 set<Ejercicio*> Leccion::getEjercicios() {
