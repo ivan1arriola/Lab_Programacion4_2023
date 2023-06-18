@@ -188,6 +188,7 @@ void ControladorCurso::agregarLeccionACurso(Leccion *leccion){
 }
 
 void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante) {
+    this->nicknameActual=nomEstudiante;
     // Implementación de la función ingresarNicknameEstudiante
     // Código para ingresar el nickname del estudiante para realizar ejercicios
 }
@@ -202,10 +203,21 @@ void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel difi
 }
 
 set<string> ControladorCurso::listarCursosInscrip() {
-    set<string> cursosInscrip;
+    HandlerUsuario* h=HandlerUsuario::getInstancia();
+    Estudiante* u=dynamic_cast<Estudiante*>(h->obtenerUsuario(this->nicknameActual));
+    map<string,Inscripcion*> cursosInscriptos=u->getInscripciones();
+    set<string> result;
+    string ncurso;
+
+    for(map<string,Inscripcion*>::iterator it=cursosInscriptos.begin();it!=cursosInscriptos.end();++it){
+        if(it->second->getAprobado()==false){
+            ncurso=it->second->obtenerNombreCurso();
+            result.insert(ncurso);
+        }
+    }
     // Implementación de la función listarCursosInscrip
     // Código para obtener la lista de cursos disponibles para inscripción
-    return cursosInscrip;
+    return result;
 }
 
 set<string> ControladorCurso::mostrarCursosNoAprobados() {
@@ -216,29 +228,58 @@ set<string> ControladorCurso::mostrarCursosNoAprobados() {
 }
 
 set<string> ControladorCurso::mostrarEjerciciosNoAprobados() {
+    HandlerUsuario* h=HandlerUsuario::getInstancia();
+    Estudiante* e=dynamic_cast<Estudiante*>(h->obtenerUsuario(this->nicknameActual));
+    map<string, Inscripcion*> map= e->getInscripciones();
+    Inscripcion* i= map.find(this->nombreCurso)->second;
+    set<Ejercicio*> ej=i->getejNoAprobados();
     set<string> ejerciciosNoAprobados;
+
+    for(set<Ejercicio*>::iterator it=ej.begin();it!=ej.end();++it){
+        Ejercicio* ptr=*it;
+        ejerciciosNoAprobados.insert(ptr->getNombre());               
+    }
     // Implementación de la función mostrarEjerciciosNoAprobados
     // Código para obtener la lista de ejercicios no aprobados del estudiante
     return ejerciciosNoAprobados;
 }
 
-DTEjercicio ControladorCurso::seleccionarEjercicio(string nombreEjercicio) {
+void ControladorCurso::seleccionarEjercicio(string nombreEjercicio) {
+    HandlerUsuario* h=HandlerUsuario::getInstancia();
+    Estudiante* e=dynamic_cast<Estudiante*>(h->obtenerUsuario(this->nicknameActual));
+    map<string, Inscripcion*> map= e->getInscripciones();
+    Inscripcion* i= map.find(this->nombreCurso)->second;
+    set<Ejercicio*> ej=i->getejNoAprobados();
+    
+    auto it= ej.begin();
+    while(it!=ej.end() && (*it)->getNombre()!=nombreEjercicio){
+    ++it; }
+
+    this->ejercicioActual=*it;
+
+
     // Implementación de la función seleccionarEjercicio
     // Código para obtener los datos del ejercicio seleccionado por su nombre
-    return DTEjercicio();
 }
 
 void ControladorCurso::ingresarSolucionCompletar(set<string> solC) {
+    this->solC_actual=solC;
     // Implementación de la función ingresarSolucionCompletar
     // Código para ingresar la solución del ejercicio de completar en el Controlador de Ejercicio
 }
 
 void ControladorCurso::ingresarSolucionTraducir(string solT) {
+    this->solT_actual=solT;
     // Implementación de la función ingresarSolucionTraducir
     // Código para ingresar la solución del ejercicio de traducción en el Controlador de Ejercicio
 }
 
 void ControladorCurso::marcarEjercicioAprobado() {
+
+    Estudiante* e=dynamic_cast<Estudiante*>(this->usuarioActual);
+    map<string, Inscripcion*> map= e->getInscripciones();
+    Inscripcion* i= map.find(this->nombreCurso)->second;
+    i->setejAprobado(this->ejercicioActual);
     // Implementación de la función marcarEjercicioAprobado
     // Código para marcar el ejercicio actual como aprobado en el Controlador de Ejercicio
 }
@@ -337,4 +378,18 @@ void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<stri
         throw invalid_argument("El ejercicio seleccionado no es de tipo Completar");
     completar->setFraseACompletar(fraseACompletar);
     completar->setPalabrasFaltantes(palabras);
+}
+
+Ejercicio* ControladorCurso::getejActual(){
+    return this->ejercicioActual;
+}
+
+string ControladorCurso::getSolT_actual(){
+    return this->solT_actual;
+}
+    
+    
+    
+set<string> ControladorCurso::getSolC_actual(){
+    return this->solC_actual;
 }
