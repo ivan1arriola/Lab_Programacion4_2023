@@ -221,11 +221,11 @@ set<string> ControladorCurso::mostrarEjerciciosNoAprobados() {
     return ejerciciosNoAprobados;
 }
 
-DTEjercicio ControladorCurso::seleccionarEjercicio(string nombreEjercicio) {
-    // Implementación de la función seleccionarEjercicio
-    // Código para obtener los datos del ejercicio seleccionado por su nombre
-    return DTEjercicio();
-}
+// DTEjercicio ControladorCurso::seleccionarEjercicio(string nombreEjercicio) {
+//     // Implementación de la función seleccionarEjercicio
+//     // Código para obtener los datos del ejercicio seleccionado por su nombre
+//     return DTEjercicio();
+// }
 
 void ControladorCurso::ingresarSolucionCompletar(set<string> solC) {
     // Implementación de la función ingresarSolucionCompletar
@@ -261,12 +261,60 @@ set<string> ControladorCurso::listarNombreCursos() {
 
 void ControladorCurso::seleccionarCurso(string nombreCurso) {
     this->nombreCurso = nombreCurso;
+    this->leccionesCursoActual = coleccionCursos->obtenerCurso(nombreCurso)->getLecciones();
 }
 
 DTDataCurso* ControladorCurso::mostrarDatosCurso() {
     string nombreCurso = this->nombreCurso;
     Curso * curso = coleccionCursos->obtenerCurso(nombreCurso);
     return curso->getDT();
+}
+
+int ControladorCurso::cantidadDeLecciones(){
+    Curso *curso = coleccionCursos->obtenerCurso(this->nombreCurso);
+    int cantLecciones = curso->getCantLecciones();
+
+    return cantLecciones;
+}
+
+DTDataLeccion* ControladorCurso::mostrarDatosLeccion(int posicion){
+    Leccion *leccion = this->leccionesCursoActual[posicion];
+    DTDataLeccion *dtLeccion = leccion->getDTLeccion();
+
+    return dtLeccion;
+
+}
+
+int ControladorCurso::cantidadDeEjerciciosLeccion(int posicion){
+    Leccion *leccion = this->leccionesCursoActual[posicion];
+    int cant = leccion->getCantEj();
+
+    return cant;
+}
+
+set<DTEjercicio*> ControladorCurso::mostrarEjercicios(int posLeccion){
+    set<Ejercicio*> ejercicios = this->leccionesCursoActual[posLeccion]->getEjercicios();
+    set<DTEjercicio*> dtEjercicios;
+    for(Ejercicio * ej : ejercicios){
+        dtEjercicios.insert(ej->getDTEjercicio());
+    }
+    return dtEjercicios;
+}
+
+set<DTInscripcion*> ControladorCurso::mostrarInscripciones(){
+    Curso *curso = coleccionCursos->obtenerCurso(this->nombreCurso);
+    set<DTInscripcion*> dtInscripciones;
+    DTInscripcion *dtInscripcion;
+    Inscripcion *i;
+
+    map<string, Inscripcion*> inscripciones = curso->getInscripciones();
+    for(auto it = inscripciones.begin(); it != inscripciones.end(); ++it){
+        i = it->second;
+        dtInscripcion = i->getDTInscripcion();
+        dtInscripciones.insert(dtInscripcion);
+    }
+
+    return dtInscripciones;
 }
 
 void ControladorCurso::seleccionarProfesor(string nickname) {

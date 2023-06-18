@@ -9,10 +9,19 @@ DTProfesor::DTProfesor(string nickname, string contrasenia, string nombre, strin
     this->instituto = instituto;
 }
 
+DTProfesor::DTProfesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto, set<string> idiomas) : DTUsuario(nickname, contrasenia, nombre, descripcion, 0){
+    this->instituto = instituto;
+    this->idiomas = idiomas;
+}
+
 // Getters
 
 string DTProfesor::getInstituto() {
     return this->instituto;
+}
+
+set<string> DTProfesor::getIdiomas(){
+    return this->idiomas;
 }
 
 // Destructor
@@ -26,5 +35,9 @@ ostream& operator<<(ostream& os, DTProfesor& dtProfesor) {
     os << "Nombre: " << dtProfesor.getNombre() << endl;
     os << "Descripcion: " << dtProfesor.getDescripcion() << endl;
     os << "Instituto: " << dtProfesor.getInstituto() << endl;
+    os << "Idiomas:" << endl;
+    for(string i : dtProfesor.getIdiomas()){
+        os << "- " << i << endl;
+    }
     return os;
 }

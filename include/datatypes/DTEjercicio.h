@@ -21,6 +21,8 @@ class DTEjercicio {
         string getTipoEjercicio();
         string getDesc();
         ~DTEjercicio();
+
+        friend ostream& operator<<(ostream& os, const DTEjercicio& dtEjercicio);
 };
 
 #endif

@@ -31,7 +31,11 @@ string Profesor::getInstituto() {
 }
 
 DTUsuario* Profesor::getDT() {
-  DTUsuario* dtUsuario = new DTProfesor(this->getNickname(), this->getContrasenia(), this->getNombre(), this->getDescripcion(), this->getInstituto());
+  set<string> idiomas;
+  for(Idioma* i : this->getIdiomas()){
+    idiomas.insert(i->getNombre());
+  }
+  DTUsuario* dtUsuario = new DTProfesor(this->getNickname(), this->getContrasenia(), this->getNombre(), this->getDescripcion(), this->getInstituto(), idiomas);
   return dtUsuario;
 }
 

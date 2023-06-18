@@ -6,6 +6,7 @@
 #include <map>
 
 #include "../datatypes/DTDate.h"
+#include "../datatypes/DTInscripcion.h"
 
 #include "Usuario/Estudiante.h"
 
@@ -39,6 +40,7 @@ public:
     string obtenerNombreCurso();
     float calcPorcentajeAvance();
     float getCantEjsAprob(); 
+    DTInscripcion* getDTInscripcion();
 
     ~Inscripcion();   
     

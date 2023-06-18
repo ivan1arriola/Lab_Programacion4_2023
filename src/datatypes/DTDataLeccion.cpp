@@ -1,6 +1,7 @@
 #include "../../include/datatypes/DTDataLeccion.h"
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -18,3 +19,10 @@ string DTDataLeccion::getObjetivo() {
 }
 
 DTDataLeccion::~DTDataLeccion() {}
+
+ostream& operator<<(ostream& os, const DTDataLeccion& dtLeccion) {
+    // os << "Datos de la leccion:" << endl;
+    os << "Tema: " << dtLeccion.tema << endl;
+    os << "Objetivo: " << dtLeccion.objetivo << endl;
+    return os;
+}

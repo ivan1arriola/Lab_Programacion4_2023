@@ -5,8 +5,7 @@ descripcion: String*/
 #define EJERCICIO
 
 #include <string>
-// #include "Traducir.h"
-// #include "Completar.h"
+#include "../../datatypes/DTEjercicio.h"
 
 using namespace std;
 
@@ -21,6 +20,7 @@ class Ejercicio {
         // Getters
         string getNombre();
         string getDescripcion();
+        DTEjercicio *getDTEjercicio();
 
         // Setters
         void setNombre(string nombre);

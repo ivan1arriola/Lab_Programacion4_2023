@@ -60,7 +60,7 @@ public:
     set<string> listarCursosInscrip();
     set<string> mostrarCursosNoAprobados();
     set<string> mostrarEjerciciosNoAprobados();
-    DTEjercicio seleccionarEjercicio(string nombreEjercicio);
+    // DTEjercicio seleccionarEjercicio(string nombreEjercicio);
     void ingresarSolucionCompletar(set<string> solC);
     void ingresarSolucionTraducir(string solT);
     void marcarEjercicioAprobado();
@@ -72,6 +72,11 @@ public:
     // Operaciones para Consulta Curso
     set<string> listarNombreCursos();
     DTDataCurso *mostrarDatosCurso();
+    int cantidadDeLecciones();
+    DTDataLeccion *mostrarDatosLeccion(int posicion);
+    int cantidadDeEjerciciosLeccion(int posicion);
+    set<DTEjercicio*> mostrarEjercicios(int posLeccion);
+    set<DTInscripcion*> mostrarInscripciones();
 
     // Operaciones para Alta Curso
     void seleccionarProfesor(string nickname);

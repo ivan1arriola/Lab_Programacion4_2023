@@ -17,6 +17,8 @@ class DTDataLeccion {
         string getTema();
         string getObjetivo();
         ~DTDataLeccion();
+
+        friend ostream& operator<<(ostream& os, const DTDataLeccion& dtLeccion);
 };
 
 #endif

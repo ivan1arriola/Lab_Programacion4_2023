@@ -1,6 +1,7 @@
 #include "../../include/datatypes/DTEjercicio.h"
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -20,3 +21,9 @@ string DTEjercicio::getDesc() {
 }
 
 DTEjercicio::~DTEjercicio() {}
+
+ostream& operator<<(ostream& os, const DTEjercicio& dtEjercicio) {
+    os << "Descripción: " << dtEjercicio.desc << endl;
+    os << "Tipo de ejercicio: " << dtEjercicio.tipoEjercicio << endl;
+    return os;
+}

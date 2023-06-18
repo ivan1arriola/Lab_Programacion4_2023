@@ -59,6 +59,10 @@ float Inscripcion::getCantEjsAprob() {
     return 0.0;
 }
 
+DTInscripcion* Inscripcion::getDTInscripcion(){
+    return new DTInscripcion(this->estudiante->getNickname(), this->fechaInscripcion);
+}
+
 Inscripcion::~Inscripcion(){
     delete fechaInscripcion;
     if(estudiante!=NULL)estudiante=NULL;

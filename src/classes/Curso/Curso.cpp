@@ -92,7 +92,7 @@ float Curso::getCantEjsTotal() {
     int total=0;
     for(vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end();++it){
         Leccion* l=*it;
-        total=l->getCantEj();
+        total=total + l->getCantEj();
         }
 
     return total;

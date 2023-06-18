@@ -23,6 +23,7 @@ string seleccionarElemento(set<string> elementos, string nombreElemento) {
     int opcion = -1;
 
     imprimirMensaje("Seleccione un " + nombreElemento + " de la lista:") ;
+    imprimirMensaje("0- Cancelar");
     imprimirSet(elementos, nombreElemento + "s") ;
 
     opcion = ingresarOpcion(elementos.size()) ;

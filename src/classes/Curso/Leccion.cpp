@@ -60,6 +60,10 @@ int Leccion::getCantEj(){
     return ejercicios.size();
 }
 
+DTDataLeccion* Leccion::getDTLeccion(){
+    return new DTDataLeccion(tema, objetivo);
+}
+
 Leccion::~Leccion() {
     for (set<Ejercicio*>::iterator it=ejercicios.begin(); it!=ejercicios.end();++it) {
         delete *it;

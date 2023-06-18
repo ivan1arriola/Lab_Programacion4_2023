@@ -51,7 +51,13 @@ ostream& operator<<(ostream& os, const DTDataCurso& dtCurso) {
     os << "Datos del Curso:" << endl;
     os << "Nombre: " << dtCurso.nombre << endl;
     os << "Descripcion: " << dtCurso.descripcion << endl;
-    os << "Nivel: " << dtCurso.nivel << endl;
+    if(dtCurso.nivel == 0){
+        os << "Nivel: " << "Principiante" << endl;
+    }else if(dtCurso.nivel == 1){
+        os << "Nivel: " << "Medio" << endl;
+    }else{
+        os << "Nivel: " << "Avanzado" << endl;
+    }
     if(dtCurso.disponible){
         os << "Disponible: " << "Sí" << endl;
     }else{
