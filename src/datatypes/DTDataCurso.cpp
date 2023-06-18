@@ -41,10 +41,7 @@ return nombreProfesor;
 }
 
 DTDataCurso::~DTDataCurso() {
-    //Destruye Lecciones
-    for (int i = 0; i < lecciones.size(); i++) {
-        delete lecciones[i];
-    }
+// Destructor
 }
 
 ostream& operator<<(ostream& os, const DTDataCurso& dtCurso) {
