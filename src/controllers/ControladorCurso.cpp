@@ -385,4 +385,3 @@ void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<stri
     completar->setFraseACompletar(fraseACompletar);
     completar->setPalabrasFaltantes(palabras);
 }
-
