@@ -45,16 +45,18 @@ string Inscripcion::obtenerNombreCurso() {
 
 float Inscripcion::calcPorcentajeAvance() {
     if (curso != nullptr) {
-        return (getCantEjsAprob() / curso->getCantEjsTotal()) * 100.0;
+        if(curso->getCantEjsTotal() == 0){
+            return 0;
+        }else{
+            return (getCantEjsAprob() / curso->getCantEjsTotal()) * 100.0;
+        }
     }
     return 0.0;
 }
 
 float Inscripcion::getCantEjsAprob() {
     if (curso != nullptr) {
-        // Aquí debes implementar la lógica para obtener la cantidad de ejercicios aprobados
-        // en función de la relación entre Inscripcion y Curso.
-        // No se puede proporcionar una implementación sin conocer el diseño completo.
+        return cantEjsAprobados;
     }
     return 0.0;
 }

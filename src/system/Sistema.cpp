@@ -32,6 +32,7 @@ Sistema::Sistema() {
 
     controladorUsuario = fabricaSistema->getIControladorUsuario();
     controladorCurso = fabricaSistema->getIControladorCurso();
+    controladorEstadistica = fabricaSistema->getIControladorEstadistica();
 
 
     handlerUsuario = HandlerUsuario::getInstancia();

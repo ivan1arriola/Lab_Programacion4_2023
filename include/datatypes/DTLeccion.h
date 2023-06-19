@@ -1,6 +1,7 @@
-#ifndef DTLECCION
-#define DTLECCION
+// #ifndef DTLECCION
+// #define DTLECCION
 
+<<<<<<< HEAD
 #include <string>
 #include <iostream>
 
@@ -13,14 +14,33 @@ class DTLeccion {
     public:
         DTLeccion();
         DTLeccion(string tema, string objetivo);
+=======
+// #include <string>
+// #include <set>
+// #include <iostream>
 
-        string getTema();
-        string getObjetivo();
+// #include "DTEjercicio.h"
 
-        ~DTLeccion();
+// using namespace std;
 
-        friend 
+// class DTLeccion {
+//     private:
+//         string tema;
+//         string objetivo;
+//         set<DTEjercicio*> ejercicios;
+//     public:
+//         DTLeccion();
+//         DTLeccion(string tema, string objetivo);
+//         DTLeccion(string tema, string objetivo, set<DTEjercicio*> ejercicios);
+>>>>>>> 7f467d5 (Consultar estadísticas)
 
-}
+//         string getTema();
+//         string getObjetivo();
 
-#endif
+//         ~DTLeccion();
+
+//         friend 
+
+// }
+
+// #endif

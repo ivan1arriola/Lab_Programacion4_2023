@@ -1,4 +1,5 @@
 #include "../../../include/classes/Curso/Curso.h"
+#include "../../../include/classes/Usuario/Profesor.h"
 
 Curso::Curso() {
     // Implementación del constructor por defecto
@@ -19,6 +20,7 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
 
     idioma->notificarSuscriptores(nombre);
     this->inscripciones = map<string, Inscripcion*>();
+    profesor->agregarACursosDeProfesor(this);
 }
 
 // Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
@@ -122,7 +124,22 @@ Curso::~Curso() {
 }
 
 DTDataCurso* Curso::getDT() {
-    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNombre());
+    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNickname());
+}
+
+DTDataInfoCurso* Curso::getDTInfoCursos(){
+    string nombreCurso = this->nombre;
+    float porcentajeAvance = 0;
+    int cantEstudiantes;
+    map<string, Inscripcion*> inscripciones = this->inscripciones;
+    for(auto it = inscripciones.begin(); it != inscripciones.end(); ++it){
+      porcentajeAvance = porcentajeAvance + it->second->calcPorcentajeAvance();
+    }
+    cantEstudiantes = inscripciones.size();
+    if(cantEstudiantes != 0){
+        porcentajeAvance = porcentajeAvance/cantEstudiantes;
+    }
+    return new DTDataInfoCurso(this->nombre, this->descripcion, this->nivel, this->disponible, this->idioma->getNombre(), porcentajeAvance);
 }
 
 map<string, Inscripcion*> Curso::getInscripciones() {

@@ -8,6 +8,7 @@
 
 #include "../../datatypes/DTDate.h"
 #include "../../datatypes/DTUsuario.h"
+#include "../../datatypes/DTDataCursoEstudiante.h"
 
 class Inscripcion;
 
@@ -19,7 +20,7 @@ private:
     string pais = "";
     DTDate* fechaNacimiento = NULL;
 
-    map<string, Inscripcion*> inscripciones; // nicknameCurso, Inscripcion
+    map<string, Inscripcion*> inscripciones; // nombreCurso, Inscripcion
 
 public:
     Estudiante();
@@ -35,6 +36,7 @@ public:
     map<string, Inscripcion*> getInscripciones();
 
     DTUsuario* getDT();
+    set<DTDataCursoEstudiante*> getDTDataCursoEstudiante();
 
     // Setters
     void setPais(string pais);

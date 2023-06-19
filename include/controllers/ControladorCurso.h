@@ -10,6 +10,8 @@
 
 #include "../enums/NIVEL.h"
 
+using namespace std;
+
 class ControladorCurso : public IControladorCurso
 {
 private:
