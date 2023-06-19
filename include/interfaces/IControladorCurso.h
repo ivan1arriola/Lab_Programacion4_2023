@@ -50,7 +50,7 @@ class IControladorCurso {
 
         //Operaciones para Alta Curso
         virtual void seleccionarProfesor(string nickname) = 0;
-        virtual void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad) = 0;
+        virtual void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad, string nickname) = 0;
         virtual void seleccionarIdioma(string nombreIdioma) = 0;
         virtual set<string> listarCursosHabilitados() = 0;
         virtual void seleccionarCurso(string nombreCurso) = 0;
@@ -62,6 +62,8 @@ class IControladorCurso {
         virtual void agregarFraseCompletar(string fraseACompletar, vector<string> palabras) = 0;
 
         virtual void agregarLeccionACurso(Leccion *leccion) = 0;
+
+        virtual void agregarCursoPrevio(string nombreCurso) = 0;
 
         virtual vector<string> listarLecciones(Curso *curso) = 0;
         virtual void darDeAltaCompletar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes) = 0;

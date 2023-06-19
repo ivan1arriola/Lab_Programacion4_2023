@@ -25,13 +25,14 @@ private:
     Nivel dificultadlCursoActual;
     Idioma *idiomaCursoActual;
     vector<Leccion *> leccionesCursoActual;
+    set<Curso *> cursosPreviosCursoActual;
 
     // Datos de la leccion actual
     Leccion *leccionActual;
 
     // Datos del ejercicio actual
     Ejercicio *ejercicioActual;
-    set<Ejercicio *> *ejerciciosLeccionActual;
+    set<Ejercicio *> ejerciciosLeccionActual;
 
     static ControladorCurso *instancia;
 
@@ -80,7 +81,7 @@ public:
 
     // Operaciones para Alta Curso
     void seleccionarProfesor(string nickname);
-    void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad);
+    void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad, string nickname);
     void seleccionarIdioma(string nombreIdioma);
     set<string> listarCursosHabilitados();
     void seleccionarCurso(string nombreCurso);
@@ -89,6 +90,7 @@ public:
     void altaCurso(bool disponible);
     void agregarFraseTraducir(string fraseATraducir, string fraseTraducida);
     void agregarFraseCompletar(string fraseACompletar, vector<string> palabras);
+    void agregarCursoPrevio(string nombreCurso);
 
     //Operacion agregarLeccion
     void agregarLeccionACurso(Leccion *leccion);

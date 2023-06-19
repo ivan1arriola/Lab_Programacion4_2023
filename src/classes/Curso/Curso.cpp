@@ -21,16 +21,16 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
     this->inscripciones = map<string, Inscripcion*>();
 }
 
-// Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
-//     this->nombre = nombre;
-//     this->descripcion = descripcion;
-//     this->nivel = nivel;
-//     this->disponible = disponible;
-//     this->lecciones = lecciones;
-//     this->idioma = idioma;
-//     this->profesor = profesor;
-//     this->cursosPrevios = cursosPrevios;
-// }
+Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
+    this->nombre = nombre;
+    this->descripcion = descripcion;
+    this->nivel = nivel;
+    this->disponible = disponible;
+    this->lecciones = lecciones;
+    this->idioma = idioma;
+    this->profesor = profesor;
+    this->cursosPrevios = cursosPrevios;
+}
 
 string Curso::getNombre() {
     return nombre;

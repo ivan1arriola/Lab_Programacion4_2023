@@ -1,4 +1,5 @@
 #include "../../include/system/operaciones.h"
+#include "../../include/enums/NIVEL.h"
 
 #include <iostream>
 #include <string>
@@ -66,7 +67,7 @@ void imprimirLineaDeSeparacion() {
 void imprimirMensajeDeError (string mensaje) {
     espacioSimple();
     imprimirLinea();
-    cout << "ERROR: " << mensaje << endl;
+    cerr << "ERROR: " << mensaje << endl;
     imprimirLinea();
     espacioSimple();
 }
@@ -133,7 +134,7 @@ int ingresarOpcion(int cantOpciones) {
 
 void cancelarOperacion(string error = "", string operacion = "") {
     if (error != "") {
-        imprimirMensaje(error) ;
+        imprimirMensajeDeError(error) ;
     }
     imprimirMensaje("No se puede completar la operación " + operacion + ".") ;
     imprimirMensaje("Cancelando operación") ;
@@ -312,4 +313,50 @@ vector<string> ingresarConjuntoDePalabras(int cantEspacios)
         solucion.push_back(palabra);
     }
     return solucion;
+}
+
+
+Nivel ingresarNivel(){
+
+    imprimirMensaje("Ingrese la dificultad del curso:");
+    imprimirMensaje("1. Principiante");
+    imprimirMensaje("2. Medio");
+    imprimirMensaje("3. Avanzado");
+
+    int opcion = ingresarOpcion(3);
+
+    if (opcion == 0)
+    {
+        cancelarOperacion("A seleccionado cancelar la operación");
+        throw invalid_argument("No se selecciono dificultad");
+    }
+
+    Nivel dificultad;
+
+    if (opcion == 1 || opcion == 2 || opcion == 3)
+    {
+        dificultad = static_cast<Nivel>(opcion - 1);
+    }
+
+    return dificultad;
+}
+
+bool ingresarBooleano(string pregunta){
+    imprimirMensaje(pregunta);
+    imprimirMensaje("1. Si");
+    imprimirMensaje("0. No");
+
+    int opcion = ingresarOpcion(1);
+    return opcion == 1;
+}
+
+int ingresarTipoEjercicio(){
+    imprimirMensaje("Ingrese el tipo de ejercicio:") ;
+    imprimirMensaje("1. Traducción") ;
+    imprimirMensaje("2. Completar Frase") ;
+
+    int opcion = ingresarOpcion(2) ;
+    if (opcion == 0) throw invalid_argument("No se ha seleccionado un tipo de ejercicio") ;
+    return opcion ;
+
 }

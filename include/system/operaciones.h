@@ -1,6 +1,10 @@
 #ifndef OPERACIONES
 #define OPERACIONES
 
+#include <iostream>
+
+#include "../enums/NIVEL.h"
+
 #include <set>
 #include <string>
 #include <vector>
@@ -87,5 +91,14 @@ nat contarEspaciosACompletar(string frase);
 string ingresarFraseACompletar();
 
 vector<string> ingresarConjuntoDePalabras(int cantEspacios);
+
+// Ingresa un nivel por consola
+Nivel ingresarNivel();
+
+// Ingresa un booleano por consola
+bool ingresarBooleano(string pregunta);
+
+// Ingresar Tipo de Ejercicio
+int ingresarTipoEjercicio();
 
 #endif

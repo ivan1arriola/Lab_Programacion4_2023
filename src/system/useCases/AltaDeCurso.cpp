@@ -52,7 +52,6 @@ dejándolo no disponible para los estudiantes hasta tanto no se ejecute el caso 
 void Sistema::altaDeCurso()
 {
     imprimirMensaje("Alta de Curso");
-    // el caso de uso comienza listando los nickname de los profesores disponibles
 
     set<string> profesores = controladorUsuario->listarNIcknameProfesores();
 
@@ -127,6 +126,7 @@ void Sistema::altaDeCurso()
 
     controladorCurso->ingresarDatosCurso(nombreCurso, descripcionCurso, dificultad);
 
+
     set<string> idiomasDeProfesor = controladorUsuario->listarNombresIdiomasDeProfesor(nicknameProfesor);
 
     if (idiomasDeProfesor.size() == 0)
@@ -150,37 +150,22 @@ void Sistema::altaDeCurso()
     }
     catch (invalid_argument &e)
     {
-        cancelarOperacion("No existe un idioma con el nombre " + nombreIdioma, "Alta de Curso");
+        cancelarOperacion(e.what(), "Alta de Curso");
         return;
     }
 
     bool deseaAgregarCursos;
     // Consultamos si desea agregar cursos previos
-    cout << endl;
-    imprimirMensaje("¿Desea agregar cursos previos?");
-    imprimirMensaje("0- Cancelar todo");
-    imprimirMensaje("1- Sí");
-    imprimirMensaje("2- No");
-    cout << endl;
-    opcion = ingresarOpcion(2);
+    opcion = deseaContinuar("¿Desea agregar cursos previos?");
 
-    if (opcion == 0)
-    {
-        cancelarOperacion("algo", "Alta Curso");
-        return;
-    };
 
     int posicion;
 
     deseaAgregarCursos = opcion == 1;
-    // conjunto que almacenará los cursos previos
-    // se insertarán estos cursos al dar de alta el curso
     set<Curso *> cursosPrevios;
-    // variable para guardar el curso previo elegido
     Curso *cursoPrev;
-    // se listan los cursos habilitados en el sistema
     set<string> cursosDisponibles = controladorCurso->listarCursosHabilitados();
-    string cp; // variable para guardar el nombre del curso previo actual
+    string cp; 
 
     while (deseaAgregarCursos && cursosDisponibles.size() > 0)
     {
@@ -222,17 +207,7 @@ void Sistema::altaDeCurso()
                 imprimirMensaje("No ingresaste un curso disponible");
             }
             cout << endl;
-            imprimirMensaje("¿Desea continuar agregando cursos?");
-            imprimirMensaje("0- Cancelar todo");
-            imprimirMensaje("1- Sí");
-            imprimirMensaje("2- No");
-            opcion = ingresarOpcion(2);
-
-            if (opcion == 0)
-            {
-                cancelarOperacion("", "Alta Usuario");
-                return;
-            };
+            opcion = deseaContinuar("¿Desea continuar agregando cursos previos?");
 
             deseaAgregarCursos = opcion == 1;
         }
@@ -345,11 +320,6 @@ void Sistema::altaDeCurso()
     }
 
 
-
-
-
-
-    //TODO: No esta contemplado los ejercicios de una leccion
 
 
     // Dar de alta el curso
