@@ -17,19 +17,24 @@ estudiantes se puedan inscribir al mismo. Un curso se puede habilitar solo si ti
 menos una lección y un ejercicio, y no tiene lecciones sin ejercicios.
 */
 
-void Sistema::habilitarCurso() {
+void Sistema::habilitarCurso()
+{
     imprimirMensaje("Habilitar Curso");
-    HandlerCurso* h=HandlerCurso::getInstancia();
-    set<string> f= controladorCurso->listarCursosNoHabilitados();
+    HandlerCurso *h = HandlerCurso::getInstancia();
+    set<string> f = controladorCurso->listarCursosNoHabilitados();
     imprimirMensaje("Ingrese el indice del curso a habilitar");
-    imprimirOpcionesSet(f,"Cursos No Habilitados");
-    int opcion=ingresarOpcion(f.size());
-    if (opcion!=0){
-        string nom=obtenerOpcion(f,opcion);
-        Curso* c= h->obtenerCurso(nom);
-        if(c->getCantLecciones()>0 && c->getCantEjsTotal()>0){
-        c->setDisponible(true);
-        imprimirMensaje("Curso habilitado con exito");}
-        else imprimirMensaje("No se puede habilitar el curso, aun no tiene lecciones con ejercicios");
+    imprimirOpcionesSet(f, "Cursos No Habilitados");
+    int opcion = ingresarOpcion(f.size());
+    if (opcion != 0)
+    {
+        string nom = obtenerOpcion(f, opcion);
+        Curso *c = h->obtenerCurso(nom);
+        if (c->getCantLecciones() > 0 && c->getCantEjsTotal() > 0) //Puede habilitarse si tiene al menos una leccion y todas sus lecciones tienen ejercicios
+        {
+            c->setDisponible(true);
+            imprimirMensaje("Curso habilitado con exito");
+        }
+        else
+            imprimirMensaje("No se puede habilitar el curso, aun no tiene lecciones con ejercicios");
     }
 }

@@ -639,48 +639,39 @@ vector<DTDataCursoAInscribir *> ControladorCurso::obtenerCursosDisponibles(set<s
     vector<DTDataCursoAInscribir *> cursosDisp;
     Curso *curs;
     set<Curso *> cursosPrevios;
-    bool estaIns, cd, noTieneCursoPrevio, cursoPrevioAprobado;
+    bool estaInscripto, cursoDisponible, tieneCursosPrevios, cursoPrevioAprobado;
     DTDataCursoAInscribir *dcai;
     for (const auto &nomCurs : cursosHabilitados)
     {
-        cd = true;
+        cursoDisponible = true;
         // Verifica si el estudiante está inscripto a ese curso
-        estaIns = e->estaInscripto(nomCurs);
-        if (estaIns)
-        {
-            cd = false;
-        }
-        else
+        estaInscripto = e->estaInscripto(nomCurs);
+        if (!estaInscripto)
         {
             // Verificar si tiene cursos previos
             curs = coleccionCursos->obtenerCurso(nomCurs);
-            noTieneCursoPrevio = curs->getCursosPrevios().empty();
-            if (noTieneCursoPrevio)
-            {
-                cd = true;
-            }
-            else
-            {
+            tieneCursosPrevios = ! curs->getCursosPrevios().empty();
+            if (tieneCursosPrevios) {
                 cursosPrevios = curs->getCursosPrevios();
-                for (auto it = cursosPrevios.begin(); (it != cursosPrevios.end()) && cd; ++it)
+                for (auto it = cursosPrevios.begin(); (it != cursosPrevios.end()) && cursoDisponible; ++it)
                 {
-                    
-                
                     if (!((*it)->getInscripciones().find(this->nicknameUsuarioActual)!= (*it)->getInscripciones().end()))
                     {
                         cursoPrevioAprobado = (*it)->getInscripciones().find(this->nicknameUsuarioActual)->second->getAprobado();
                         if (!cursoPrevioAprobado)
                         {
-                            cd = false;
+                            cursoDisponible = false;
                         }
                     }
 
                     else
-                        cd = false;
+                        cursoDisponible = false;
                 }
             }
-        }
-        if (cd)
+        } else
+            cursoDisponible = false;
+            
+        if (cursoDisponible)
         {
             // Creamos el DTDataCurso con los datos de curs
             dcai = curs->getDTAInscribir();
