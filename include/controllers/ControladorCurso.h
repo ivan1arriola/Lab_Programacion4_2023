@@ -20,6 +20,7 @@ private:
 
     // Datos del usuario actual
     Usuario *usuarioActual;
+    string nicknameActual;
     string nicknameUsuarioActual;
 
     // Datos del curso actual
@@ -36,6 +37,8 @@ private:
 
     // Datos del ejercicio actual
     Ejercicio *ejercicioActual;
+    set<string> solC_actual;
+    string solT_actual;
     set<Ejercicio *> ejerciciosLeccionActual;
 
     static ControladorCurso *instancia;
@@ -65,7 +68,7 @@ public:
     set<string> listarCursosInscrip();
     set<string> mostrarCursosNoAprobados();
     set<string> mostrarEjerciciosNoAprobados();
-    // DTEjercicio seleccionarEjercicio(string nombreEjercicio);
+    void seleccionarEjercicio(string nombreEjercicio);
     void ingresarSolucionCompletar(set<string> solC);
     void ingresarSolucionTraducir(string solT);
     void marcarEjercicioAprobado();
@@ -109,6 +112,10 @@ public:
 
     // operaciones para habilitar curso
     set<string> listarCursosNoHabilitados();
+
+    Ejercicio* getejActual();
+    string getSolT_actual();
+    set<string> getSolC_actual();
 };
 
 #endif

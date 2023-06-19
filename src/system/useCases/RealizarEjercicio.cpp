@@ -1,75 +1,88 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 #include "../../../include/system/Sistema.h"
 
 #include "../../../include/system/operaciones.h"
+#include "../../../include/classes/Curso/Traducir.h"
+#include "../../../include/classes/Curso/Completar.h"
 
 using namespace std;
 
 void Sistema::realizarEjercicio() {
     imprimirMensaje("Realizar Ejercicio");
+    
+    
+    string nom= ingresarParametro("nickname"); //si no existe el nickname?
+    controladorCurso->ingresarNicknameEstudiante(nom);
+    set<string> c=controladorCurso->listarCursosInscrip();
+    imprimirOpcionesSet(c,"Cursos inscritos pero no aprobados");
+    int opcion= ingresarOpcion(c.size());
+    if(opcion!=0){
+    string nomcurso=obtenerOpcion(c,opcion);
+    controladorCurso->seleccionarCurso(nomcurso);
+    set<string> ej=controladorCurso->mostrarEjerciciosNoAprobados();
+    imprimirOpcionesSet(ej,"Ejercicios no aprobados");
+    int opcion2= ingresarOpcion(ej.size());
+    
+    if (opcion2!=0){
+        string nomEj=obtenerOpcion(ej,opcion2);
+        controladorCurso->seleccionarEjercicio(nomEj);
+        Ejercicio* e=controladorCurso->getejActual();
 
-    // // Obtener nickname del estudiante
-    //     std::string nickname;
-    //     std::cout << "Ingrese el nickname del estudiante: ";
-    //     std::cin >> nickname;
+        if (Traducir* tr=dynamic_cast<Traducir*>(e)){
+            string sol;
+        cout<< "Ejercicio de traduccion "<<endl<< "frase a traducrir: "<< tr->getFraseATraducir()<<endl;
+        cout<< "Ingrese la solucion:"<<endl;
+        cin>>sol;
+        controladorCurso->ingresarSolucionTraducir(sol);
+        if(controladorCurso->getSolT_actual()==tr->getFraseCorrecta()){
+        controladorCurso->marcarEjercicioAprobado();
+        cout<<"Respuesta correcta"<<endl;}
+        else{ cout<<"Respuesta incorrecta"<<endl;
+              controladorCurso->marcarEjercicioNoAprobado();}
+        }
 
-    //     // Obtener lista de cursos en los que está inscripto el estudiante y aún no ha aprobado
-    //     std::vector<Curso> cursos = obtenerCursosPendientes(nickname);
+        else if (Completar* c=dynamic_cast<Completar*>(e)){
+            set<string> solucion; 
+        cout<<"Ejercicio de completar "<<endl<< "frase a completar: "<< c->getFraseACompletar()<<endl;
+        cout<< "Ingrese las palabras faltantes:"<<endl;
+        for (long unsigned int i=0; i<c->getPalabrasFaltantes().size();i++){
+            string palabra;
+            cin>>palabra;
+            solucion.insert(palabra);
+            }
+        controladorCurso->ingresarSolucionCompletar(solucion); 
+        bool soniguales=true;
+        vector<string> v=c->getPalabrasFaltantes();
+        set<string> s=controladorCurso->getSolC_actual();
 
-    //     // Mostrar lista de cursos
-    //     std::cout << "Cursos pendientes del estudiante " << nickname << ":" << std::endl;
-    //     for (size_t i = 0; i < cursos.size(); i++) {
-    //         std::cout << i + 1 << ". " << cursos[i].obtenerNombre() << std::endl;
-    //     }
+        if (v.size() == s.size()){
+            
+            vector<string> sortedVector = v;
+            sort(sortedVector.begin(), sortedVector.end());
+            set<string> sortedSet = s;
+            vector<string> sortedSetVector(sortedSet.begin(), sortedSet.end());
+            soniguales=(sortedVector == sortedSetVector);
+            
+            if(soniguales){
+                controladorCurso->marcarEjercicioAprobado();
+                cout<<"Respuesta correcta"<<endl;}
+            else{ cout<<"Respuesta incorrecta"<<endl;
+                  controladorCurso->marcarEjercicioNoAprobado(); 
+            }    
+        }  
 
-    //     int seleccionCurso;
-    //     std::cout << "Seleccione un curso: ";
-    //     std::cin >> seleccionCurso;
+        else{controladorCurso->marcarEjercicioNoAprobado();}
+        }
 
-    //     if (seleccionCurso >= 1 && seleccionCurso <= cursos.size()) {
-    //         Curso cursoSeleccionado = cursos[seleccionCurso - 1];
+        }        
 
-    //         // Obtener lista de ejercicios no aprobados de la última lección del curso
-    //         std::vector<Ejercicio> ejercicios = obtenerEjerciciosPendientes(cursoSeleccionado);
+    }
 
-    //         if (!ejercicios.empty()) {
-    //             std::cout << "Ejercicios pendientes de la última lección del curso " << cursoSeleccionado.obtenerNombre() << ":" << std::endl;
-    //             for (size_t i = 0; i < ejercicios.size(); i++) {
-    //                 std::cout << i + 1 << ". " << ejercicios[i].obtenerProblema() << std::endl;
-    //             }
+    }
 
-    //             int seleccionEjercicio;
-    //             std::cout << "Seleccione un ejercicio: ";
-    //             std::cin >> seleccionEjercicio;
 
-    //             if (seleccionEjercicio >= 1 && seleccionEjercicio <= ejercicios.size()) {
-    //                 Ejercicio ejercicioSeleccionado = ejercicios[seleccionEjercicio - 1];
 
-    //                 std::cout << "Problema del ejercicio:" << std::endl;
-    //                 std::cout << ejercicioSeleccionado.obtenerProblema() << std::endl;
 
-    //                 // Ingresar solución del estudiante
-    //                 std::string solucionEstudiante;
-    //                 std::cout << "Ingrese la solución del ejercicio: ";
-    //                 std::cin >> solucionEstudiante;
-
-    //                 // Verificar solución
-    //                 if (solucionEstudiante == ejercicioSeleccionado.obtenerSolucion()) {
-    //                     std::cout << "¡Solución correcta! Ejercicio aprobado." << std::endl;
-    //                     ejercicioSeleccionado.marcarAprobado();
-    //                 } else {
-    //                     std::cout << "Solución incorrecta. Ejercicio no aprobado." << std::endl;
-    //                 }
-    //             } else {
-    //                 std::cout << "Selección inválida." << std::endl;
-    //             }
-    //         } else {
-    //             std::cout << "No hay ejercicios pendientes en la última lección del curso." << std::endl;
-    //         }
-    //     } else {
-    //         std::cout << "Selección inválida." << std::endl;
-    //     }
-
-}

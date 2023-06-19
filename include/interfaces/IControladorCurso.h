@@ -35,7 +35,8 @@ class IControladorCurso {
         virtual set<string> listarCursosInscrip() = 0;
         virtual set<string> mostrarCursosNoAprobados() = 0;
         virtual set<string> mostrarEjerciciosNoAprobados() = 0;
-        // virtual DTEjercicio seleccionarEjercicio(string nombreEjercicio) = 0;
+        virtual void seleccionarEjercicio(string nombreEjercicio) = 0;
+
         virtual void ingresarSolucionCompletar(set<string> solC) = 0;
         virtual void ingresarSolucionTraducir(string solT) = 0;
         virtual void marcarEjercicioAprobado() = 0;
@@ -74,6 +75,10 @@ class IControladorCurso {
 
         //operaciones para habilitar curso
         virtual set<string> listarCursosNoHabilitados()=0;
+
+        virtual Ejercicio* getejActual()=0;
+        virtual string getSolT_actual()=0;
+        virtual set<string> getSolC_actual()=0;
 
 
 

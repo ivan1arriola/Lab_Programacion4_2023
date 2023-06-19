@@ -22,6 +22,14 @@ void Inscripcion::aproboEjercicio(){
     this->cantEjsAprobados = this->cantEjsAprobados + 1;
 }
 
+Inscripcion::Inscripcion(DTDate* fechaInscripcion, bool aprobado, Estudiante* estudiante, Curso* curso,set<Ejercicio*> ejnoaprob) {
+    this->fechaInscripcion = fechaInscripcion;
+    this->aprobado = aprobado;
+    this->estudiante = estudiante;
+    this->curso = curso;
+    this->ejNoAprobados=curso->getLecciones().back()->getEjercicios();
+}
+
 // Getters
 DTDate* Inscripcion::getFechaInscripcion() {
     return fechaInscripcion;
@@ -29,6 +37,14 @@ DTDate* Inscripcion::getFechaInscripcion() {
 
 bool Inscripcion::getAprobado() {
     return aprobado;
+}
+
+set<Ejercicio*> Inscripcion::getejAprobados(){
+    return ejAprobados;
+}
+
+set<Ejercicio*> Inscripcion::getejNoAprobados(){
+    return ejNoAprobados;
 }
 
 // Setters
@@ -39,6 +55,13 @@ void Inscripcion::setFechaInscripcion(DTDate* date) {
 void Inscripcion::setAprobado(bool aprobado) {
     this->aprobado = aprobado;
 }
+
+void Inscripcion::setejAprobado(Ejercicio* e){
+    this->ejAprobados.insert(e);
+    this->ejNoAprobados.erase(e);    
+}
+
+void Inscripcion::setejNoAprobado(Ejercicio*){}
 
 // Métodos
 string Inscripcion::obtenerNombreCurso() {
