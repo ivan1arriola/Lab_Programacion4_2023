@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 DTProfesor::DTProfesor() {}
 
 DTProfesor::DTProfesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto) : DTUsuario(nickname, contrasenia, nombre, descripcion, 0) {
@@ -16,11 +18,11 @@ DTProfesor::DTProfesor(string nickname, string contrasenia, string nombre, strin
 
 // Getters
 
-string DTProfesor::getInstituto() {
+string DTProfesor::getInstituto() const {
     return this->instituto;
 }
 
-set<string> DTProfesor::getIdiomas(){
+set<string> DTProfesor::getIdiomas() const {
     return this->idiomas;
 }
 
@@ -29,7 +31,7 @@ set<string> DTProfesor::getIdiomas(){
 DTProfesor::~DTProfesor() {}
 
 
-ostream& operator<<(ostream& os, DTProfesor& dtProfesor) {
+ostream& operator<<(ostream& os, const DTProfesor& dtProfesor) {
     os << "Tipo: Profesor" << endl;
     os << "Nickname: " << dtProfesor.getNickname() << endl;
     os << "Nombre: " << dtProfesor.getNombre() << endl;

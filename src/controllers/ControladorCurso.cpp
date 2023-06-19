@@ -1,7 +1,9 @@
 #include "../../include/controllers/ControladorCurso.h"
+#include "../../include/interfaces/IControladorCurso.h"
 #include "../../include/datatypes/DTDataCurso.h"
 
 #include "../../include/classes/Curso/Curso.h"
+#include "../../include/classes/Usuario/Profesor.h"
 
 #include "../../include/handlers/HandlerCurso.h"
 #include "../../include/handlers/HandlerUsuario.h"
@@ -70,8 +72,9 @@ ControladorCurso::~ControladorCurso() {
 }
 
 IControladorCurso* ControladorCurso::getInstancia() {
-    if (instancia == NULL)
+    if (instancia == NULL){
         instancia = new ControladorCurso();
+    }
     return instancia;
 }
 
@@ -125,6 +128,7 @@ void ControladorCurso::altaCurso(bool disponible) {
                                         disponible, this->idiomaCursoActual, profesor,
                                         this->leccionesCursoActual, this->cursosPreviosCursoActual);
         coleccionCursos->agregarCurso(cursoNuevo);
+        profesor->agregarACursosDeProfesor(cursoNuevo);
     }
 }
 

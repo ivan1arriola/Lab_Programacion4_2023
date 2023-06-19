@@ -21,13 +21,13 @@ public:
         DTProfesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto, set<string> idiomas);
     
         // Getters
-        string getInstituto();
-        set<string> getIdiomas();
+        string getInstituto() const;
+        set<string> getIdiomas() const;
     
         // Destructor
         ~DTProfesor();
 
-        friend ostream& operator<<(ostream& os, DTProfesor& dtProfesor);
+        friend ostream& operator<<(ostream& os, const DTProfesor& dtProfesor);
     };
 
 #endif

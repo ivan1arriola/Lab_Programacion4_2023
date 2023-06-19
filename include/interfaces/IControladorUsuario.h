@@ -44,8 +44,6 @@ class IControladorUsuario {
         virtual set<string> listarNicknameUsuarios() = 0;
         virtual DTUsuario* seleccionarUsuario(string nickname) = 0;
 
-        
-
 
 };
 

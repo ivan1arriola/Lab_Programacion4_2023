@@ -4,10 +4,12 @@
 #include "../../include/interfaces/ISuscriptor.h"
 #include "../../include/interfaces/IControladorCurso.h"
 #include "../../include/interfaces/IControladorUsuario.h"
+#include "../../include/interfaces/IControladorEstadistica.h"
 
 // controladores
 #include "../../include/controllers/ControladorCurso.h"
 #include "../../include/controllers/ControladorUsuario.h"
+#include "../../include/controllers/ControladorEstadistica.h"
 #include "../../include/controllers/ControladorEstadistica.h"
 
 
@@ -36,4 +38,8 @@ IControladorUsuario* Fabrica::getIControladorUsuario() {
 
 IControladorCurso* Fabrica::getIControladorCurso() {
     return ControladorCurso::getInstancia();
+}
+
+IControladorEstadistica* Fabrica::getIControladorEstadistica() {
+    return ControladorEstadistica::getInstancia();
 }
