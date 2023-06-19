@@ -18,53 +18,42 @@ a los que desea suscribirse y el Sistema lo agrega a la lista de suscriptores.
  * **/
 
 void Sistema::suscribirseANotificaciones() {
-    imprimirMensaje("Suscribirse A Notificaciones");
 
-    set<string> nicknames = controladorUsuario->listarNicknameUsuarios();
-    // Selecciona un nickname de los usuarios existentes
-    string nickname = seleccionarElemento(nicknames, "Nickname");
+    try
+    {
+        imprimirMensaje("Suscribirse A Notificaciones");
 
-    if (nickname.empty()) {
-        imprimirMensaje("No se seleccionó un nickname");
-        imprimirMensaje("Cancelando suscripción a notificaciones");
-        return;
-    }
+        set<string> nicknames = controladorUsuario->listarNicknameUsuarios();
+        string nickname = seleccionarElemento(nicknames, "Nickname");
 
-    set<string> idiomas = controladorUsuario->listarIdiomasNoSuscriptos(nickname);
+        if (nickname.empty()) throw invalid_argument("No se seleccionó un nickname");
 
-    if (idiomas.empty()) {
-        imprimirMensaje("El usuario ya está suscripto a todos los idiomas");
-        imprimirMensaje("Cancelando suscripción a notificaciones");
-        return;
-    }
+        set<string> idiomas = controladorUsuario->listarIdiomasNoSuscriptos(nickname);
 
-    bool deseaSuscribirse = true;
+        if (idiomas.empty()) throw invalid_argument("El usuario ya está suscripto a todos los idiomas");
 
-    imprimirMensaje("Idiomas a los que no está suscripto:");
-    do {
-        // Selecciona un idioma de los idiomas disponibles
-        string idioma = seleccionarElemento(idiomas, "Idioma");
+        bool deseaSuscribirse = true;
 
-        controladorUsuario->suscribirse(idioma);
-        idiomas.erase(idioma);
-        
-    
+        imprimirMensaje("Idiomas a los que no está suscripto:");
+        do {
+            string idioma = seleccionarElemento(idiomas, "Idioma");
+            if (idioma.empty()) throw invalid_argument("No se seleccionó un idioma");
+            controladorUsuario->suscribirse(idioma);
+            idiomas.erase(idioma);
+            if(!idiomas.empty()) {
+                deseaSuscribirse = ingresarBooleano("¿Desea suscribirse a otro idioma?");
+            } else {
+                deseaSuscribirse = false;
+            }
+        } while (deseaSuscribirse && !idiomas.empty());
 
-        if(!idiomas.empty()) {
-            deseaSuscribirse = deseaContinuar("¿Desea suscribirse a otro idioma? (S/N)");
-        } else {
-            deseaSuscribirse = false;
+        if (idiomas.empty()) {
+            imprimirMensaje("El usuario ya se suscribió a todos los idiomas");
         }
-    } while (deseaSuscribirse && !idiomas.empty());
-
-    if (idiomas.empty()) {
-        imprimirMensaje("El usuario ya está suscripto a todos los idiomas");
     }
-
-
-
-
-
-
-
+    catch(const std::exception& e)
+    {
+        cancelarOperacion(e.what(), "Suscribirse A Notificaciones");
+    }
+    
 }

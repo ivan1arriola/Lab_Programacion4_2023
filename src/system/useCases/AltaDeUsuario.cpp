@@ -53,10 +53,10 @@ void Sistema::altaDeUsuario() {
 
   // Imprimir datos ingresados
   cout << "Datos ingresados: " << endl;
-  cout << "Nickname: " << nickname << endl;
-  cout << "Password: " << password << endl;
-  cout << "Nombre: " << nombre << endl;
-  cout << "Descripcion: " << descripcion << endl;
+  cout <<"  "<<  "Nickname: " << nickname << endl;
+  cout <<"  "<< "Password: " << password << endl;
+  cout <<"  "<< "Nombre: " << nombre << endl;
+  cout <<"  "<< "Descripcion: " << descripcion << endl;
 
   espacioSimple();
 
