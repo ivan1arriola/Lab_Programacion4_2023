@@ -38,11 +38,11 @@ Los warnings se tratan como errores, por lo que si el programa no compila, es ne
 - Agregar lección :white_check_mark:
 - Agregar ejercicio :white_check_mark:
 - Habilitar curso :white_check_mark:
-- :memo: Eliminar curso
-- Consultar curso  :warning:
-- Inscribirse a curso
-- :memo: Realizar ejercicio
-- :memo: Consultar estadísticas
+- :memo: Eliminar curso :white_check_mark:
+- Consultar curso  :white_check_mark:
+- Inscribirse a curso :white_check_mark:
+- :memo: Realizar ejercicio 
+- :memo: Consultar estadísticas :white_check_mark:
 - :memo: Suscribirse a notificaciones :white_check_mark:
 - :memo: Consulta de notificaciones :white_check_mark:
 - :memo: Eliminar suscripciones :white_check_mark:
