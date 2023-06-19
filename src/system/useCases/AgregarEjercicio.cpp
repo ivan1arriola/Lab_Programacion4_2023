@@ -102,30 +102,30 @@ void Sistema::agregarEjercicio() {
 
     imprimirMensaje("Se dio de alta el ejercicio con éxito");
 
-    set<Ejercicio*> ejers = leccion->getEjercicios();
+    // set<Ejercicio*> ejers = leccion->getEjercicios();
     //IMPRIMIMOS DATOS INGRESADOS
-    string desc;
-    int i = 1;
-    imprimirMensaje("Se imprimen los ejercicios de la lección elegida:");
-    for (Ejercicio* ej : ejers) {
-        cout << "-----Ejercicio " << i << "-----" << endl;
-        if (Completar* ejCompletar = dynamic_cast<Completar*>(ej)) {
-            desc = ejCompletar->getDescripcion();
-            cout << "Descripción: " << desc << endl;
-            string frase = ejCompletar->getFraseACompletar();
-            cout << "Frase a completar: " << frase << endl;
-            vector<string> palabras = ejCompletar->getPalabrasFaltantes();
-            imprimirMensaje("Las palabras faltantes son:");
-            imprimirVector(palabras, "palabras faltantes");
-        } else if (Traducir* ejTraducir = dynamic_cast<Traducir*>(ej)) {
-            desc = ejTraducir->getDescripcion();
-            cout << "Descripción: " << desc << endl;
-            string frase = ejTraducir->getFraseATraducir();
-            cout << "Frase a traducir: " << frase << endl;
-            string correcta = ejTraducir->getFraseCorrecta();
-            cout << "Frase traducida: " << correcta << endl;
-        }
-        i++;
-    }
+    // string desc;
+    // int i = 1;
+    // imprimirMensaje("Se imprimen los ejercicios de la lección elegida:");
+    // for (Ejercicio* ej : ejers) {
+    //     cout << "-----Ejercicio " << i << "-----" << endl;
+    //     if (Completar* ejCompletar = dynamic_cast<Completar*>(ej)) {
+    //         desc = ejCompletar->getDescripcion();
+    //         cout << "Descripción: " << desc << endl;
+    //         string frase = ejCompletar->getFraseACompletar();
+    //         cout << "Frase a completar: " << frase << endl;
+    //         vector<string> palabras = ejCompletar->getPalabrasFaltantes();
+    //         imprimirMensaje("Las palabras faltantes son:");
+    //         imprimirVector(palabras, "palabras faltantes");
+    //     } else if (Traducir* ejTraducir = dynamic_cast<Traducir*>(ej)) {
+    //         desc = ejTraducir->getDescripcion();
+    //         cout << "Descripción: " << desc << endl;
+    //         string frase = ejTraducir->getFraseATraducir();
+    //         cout << "Frase a traducir: " << frase << endl;
+    //         string correcta = ejTraducir->getFraseCorrecta();
+    //         cout << "Frase traducida: " << correcta << endl;
+    //     }
+    //     i++;
+    // }
 
 }

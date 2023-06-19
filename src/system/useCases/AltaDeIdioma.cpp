@@ -26,13 +26,15 @@ void Sistema::altaDeIdioma() {
     // Crear idioma
     controladorUsuario->crearIdioma(nombre);
 
-    // Imprimir Idioma creado
-    imprimirMensaje("Idioma creado: " + nombre);
+   
 
     // Dar de alta el idioma
     try {
         controladorUsuario->altaIdioma();
+        // Imprimir Idioma creado
+        imprimirMensaje("Idioma creado: " + nombre);
         imprimirMensaje("Idioma dado de alta");
+         
     } catch (invalid_argument &e) {
         imprimirMensaje("Error: " + string(e.what()));
     }

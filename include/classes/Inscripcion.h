@@ -6,6 +6,7 @@
 #include <map>
 
 #include "../datatypes/DTDate.h"
+#include "../datatypes/DTInscripcion.h"
 
 #include "Usuario/Estudiante.h"
 
@@ -21,6 +22,8 @@ private:
     Estudiante* estudiante;
     Curso* curso;
 
+    float cantEjsAprobados;
+
 public:
 
     // Constructores
@@ -34,13 +37,16 @@ public:
     // Setters
     void setFechaInscripcion(DTDate* date);
     void setAprobado(bool);
+    void aproboEjercicio();
 
     // Metodos
     string obtenerNombreCurso();
     float calcPorcentajeAvance();
     float getCantEjsAprob(); 
+    DTInscripcion* getDTInscripcion();
 
     ~Inscripcion();   
+
     
 };
 

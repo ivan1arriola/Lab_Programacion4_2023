@@ -29,14 +29,23 @@ HandlerCurso *Sistema::handlerCurso = NULL;
 Sistema::Sistema() {
     fabricaSistema = Fabrica::getInstancia();
 
-
+    this->seCargaronDatos = false;
     controladorUsuario = fabricaSistema->getIControladorUsuario();
     controladorCurso = fabricaSistema->getIControladorCurso();
+    controladorEstadistica = fabricaSistema->getIControladorEstadistica();
 
 
     handlerUsuario = HandlerUsuario::getInstancia();
     handlerIdioma = HandlerIdioma::getInstancia();
     handlerCurso = HandlerCurso::getInstancia();
+}
+
+bool Sistema::getSeCargaronDatos(){
+    return seCargaronDatos;
+}
+
+void Sistema::setDatosCargados(){
+    seCargaronDatos = true;
 }
 
 Sistema::~Sistema() {

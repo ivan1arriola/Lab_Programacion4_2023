@@ -14,6 +14,8 @@ class DTDataCursoProfesor {
         string getNombreCurso();
         float getPromedioAvanceProfesor();
         ~DTDataCursoProfesor();
+
+        friend ostream& operator<<(ostream& os, const DTDataCursoProfesor& dtCursoProfesor);
 };
 
 #endif

@@ -6,13 +6,13 @@ Traducir::Traducir() {
     // Implementación del constructor por defecto
 }
 
-Traducir::Traducir(string nombre, string descripcion) : Ejercicio(nombre, descripcion) {
+Traducir::Traducir(string descripcion) : Ejercicio(descripcion) {
     this->fraseATraducir = "";
     this->fraseCorrecta = "";
 
 }
 
-Traducir::Traducir(string nombre, string descripcion, string fraseATraducir, string fraseCorrecta) : Ejercicio(nombre, descripcion) {
+Traducir::Traducir(string descripcion, string fraseATraducir, string fraseCorrecta) : Ejercicio(descripcion) {
     this->fraseATraducir = fraseATraducir;
     this->fraseCorrecta = fraseCorrecta;
 }

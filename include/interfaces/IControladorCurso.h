@@ -35,7 +35,7 @@ class IControladorCurso {
         virtual set<string> listarCursosInscrip() = 0;
         virtual set<string> mostrarCursosNoAprobados() = 0;
         virtual set<string> mostrarEjerciciosNoAprobados() = 0;
-        virtual DTEjercicio seleccionarEjercicio(string nombreEjercicio) = 0;
+        // virtual DTEjercicio seleccionarEjercicio(string nombreEjercicio) = 0;
         virtual void ingresarSolucionCompletar(set<string> solC) = 0;
         virtual void ingresarSolucionTraducir(string solT) = 0;
         virtual void marcarEjercicioAprobado() = 0;
@@ -45,10 +45,15 @@ class IControladorCurso {
         //Operaciones para Consulta Curso
         virtual set<string> listarNombreCursos() = 0;
         virtual DTDataCurso* mostrarDatosCurso() = 0; 
+        virtual int  cantidadDeLecciones() = 0;
+        virtual DTDataLeccion *mostrarDatosLeccion(int posicion) = 0;
+        virtual int cantidadDeEjerciciosLeccion(int posicion) = 0;
+        virtual set<DTEjercicio*> mostrarEjercicios(int posLeccion) = 0;
+        virtual set<DTInscripcion*> mostrarInscripciones() = 0;
 
         //Operaciones para Alta Curso
         virtual void seleccionarProfesor(string nickname) = 0;
-        virtual void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad) = 0;
+        virtual void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad, string nickname) = 0;
         virtual void seleccionarIdioma(string nombreIdioma) = 0;
         virtual set<string> listarCursosHabilitados() = 0;
         virtual void seleccionarCurso(string nombreCurso) = 0;
@@ -60,6 +65,8 @@ class IControladorCurso {
         virtual void agregarFraseCompletar(string fraseACompletar, vector<string> palabras) = 0;
 
         virtual void agregarLeccionACurso(Leccion *leccion) = 0;
+
+        virtual void agregarCursoPrevio(string nombreCurso) = 0;
 
         virtual vector<string> listarLecciones(Curso *curso) = 0;
         virtual void darDeAltaCompletar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes) = 0;

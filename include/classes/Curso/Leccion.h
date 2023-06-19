@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "Ejercicio.h"
+#include "../../datatypes/DTDataLeccion.h"
 
 using namespace std;
 
@@ -25,10 +26,12 @@ class Leccion {
         string getObjetivo();
         set<Ejercicio*> getEjercicios();
         int getCantEj();
+        DTDataLeccion* getDTLeccion();
 
         // Setters
         void setTema(string tema);
         void setObjetivo(string objetivo);
+        void agregarEjercicio(Ejercicio *ejercicio);
 
         // Operaciones
         void crearEjercicioCompletarYAgregarlo(string nombre, string desc, string fraseCompletar, vector<string> palabrasFaltantes);

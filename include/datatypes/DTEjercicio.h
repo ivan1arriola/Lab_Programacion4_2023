@@ -4,6 +4,7 @@ desc:String*/
 #define DTEJERCICIO
 
 #include <string>
+#include <set>
 
 using namespace std;
 
@@ -14,9 +15,15 @@ class DTEjercicio {
     public:
         DTEjercicio();
         DTEjercicio(string tipoEjercicio, string desc);
+        DTEjercicio(string nombre, string tipoEjercicio, string desc);
+        // DTEjercicio(string nombre, string tipoEjercicio, string desc, set<DTEjercicio*> ejercicios); 
+
+
         string getTipoEjercicio();
         string getDesc();
         ~DTEjercicio();
+
+        friend ostream& operator<<(ostream& os, const DTEjercicio& dtEjercicio);
 };
 
 #endif

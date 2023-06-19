@@ -35,6 +35,8 @@ class Sistema {
         static HandlerIdioma *handlerIdioma;
         static HandlerCurso *handlerCurso;
 
+        bool seCargaronDatos;
+
     public:
 
         static Sistema *getInstancia();
@@ -42,6 +44,8 @@ class Sistema {
         
         // Casos de uso / Implementadas en sus respectivos .cpp
         void altaDeUsuario();
+        bool getSeCargaronDatos();
+        void setDatosCargados();
         void consultaDeUsuario();
         void altaDeIdioma();
         void consultarIdiomas();

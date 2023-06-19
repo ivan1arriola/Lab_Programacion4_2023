@@ -36,10 +36,10 @@ void Sistema::consultaDeUsuario() {
         return;
     }
 
-    imprimirSet(nicknames, "Usuarios disponibles" ) ;
+    
 
     // Seleccionar nickname
-    string nickname = seleccionarElemento(nicknames, "el usuario");
+    string nickname = seleccionarElemento(nicknames, "usuario");
     imprimirMensaje("A seleccionado el usuario: " + nickname);
 
     espacioSimple();
@@ -48,12 +48,12 @@ void Sistema::consultaDeUsuario() {
     DTUsuario* dtUsuario = controladorUsuario->seleccionarUsuario(nickname);
 
 
-    if (dtUsuario->getTipo() == 0) {
-        DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);
-        cout << *dtProfesor << endl;
-    } else {
+    if (dtUsuario->getTipo() == 1) {
         DTEstudiante* dtEstudiante = dynamic_cast<DTEstudiante*>(dtUsuario);
         cout << *dtEstudiante << endl;
+    } else {
+        DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);
+        cout << *dtProfesor << endl;
     }
 
     delete dtUsuario;
