@@ -8,6 +8,7 @@
 #include "../datatypes/DTDataCurso.h"
 #include "../datatypes/DTDataLeccion.h"
 #include "../datatypes/DTEjercicio.h"
+#include "../datatypes/DTDataCursoAInscribir.h"
 #include "../../include/classes/Curso/Leccion.h"
 #include "../../include/classes/Curso/Curso.h"
 
@@ -27,6 +28,8 @@ class IControladorCurso {
         virtual set<DTDataLeccion> getLecciones() = 0;
         virtual void eliminarCurso(string nombre) = 0;
         virtual void setLeccionActual(Leccion *leccion) = 0;
+        virtual vector<DTDataCursoAInscribir*> obtenerCursosDisponibles(set<string> cursosHabilitados) = 0;
+        virtual void realizarInscripcion(DTDate* fechaInscripcion) = 0;
         
         virtual void ingresarNicknameEstudiante(string nomEstudiante) = 0;
         virtual set<string> listarCursosInscrip() = 0;

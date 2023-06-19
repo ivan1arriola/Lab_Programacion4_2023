@@ -44,11 +44,15 @@ public:
     void setFechaNacimiento(int dia, int mes, int anio);
 
     // Operaciones
+    bool estaInscripto(string c);
+    void agregarInscripcion(string nomCurs, Inscripcion* i);
+
 
     ~Estudiante();
 };
 
 #include "../Inscripcion.h"
+
 
 #endif
 

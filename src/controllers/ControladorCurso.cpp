@@ -219,8 +219,13 @@ void ControladorCurso::agregarLeccionACurso(Leccion *leccion){
 }
 
 void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante) {
-    // Implementación de la función ingresarNicknameEstudiante
-    // Código para ingresar el nickname del estudiante para realizar ejercicios
+    // Código para ingresar el nickname del estudiante para realizar ejercicios o inscribirse a un curso
+    if (coleccionUsuarios->existeUsuario(nomEstudiante)){
+        this->nicknameUsuarioActual = nomEstudiante;
+        return;
+    }
+
+    throw invalid_argument("Nickname no registrado");
 }
 
 void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel dificultad, string nickname) {
@@ -422,6 +427,55 @@ void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<stri
 }
 
 
+vector<DTDataCursoAInscribir*> ControladorCurso::obtenerCursosDisponibles(set<string> cursosHabilitados){
+    Estudiante* e = dynamic_cast<Estudiante*>(coleccionUsuarios->obtenerUsuario(this->nicknameUsuarioActual));
+    vector<DTDataCursoAInscribir*> cursosDisp;
+    Curso* curs;
+    set<Curso*> cursosPrevios;
+    bool estaIns, cd, noTieneCursoPrevio, cursoPrevioAprobado;
+    DTDataCursoAInscribir* dcai;
+    for (const auto& nomCurs: cursosHabilitados) {
+        cd = true;
+        //Verifica si el estudiante está inscripto a ese curso
+        estaIns = e->estaInscripto(nomCurs);
+        if (estaIns){
+            cd = false;
+        }
+        else {
+            //Verificar si tiene cursos previos
+            curs = coleccionCursos->obtenerCurso(nomCurs);
+            noTieneCursoPrevio = curs->getCursosPrevios().empty();
+            if (noTieneCursoPrevio){
+                cd = true;
+            }
+            else {
+                cursosPrevios = curs->getCursosPrevios();
+                for (auto it = cursosPrevios.begin(); (it != cursosPrevios.end()) && cd; ++it){         
+                    cursoPrevioAprobado = (*it)->getInscripciones().find(this->nicknameUsuarioActual)->second->getAprobado();
+                    if (!cursoPrevioAprobado){
+                        cd = false;
+                    }
+                }
+            }  
+        }
+        if (cd) {
+            //Creamos el DTDataCurso con los datos de curs
+            dcai = curs->getDTAInscribir();
+            //Metemos en el set cursosDisp ese DTDataCurso creado
+            cursosDisp.push_back(dcai);
+        }
+    }
+    return cursosDisp;
+}
+
+void ControladorCurso::realizarInscripcion(DTDate* fechaInscripcion){
+    Estudiante* e = dynamic_cast<Estudiante*> (coleccionUsuarios->obtenerUsuario(this->nicknameUsuarioActual));
+    Curso* c = coleccionCursos->obtenerCurso(this->nombreCurso);
+    Inscripcion* ins = new Inscripcion(fechaInscripcion, false, e, c);
+    e->agregarInscripcion(this->nombreCurso, ins);
+    c->agregarInscrip(this->nicknameUsuarioActual, ins);
+}
+
 void ControladorCurso::agregarCursoPrevio(string nombreCurso){
     Curso* curso = coleccionCursos->obtenerCurso(nombreCurso);
     if (curso == NULL)
@@ -431,4 +485,5 @@ void ControladorCurso::agregarCursoPrevio(string nombreCurso){
 
 
     this->cursosPreviosCursoActual.insert(previo);
+
 }

@@ -18,7 +18,9 @@ private:
     string nombreIdioma;
     string nombreCurso;
 
+    // Datos del usuario actual
     Usuario *usuarioActual;
+    string nicknameUsuarioActual;
 
     // Datos del curso actual
     string nombreCursoActual;
@@ -69,6 +71,8 @@ public:
     void marcarEjercicioAprobado();
     void marcarEjercicioNoAprobado();
     void setLeccionActual(Leccion *leccion);
+    vector<DTDataCursoAInscribir*> obtenerCursosDisponibles(set<string> cursosHabilitados);
+    void realizarInscripcion(DTDate* fechaInscripcion);
 
     ~ControladorCurso(); // Destructor
 

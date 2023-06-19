@@ -26,6 +26,7 @@ CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
 	$(SRCDIR)/datatypes/DTDataInfoCurso.cpp \
 	$(SRCDIR)/datatypes/DTInscripcion.cpp \
 	$(SRCDIR)/datatypes/DTDataCursoEstudiante.cpp \
+	$(SRCDIR)/datatypes/DTDataCursoAInscribir.cpp \
 	$(SRCDIR)/datatypes/DTDataCursoProfesor.cpp \
 
 CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \

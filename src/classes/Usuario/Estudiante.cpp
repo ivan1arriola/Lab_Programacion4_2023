@@ -90,6 +90,18 @@ map<string, Inscripcion*> Estudiante::getInscripciones() {
     return this->inscripciones;
 }
 
+void Estudiante::agregarInscripcion(string nomCurs, Inscripcion* i){
+    this->inscripciones[nomCurs] = i;
+}
+
+bool Estudiante::estaInscripto(string c){
+    //Verificar si está o no inscripto a ese curso
+    auto it = this->inscripciones.find(c);
+    if (it != this->inscripciones.end())
+        return true;
+    else
+        return false;    
+}
 
 Estudiante::~Estudiante() {
     delete fechaNacimiento;
