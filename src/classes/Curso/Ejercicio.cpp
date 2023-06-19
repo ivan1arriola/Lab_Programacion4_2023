@@ -6,22 +6,14 @@ Ejercicio::Ejercicio() {
     // Implementación del constructor por defecto
 }
 
-Ejercicio::Ejercicio(string nombre, string descripcion) {
+Ejercicio::Ejercicio(string descripcion) {
     // Implementación del constructor con parámetros
-    this->nombre = nombre;
     this->descripcion = descripcion;
 }
 
-string Ejercicio::getNombre() {
-    return nombre;
-}
 
 string Ejercicio::getDescripcion() {
     return descripcion;
-}
-
-void Ejercicio::setNombre(string nombre) {
-    this->nombre = nombre;
 }
 
 void Ejercicio::setDescripcion(string descripcion) {
@@ -30,7 +22,6 @@ void Ejercicio::setDescripcion(string descripcion) {
 
 DTEjercicio* Ejercicio::getDTEjercicio(){
     string tipo;
-    string descripcion;
 
     if(dynamic_cast<Completar*>(this) != nullptr){
         tipo = "Completar palabras";

@@ -39,14 +39,14 @@ void Leccion::setObjetivo(string objetivo) {
 
 void Leccion::crearEjercicioCompletarYAgregarlo(string nombre, string desc, string fraseCompletar, vector<string> palabrasFaltantes) {
     // Completar* ejCompletar = dynamic_cast<Completar*>("", desc, fraseCompletar, palabrasFaltantes);
-    Completar *ejCompletar = new Completar(nombre, desc, fraseCompletar, palabrasFaltantes);
+    Completar *ejCompletar = new Completar(desc, fraseCompletar, palabrasFaltantes);
 
     ejercicios.insert(ejCompletar);
     
 }
 
 void Leccion::crearEjercicioTraducirYAgregarlo(string nombre, string desc, string fraseTraducir, string fraseTraducida){
-    Traducir *ejTraducir = new Traducir(nombre, desc, fraseTraducir, fraseTraducida);
+    Traducir *ejTraducir = new Traducir(desc, fraseTraducir, fraseTraducida);
 
     ejercicios.insert(ejTraducir);
 }

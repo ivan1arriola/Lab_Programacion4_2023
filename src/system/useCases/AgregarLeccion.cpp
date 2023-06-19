@@ -159,7 +159,6 @@ void Sistema::agregarLeccion() {
         cout << "Objetivo: " << leccion->getObjetivo() << endl;
         cout << "Ejercicios:" << endl;
         for (const auto& ejercicio : leccion->getEjercicios()) {
-            cout << "- Nombre: " << ejercicio->getNombre() << endl;
             cout << "  Descripción: " << ejercicio->getDescripcion() << endl;
         }
 

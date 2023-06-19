@@ -12,13 +12,10 @@ class DTEjercicio {
     private:
         string tipoEjercicio;
         string desc;
-        string nombre;
     public:
         DTEjercicio();
         DTEjercicio(string tipoEjercicio, string desc);
-        DTEjercicio(string nombre, string tipoEjercicio, string desc);
 
-        string getNombre();
         string getTipoEjercicio();
         string getDesc();
         ~DTEjercicio();

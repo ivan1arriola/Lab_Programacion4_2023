@@ -48,7 +48,6 @@ void Sistema::consultarCurso() {
     DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
 
     cout << *dtCurso << endl;
-    delete dtCurso;
     cout << endl; 
 
 
@@ -66,4 +65,7 @@ void Sistema::consultarCurso() {
     }else{
         imprimirMensaje("El curso no cuenta con inscripciones aún");
     }
+
+    delete dtCurso;
+    inscripciones.clear();
 }

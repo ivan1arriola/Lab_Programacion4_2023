@@ -106,7 +106,7 @@ void ControladorCurso::seleccionarIdioma(string nombreIdioma) {
 
 
 void ControladorCurso::altaCurso(bool disponible) {
-    if(coleccionCursos->existeCurso(this->nombreCurso)){
+    if(coleccionCursos->existeCurso(this->nombreCursoActual)){
         this->nombreCursoActual = "";
         this->descripcionCursoActual = "";
         this->idiomaCursoActual = NULL;
@@ -199,12 +199,12 @@ void ControladorCurso::agregarEjercicio(string nombre, string tipoEjercicio, str
     
 
     if (tipoEjercicio == "Traducir" ) {
-        this->ejercicioActual = new Traducir(nombre, descEjercicio);
+        this->ejercicioActual = new Traducir(descEjercicio);
         this->ejerciciosLeccionActual.insert(this->ejercicioActual);
         return;
     }
     if (tipoEjercicio == "Completar" ) {
-        this->ejercicioActual = new Completar(nombre, descEjercicio);
+        this->ejercicioActual = new Completar(descEjercicio);
         this->ejerciciosLeccionActual.insert(this->ejercicioActual);
         return;
     }
