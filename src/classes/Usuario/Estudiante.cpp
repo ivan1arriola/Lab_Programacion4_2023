@@ -49,12 +49,7 @@ bool Estudiante::esEstudiante() {
 }
 
 DTUsuario* Estudiante::getDT() {
-    string nickname = getNickname();
-    string contrasenia = getContrasenia();
-    string nombre = getNombre();
-    string descripcion = getDescripcion();
-
-    return new DTEstudiante(nickname, contrasenia, nombre, descripcion, pais, fechaNacimiento);
+    return new DTEstudiante(getNickname(), getContrasenia(), getNombre(), getDescripcion(), getPais());
 }
 
 void Estudiante::setPais(string pais) {

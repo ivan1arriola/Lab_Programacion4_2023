@@ -32,6 +32,3 @@ ControladorEstadistica::~ControladorEstadistica() {
     // Liberar recursos si es necesario
     delete instancia;
 }
-double obtenerPorcentajeAvance() const { 
-    return (static_cast<double>(ejerciciosAprobados_) / ejerciciosTotales_) * 100; 
-    }
