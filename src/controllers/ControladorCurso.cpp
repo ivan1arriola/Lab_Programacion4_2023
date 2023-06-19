@@ -29,6 +29,21 @@ ControladorCurso::ControladorCurso() {
     ControladorCurso::coleccionCursos = HandlerCurso::getInstancia();
     ControladorCurso::coleccionUsuarios = HandlerUsuario::getInstancia();
     ControladorCurso::coleccionIdiomas = HandlerIdioma::getInstancia();
+
+    ControladorCurso::usuarioActual = NULL;
+    ControladorCurso::nombreCursoActual = "";
+    ControladorCurso::nicknameProfesorActual = "";
+    ControladorCurso::descripcionCursoActual = "";
+    ControladorCurso::dificultadlCursoActual = Nivel::PRICIPIANTE;
+    ControladorCurso::idiomaCursoActual = NULL;
+    ControladorCurso::leccionesCursoActual = vector<Leccion *>();
+    ControladorCurso::cursosPreviosCursoActual = set<Curso *>();
+    ControladorCurso::leccionActual = NULL;
+    ControladorCurso::ejercicioActual = NULL;
+    ControladorCurso::ejerciciosLeccionActual = set<Ejercicio *>();
+
+
+
 }
 
 ControladorCurso::~ControladorCurso() {
@@ -37,6 +52,20 @@ ControladorCurso::~ControladorCurso() {
         ControladorCurso::coleccionCursos->deleteInstancia();
         ControladorCurso::coleccionCursos = NULL;
     }
+
+    if (ControladorCurso::coleccionUsuarios != NULL) {
+        ControladorCurso::coleccionUsuarios->deleteInstancia();
+        ControladorCurso::coleccionUsuarios = NULL;
+    }
+
+    if (ControladorCurso::coleccionIdiomas != NULL) {
+        ControladorCurso::coleccionIdiomas->deleteInstancia();
+        ControladorCurso::coleccionIdiomas = NULL;
+    }
+
+    
+    ControladorCurso::instancia = NULL;
+    
     
 }
 
@@ -81,22 +110,20 @@ void ControladorCurso::altaCurso(bool disponible) {
         this->nicknameProfesorActual = "";
         this->usuarioActual = NULL;
         this->leccionesCursoActual.clear();
-
+        this->cursosPreviosCursoActual.clear();
         this->ejercicioActual = NULL;
-        for (auto it = this->ejerciciosLeccionActual->begin(); it != this->ejerciciosLeccionActual->end(); ++it)
-            delete *it;
-        this->ejerciciosLeccionActual->clear();
-        delete this->ejerciciosLeccionActual;
+        this->ejerciciosLeccionActual.clear();
+        this->leccionActual = NULL;
+        this->dificultadlCursoActual = Nivel::PRICIPIANTE;
 
         throw invalid_argument("Ya existe un curso con ese nombre");
     }else {
 
-        Profesor* profesor = dynamic_cast<Profesor*>(this->usuarioActual);
+        Profesor* profesor = dynamic_cast<Profesor*>(coleccionUsuarios->obtenerUsuario(nicknameProfesorActual));
 
-        //Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones)
         Curso* cursoNuevo = new Curso(this->nombreCursoActual, this->descripcionCursoActual, this->dificultadlCursoActual,
                                         disponible, this->idiomaCursoActual, profesor,
-                                        this->leccionesCursoActual);
+                                        this->leccionesCursoActual, this->cursosPreviosCursoActual);
         coleccionCursos->agregarCurso(cursoNuevo);
     }
 }
@@ -159,22 +186,22 @@ void ControladorCurso::eliminarCurso(string nombre) {
 }
 
 void ControladorCurso::agregarLeccion(string tema, string objetivo) {
-    Leccion* leccion = new Leccion(tema, objetivo, * this->ejerciciosLeccionActual);
+    Leccion* leccion = new Leccion(tema, objetivo, this->ejerciciosLeccionActual);
     this->leccionesCursoActual.push_back(leccion);
 }
 
 void ControladorCurso::agregarEjercicio(string nombre, string tipoEjercicio, string descEjercicio) {
-    if (this->ejerciciosLeccionActual == NULL)
-        this->ejerciciosLeccionActual = new set<Ejercicio*>();
+
+    
 
     if (tipoEjercicio == "Traducir" ) {
         this->ejercicioActual = new Traducir(nombre, descEjercicio);
-        this->ejerciciosLeccionActual->insert(this->ejercicioActual);
+        this->ejerciciosLeccionActual.insert(this->ejercicioActual);
         return;
     }
     if (tipoEjercicio == "Completar" ) {
         this->ejercicioActual = new Completar(nombre, descEjercicio);
-        this->ejerciciosLeccionActual->insert(this->ejercicioActual);
+        this->ejerciciosLeccionActual.insert(this->ejercicioActual);
         return;
     }
 
@@ -192,12 +219,15 @@ void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante) {
     // Código para ingresar el nickname del estudiante para realizar ejercicios
 }
 
-void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel dificultad) {
+void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel dificultad, string nickname) {
+    if (!coleccionUsuarios->existeUsuario(nickname))
+        throw invalid_argument("No hay un usuario con el nickname " + nickname);
     this->nombreCursoActual = nombre;
     this->descripcionCursoActual = desc;
     this->dificultadlCursoActual = dificultad;
 
-    this->nicknameProfesorActual = this->usuarioActual->getNickname();
+
+    this->nicknameProfesorActual = nickname;
     
 }
 
@@ -385,4 +415,16 @@ void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<stri
         throw invalid_argument("El ejercicio seleccionado no es de tipo Completar");
     completar->setFraseACompletar(fraseACompletar);
     completar->setPalabrasFaltantes(palabras);
+}
+
+
+void ControladorCurso::agregarCursoPrevio(string nombreCurso){
+    Curso* curso = coleccionCursos->obtenerCurso(nombreCurso);
+    if (curso == NULL)
+        throw invalid_argument("No existe el curso");
+
+    Curso * previo = coleccionCursos->obtenerCurso(nombreCurso);
+
+
+    this->cursosPreviosCursoActual.insert(previo);
 }
