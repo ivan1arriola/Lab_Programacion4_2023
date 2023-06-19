@@ -17,6 +17,7 @@ int main() {
 
     // Inicializar sistema
     Sistema *sistema = Sistema::getInstancia();
+    // bool datos = sistema->getSeCargaronDatos();
 
     do {
         imprimirMenu();
