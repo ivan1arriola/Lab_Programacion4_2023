@@ -117,10 +117,12 @@ Curso::~Curso() {
     for (vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end(); ++it) {
         delete *it;
     }
+    lecciones.clear();
     
     for (map<string,Inscripcion*>::iterator it=inscripciones.begin();it!=inscripciones.end();++it){
         delete it->second;
     }
+    inscripciones.clear();
 }
 
 DTDataCurso* Curso::getDT() {

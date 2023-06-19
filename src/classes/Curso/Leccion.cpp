@@ -66,7 +66,8 @@ DTDataLeccion* Leccion::getDTLeccion(){
 
 Leccion::~Leccion() {
     for (set<Ejercicio*>::iterator it=ejercicios.begin(); it!=ejercicios.end();++it) {
-        delete *it;
+        delete *it;        
     }
+    ejercicios.clear();
     // Borrar todos los ejercicios
 }
