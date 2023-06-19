@@ -13,10 +13,6 @@ DTEjercicio::DTEjercicio(string nombre, string tipoEjercicio, string desc){
     this->desc = desc;
 }
 
-// DTEjercicio::DTEjercicio(string nombre, string tipoEjercicio, string desc, set<DTEjercicio*> ejercicios){
-
-// }
-
 DTEjercicio::DTEjercicio(string tipoEjercicio, string desc) {
     this->tipoEjercicio = tipoEjercicio;
     this->desc = desc;
@@ -37,7 +33,8 @@ string DTEjercicio::getDesc() {
 DTEjercicio::~DTEjercicio() {}
 
 ostream& operator<<(ostream& os, const DTEjercicio& dtEjercicio) {
-    os << "Descripción: " << dtEjercicio.desc << endl;
-    os << "Tipo de ejercicio: " << dtEjercicio.tipoEjercicio << endl;
+    os << "     " << "     " << "Ejercicio :" << endl;
+    os << "     " << "     " << "Descripción: " << dtEjercicio.desc << endl;
+    os << "     " << "     " << "Tipo de ejercicio: " << dtEjercicio.tipoEjercicio << endl;
     return os;
 }

@@ -61,7 +61,11 @@ int Leccion::getCantEj(){
 }
 
 DTDataLeccion* Leccion::getDTLeccion(){
-    return new DTDataLeccion(tema, objetivo);
+    set<DTEjercicio*> dtEjercicios;
+    for (set<Ejercicio*>::iterator it=ejercicios.begin(); it!=ejercicios.end();++it) {
+        dtEjercicios.insert((*it)->getDTEjercicio());
+    }
+    return new DTDataLeccion(tema, objetivo, dtEjercicios);
 }
 
 Leccion::~Leccion() {

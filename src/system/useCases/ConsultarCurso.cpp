@@ -48,48 +48,9 @@ void Sistema::consultarCurso() {
     DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
 
     cout << *dtCurso << endl;
-
+    delete dtCurso;
     cout << endl; 
 
-    
-    // Obtener lecciones del curso
-    //Consultamos la cantidad de lecciones
-    int cantLecciones = controladorCurso->cantidadDeLecciones();
-
-    if(cantLecciones == 0){
-        //si no tiene lecciones no imprimimos nada más
-        imprimirMensaje("El curso no tiene lecciones");
-        return;
-    }
-
-    DTDataLeccion *dtLeccion;
-    int cantEjercicios;
-    int j=1;
-
-    for(int i=0; i<cantLecciones; i++){
-        j=1;
-        cout << "-----Leccion " << i+1 << "-----" << endl;
-        dtLeccion = controladorCurso->mostrarDatosLeccion(i);
-        cout << *dtLeccion << endl;
-        
-        //Obtenemos la cantidad de ejercicios de la leccion i
-        cantEjercicios = controladorCurso->cantidadDeEjerciciosLeccion(i);
-
-        if(cantEjercicios != 0){
-            set<DTEjercicio*> dtEjercicios = controladorCurso->mostrarEjercicios(i);
-            cout << "A continuación se listarán los ejercicios de la lección " << i+1 << endl;
-            
-            for(const DTEjercicio *ej : dtEjercicios){
-                cout << "-----Ejercicio " << j << "-----" << endl;
-                cout << *ej << endl;
-                j++;
-            }
-        }else{
-            cout << "La lección " << i+1 << " no tiene ejercicios" << endl;
-            cout << endl;
-        }
-
-    }
 
     // Obtener inscripciones del curso
     set<DTInscripcion*> inscripciones = controladorCurso->mostrarInscripciones();
@@ -100,6 +61,7 @@ void Sistema::consultarCurso() {
         for(const DTInscripcion *inscripcion : inscripciones){
             cout << "-----Inscripción " << i << "-----" << endl;
             cout << *inscripcion << endl;
+            delete inscripcion;
         }
     }else{
         imprimirMensaje("El curso no cuenta con inscripciones aún");
