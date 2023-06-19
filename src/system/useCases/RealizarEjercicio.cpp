@@ -74,14 +74,10 @@ void Sistema::realizarEjercicio() {
             }    
         }  
 
-        else{ cout<<"Respuesta incorrecta"<<endl;
-              controladorCurso->marcarEjercicioNoAprobado();}
+        else{controladorCurso->marcarEjercicioNoAprobado();}
         }
 
-
-        }
-
-        
+        }        
 
     }
 
