@@ -9,11 +9,14 @@ using namespace std;
 #include "Usuario.h"
 #include "../Idioma.h"
 #include "../../datatypes/DTUsuario.h"
+#include "../../datatypes/DTDataCursoProfesor.h"
+class Curso;
 
 class Profesor : public Usuario {
     private:
         string instituto;
         set<Idioma*> idiomasDeProfesor;
+        set<Curso*> cursosCreados;
     public:
         Profesor();
         Profesor(string nickname, string contrasenia, string nombre, string descripcion, string instituto);
@@ -23,6 +26,7 @@ class Profesor : public Usuario {
         string getInstituto();
         bool esProfesor();
         bool esEstudiante();
+        set<Curso*> getCursosCreados();
 
         DTUsuario* getDT();
 
@@ -31,8 +35,9 @@ class Profesor : public Usuario {
 
         // Operaciones
         set<string> obtenerIdiomas();
-        void agregarAIdiomasDeProfesor();
-        set<DTDataCursoProfesor> getCursosProfesor();
+        void agregarAIdiomasDeProfesor(Idioma *idioma);
+        void agregarACursosDeProfesor(Curso *curso);
+        set<DTDataCursoProfesor*> getCursosProfesor();
 
         set<Idioma*> getIdiomas();
 

@@ -57,6 +57,21 @@ DTUsuario* Estudiante::getDT() {
     return new DTEstudiante(nickname, contrasenia, nombre, descripcion, pais, fechaNacimiento);
 }
 
+set<DTDataCursoEstudiante*> Estudiante::getDTDataCursoEstudiante(){
+    string nombreCurso;
+    float porcentajeAvance;
+    map<string, Inscripcion*> inscripciones = this->inscripciones;
+    set<DTDataCursoEstudiante*> dataCursoEstudiante;
+    //Recorremos inscripciones y creamos DTDataCursoEstudiante por cada una de ellas
+    for(auto it = inscripciones.begin(); it != inscripciones.end(); ++it){
+        nombreCurso = it->first;
+        porcentajeAvance = it->second->calcPorcentajeAvance();
+        //Hacer delete por cada DT creado
+        dataCursoEstudiante.insert(new DTDataCursoEstudiante(nombreCurso, porcentajeAvance));
+    }
+    return dataCursoEstudiante;
+}
+
 void Estudiante::setPais(string pais) {
     this->pais = pais;
 }

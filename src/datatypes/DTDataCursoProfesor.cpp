@@ -1,6 +1,7 @@
 #include "../../include/datatypes/DTDataCursoProfesor.h"
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -19,3 +20,8 @@ float DTDataCursoProfesor::getPromedioAvanceProfesor() {
 
 DTDataCursoProfesor::~DTDataCursoProfesor() {}
 
+ostream& operator<<(ostream& os, const DTDataCursoProfesor& dtCursoProfesor) {
+    os << "Nombre del curso: " << dtCursoProfesor.nombreCurso << endl;
+    os << "Porcentaje de avance de todos los estudiantes del curso: " << dtCursoProfesor.promedioAvanceProfesor << "%" << endl;
+    return os;
+}

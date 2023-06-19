@@ -4,6 +4,7 @@ desc:String*/
 #define DTEJERCICIO
 
 #include <string>
+#include <set>
 
 using namespace std;
 
@@ -14,8 +15,9 @@ class DTEjercicio {
         string desc;
     public:
         DTEjercicio();
+        DTEjercicio(string tipoEjercicio, string desc);
         DTEjercicio(string nombre, string tipoEjercicio, string desc);
-        DTEjercicio(string nombre, string tipoEjercicio, string desc, set<DTEjercicio*> ejercicios); 
+        // DTEjercicio(string nombre, string tipoEjercicio, string desc, set<DTEjercicio*> ejercicios); 
 
         string getNombre();
         string getTipoEjercicio();

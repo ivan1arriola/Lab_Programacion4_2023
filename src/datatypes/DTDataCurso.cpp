@@ -25,11 +25,21 @@ return descripcion;
 }
 
 string DTDataCurso::getNivel() {
-    return "Básico";    
+    if(nivel ==0){
+        return "Principiante";
+    }else if(nivel ==1){
+        return "Medio";
+    }else{
+        return "Avanzado";
+    }
 }
 
 string DTDataCurso::getDisponible() {
-    return "Disponible";
+    if(disponible){
+        return "Disponible";
+    }else{
+        return "No disponible";
+    }
 }
 
 string DTDataCurso::getNombreIdioma() {
@@ -42,9 +52,9 @@ return nombreProfesor;
 
 DTDataCurso::~DTDataCurso() {
     //Destruye Lecciones
-    for (int i = 0; i < lecciones.size(); i++) {
-        delete lecciones[i];
-    }
+    // for (int i = 0; i < lecciones.size(); i++) {
+    //     delete lecciones[i];
+    // }
 }
 
 ostream& operator<<(ostream& os, const DTDataCurso& dtCurso) {

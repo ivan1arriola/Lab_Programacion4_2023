@@ -22,6 +22,8 @@ private:
     Estudiante* estudiante;
     Curso* curso;
 
+    float cantEjsAprobados;
+
 public:
 
     // Constructores

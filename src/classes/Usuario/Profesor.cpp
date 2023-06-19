@@ -1,4 +1,6 @@
 #include "../../../include/classes/Usuario/Profesor.h"
+#include "../../../include/classes/Inscripcion.h"
+#include "../../../include/classes/Curso/Curso.h"
 
 #include <string>
 
@@ -6,6 +8,7 @@
 
 #include "../../../include/datatypes/DTUsuario.h"
 #include "../../../include/datatypes/DTProfesor.h"
+#include "../../../include/datatypes/DTDataCursoProfesor.h"
 
 using namespace std;
 
@@ -45,6 +48,14 @@ void Profesor::setInstituto(string instituto) {
   this->instituto = instituto;
 }
 
+void Profesor::agregarAIdiomasDeProfesor(Idioma *idioma){
+  idiomasDeProfesor.insert(idioma);
+}
+
+void Profesor::agregarACursosDeProfesor(Curso *curso){
+  cursosCreados.insert(curso);
+}
+
 // Operaciones
 
 set<string> Profesor::obtenerIdiomas() {
@@ -63,8 +74,35 @@ bool Profesor::esEstudiante() {
   return false;
 }
 
-set<DTDataCursoProfesor> Profesor::getCursosProfesor() {
-  set<DTDataCursoProfesor> cursosProfesor;
+set<Curso*> Profesor::getCursosCreados(){
+  return this->cursosCreados;
+}
+
+set<DTDataCursoProfesor*> Profesor::getCursosProfesor() {
+  string nombreCurso;
+  float porcentajeAvance = 0;
+  set<Curso*> cursos = cursosCreados;
+  int cantEstudiantes;
+  set<DTDataCursoProfesor*> cursosProfesor;
+  // DTDataCursoProfesor* dt;
+  //Recorremos los cursos para obtener sus inscripciones y porcentaje de avance total
+  for(Curso* curso : cursos){
+    map<string, Inscripcion*> inscripciones = curso->getInscripciones();
+    nombreCurso = curso->getNombre(); 
+    //Hay que recorrer las inscripciones y obtener el promedio de avance
+    //de cada estudiante 
+    for(auto it = inscripciones.begin(); it != inscripciones.end(); ++it){
+      porcentajeAvance = porcentajeAvance + it->second->calcPorcentajeAvance();
+    }
+    cantEstudiantes = inscripciones.size();
+    if(cantEstudiantes != 0){
+      porcentajeAvance = porcentajeAvance/cantEstudiantes;
+    }
+    
+    // dt = new DTDataCursoProfesor(nombreCurso, porcentajeAvance);
+    cursosProfesor.insert(new DTDataCursoProfesor(nombreCurso, porcentajeAvance));
+  }
+  
   return cursosProfesor;
 }
 

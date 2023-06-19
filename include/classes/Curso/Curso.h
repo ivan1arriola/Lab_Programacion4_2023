@@ -12,10 +12,11 @@ using namespace std;
 
 #include "Leccion.h"
 #include "../Idioma.h"
-#include "../Usuario/Profesor.h"
 #include "../Inscripcion.h"
 
 #include "../../datatypes/DTDataCurso.h"
+#include "../../datatypes/DTDataInfoCurso.h"
+class Profesor;
 
 class Curso {
     private:
@@ -45,6 +46,7 @@ class Curso {
         bool getDisponible();
         vector<Leccion*> getLecciones();
         set<Curso*> getCursosPrevios();
+        DTDataInfoCurso* getDTInfoCursos();
 
         map<string, Inscripcion*> getInscripciones();
 

@@ -14,6 +14,8 @@ class DTDataCursoEstudiante {
         string getNombreCurso();
         float getPorcentajeAvanceEstudiante();
         ~DTDataCursoEstudiante();
+
+        friend ostream& operator<<(ostream& os, const DTDataCursoEstudiante& dtCursoEstudiante);
 };
 
 #endif

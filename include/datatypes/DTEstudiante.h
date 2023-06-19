@@ -18,11 +18,12 @@ public:
     
         // Constructor
         DTEstudiante();
-        DTEstudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais);
+        // DTEstudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais);
+        DTEstudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate *fechaNacimiento);
     
         // Getters
         string getPais() const;
-        // DTDate* getFechaNacimiento() const;
+        DTDate* getFechaNacimiento() const;
     
         // Destructor
         ~DTEstudiante();

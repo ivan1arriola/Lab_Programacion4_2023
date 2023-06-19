@@ -21,13 +21,13 @@ class DTDataCurso {
         string nombreIdioma;
         string nombreProfesor;
 
-        vector<DTLeccion*> lecciones;
+        // vector<DTLeccion*> lecciones;
 
 
     public:
         DTDataCurso();
         DTDataCurso(string nombre, string descripcion, Nivel nivel, bool disponible, string nombreIdioma, string nombreProfesor);
-        DTDataCurso(string nombre, string descripcion, Nivel nivel, bool disponible, string nombreIdioma, string nombreProfesor, vector<DTLeccion*> lecciones);
+        // DTDataCurso(string nombre, string descripcion, Nivel nivel, bool disponible, string nombreIdioma, string nombreProfesor, vector<DTLeccion*> lecciones);
 
         //Getters
         string getNombre();
@@ -36,7 +36,7 @@ class DTDataCurso {
         string getDisponible();
         string getNombreIdioma();
         string getNombreProfesor();
-        vector<DTLeccion*> getLecciones();
+        // vector<DTLeccion*> getLecciones();
 
 
         ~DTDataCurso();
