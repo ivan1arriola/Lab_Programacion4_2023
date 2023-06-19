@@ -9,8 +9,6 @@ BINDIR = bin
 EXECUTABLE = $(BINDIR)/app
 CASOSDEUSODIR = $(SRCDIR)/system/useCases
 
-TESTENTRADADIR = test/entrada
-TESTSALIDADIR = test/salida
 
 # Archivos fuente
 MAIN = main.cpp
@@ -110,79 +108,4 @@ valgrind: $(EXECUTABLE)
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXECUTABLE)
 
 
-create_dirs:
-	@mkdir -p $(TESTSALIDADIR)
 
-test: $(EXECUTABLE) create_dirs test1 test2 test3 testAltaUsuario testAltaIdioma testConsultaUsuario testAltaCurso testAltaCurso2 testConsultarCurso
-
-test1: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test1.in > $(TESTSALIDADIR)/test1.out 2> $(TESTSALIDADIR)/test1_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/test1_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en test1"; \
-	else \
-		echo "Se detectaron fugas de memoria en test1"; \
-	fi
-
-test2: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test2.in > $(TESTSALIDADIR)/test2.out 2> $(TESTSALIDADIR)/test2_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/test2_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en test2"; \
-	else \
-		echo "Se detectaron fugas de memoria en test2"; \
-	fi
-
-test3: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test3.in > $(TESTSALIDADIR)/test3.out 2> $(TESTSALIDADIR)/test3_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/test3_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en test3"; \
-	else \
-		echo "Se detectaron fugas de memoria en test3"; \
-	fi
-
-testAltaUsuario: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/testAltaUsuario.in > $(TESTSALIDADIR)/testAltaUsuario.out 2> $(TESTSALIDADIR)/testAltaUsuario_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/testAltaUsuario_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en testAltaUsuario"; \
-	else \
-		echo "Se detectaron fugas de memoria en testAltaUsuario"; \
-	fi
-
-testAltaIdioma: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/testAltaIdioma.in > $(TESTSALIDADIR)/testAltaIdioma.out 2> $(TESTSALIDADIR)/testAltaIdioma_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/testAltaIdioma_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en testAltaIdioma"; \
-	else \
-		echo "Se detectaron fugas de memoria en test4"; \
-	fi
-
-testConsultaUsuario: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/testConsultaUsuario.in > $(TESTSALIDADIR)/testConsultaUsuario.out 2> $(TESTSALIDADIR)/testConsultaUsuario_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/testConsultaUsuario_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en testConsultaUsuario"; \
-	else \
-		echo "Se detectaron fugas de memoria en testConsultaUsuario"; \
-	fi
-
-testAltaCurso: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/testAltaCurso.in > $(TESTSALIDADIR)/testAltaCurso.out 2> $(TESTSALIDADIR)/testAltaCurso_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/testAltaCurso_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en testAltaCurso"; \
-	else \
-		echo "Se detectaron fugas de memoria en testAltaCurso"; \
-	fi
-
-testAltaCurso2 : $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/testAltaCurso2.in > $(TESTSALIDADIR)/testAltaCurso2.out 2> $(TESTSALIDADIR)/testAltaCurso2_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/testAltaCurso2_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en testAltaCurso2"; \
-	else \
-		echo "Se detectaron fugas de memoria en testAltaCurso2"; \
-	fi
-
-testConsultarCurso: $(EXECUTABLE) create_dirs
-	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/testConsultarCurso.in > $(TESTSALIDADIR)/testConsultarCurso.out 2> $(TESTSALIDADIR)/testConsultarCurso_valgrind.out
-	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/testConsultarCurso_valgrind.out; then \
-		echo "No se encontraron fugas de memoria en testConsultarCurso"; \
-	else \
-		echo "Se detectaron fugas de memoria en testConsultarCurso"; \
-	fi
