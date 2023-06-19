@@ -78,7 +78,7 @@ void Sistema::agregarLeccion() {
         imprimirMensaje("No hay cursos disponibles");
         return;
         }
-        imprimirSet(nombresCursos, "Cursos disponibles");
+        
         // Seleccionar curso
         // ...
          string nombreCurso = seleccionarElemento(nombresCursos, "curso");

@@ -235,6 +235,9 @@ vector<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName
 }
 
 void ControladorUsuario::eliminarNotificaciones() {
+    Usuario* usuario = coleccionUsuarios->obtenerUsuario(this->actual_nickname);
+    usuario->eliminarNotificacionesRecibidas();
+    
     // Implementación mínima
 
     // Limpiar los datos ingresados
