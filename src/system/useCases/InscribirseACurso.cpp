@@ -84,4 +84,10 @@ void Sistema::inscribirseACurso() {
     controladorCurso->realizarInscripcion(fechaInscripcion);
     
     imprimirMensaje("Inscripción realizada con éxito");
+
+    for(auto it=cursosDispEst.begin();it!=cursosDispEst.end();++it){
+        delete *it;
+    }
+
+    cursosDispEst.clear();
 }
