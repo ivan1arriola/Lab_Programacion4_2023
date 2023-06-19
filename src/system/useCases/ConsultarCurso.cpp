@@ -23,49 +23,53 @@ fecha en la que se realizó la inscripción correspondiente.
 */
 
 void Sistema::consultarCurso() {
-    imprimirMensaje("Consultar curso");
+    try
+    {
+            imprimirMensaje("Consultar curso");
 
-    // Obtener colección de cursos
-    set<string> nombresCursos = controladorCurso->listarNombreCursos();
+        // Obtener colección de cursos
+        set<string> nombresCursos = controladorCurso->listarNombreCursos();
 
-    // Imprimir cursos disponibles
-    if (nombresCursos.empty()) {
-        imprimirMensaje("No hay cursos disponibles");
-        return;
-    }
+        // Imprimir cursos disponibles
+        if (nombresCursos.empty()) throw invalid_argument("No hay cursos disponibles");
 
-    imprimirSet(nombresCursos, "Cursos disponibles");
+        // Seleccionar curso
+        string nombreCurso = seleccionarElemento(nombresCursos, "curso");
+        if (nombreCurso.empty()) throw invalid_argument("No se ha seleccionado un curso");
+        imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
 
-    // Seleccionar curso
-    string nombreCurso = seleccionarElemento(nombresCursos, "curso");
-    imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
+        controladorCurso->seleccionarCurso(nombreCurso);
 
-    controladorCurso->seleccionarCurso(nombreCurso);
+        cout << endl;
 
-    cout << endl;
+        // Obtener información del curso
+        DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
 
-    // Obtener información del curso
-    DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
-
-    cout << *dtCurso << endl;
-    cout << endl; 
+        cout << *dtCurso << endl;
+        cout << endl; 
 
 
-    // Obtener inscripciones del curso
-    set<DTInscripcion*> inscripciones = controladorCurso->mostrarInscripciones();
-    
-    if(!inscripciones.empty()){
-        int i = 1;
-        imprimirMensaje("Inscripciones del curso:");
-        for(const DTInscripcion *inscripcion : inscripciones){
-            cout << "-----Inscripción " << i << "-----" << endl;
-            cout << *inscripcion << endl;
-            delete inscripcion;
+        // Obtener inscripciones del curso
+        set<DTInscripcion*> inscripciones = controladorCurso->mostrarInscripciones();
+        
+        if(!inscripciones.empty()){
+            int i = 1;
+            imprimirMensaje("Inscripciones del curso:");
+            for(const DTInscripcion *inscripcion : inscripciones){
+                cout << "-----Inscripción " << i << "-----" << endl;
+                cout << *inscripcion << endl;
+                delete inscripcion;
+            }
+        }else{
+            imprimirMensaje("El curso no cuenta con inscripciones aún");
         }
-    }else{
-        imprimirMensaje("El curso no cuenta con inscripciones aún");
-    }
 
-    delete dtCurso;
-    inscripciones.clear();
+        delete dtCurso;
+        inscripciones.clear();
+    }
+    catch(const std::exception& e)
+    {
+        cancelarOperacion(e.what(), "consultar curso");
+    }
+    
 }
