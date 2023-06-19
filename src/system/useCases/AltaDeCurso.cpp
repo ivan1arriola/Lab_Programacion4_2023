@@ -49,27 +49,15 @@ void Sistema::altaDeCurso()
 
         set<string> profesores = controladorUsuario->listarNIcknameProfesores();
 
-        if (profesores.empty())
-        {
-            imprimirMensaje("No hay profesores registrados en el sistema");
-            return;
-        }
+        if (profesores.empty()) throw invalid_argument("No hay profesores registrados");
 
         string nicknameProfesor = seleccionarElemento(profesores, "profesor");
 
-        if (nicknameProfesor == "")
-        {
-            imprimirMensajeDeError("No se ha seleccionado un profesor");
-            return;
-        }
+        if (nicknameProfesor == "") throw invalid_argument("No se ha seleccionado un profesor");
 
         string nombreCurso = ingresarParametro("nombre del curso");
 
-        if (handlerCurso->existeCurso(nombreCurso))
-        {
-            imprimirMensajeDeError("Ya existe un curso con ese nombre");
-            return;
-        }
+        if (handlerCurso->existeCurso(nombreCurso)) throw invalid_argument("Ya existe un curso con ese nombre");
 
         string descripcionCurso = ingresarParametro("descripcion del curso");
 

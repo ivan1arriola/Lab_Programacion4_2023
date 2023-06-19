@@ -50,6 +50,7 @@ class Curso {
         vector<Leccion*> getLecciones();
         set<Curso*> getCursosPrevios();
         DTDataInfoCurso* getDTInfoCursos();
+        Profesor* getProfesor();
 
         map<string, Inscripcion*> getInscripciones();
 
@@ -62,6 +63,8 @@ class Curso {
         void setNivel(Nivel nivel);
         void setDisponible(bool disponible);
         void setCursosPrevios(set<Curso*> cursosPrevios);
+        void setProfesor(Profesor* profesor);
+        void setIdioma(Idioma* idioma);
 
         // Operaciones
         set<string> obtenerEjNoAprobados();
@@ -71,6 +74,7 @@ class Curso {
         float calcPromedioAvance();
         int getCantLecciones();
         void agregarInscrip(string nickE, Inscripcion* i);
+        void agregarCursoPrevio(Curso* cursoPrevio);
 
         ~Curso();
 

@@ -24,6 +24,7 @@ private:
     string nicknameUsuarioActual;
 
     // Datos del curso actual
+    Curso *cursoActual;
     string nombreCursoActual;
     string nicknameProfesorActual;
     string descripcionCursoActual;

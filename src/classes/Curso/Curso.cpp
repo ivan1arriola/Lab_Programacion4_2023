@@ -41,6 +41,10 @@ string Curso::getNombre() {
     return nombre;
 }
 
+Profesor* Curso::getProfesor() {
+    return profesor;
+}
+
 string Curso::getDescripcion() {
     return descripcion;
 }
@@ -78,6 +82,14 @@ void Curso::setDisponible(bool disponible) {
 
 void Curso::setCursosPrevios(set<Curso*> cursosPrevios){
     this->cursosPrevios = cursosPrevios;
+}
+
+void Curso::setProfesor(Profesor* profesor) {
+    this->profesor = profesor;
+}
+
+void Curso::setIdioma(Idioma* idioma) {
+    this->idioma = idioma;
 }
 
 set<string> Curso::obtenerEjNoAprobados() {
@@ -162,4 +174,8 @@ map<string, Inscripcion*> Curso::getInscripciones() {
 
 void Curso::agregarInscrip(string nickE, Inscripcion* i){
     this->inscripciones[nickE] = i;
+}
+
+void Curso::agregarCursoPrevio(Curso* cursoPrevio){
+    this->cursosPrevios.insert(cursoPrevio);
 }

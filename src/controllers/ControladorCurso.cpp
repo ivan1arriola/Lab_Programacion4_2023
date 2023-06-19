@@ -103,41 +103,30 @@ set<string> ControladorCurso::listarCursosHabilitados()
 
 void ControladorCurso::seleccionarIdioma(string nombreIdioma)
 {
-    if (coleccionIdiomas->existeIdioma(nombreIdioma))
+    if (coleccionIdiomas->existeIdioma(nombreIdioma)){
         this->idiomaCursoActual = coleccionIdiomas->obtenerIdioma(nombreIdioma);
+        this->cursoActual ->setIdioma(this->idiomaCursoActual);}
     else
         throw invalid_argument("No existe el idioma");
 }
 
 void ControladorCurso::altaCurso(bool disponible)
 {
-    if (coleccionCursos->existeCurso(this->nombreCursoActual))
+    bool existeCurso = coleccionCursos->existeCurso(this->cursoActual->getNombre());
+    if (!existeCurso)
     {
-        this->nombreCursoActual = "";
-        this->descripcionCursoActual = "";
-        this->idiomaCursoActual = NULL;
-        this->nicknameProfesorActual = "";
-        this->usuarioActual = NULL;
-        this->leccionesCursoActual.clear();
-        this->cursosPreviosCursoActual.clear();
-        this->ejercicioActual = NULL;
-        this->ejerciciosLeccionActual.clear();
-        this->leccionActual = NULL;
-        this->dificultadlCursoActual = Nivel::PRICIPIANTE;
+        Profesor* profesor = this->cursoActual->getProfesor();
+        coleccionCursos->agregarCurso(this->cursoActual);
+        profesor->agregarACursosDeProfesor(this->cursoActual);
+        this->cursoActual = NULL;
 
+
+    } else {
+        delete this->cursoActual;
+        this->cursoActual = NULL;
         throw invalid_argument("Ya existe un curso con ese nombre");
-    }
-    else
-    {
 
-        Profesor *profesor = dynamic_cast<Profesor *>(coleccionUsuarios->obtenerUsuario(nicknameProfesorActual));
-
-        Curso *cursoNuevo = new Curso(this->nombreCursoActual, this->descripcionCursoActual, this->dificultadlCursoActual,
-                                      disponible, this->idiomaCursoActual, profesor,
-                                      this->leccionesCursoActual, this->cursosPreviosCursoActual);
-        coleccionCursos->agregarCurso(cursoNuevo);
-        profesor->agregarACursosDeProfesor(cursoNuevo);
-    }
+    }   
 }
 
 set<string> ControladorCurso::obtenerCursos()
@@ -208,24 +197,33 @@ void ControladorCurso::eliminarCurso(string nombre)
 
 void ControladorCurso::agregarLeccion(string tema, string objetivo)
 {
-    Leccion *leccion = new Leccion(tema, objetivo, this->ejerciciosLeccionActual);
-    this->leccionesCursoActual.push_back(leccion);
-    this->ejerciciosLeccionActual.clear();
+    if (this->leccionActual == NULL)
+    {
+        this->leccionActual = new Leccion();
+    }
+    this->leccionActual->setTema(tema);
+    this->leccionActual->setObjetivo(objetivo);
+    this->cursoActual->agregarLeccion(this->leccionActual);
+    this->leccionActual = NULL;
 }
 
 void ControladorCurso::agregarEjercicio(string nombre, string tipoEjercicio, string descEjercicio)
 {
+    if (this->leccionActual == NULL)
+    {
+        this->leccionActual = new Leccion();
+    }
 
     if (tipoEjercicio == "Traducir")
     {
         this->ejercicioActual = new Traducir(descEjercicio);
-        this->ejerciciosLeccionActual.insert(this->ejercicioActual);
+        this->leccionActual->agregarEjercicio(this->ejercicioActual);
         return;
     }
     if (tipoEjercicio == "Completar")
     {
         this->ejercicioActual = new Completar(descEjercicio);
-        this->ejerciciosLeccionActual.insert(this->ejercicioActual);
+        this->leccionActual->agregarEjercicio(this->ejercicioActual);
         return;
     }
 
@@ -253,6 +251,8 @@ void ControladorCurso::ingresarNicknameEstudiante(string nomEstudiante)
 
 void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel dificultad, string nickname)
 {
+    
+
     if (!coleccionUsuarios->existeUsuario(nickname))
         throw invalid_argument("No hay un usuario con el nickname " + nickname);
     this->nombreCursoActual = nombre;
@@ -260,6 +260,18 @@ void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel difi
     this->dificultadlCursoActual = dificultad;
 
     this->nicknameProfesorActual = nickname;
+
+    Profesor *profesor = dynamic_cast<Profesor *>(coleccionUsuarios->obtenerUsuario(nickname));
+
+    this->cursoActual = new Curso();
+
+    this->cursoActual->setNombre(nombre);
+    this->cursoActual->setDescripcion(desc);
+    this->cursoActual->setNivel(dificultad);
+    this->cursoActual->setProfesor(profesor);
+    this->cursoActual->setDisponible(false);
+
+    
 }
 
 set<string> ControladorCurso::listarCursosInscrip()
@@ -589,6 +601,7 @@ void ControladorCurso::agregarFraseTraducir(string fraseATraducir, string fraseT
 
     traducir->setFraseATraducir(fraseATraducir);
     traducir->setFraseCorrecta(fraseTraducida);
+    this->ejercicioActual = NULL;
 }
 
 void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<string> palabras)
@@ -601,6 +614,8 @@ void ControladorCurso::agregarFraseCompletar(string fraseACompletar, vector<stri
         throw invalid_argument("El ejercicio seleccionado no es de tipo Completar");
     completar->setFraseACompletar(fraseACompletar);
     completar->setPalabrasFaltantes(palabras);
+    this->ejercicioActual = NULL;
+
 }
 
 Ejercicio *ControladorCurso::getejActual()
@@ -694,4 +709,5 @@ void ControladorCurso::agregarCursoPrevio(string nombreCurso)
     Curso *previo = coleccionCursos->obtenerCurso(nombreCurso);
 
     this->cursosPreviosCursoActual.insert(previo);
+    this->cursoActual->agregarCursoPrevio(previo);
 }
