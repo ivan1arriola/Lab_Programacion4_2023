@@ -164,9 +164,10 @@ bool deseaContinuar (string mensaje) {
 }
 
 void imprimirSet(const set<string>& conjunto, string nombreDelConjunto) {
+    imprimirMensaje("Lista de " + nombreDelConjunto + " :") ;
     if (conjunto.empty()) {
         espacioSimple();
-        cout << "0 - No hay " << nombreDelConjunto << " disponibles" << endl;
+        cout << "0 - No hay " << nombreDelConjunto << " en la lista" << endl;
     } else {
         int indice = 1;
         for (const string& elemento : conjunto) {

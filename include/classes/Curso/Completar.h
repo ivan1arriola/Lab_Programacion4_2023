@@ -14,8 +14,8 @@ class Completar : public Ejercicio {
         vector<string> palabrasFaltantes;
     public:
         Completar();
-        Completar(string nombre, string descripcion);
-        Completar(string nombre, string descripcion, string fraseACompletar, vector<string> palabrasFaltantes);
+        Completar(string descripcion);
+        Completar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes);
 
         // Getters
         string getFraseACompletar();

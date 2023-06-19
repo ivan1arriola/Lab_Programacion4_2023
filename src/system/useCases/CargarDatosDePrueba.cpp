@@ -11,6 +11,11 @@
 #include "../../../include/classes/Usuario/Profesor.h"
 
 #include "../../../include/classes/Idioma.h"
+#include "../../../include/classes/Curso/Curso.h"
+#include "../../../include/classes/Curso/Leccion.h"
+#include "../../../include/classes/Curso/Ejercicio.h"
+#include "../../../include/classes/Curso/Completar.h"
+#include "../../../include/classes/Curso/Traducir.h"
 
 #include "../../../include/datatypes/DTUsuario.h"
 
@@ -120,6 +125,35 @@ void Sistema::cargarDatosdePrueba()
      vector<Leccion *> lecciones2;
      vector<Leccion *> lecciones3;
      vector<Leccion *> lecciones4;
+     vector<Leccion *> lecciones5;
+
+     // Crear Ejercicios
+     
+     // Traducir(string descripcion, string fraseATraducir, string fraseCorrecta)
+     Ejercicio *ejercicio1 = new Traducir("Traducir al inglés", "Hola, ¿cómo estás?", "Hello, how are you?");
+     Ejercicio *ejercicio2 = new Traducir("Traducir al inglés", "¿Cómo te llamas?", "What's your name?");
+     Ejercicio *ejercicio3 = new Traducir("Traducir al inglés", "¿Dónde vives?", "Where do you live?");
+
+     //Completar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes);
+     vector<string> palabrasFaltantes1;
+     palabrasFaltantes1.push_back("I");
+     palabrasFaltantes1.push_back("from");
+
+     Ejercicio *ejercicio4 = new Completar("Completar en inglés", "--- am --- Spain", palabrasFaltantes1);
+
+     vector<string> palabrasFaltantes2;
+     palabrasFaltantes2.push_back("She");
+     palabrasFaltantes2.push_back("from");
+
+     Ejercicio *ejercicio5 = new Completar("Completar en inglés", "--- is --- Japan", palabrasFaltantes2);
+
+     vector<string> palabrasFaltantes3;
+     palabrasFaltantes3.push_back("He");
+     palabrasFaltantes3.push_back("from");
+     palabrasFaltantes3.push_back("the");
+
+     Ejercicio *ejercicio6 = new Completar("Completar en inglés", "--- is --- --- United States of America", palabrasFaltantes3);
+
 
      // Crear Lecciones
      Leccion *leccion1 = new Leccion("Introducción a la Programación", "Aprender los conceptos básicos de la programación");
@@ -131,6 +165,10 @@ void Sistema::cargarDatosdePrueba()
      Leccion *leccion7 = new Leccion("Redes Neuronales", "Aprender sobre las redes neuronales y su uso en el aprendizaje automático");
      Leccion *leccion8 = new Leccion("Seguridad Informática", "Conocer los fundamentos de la seguridad informática y protección de datos");
 
+     //Leccion(string tema,string objetivo,set<Ejercicio*>);
+     Leccion *leccion9 = new Leccion("Introducción a la Programación", "Aprender los conceptos básicos de la programación", {ejercicio1, ejercicio2, ejercicio3});
+     Leccion *leccion10 = new Leccion("Diseño de Interfaz de Usuario", "Explorar técnicas de diseño centrado en el usuario", {ejercicio4, ejercicio5, ejercicio6});
+
      // Agregar Lecciones a los vectores
      lecciones1.push_back(leccion1);
      lecciones1.push_back(leccion2);
@@ -140,23 +178,30 @@ void Sistema::cargarDatosdePrueba()
      lecciones3.push_back(leccion6);
      lecciones4.push_back(leccion7);
      lecciones4.push_back(leccion8);
+     lecciones5.push_back(leccion9);
+     lecciones5.push_back(leccion10);
 
      // Niveles
      Nivel nivel1 = PRICIPIANTE;
      Nivel nivel2 = MEDIO;
      Nivel nivel3 = AVANZADO;
+     Nivel nivel4 = AVANZADO;
+
 
      // Crear Cursos
      Curso *curso1 = new Curso("Programación en C++", "Aprende a programar en C++ desde cero", nivel1, true, idioma1, dynamic_cast<Profesor *>(usuario5), lecciones1);
      Curso *curso2 = new Curso("Diseño Gráfico Avanzado", "Explora técnicas avanzadas de diseño gráfico", nivel2, true, idioma2, dynamic_cast<Profesor *>(usuario6), lecciones2);
      Curso *curso3 = new Curso("Marketing Digital para Emprendedores", "Descubre estrategias de marketing para impulsar tu negocio", nivel1, false, idioma3, dynamic_cast<Profesor *>(usuario7), lecciones3);
      Curso *curso4 = new Curso("Introducción a la Inteligencia Artificial", "Aprende los conceptos básicos de la IA y sus aplicaciones", nivel3, true, idioma4, dynamic_cast<Profesor *>(usuario8), lecciones4);
+     Curso *curso5 = new Curso("Introducción a la Programación", "Aprender los conceptos básicos de la programación", nivel4, true, idioma1, dynamic_cast<Profesor *>(usuario5), lecciones5);
+
 
      // Agregar Cursos a la Coleccion
      handlerCurso->agregarCurso(curso1);
      handlerCurso->agregarCurso(curso2);
      handlerCurso->agregarCurso(curso3);
      handlerCurso->agregarCurso(curso4);
+     handlerCurso->agregarCurso(curso5);
 
      
 

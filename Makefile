@@ -31,7 +31,7 @@ CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
 CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \
 	$(CASOSDEUSODIR)/AgregarEjercicio.cpp \
 	$(CASOSDEUSODIR)/AgregarLeccion.cpp \
-	$(CASOSDEUSODIR)/AltaDeCurso2.cpp \
+	$(CASOSDEUSODIR)/AltaDeCurso.cpp \
 	$(CASOSDEUSODIR)/AltaDeIdioma.cpp \
 	$(CASOSDEUSODIR)/ConsultaDeNotificaciones.cpp \
 	$(CASOSDEUSODIR)/ConsultaDeUsuario.cpp \
@@ -112,7 +112,7 @@ valgrind: $(EXECUTABLE)
 create_dirs:
 	@mkdir -p $(TESTSALIDADIR)
 
-test: $(EXECUTABLE) create_dirs test1 test2 test3 testAltaUsuario testAltaIdioma testConsultaUsuario testAltaCurso testAltaCurso2
+test: $(EXECUTABLE) create_dirs test1 test2 test3 testAltaUsuario testAltaIdioma testConsultaUsuario testAltaCurso testAltaCurso2 testConsultarCurso
 
 test1: $(EXECUTABLE) create_dirs
 	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/test1.in > $(TESTSALIDADIR)/test1.out 2> $(TESTSALIDADIR)/test1_valgrind.out
@@ -176,4 +176,12 @@ testAltaCurso2 : $(EXECUTABLE) create_dirs
 		echo "No se encontraron fugas de memoria en testAltaCurso2"; \
 	else \
 		echo "Se detectaron fugas de memoria en testAltaCurso2"; \
+	fi
+
+testConsultarCurso: $(EXECUTABLE) create_dirs
+	@valgrind --leak-check=full ./$(EXECUTABLE) < $(TESTENTRADADIR)/testConsultarCurso.in > $(TESTSALIDADIR)/testConsultarCurso.out 2> $(TESTSALIDADIR)/testConsultarCurso_valgrind.out
+	@if grep -q "no leaks are possible" $(TESTSALIDADIR)/testConsultarCurso_valgrind.out; then \
+		echo "No se encontraron fugas de memoria en testConsultarCurso"; \
+	else \
+		echo "Se detectaron fugas de memoria en testConsultarCurso"; \
 	fi

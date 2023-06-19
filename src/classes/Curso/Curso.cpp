@@ -126,7 +126,11 @@ Curso::~Curso() {
 }
 
 DTDataCurso* Curso::getDT() {
-    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNickname());
+    vector<DTDataLeccion*> dtLecciones;
+    for (vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end(); ++it) {
+        dtLecciones.push_back((*it)->getDTLeccion());
+    }
+    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNickname(), dtLecciones);
 }
 
 DTDataInfoCurso* Curso::getDTInfoCursos(){
