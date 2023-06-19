@@ -16,6 +16,7 @@ using namespace std;
 #include "../Inscripcion.h"
 
 #include "../../datatypes/DTDataCurso.h"
+#include "../../datatypes/DTDataCursoAInscribir.h"
 
 class Curso {
     private:
@@ -49,6 +50,7 @@ class Curso {
         map<string, Inscripcion*> getInscripciones();
 
         DTDataCurso* getDT();
+        DTDataCursoAInscribir* getDTAInscribir();
 
         // Setters
         void setNombre(string nombre);
@@ -64,6 +66,7 @@ class Curso {
         float getCantEjsTotal();
         float calcPromedioAvance();
         int getCantLecciones();
+        void agregarInscrip(string nickE, Inscripcion* i);
 
         ~Curso();
 

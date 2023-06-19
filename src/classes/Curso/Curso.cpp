@@ -125,6 +125,14 @@ DTDataCurso* Curso::getDT() {
     return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNombre());
 }
 
+DTDataCursoAInscribir* Curso::getDTAInscribir() {
+    return new DTDataCursoAInscribir(nombre, descripcion, nivel, idioma->getNombre(), profesor->getNombre(), this->getCantLecciones(), this->getCantEjsTotal());
+}
+
 map<string, Inscripcion*> Curso::getInscripciones() {
     return inscripciones;
+}
+
+void Curso::agregarInscrip(string nickE, Inscripcion* i){
+    this->inscripciones[nickE] = i;
 }
