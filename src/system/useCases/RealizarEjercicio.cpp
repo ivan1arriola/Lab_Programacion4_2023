@@ -17,7 +17,7 @@ void Sistema::realizarEjercicio() {
     string nom= ingresarParametro("nickname"); //si no existe el nickname?
     controladorCurso->ingresarNicknameEstudiante(nom);
     set<string> c=controladorCurso->listarCursosInscrip();
-    imprimirOpcionesSet(c,"Cursos no aprobados");
+    imprimirOpcionesSet(c,"Cursos inscritos pero no aprobados");
     int opcion= ingresarOpcion(c.size());
     if(opcion!=0){
     string nomcurso=obtenerOpcion(c,opcion);
@@ -40,7 +40,8 @@ void Sistema::realizarEjercicio() {
         if(controladorCurso->getSolT_actual()==tr->getFraseCorrecta()){
         controladorCurso->marcarEjercicioAprobado();
         cout<<"Respuesta correcta"<<endl;}
-        else cout<<"Respuesta incorrecta"<<endl;
+        else{ cout<<"Respuesta incorrecta"<<endl;
+              controladorCurso->marcarEjercicioNoAprobado();}
         }
 
         else if (Completar* c=dynamic_cast<Completar*>(e)){
@@ -68,10 +69,13 @@ void Sistema::realizarEjercicio() {
             if(soniguales){
                 controladorCurso->marcarEjercicioAprobado();
                 cout<<"Respuesta correcta"<<endl;}
-            else cout<<"Respuesta incorrecta"<<endl;    
+            else{ cout<<"Respuesta incorrecta"<<endl;
+                  controladorCurso->marcarEjercicioNoAprobado(); 
+            }    
         }  
 
-        else cout<<"Respuesta incorrecta"<<endl;
+        else{ cout<<"Respuesta incorrecta"<<endl;
+              controladorCurso->marcarEjercicioNoAprobado();}
         }
 
 

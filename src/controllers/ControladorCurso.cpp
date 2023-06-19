@@ -275,16 +275,28 @@ void ControladorCurso::ingresarSolucionTraducir(string solT) {
 }
 
 void ControladorCurso::marcarEjercicioAprobado() {
-
-    Estudiante* e=dynamic_cast<Estudiante*>(this->usuarioActual);
+    HandlerUsuario* h=HandlerUsuario::getInstancia();
+    Estudiante* e=dynamic_cast<Estudiante*>(h->obtenerUsuario(this->nicknameActual));
     map<string, Inscripcion*> map= e->getInscripciones();
     Inscripcion* i= map.find(this->nombreCurso)->second;
     i->setejAprobado(this->ejercicioActual);
+
+    this->nicknameActual="";
+    this->nombreCurso="";
+    this->solT_actual="";
+    this->solC_actual.clear();
+    this->ejercicioActual=NULL;
     // Implementación de la función marcarEjercicioAprobado
     // Código para marcar el ejercicio actual como aprobado en el Controlador de Ejercicio
 }
 
 void ControladorCurso::marcarEjercicioNoAprobado() {
+    this->nicknameActual="";
+    this->nombreCurso="";
+    this->solT_actual="";
+    this->solC_actual.clear();
+    this->ejercicioActual=NULL;
+
     // Implementación de la función marcarEjercicioNoAprobado
     // Código para marcar el ejercicio actual como no aprobado en el Controlador de Ejercicio
 }
