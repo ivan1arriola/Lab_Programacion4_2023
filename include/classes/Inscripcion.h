@@ -40,10 +40,12 @@ public:
     bool getAprobado();
     set<Ejercicio*> getejAprobados();
     set<Ejercicio*> getejNoAprobados();
+    float getcantEjAprobados();
 
     // Setters
     void setFechaInscripcion(DTDate* date);
     void setAprobado(bool);
+    void setcantEjAprobados();
 
     void setejAprobado(Ejercicio*);
     void setejNoAprobado(Ejercicio*);

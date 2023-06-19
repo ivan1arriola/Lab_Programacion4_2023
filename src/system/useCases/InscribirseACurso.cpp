@@ -20,12 +20,17 @@ el curso y el Sistema genera la correspondiente inscripción.
 */
 
 void Sistema::inscribirseACurso() {
-    imprimirMensaje("Inscribirse a Curso");
+    
+    try {
+        imprimirMensaje("Inscribirse a Curso");
     
     //Se ingresa el nickname del estudiante que se inscribirá
-    string nicknameE = ingresarParametro("su nickname");
-    try {
+    set<string> lista = controladorUsuario->listarNIcknameEstudiantes();
+
+        string nicknameE = seleccionarElemento(lista, "Usuarios");
+
         controladorCurso->ingresarNicknameEstudiante(nicknameE);
+        
     } catch (invalid_argument &e){
         cancelarOperacion(e.what(), "Inscribirse a Curso");
         return;

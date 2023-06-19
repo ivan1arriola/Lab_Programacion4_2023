@@ -16,6 +16,9 @@
 #include "../../include/classes/Curso/Traducir.h"
 
 #include <string>
+#include <algorithm>
+#include <vector>
+#include <map>
 
 using namespace std;
 
@@ -207,6 +210,7 @@ void ControladorCurso::agregarLeccion(string tema, string objetivo)
 {
     Leccion *leccion = new Leccion(tema, objetivo, this->ejerciciosLeccionActual);
     this->leccionesCursoActual.push_back(leccion);
+    this->ejerciciosLeccionActual.clear();
 }
 
 void ControladorCurso::agregarEjercicio(string nombre, string tipoEjercicio, string descEjercicio)
@@ -325,6 +329,75 @@ void ControladorCurso::seleccionarEjercicio(string descEjercicio)
     // Código para obtener los datos del ejercicio seleccionado por su nombre
 }
 
+void ControladorCurso::corregirEj()
+{
+    Ejercicio *e = this->getejActual();
+
+    if (Traducir *tr = dynamic_cast<Traducir *>(e))
+    {
+        string sol;
+        cout << "Ejercicio de traduccion " << endl
+             << "frase a traducrir: " << tr->getFraseATraducir() << endl;
+        cout << "Ingrese la solucion:" << endl;
+        cin >> sol;
+        this->ingresarSolucionTraducir(sol);
+        if (this->getSolT_actual() == tr->getFraseCorrecta())
+        {
+            this->marcarEjercicioAprobado();
+            cout << "Respuesta correcta" << endl;
+        }
+        else
+        {
+            cout << "Respuesta incorrecta" << endl;
+            this->marcarEjercicioNoAprobado();
+        }
+    }
+
+    else if (Completar *c = dynamic_cast<Completar *>(e))
+    {
+        set<string> solucion;
+        cout << "Ejercicio de completar " << endl
+             << "frase a completar: " << c->getFraseACompletar() << endl;
+        cout << "Ingrese las palabras faltantes:" << endl;
+        for (long unsigned int i = 0; i < c->getPalabrasFaltantes().size(); i++)
+        {
+            string palabra;
+            cin >> palabra;
+            solucion.insert(palabra);
+        }
+        this->ingresarSolucionCompletar(solucion);
+        bool soniguales = true;
+        vector<string> v = c->getPalabrasFaltantes();
+        set<string> s = this->getSolC_actual();
+
+        if (v.size() == s.size())
+        {
+
+            vector<string> sortedVector = v;
+            sort(sortedVector.begin(), sortedVector.end());
+            set<string> sortedSet = s;
+            vector<string> sortedSetVector(sortedSet.begin(), sortedSet.end());
+            soniguales = (sortedVector == sortedSetVector);
+
+            if (soniguales)
+            {
+                this->marcarEjercicioAprobado();
+                cout << "Respuesta correcta" << endl;
+            }
+            else
+            {
+                cout << "Respuesta incorrecta" << endl;
+                this->marcarEjercicioNoAprobado();
+            }
+        }
+
+        else
+        {
+            this->marcarEjercicioNoAprobado();
+        }
+    }
+}
+
 void ControladorCurso::ingresarSolucionCompletar(set<string> solC)
 {
     this->solC_actual = solC;
@@ -346,6 +419,7 @@ void ControladorCurso::marcarEjercicioAprobado()
     map<string, Inscripcion *> map = e->getInscripciones();
     Inscripcion *i = map.find(this->nombreCurso)->second;
     i->setejAprobado(this->ejercicioActual);
+    i->setcantEjAprobados();
 
     this->nicknameUsuarioActual = "";
     this->nombreCurso = "";
@@ -575,11 +649,19 @@ vector<DTDataCursoAInscribir *> ControladorCurso::obtenerCursosDisponibles(set<s
                 cursosPrevios = curs->getCursosPrevios();
                 for (auto it = cursosPrevios.begin(); (it != cursosPrevios.end()) && cd; ++it)
                 {
-                    cursoPrevioAprobado = (*it)->getInscripciones().find(this->nicknameUsuarioActual)->second->getAprobado();
-                    if (!cursoPrevioAprobado)
+                    
+                
+                    if (!((*it)->getInscripciones().find(this->nicknameUsuarioActual)!= (*it)->getInscripciones().end()))
                     {
-                        cd = false;
+                        cursoPrevioAprobado = (*it)->getInscripciones().find(this->nicknameUsuarioActual)->second->getAprobado();
+                        if (!cursoPrevioAprobado)
+                        {
+                            cd = false;
+                        }
                     }
+
+                    else
+                        (cd == false);
                 }
             }
         }

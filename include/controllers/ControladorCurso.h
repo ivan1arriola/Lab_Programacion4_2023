@@ -116,6 +116,7 @@ public:
     Ejercicio* getejActual();
     string getSolT_actual();
     set<string> getSolC_actual();
+    void corregirEj();
 };
 
 #endif

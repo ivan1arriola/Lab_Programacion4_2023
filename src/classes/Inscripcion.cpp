@@ -19,6 +19,7 @@ Inscripcion::Inscripcion(DTDate* fechaInscripcion, bool aprobado, Estudiante* es
 
     estudiante->agregarInscripcion(curso->getNombre(), this);
     curso->agregarInscrip(estudiante->getNickname(), this);
+    this->ejNoAprobados=curso->getLecciones().back()->getEjercicios();
 }
 
 void Inscripcion::aproboEjercicio(){
@@ -30,6 +31,8 @@ Inscripcion::Inscripcion(DTDate* fechaInscripcion, bool aprobado, Estudiante* es
     this->aprobado = aprobado;
     this->estudiante = estudiante;
     this->curso = curso;
+    estudiante->agregarInscripcion(curso->getNombre(), this);
+    curso->agregarInscrip(estudiante->getNickname(), this);
     this->ejNoAprobados=curso->getLecciones().back()->getEjercicios();
 
     estudiante->agregarInscripcion(curso->getNombre(), this);
@@ -103,4 +106,10 @@ Inscripcion::~Inscripcion(){
     delete fechaInscripcion;
     if(estudiante!=NULL)estudiante=NULL;
     if(curso!=NULL)curso=NULL;
+}
+
+float Inscripcion::getcantEjAprobados(){return cantEjsAprobados;}
+
+void Inscripcion::setcantEjAprobados(){
+    cantEjsAprobados=cantEjsAprobados+1;
 }

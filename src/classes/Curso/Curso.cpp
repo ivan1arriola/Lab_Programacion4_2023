@@ -32,6 +32,9 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
     this->idioma = idioma;
     this->profesor = profesor;
     this->cursosPrevios = cursosPrevios;
+    idioma->notificarSuscriptores(nombre);
+    this->inscripciones = map<string, Inscripcion*>();
+    profesor->agregarACursosDeProfesor(this);
 }
 
 string Curso::getNombre() {
@@ -123,9 +126,6 @@ Curso::~Curso() {
         delete it->second;
     }
 
-    for (set<Curso*>::iterator it=cursosPrevios.begin(); it!=cursosPrevios.end();++it){
-        cursosPrevios.erase(it); // TODO: falta eliminar las referencias de los cursos que tienen como curso previo al curso a eliminar 
-    }
     inscripciones.clear();
 }
 
