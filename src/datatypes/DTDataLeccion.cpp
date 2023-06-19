@@ -39,6 +39,7 @@ ostream& operator<<(ostream& os, const DTDataLeccion& dtLeccion) {
     if(dtLeccion.ejercicios.size() > 0){
         os << "     " << "Ejercicios de la leccion: " << endl;
         for (set<DTEjercicio *>::iterator it = dtLeccion.ejercicios.begin(); it != dtLeccion.ejercicios.end(); ++it) {
+            os << "     " <<"     " << "Ejercicio " << distance(dtLeccion.ejercicios.begin(), it) + 1 << ":" << endl;
             os << **it << endl;
         }
     } else {

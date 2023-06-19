@@ -116,6 +116,8 @@ ostream &operator<<(ostream &os, const DTDataCurso &dtCurso)
             os << "     " << "Leccion " << i+1 << ":" << endl;
             os << *dtCurso.lecciones[i] << endl;
         }
+    } else {
+        os << "     " << "No hay lecciones en este curso." << endl;
     }
     return os;
 }

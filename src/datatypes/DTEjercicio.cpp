@@ -34,7 +34,8 @@ string DTEjercicio::getDesc() {
 DTEjercicio::~DTEjercicio() {}
 
 ostream& operator<<(ostream& os, const DTEjercicio& dtEjercicio) {
-    os << "     " << "     " << "Ejercicio :" << endl;
+    os << "     " << "     " << "Datos del Ejercicio :" << endl;
+    os << "     " << "     " << "-------------------" << endl;
     os << "     " << "     " << "Descripción: " << dtEjercicio.desc << endl;
     os << "     " << "     " << "Tipo de ejercicio: " << dtEjercicio.tipoEjercicio << endl;
     return os;
