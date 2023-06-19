@@ -176,14 +176,14 @@ void Sistema::cargarDatosdePrueba()
           solucion6.push_back("have");
           solucion6.push_back("past");
 
-          Traducir *ejercicio1 = new Traducir("Ejercicio 1", "Presentaciones", "Mucho gusto en conocerte", "Nice to meet you");
-          Completar *ejercicio2 = new Completar("Ejercicio 2", "Presentaciones formales", "Please --- me to introduce ---", solucion2);
-          Traducir *ejercicio3 = new Traducir("Ejercicio 3", "Plurales regulares", "I have two brothers and three sisters", "Tengo dos hermanos y tres hermanas");
-          Completar *ejercicio4 = new Completar("Ejercicio 4", "Sustantivos contables en plural", "Can I have --- water, please?", solucion4);
-          Completar *ejercicio5 = new Completar("Ejercicio 5", "Actividades diarias", "Wake ---", solucion5);
-          Completar *ejercicio6 = new Completar("Ejercicio 6", "Consultas de la hora", "Q: Do you --- the time?, A: Yes, it is half --- 4", solucion6);
-          Traducir *ejercicio7 = new Traducir("Ejercicio 7", "Dar consejos o expresar obligacion", "You should visit that museum", "Deberias visitar ese museo");
-          Traducir *ejercicio8 = new Traducir("Ejercicio 8", "Imperativo", "Fale comigo", "Habla conmigo");
+          Traducir *ejercicio1 = new Traducir( "Presentaciones", "Mucho gusto en conocerte", "Nice to meet you");
+          Completar *ejercicio2 = new Completar( "Presentaciones formales", "Please --- me to introduce ---", solucion2);
+          Traducir *ejercicio3 = new Traducir( "Plurales regulares", "I have two brothers and three sisters", "Tengo dos hermanos y tres hermanas");
+          Completar *ejercicio4 = new Completar( "Sustantivos contables en plural", "Can I have --- water, please?", solucion4);
+          Completar *ejercicio5 = new Completar( "Actividades diarias", "Wake ---", solucion5);
+          Completar *ejercicio6 = new Completar( "Consultas de la hora", "Q: Do you --- the time?, A: Yes, it is half --- 4", solucion6);
+          Traducir *ejercicio7 = new Traducir( "Dar consejos o expresar obligacion", "You should visit that museum", "Deberias visitar ese museo");
+          Traducir *ejercicio8 = new Traducir( "Imperativo", "Fale comigo", "Habla conmigo");
 
           // Agregamos ejercicios a lecciones correspondientes
           leccion1->agregarEjercicio(dynamic_cast<Ejercicio *>(ejercicio1));

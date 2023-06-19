@@ -8,7 +8,6 @@ using namespace std;
 DTEjercicio::DTEjercicio() {}
 
 DTEjercicio::DTEjercicio(string nombre, string tipoEjercicio, string desc){
-    this->nombre = nombre;
     this->tipoEjercicio = tipoEjercicio;
     this->desc = desc;
 }
@@ -22,9 +21,6 @@ DTEjercicio::DTEjercicio(string tipoEjercicio, string desc) {
     this->desc = desc;
 }
 
-string DTEjercicio::getNombre(){
-    return this->nombre;
-}
 
 
 string DTEjercicio::getTipoEjercicio() {
