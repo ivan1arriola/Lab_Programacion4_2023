@@ -128,9 +128,10 @@ ControladorEstadistica::~ControladorEstadistica() {
     if(colecCursos != NULL){
         colecCursos->deleteInstancia();
         colecCursos = NULL;
-    };
+    }
     if(colecUsuarios != NULL){
         colecUsuarios->deleteInstancia();
         colecUsuarios = NULL;
     }
 }
+

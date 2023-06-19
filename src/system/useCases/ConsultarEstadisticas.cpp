@@ -106,4 +106,5 @@ void Sistema::consultarEstadisticas() {
             imprimirMensaje("Datos del curso:");
             cout << *dataInfoCursos << endl;
         }
+
 }  

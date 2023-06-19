@@ -45,6 +45,10 @@ void Leccion::crearEjercicioCompletarYAgregarlo(string nombre, string desc, stri
     
 }
 
+void Leccion::agregarEjercicio(Ejercicio *ejercicio){
+    ejercicios.insert(ejercicio);
+}
+
 void Leccion::crearEjercicioTraducirYAgregarlo(string nombre, string desc, string fraseTraducir, string fraseTraducida){
     Traducir *ejTraducir = new Traducir(desc, fraseTraducir, fraseTraducida);
 

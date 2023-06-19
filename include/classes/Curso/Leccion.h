@@ -31,6 +31,7 @@ class Leccion {
         // Setters
         void setTema(string tema);
         void setObjetivo(string objetivo);
+        void agregarEjercicio(Ejercicio *ejercicio);
 
         // Operaciones
         void crearEjercicioCompletarYAgregarlo(string nombre, string desc, string fraseCompletar, vector<string> palabrasFaltantes);

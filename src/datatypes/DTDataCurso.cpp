@@ -34,35 +34,20 @@ string DTDataCurso::getNombre()
     return nombre;
 }
 
-string DTDataCurso::getDescripcion()
-{
-    return descripcion;
-}
-
-string DTDataCurso::getNivel()
-{
-    if (nivel == 0)
-    {
+string DTDataCurso::getNivel() {
+    if(nivel ==0){
         return "Principiante";
-    }
-    else if (nivel == 1)
-    {
+    }else if(nivel ==1){
         return "Medio";
-    }
-    else
-    {
+    }else{
         return "Avanzado";
     }
 }
 
-string DTDataCurso::getDisponible()
-{
-    if (disponible)
-    {
+string DTDataCurso::getDisponible() {
+    if(disponible){
         return "Disponible";
-    }
-    else
-    {
+    }else{
         return "No disponible";
     }
 }
@@ -76,6 +61,7 @@ string DTDataCurso::getNombreProfesor()
 {
     return nombreProfesor;
 }
+
 
 DTDataCurso::~DTDataCurso()
 {

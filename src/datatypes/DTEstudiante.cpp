@@ -6,7 +6,7 @@
 // Constructor
 DTEstudiante::DTEstudiante() {}
 
-DTEstudiante::DTEstudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais) : DTUsuario(nickname, contrasenia, nombre, descripcion, 1) {
+DTEstudiante::DTEstudiante(string nickname, string contrasenia, string nombre, string descripcion, string pais, DTDate *fechaNacimiento) : DTUsuario(nickname, contrasenia, nombre, descripcion, 1) {
     this->pais = pais;
 }
 

@@ -15,6 +15,11 @@ Inscripcion::Inscripcion(DTDate* fechaInscripcion, bool aprobado, Estudiante* es
     this->aprobado = aprobado;
     this->estudiante = estudiante;
     this->curso = curso;
+    this->cantEjsAprobados = 0;
+}
+
+void Inscripcion::aproboEjercicio(){
+    this->cantEjsAprobados = this->cantEjsAprobados + 1;
 }
 
 // Getters

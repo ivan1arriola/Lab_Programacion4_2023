@@ -37,6 +37,7 @@ public:
     // Setters
     void setFechaInscripcion(DTDate* date);
     void setAprobado(bool);
+    void aproboEjercicio();
 
     // Metodos
     string obtenerNombreCurso();
@@ -45,6 +46,7 @@ public:
     DTInscripcion* getDTInscripcion();
 
     ~Inscripcion();   
+
     
 };
 

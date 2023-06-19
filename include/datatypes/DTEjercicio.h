@@ -15,6 +15,9 @@ class DTEjercicio {
     public:
         DTEjercicio();
         DTEjercicio(string tipoEjercicio, string desc);
+        DTEjercicio(string nombre, string tipoEjercicio, string desc);
+        // DTEjercicio(string nombre, string tipoEjercicio, string desc, set<DTEjercicio*> ejercicios); 
+
 
         string getTipoEjercicio();
         string getDesc();
