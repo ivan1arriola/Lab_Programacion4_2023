@@ -32,6 +32,7 @@ class IControladorUsuario {
         virtual vector<DTNotificacion*> listarNotificaciones(string nickName) = 0;
         virtual void eliminarNotificaciones() = 0;
         virtual void eliminarSuscripcion(string idioma) = 0;
+        virtual set<string> listarNIcknameEstudiantes()=0;
 
         // Destructor
         virtual ~IControladorUsuario() {};

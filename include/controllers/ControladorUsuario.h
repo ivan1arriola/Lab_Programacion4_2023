@@ -50,6 +50,7 @@ class ControladorUsuario : public IControladorUsuario {
         void ingresarDatosProfesor(string instituto);
         set<string> listarNombresIdiomasDeProfesor(string nicknameProfesor);
         set<string> listarNIcknameProfesores();
+        set<string> listarNIcknameEstudiantes();
         set<string> listarIdiomasNoSuscriptos(string nickname);
         set<string> listarIdiomasSuscriptos(string nickname);
         void seleccionarProfesor(string nicknameProfesor);

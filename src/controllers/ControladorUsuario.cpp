@@ -185,6 +185,19 @@ set<string> ControladorUsuario::listarNIcknameProfesores() {
     return nicknames;
 }
 
+set<string> ControladorUsuario::listarNIcknameEstudiantes() {
+    set<string> nicknames; 
+    set<Usuario*> usuarios = coleccionUsuarios->obtenerUsuarios();
+    set<Usuario*>::iterator it;
+    for (it = usuarios.begin(); it != usuarios.end(); it++) {
+        Usuario* usuario = *it;
+        if (usuario->esEstudiante()) {
+            nicknames.insert(usuario->getNickname());
+        }
+    }
+    return nicknames;
+}
+
 set<string> ControladorUsuario::listarIdiomasNoSuscriptos(string nickname) {
     this->actual_nickname = nickname;
     map<string, Idioma*> idiomas = coleccionIdiomas->obtenerIdiomas();

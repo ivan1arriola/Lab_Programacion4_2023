@@ -79,6 +79,7 @@ class IControladorCurso {
         virtual Ejercicio* getejActual()=0;
         virtual string getSolT_actual()=0;
         virtual set<string> getSolC_actual()=0;
+        virtual void corregirEj()=0;
 
 
 

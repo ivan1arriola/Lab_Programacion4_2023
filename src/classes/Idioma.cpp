@@ -34,8 +34,9 @@ void Idioma::eliminarSuscriptor(string nickname) {
 
 
 void Idioma::notificarSuscriptores(string nombreCurso) {
-  for (map<string, ISuscriptor*>::iterator it = this->suscriptores.begin(); it != this->suscriptores.end(); it++) {
-    it->second->enviarNotificacion(nombreCurso, this->nombre);
+  for (auto it = this->suscriptores.begin(); it != this->suscriptores.end(); it++) {
+    ISuscriptor* s=it->second;
+    s->enviarNotificacion(nombreCurso, this->nombre);
   }
 }
 

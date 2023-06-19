@@ -137,7 +137,7 @@ void Sistema::cargarDatosdePrueba()
           lecciones2.push_back(leccion4);
           lecciones3.push_back(leccion5);
           lecciones4.push_back(leccion6);
-          lecciones1.push_back(leccion7);
+          lecciones5.push_back(leccion7);
 
           // Crear Cursos
           Curso *curso1 = new Curso("Ingles para principiantes", "Curso para personas con poco o ningun conocimiento de ingles. Se enfoca en vocabulario basico, gramatica y habilidades de conversacion.", nivel1, true, idioma1, dynamic_cast<Profesor *>(usuario11), lecciones1);
@@ -298,7 +298,7 @@ void Sistema::cargarDatosdePrueba()
           cout << "Inscripción 7:" << endl;
           cout << *dt7 << endl;
           cout << "Inscripción 8:" << endl;
-          cout << *dt8 << endl;
+          cout << *dt8 << endl; 
 
           delete dt1;
           delete dt2;
@@ -310,14 +310,7 @@ void Sistema::cargarDatosdePrueba()
           delete dt8;
           
 
-          delete inscripcion1;
-          delete inscripcion2;
-          delete inscripcion3;
-          delete inscripcion4;
-          delete inscripcion5;
-          delete inscripcion6;
-          delete inscripcion7;
-          delete inscripcion8;
+          
 
 
           sistema->setDatosCargados(); //Anotamos que ya se cargaron los datos de prueba
