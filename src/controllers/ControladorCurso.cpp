@@ -210,6 +210,7 @@ void ControladorCurso::agregarLeccion(string tema, string objetivo)
 {
     Leccion *leccion = new Leccion(tema, objetivo, this->ejerciciosLeccionActual);
     this->leccionesCursoActual.push_back(leccion);
+    this->ejerciciosLeccionActual.clear();
 }
 
 void ControladorCurso::agregarEjercicio(string nombre, string tipoEjercicio, string descEjercicio)
