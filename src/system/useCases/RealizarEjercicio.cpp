@@ -27,18 +27,16 @@ void Sistema::realizarEjercicio()
         if (c.size() == 0)
             throw invalid_argument(nom + " no se ha inscripto en ningun curso");
 
-        string cursoNoAprob = seleccionarElemento(c, "Cursos inscritos pero no aprobados");
+        imprimirOpcionesSet(c, "Cursos inscritos pero no aprobados");
 
-        if (cursoNoAprob == "")
-            throw invalid_argument("No ha seleccionado ningun curso");
-
-        controladorCurso->seleccionarCurso(cursoNoAprob);
-
-        set<string> ej = controladorCurso->mostrarEjerciciosNoAprobados();
-
-        string ejercNoAprob = seleccionarElemento(ej, "Ejercicios no aprobados");
-        if (ejercNoAprob == "")
-            throw invalid_argument("No ha seleccionado ningun ejercicio");
+        int opcion = ingresarOpcion(c.size());
+        if (opcion != 0)
+        {
+            string nomcurso = obtenerOpcion(c, opcion);
+            controladorCurso->seleccionarCurso(nomcurso);
+            set<string> ej = controladorCurso->mostrarEjerciciosNoAprobados();
+            imprimirOpcionesSet(ej, "Ejercicios no aprobados");
+            int opcion2 = ingresarOpcion(ej.size());
 
             if (opcion2 != 0)
             {
