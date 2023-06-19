@@ -260,9 +260,8 @@ void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel difi
 
 set<string> ControladorCurso::listarCursosInscrip()
 {
-    HandlerUsuario *h = HandlerUsuario::getInstancia();
-    Estudiante *u = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameUsuarioActual));
-    map<string, Inscripcion *> cursosInscriptos = u->getInscripciones();
+    Estudiante *estudiante = dynamic_cast<Estudiante *>(coleccionUsuarios->obtenerUsuario(this->nicknameUsuarioActual));
+    map<string, Inscripcion *> cursosInscriptos = estudiante->getInscripciones();
     set<string> result = set<string>();
     string ncurso;
 
@@ -271,7 +270,7 @@ set<string> ControladorCurso::listarCursosInscrip()
         bool aprobado = it->second->getAprobado();
         if (!aprobado)
         {
-            ncurso = it->second->obtenerNombreCurso();
+            ncurso = it->first;
             result.insert(ncurso);
         }
     }
