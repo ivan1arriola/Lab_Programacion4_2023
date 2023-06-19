@@ -661,7 +661,7 @@ vector<DTDataCursoAInscribir *> ControladorCurso::obtenerCursosDisponibles(set<s
                     }
 
                     else
-                        (cd == false);
+                        cd = false;
                 }
             }
         }
