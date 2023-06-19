@@ -31,7 +31,7 @@ CPP_DATATYPES_FILES := $(SRCDIR)/datatypes/DTUsuario.cpp \
 CPP_CASOSDEUSO_FILES := $(CASOSDEUSODIR)/AltaDeUsuario.cpp \
 	$(CASOSDEUSODIR)/AgregarEjercicio.cpp \
 	$(CASOSDEUSODIR)/AgregarLeccion.cpp \
-	$(CASOSDEUSODIR)/AltaDeCurso2.cpp \
+	$(CASOSDEUSODIR)/AltaDeCurso.cpp \
 	$(CASOSDEUSODIR)/AltaDeIdioma.cpp \
 	$(CASOSDEUSODIR)/ConsultaDeNotificaciones.cpp \
 	$(CASOSDEUSODIR)/ConsultaDeUsuario.cpp \
