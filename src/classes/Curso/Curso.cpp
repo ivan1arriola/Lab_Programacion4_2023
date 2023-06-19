@@ -119,6 +119,10 @@ Curso::~Curso() {
     for (map<string,Inscripcion*>::iterator it=inscripciones.begin();it!=inscripciones.end();++it){
         delete it->second;
     }
+
+    for (set<Curso*>::iterator it=cursosPrevios.begin(); it!=cursosPrevios.end();++it){
+        cursosPrevios.erase(it); // falta eliminar las referencias de los cursos que tienen como curso previo al curso a eliminar 
+    }
 }
 
 DTDataCurso* Curso::getDT() {
