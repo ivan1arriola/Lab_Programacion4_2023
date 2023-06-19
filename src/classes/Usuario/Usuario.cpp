@@ -74,6 +74,10 @@ void Usuario::enviarNotificacion(string nombreCurso, string nombreIdioma) {
 }
 
 void Usuario::eliminarNotificacionesRecibidas() {
+  for(auto it=notificacionesRecibidas.begin();it!=notificacionesRecibidas.end();++it){
+    delete *it;
+  }
+
   this->notificacionesRecibidas.clear();
 }
 

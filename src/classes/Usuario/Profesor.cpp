@@ -5,6 +5,7 @@
 #include <string>
 
 #include "../../../include/classes/Usuario/Usuario.h"
+#include "../../../include/classes/Idioma.h"
 
 #include "../../../include/datatypes/DTUsuario.h"
 #include "../../../include/datatypes/DTProfesor.h"
@@ -35,8 +36,10 @@ string Profesor::getInstituto() {
 
 DTUsuario* Profesor::getDT() {
   set<string> idiomas;
-  for(Idioma* i : this->getIdiomas()){
-    idiomas.insert(i->getNombre());
+  string idiomaNombre;
+  for(Idioma* i : idiomasDeProfesor){
+    idiomaNombre = i->getNombre();
+    idiomas.insert(idiomaNombre);
   }
   DTUsuario* dtUsuario = new DTProfesor(this->getNickname(), this->getContrasenia(), this->getNombre(), this->getDescripcion(), this->getInstituto(), idiomas);
   return dtUsuario;

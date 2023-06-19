@@ -23,85 +23,53 @@ fecha en la que se realizó la inscripción correspondiente.
 */
 
 void Sistema::consultarCurso() {
-    imprimirMensaje("Consultar curso");
+    try
+    {
+            imprimirMensaje("Consultar curso");
 
-    // Obtener colección de cursos
-    set<string> nombresCursos = controladorCurso->listarNombreCursos();
+        // Obtener colección de cursos
+        set<string> nombresCursos = controladorCurso->listarNombreCursos();
 
-    // Imprimir cursos disponibles
-    if (nombresCursos.empty()) {
-        imprimirMensaje("No hay cursos disponibles");
-        return;
-    }
+        // Imprimir cursos disponibles
+        if (nombresCursos.empty()) throw invalid_argument("No hay cursos disponibles");
 
-    imprimirSet(nombresCursos, "Cursos disponibles");
+        // Seleccionar curso
+        string nombreCurso = seleccionarElemento(nombresCursos, "curso");
+        if (nombreCurso.empty()) throw invalid_argument("No se ha seleccionado un curso");
+        imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
 
-    // Seleccionar curso
-    string nombreCurso = seleccionarElemento(nombresCursos, "curso");
-    imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
+        controladorCurso->seleccionarCurso(nombreCurso);
 
-    controladorCurso->seleccionarCurso(nombreCurso);
+        cout << endl;
 
-    cout << endl;
+        // Obtener información del curso
+        DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
 
-    // Obtener información del curso
-    DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
+        cout << *dtCurso << endl;
+        cout << endl; 
 
-    cout << *dtCurso << endl;
 
-    cout << endl; 
-
-    
-    // Obtener lecciones del curso
-    //Consultamos la cantidad de lecciones
-    int cantLecciones = controladorCurso->cantidadDeLecciones();
-
-    if(cantLecciones == 0){
-        //si no tiene lecciones no imprimimos nada más
-        imprimirMensaje("El curso no tiene lecciones");
-        return;
-    }
-
-    DTDataLeccion *dtLeccion;
-    int cantEjercicios;
-    int j=1;
-
-    for(int i=0; i<cantLecciones; i++){
-        j=1;
-        cout << "-----Leccion " << i+1 << "-----" << endl;
-        dtLeccion = controladorCurso->mostrarDatosLeccion(i);
-        cout << *dtLeccion << endl;
+        // Obtener inscripciones del curso
+        set<DTInscripcion*> inscripciones = controladorCurso->mostrarInscripciones();
         
-        //Obtenemos la cantidad de ejercicios de la leccion i
-        cantEjercicios = controladorCurso->cantidadDeEjerciciosLeccion(i);
-
-        if(cantEjercicios != 0){
-            set<DTEjercicio*> dtEjercicios = controladorCurso->mostrarEjercicios(i);
-            cout << "A continuación se listarán los ejercicios de la lección " << i+1 << endl;
-            
-            for(const DTEjercicio *ej : dtEjercicios){
-                cout << "-----Ejercicio " << j << "-----" << endl;
-                cout << *ej << endl;
-                j++;
+        if(!inscripciones.empty()){
+            int i = 1;
+            imprimirMensaje("Inscripciones del curso:");
+            for(const DTInscripcion *inscripcion : inscripciones){
+                cout << "-----Inscripción " << i << "-----" << endl;
+                cout << *inscripcion << endl;
+                delete inscripcion;
             }
         }else{
-            cout << "La lección " << i+1 << " no tiene ejercicios" << endl;
-            cout << endl;
+            imprimirMensaje("El curso no cuenta con inscripciones aún");
         }
 
+        delete dtCurso;
+        inscripciones.clear();
     }
-
-    // Obtener inscripciones del curso
-    set<DTInscripcion*> inscripciones = controladorCurso->mostrarInscripciones();
+    catch(const std::exception& e)
+    {
+        cancelarOperacion(e.what(), "consultar curso");
+    }
     
-    if(!inscripciones.empty()){
-        int i = 1;
-        imprimirMensaje("Inscripciones del curso:");
-        for(const DTInscripcion *inscripcion : inscripciones){
-            cout << "-----Inscripción " << i << "-----" << endl;
-            cout << *inscripcion << endl;
-        }
-    }else{
-        imprimirMensaje("El curso no cuenta con inscripciones aún");
-    }
 }

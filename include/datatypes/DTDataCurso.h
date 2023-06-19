@@ -5,8 +5,7 @@
 #include <vector>
 
 #include "../enums/NIVEL.h"
-
-#include "DTLeccion.h"
+#include "DTDataLeccion.h"
 
 
 using namespace std;
@@ -21,13 +20,14 @@ class DTDataCurso {
         string nombreIdioma;
         string nombreProfesor;
 
-        // vector<DTLeccion*> lecciones;
 
+        vector<DTDataLeccion*> lecciones;
 
     public:
         DTDataCurso();
         DTDataCurso(string nombre, string descripcion, Nivel nivel, bool disponible, string nombreIdioma, string nombreProfesor);
-        // DTDataCurso(string nombre, string descripcion, Nivel nivel, bool disponible, string nombreIdioma, string nombreProfesor, vector<DTLeccion*> lecciones);
+        DTDataCurso(string nombre, string descripcion, Nivel nivel, bool disponible, string nombreIdioma, string nombreProfesor, vector<DTDataLeccion*> lecciones);
+
 
         //Getters
         string getNombre();
@@ -36,8 +36,6 @@ class DTDataCurso {
         string getDisponible();
         string getNombreIdioma();
         string getNombreProfesor();
-        // vector<DTLeccion*> getLecciones();
-
 
         ~DTDataCurso();
 

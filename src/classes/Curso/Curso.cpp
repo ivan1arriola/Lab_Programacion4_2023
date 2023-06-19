@@ -23,16 +23,16 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
     profesor->agregarACursosDeProfesor(this);
 }
 
-// Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
-//     this->nombre = nombre;
-//     this->descripcion = descripcion;
-//     this->nivel = nivel;
-//     this->disponible = disponible;
-//     this->lecciones = lecciones;
-//     this->idioma = idioma;
-//     this->profesor = profesor;
-//     this->cursosPrevios = cursosPrevios;
-// }
+Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
+    this->nombre = nombre;
+    this->descripcion = descripcion;
+    this->nivel = nivel;
+    this->disponible = disponible;
+    this->lecciones = lecciones;
+    this->idioma = idioma;
+    this->profesor = profesor;
+    this->cursosPrevios = cursosPrevios;
+}
 
 string Curso::getNombre() {
     return nombre;
@@ -117,14 +117,20 @@ Curso::~Curso() {
     for (vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end(); ++it) {
         delete *it;
     }
+    lecciones.clear();
     
     for (map<string,Inscripcion*>::iterator it=inscripciones.begin();it!=inscripciones.end();++it){
         delete it->second;
     }
+    inscripciones.clear();
 }
 
 DTDataCurso* Curso::getDT() {
-    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNickname());
+    vector<DTDataLeccion*> dtLecciones;
+    for (vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end(); ++it) {
+        dtLecciones.push_back((*it)->getDTLeccion());
+    }
+    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNickname(), dtLecciones);
 }
 
 DTDataInfoCurso* Curso::getDTInfoCursos(){
@@ -139,7 +145,6 @@ DTDataInfoCurso* Curso::getDTInfoCursos(){
     if(cantEstudiantes != 0){
         porcentajeAvance = porcentajeAvance/cantEstudiantes;
     }
-
     return new DTDataInfoCurso(this->nombre, this->descripcion, this->nivel, this->disponible, this->idioma->getNombre(), porcentajeAvance);
 }
 

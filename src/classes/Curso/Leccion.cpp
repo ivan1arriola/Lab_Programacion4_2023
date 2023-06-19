@@ -39,7 +39,7 @@ void Leccion::setObjetivo(string objetivo) {
 
 void Leccion::crearEjercicioCompletarYAgregarlo(string nombre, string desc, string fraseCompletar, vector<string> palabrasFaltantes) {
     // Completar* ejCompletar = dynamic_cast<Completar*>("", desc, fraseCompletar, palabrasFaltantes);
-    Completar *ejCompletar = new Completar(nombre, desc, fraseCompletar, palabrasFaltantes);
+    Completar *ejCompletar = new Completar(desc, fraseCompletar, palabrasFaltantes);
 
     ejercicios.insert(ejCompletar);
     
@@ -50,7 +50,7 @@ void Leccion::agregarEjercicio(Ejercicio *ejercicio){
 }
 
 void Leccion::crearEjercicioTraducirYAgregarlo(string nombre, string desc, string fraseTraducir, string fraseTraducida){
-    Traducir *ejTraducir = new Traducir(nombre, desc, fraseTraducir, fraseTraducida);
+    Traducir *ejTraducir = new Traducir(desc, fraseTraducir, fraseTraducida);
 
     ejercicios.insert(ejTraducir);
 }
@@ -65,12 +65,17 @@ int Leccion::getCantEj(){
 }
 
 DTDataLeccion* Leccion::getDTLeccion(){
-    return new DTDataLeccion(tema, objetivo);
+    set<DTEjercicio*> dtEjercicios;
+    for (set<Ejercicio*>::iterator it=ejercicios.begin(); it!=ejercicios.end();++it) {
+        dtEjercicios.insert((*it)->getDTEjercicio());
+    }
+    return new DTDataLeccion(tema, objetivo, dtEjercicios);
 }
 
 Leccion::~Leccion() {
     for (set<Ejercicio*>::iterator it=ejercicios.begin(); it!=ejercicios.end();++it) {
-        delete *it;
+        delete *it;        
     }
+    ejercicios.clear();
     // Borrar todos los ejercicios
 }

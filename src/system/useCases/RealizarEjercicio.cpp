@@ -71,5 +71,5 @@ void Sistema::realizarEjercicio() {
     //     } else {
     //         std::cout << "Selección inválida." << std::endl;
     //     }
-    
+
 }

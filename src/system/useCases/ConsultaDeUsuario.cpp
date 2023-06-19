@@ -36,10 +36,10 @@ void Sistema::consultaDeUsuario() {
         return;
     }
 
-    imprimirSet(nicknames, "Usuarios disponibles" ) ;
+    
 
     // Seleccionar nickname
-    string nickname = seleccionarElemento(nicknames, "el usuario");
+    string nickname = seleccionarElemento(nicknames, "usuario");
     imprimirMensaje("A seleccionado el usuario: " + nickname);
 
     espacioSimple();

@@ -16,6 +16,11 @@
 #include "../../../include/classes/Inscripcion.h"
 
 #include "../../../include/classes/Idioma.h"
+#include "../../../include/classes/Curso/Curso.h"
+#include "../../../include/classes/Curso/Leccion.h"
+#include "../../../include/classes/Curso/Ejercicio.h"
+#include "../../../include/classes/Curso/Completar.h"
+#include "../../../include/classes/Curso/Traducir.h"
 
 #include "../../../include/datatypes/DTUsuario.h"
 
@@ -28,6 +33,7 @@ void Sistema::cargarDatosdePrueba()
 {
      Sistema *sistema = Sistema::getInstancia();
      if (!sistema->getSeCargaronDatos()) //Si no se cargaron los datos
+
      {
           //--------IDIOMAS--------//
 

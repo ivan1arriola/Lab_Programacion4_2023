@@ -134,3 +134,4 @@ ControladorEstadistica::~ControladorEstadistica() {
         colecUsuarios = NULL;
     }
 }
+
