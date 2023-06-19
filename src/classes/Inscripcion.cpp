@@ -16,6 +16,9 @@ Inscripcion::Inscripcion(DTDate* fechaInscripcion, bool aprobado, Estudiante* es
     this->estudiante = estudiante;
     this->curso = curso;
     this->cantEjsAprobados = 0;
+
+    estudiante->agregarInscripcion(curso->getNombre(), this);
+    curso->agregarInscrip(estudiante->getNickname(), this);
 }
 
 void Inscripcion::aproboEjercicio(){

@@ -261,21 +261,21 @@ void ControladorCurso::ingresarDatosCurso(string nombre, string desc, Nivel difi
 set<string> ControladorCurso::listarCursosInscrip()
 {
     HandlerUsuario *h = HandlerUsuario::getInstancia();
-    Estudiante *u = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameActual));
+    Estudiante *u = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameUsuarioActual));
     map<string, Inscripcion *> cursosInscriptos = u->getInscripciones();
-    set<string> result;
+    set<string> result = set<string>();
     string ncurso;
 
     for (map<string, Inscripcion *>::iterator it = cursosInscriptos.begin(); it != cursosInscriptos.end(); ++it)
     {
-        if (it->second->getAprobado() == false)
+        bool aprobado = it->second->getAprobado();
+        if (!aprobado)
         {
             ncurso = it->second->obtenerNombreCurso();
             result.insert(ncurso);
         }
     }
-    // Implementación de la función listarCursosInscrip
-    // Código para obtener la lista de cursos disponibles para inscripción
+
     return result;
 }
 
@@ -290,7 +290,7 @@ set<string> ControladorCurso::mostrarCursosNoAprobados()
 set<string> ControladorCurso::mostrarEjerciciosNoAprobados()
 {
     HandlerUsuario *h = HandlerUsuario::getInstancia();
-    Estudiante *e = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameActual));
+    Estudiante *e = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameUsuarioActual));
     map<string, Inscripcion *> map = e->getInscripciones();
     Inscripcion *i = map.find(this->nombreCurso)->second;
     set<Ejercicio *> ej = i->getejNoAprobados();
@@ -309,7 +309,7 @@ set<string> ControladorCurso::mostrarEjerciciosNoAprobados()
 void ControladorCurso::seleccionarEjercicio(string descEjercicio)
 {
     HandlerUsuario *h = HandlerUsuario::getInstancia();
-    Estudiante *e = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameActual));
+    Estudiante *e = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameUsuarioActual));
     map<string, Inscripcion *> map = e->getInscripciones();
     Inscripcion *i = map.find(this->nombreCurso)->second;
     set<Ejercicio *> ej = i->getejNoAprobados();
@@ -343,12 +343,12 @@ void ControladorCurso::ingresarSolucionTraducir(string solT)
 void ControladorCurso::marcarEjercicioAprobado()
 {
     HandlerUsuario *h = HandlerUsuario::getInstancia();
-    Estudiante *e = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameActual));
+    Estudiante *e = dynamic_cast<Estudiante *>(h->obtenerUsuario(this->nicknameUsuarioActual));
     map<string, Inscripcion *> map = e->getInscripciones();
     Inscripcion *i = map.find(this->nombreCurso)->second;
     i->setejAprobado(this->ejercicioActual);
 
-    this->nicknameActual = "";
+    this->nicknameUsuarioActual = "";
     this->nombreCurso = "";
     this->solT_actual = "";
     this->solC_actual.clear();
@@ -359,7 +359,7 @@ void ControladorCurso::marcarEjercicioAprobado()
 
 void ControladorCurso::marcarEjercicioNoAprobado()
 {
-    this->nicknameActual = "";
+    this->nicknameUsuarioActual = "";
     this->nombreCurso = "";
     this->solT_actual = "";
     this->solC_actual.clear();

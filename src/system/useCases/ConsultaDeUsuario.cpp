@@ -24,38 +24,48 @@ using namespace std;
 */
 
 void Sistema::consultaDeUsuario() {
-    imprimirMensaje("Consulta de Usuario");
+    try
+    {
+        imprimirMensaje("Consulta de Usuario");
 
-    // Obtener coleccion de usuarios
-    set<string> nicknames = controladorUsuario->listarNicknameUsuarios();
+        // Obtener coleccion de usuarios
+        set<string> nicknames = controladorUsuario->listarNicknameUsuarios();
 
-    // Imprimir usuarios
+        // Imprimir usuarios
 
-    if (nicknames.size() == 0) {
-        imprimirMensaje("No hay usuarios registrados");
-        return;
+        if (nicknames.size() == 0) {
+            imprimirMensaje("No hay usuarios registrados");
+            return;
+        }
+
+        
+
+        // Seleccionar nickname
+        string nickname = seleccionarElemento(nicknames, "usuario");
+        imprimirMensaje("A seleccionado el usuario: " + nickname);
+
+        if (nickname == "") throw invalid_argument("No se selecciono ningun usuario");
+
+        espacioSimple();
+
+        // Obtener informacion del usuario
+        DTUsuario* dtUsuario = controladorUsuario->seleccionarUsuario(nickname);
+
+
+        if (dtUsuario->getTipo() == 1) {
+            DTEstudiante* dtEstudiante = dynamic_cast<DTEstudiante*>(dtUsuario);
+            cout << *dtEstudiante << endl;
+        } else {
+            DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);
+            cout << *dtProfesor << endl;
+        }
+
+        delete dtUsuario;
     }
-
+    catch(const std::exception& e)
+    {
+        cancelarOperacion( e.what() , "Consulta de Usuario");
+    }
     
-
-    // Seleccionar nickname
-    string nickname = seleccionarElemento(nicknames, "usuario");
-    imprimirMensaje("A seleccionado el usuario: " + nickname);
-
-    espacioSimple();
-
-    // Obtener informacion del usuario
-    DTUsuario* dtUsuario = controladorUsuario->seleccionarUsuario(nickname);
-
-
-    if (dtUsuario->getTipo() == 1) {
-        DTEstudiante* dtEstudiante = dynamic_cast<DTEstudiante*>(dtUsuario);
-        cout << *dtEstudiante << endl;
-    } else {
-        DTProfesor* dtProfesor = dynamic_cast<DTProfesor*>(dtUsuario);
-        cout << *dtProfesor << endl;
-    }
-
-    delete dtUsuario;
     
 }

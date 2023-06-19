@@ -300,6 +300,26 @@ void Sistema::cargarDatosdePrueba()
           cout << "Inscripción 8:" << endl;
           cout << *dt8 << endl;
 
+          delete dt1;
+          delete dt2;
+          delete dt3;
+          delete dt4;
+          delete dt5;
+          delete dt6;
+          delete dt7;
+          delete dt8;
+          
+
+          delete inscripcion1;
+          delete inscripcion2;
+          delete inscripcion3;
+          delete inscripcion4;
+          delete inscripcion5;
+          delete inscripcion6;
+          delete inscripcion7;
+          delete inscripcion8;
+
+
           sistema->setDatosCargados(); //Anotamos que ya se cargaron los datos de prueba
      }else{
           cout << "Los datos de prueba ya fueron cargados" << endl;
