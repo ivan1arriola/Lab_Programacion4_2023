@@ -48,8 +48,24 @@ bool Estudiante::esEstudiante() {
     return true;
 }
 
+
 DTUsuario* Estudiante::getDT() {
     return new DTEstudiante(getNickname(), getContrasenia(), getNombre(), getDescripcion(), getPais());
+}
+
+set<DTDataCursoEstudiante*> Estudiante::getDTDataCursoEstudiante(){
+    string nombreCurso;
+    float porcentajeAvance;
+    map<string, Inscripcion*> inscripciones = this->inscripciones;
+    set<DTDataCursoEstudiante*> dataCursoEstudiante;
+    //Recorremos inscripciones y creamos DTDataCursoEstudiante por cada una de ellas
+    for(auto it = inscripciones.begin(); it != inscripciones.end(); ++it){
+        nombreCurso = it->first;
+        porcentajeAvance = it->second->calcPorcentajeAvance();
+        //Hacer delete por cada DT creado
+        dataCursoEstudiante.insert(new DTDataCursoEstudiante(nombreCurso, porcentajeAvance));
+    }
+    return dataCursoEstudiante;
 }
 
 void Estudiante::setPais(string pais) {
@@ -74,6 +90,18 @@ map<string, Inscripcion*> Estudiante::getInscripciones() {
     return this->inscripciones;
 }
 
+void Estudiante::agregarInscripcion(string nomCurs, Inscripcion* i){
+    this->inscripciones[nomCurs] = i;
+}
+
+bool Estudiante::estaInscripto(string c){
+    //Verificar si está o no inscripto a ese curso
+    auto it = this->inscripciones.find(c);
+    if (it != this->inscripciones.end())
+        return true;
+    else
+        return false;    
+}
 
 Estudiante::~Estudiante() {
     delete fechaNacimiento;

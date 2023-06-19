@@ -8,6 +8,7 @@
 #include "../datatypes/DTDataCurso.h"
 #include "../datatypes/DTDataLeccion.h"
 #include "../datatypes/DTEjercicio.h"
+#include "../datatypes/DTDataCursoAInscribir.h"
 #include "../../include/classes/Curso/Leccion.h"
 #include "../../include/classes/Curso/Curso.h"
 
@@ -27,12 +28,15 @@ class IControladorCurso {
         virtual set<DTDataLeccion> getLecciones() = 0;
         virtual void eliminarCurso(string nombre) = 0;
         virtual void setLeccionActual(Leccion *leccion) = 0;
+        virtual vector<DTDataCursoAInscribir*> obtenerCursosDisponibles(set<string> cursosHabilitados) = 0;
+        virtual void realizarInscripcion(DTDate* fechaInscripcion) = 0;
         
         virtual void ingresarNicknameEstudiante(string nomEstudiante) = 0;
         virtual set<string> listarCursosInscrip() = 0;
         virtual set<string> mostrarCursosNoAprobados() = 0;
         virtual set<string> mostrarEjerciciosNoAprobados() = 0;
         virtual void seleccionarEjercicio(string nombreEjercicio) = 0;
+
         virtual void ingresarSolucionCompletar(set<string> solC) = 0;
         virtual void ingresarSolucionTraducir(string solT) = 0;
         virtual void marcarEjercicioAprobado() = 0;
@@ -42,10 +46,15 @@ class IControladorCurso {
         //Operaciones para Consulta Curso
         virtual set<string> listarNombreCursos() = 0;
         virtual DTDataCurso* mostrarDatosCurso() = 0; 
+        virtual int  cantidadDeLecciones() = 0;
+        virtual DTDataLeccion *mostrarDatosLeccion(int posicion) = 0;
+        virtual int cantidadDeEjerciciosLeccion(int posicion) = 0;
+        virtual set<DTEjercicio*> mostrarEjercicios(int posLeccion) = 0;
+        virtual set<DTInscripcion*> mostrarInscripciones() = 0;
 
         //Operaciones para Alta Curso
         virtual void seleccionarProfesor(string nickname) = 0;
-        virtual void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad) = 0;
+        virtual void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad, string nickname) = 0;
         virtual void seleccionarIdioma(string nombreIdioma) = 0;
         virtual set<string> listarCursosHabilitados() = 0;
         virtual void seleccionarCurso(string nombreCurso) = 0;
@@ -57,6 +66,8 @@ class IControladorCurso {
         virtual void agregarFraseCompletar(string fraseACompletar, vector<string> palabras) = 0;
 
         virtual void agregarLeccionACurso(Leccion *leccion) = 0;
+
+        virtual void agregarCursoPrevio(string nombreCurso) = 0;
 
         virtual vector<string> listarLecciones(Curso *curso) = 0;
         virtual void darDeAltaCompletar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes) = 0;

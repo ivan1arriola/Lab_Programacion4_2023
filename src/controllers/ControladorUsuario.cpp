@@ -219,6 +219,8 @@ set<string> ControladorUsuario::listarIdiomasSuscriptos(string nickname) {
 void ControladorUsuario::seleccionarProfesor(string nicknameProfesor) { //TODO: Tiene que existir el profesor
     if(!(coleccionUsuarios->existeUsuario(nicknameProfesor))){
         throw invalid_argument("");
+    }else{
+        this->actual_nickname = nicknameProfesor;
     }
 }
 
@@ -235,6 +237,9 @@ vector<DTNotificacion*> ControladorUsuario::listarNotificaciones(string nickName
 }
 
 void ControladorUsuario::eliminarNotificaciones() {
+    Usuario* usuario = coleccionUsuarios->obtenerUsuario(this->actual_nickname);
+    usuario->eliminarNotificacionesRecibidas();
+    
     // Implementación mínima
 
     // Limpiar los datos ingresados
@@ -275,5 +280,3 @@ DTUsuario* ControladorUsuario::seleccionarUsuario(string nickname) {
     DTUsuario * dtUsuario = usuario -> getDT();
     return dtUsuario;
 }
-
-

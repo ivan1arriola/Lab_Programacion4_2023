@@ -1,4 +1,5 @@
 #include "../../../include/classes/Curso/Curso.h"
+#include "../../../include/classes/Usuario/Profesor.h"
 
 Curso::Curso() {
     // Implementación del constructor por defecto
@@ -19,18 +20,19 @@ Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Id
 
     idioma->notificarSuscriptores(nombre);
     this->inscripciones = map<string, Inscripcion*>();
+    profesor->agregarACursosDeProfesor(this);
 }
 
-// Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
-//     this->nombre = nombre;
-//     this->descripcion = descripcion;
-//     this->nivel = nivel;
-//     this->disponible = disponible;
-//     this->lecciones = lecciones;
-//     this->idioma = idioma;
-//     this->profesor = profesor;
-//     this->cursosPrevios = cursosPrevios;
-// }
+Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios) {
+    this->nombre = nombre;
+    this->descripcion = descripcion;
+    this->nivel = nivel;
+    this->disponible = disponible;
+    this->lecciones = lecciones;
+    this->idioma = idioma;
+    this->profesor = profesor;
+    this->cursosPrevios = cursosPrevios;
+}
 
 string Curso::getNombre() {
     return nombre;
@@ -92,7 +94,7 @@ float Curso::getCantEjsTotal() {
     int total=0;
     for(vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end();++it){
         Leccion* l=*it;
-        total=l->getCantEj();
+        total=total + l->getCantEj();
         }
 
     return total;
@@ -115,20 +117,49 @@ Curso::~Curso() {
     for (vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end(); ++it) {
         delete *it;
     }
+    lecciones.clear();
     
     for (map<string,Inscripcion*>::iterator it=inscripciones.begin();it!=inscripciones.end();++it){
         delete it->second;
     }
 
     for (set<Curso*>::iterator it=cursosPrevios.begin(); it!=cursosPrevios.end();++it){
-        cursosPrevios.erase(it); // falta eliminar las referencias de los cursos que tienen como curso previo al curso a eliminar 
+        cursosPrevios.erase(it); // TODO: falta eliminar las referencias de los cursos que tienen como curso previo al curso a eliminar 
     }
+    inscripciones.clear();
 }
 
 DTDataCurso* Curso::getDT() {
-    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNombre());
+    vector<DTDataLeccion*> dtLecciones;
+    for (vector<Leccion*>::iterator it=lecciones.begin(); it!=lecciones.end(); ++it) {
+        dtLecciones.push_back((*it)->getDTLeccion());
+    }
+    return new DTDataCurso(nombre, descripcion, nivel, disponible, idioma->getNombre(), profesor->getNickname(), dtLecciones);
+}
+
+DTDataInfoCurso* Curso::getDTInfoCursos(){
+    string nombreCurso = this->nombre;
+    float porcentajeAvance = 0;
+    int cantEstudiantes;
+    map<string, Inscripcion*> inscripciones = this->inscripciones;
+    for(auto it = inscripciones.begin(); it != inscripciones.end(); ++it){
+      porcentajeAvance = porcentajeAvance + it->second->calcPorcentajeAvance();
+    }
+    cantEstudiantes = inscripciones.size();
+    if(cantEstudiantes != 0){
+        porcentajeAvance = porcentajeAvance/cantEstudiantes;
+    }
+    return new DTDataInfoCurso(this->nombre, this->descripcion, this->nivel, this->disponible, this->idioma->getNombre(), porcentajeAvance);
+}
+
+DTDataCursoAInscribir* Curso::getDTAInscribir() {
+    return new DTDataCursoAInscribir(nombre, descripcion, nivel, idioma->getNombre(), profesor->getNombre(), this->getCantLecciones(), this->getCantEjsTotal());
 }
 
 map<string, Inscripcion*> Curso::getInscripciones() {
     return inscripciones;
+}
+
+void Curso::agregarInscrip(string nickE, Inscripcion* i){
+    this->inscripciones[nickE] = i;
 }

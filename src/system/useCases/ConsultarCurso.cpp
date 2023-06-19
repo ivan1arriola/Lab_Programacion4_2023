@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <vector>
 
 #include "../../../include/system/Sistema.h"
 
@@ -22,80 +23,53 @@ fecha en la que se realizó la inscripción correspondiente.
 */
 
 void Sistema::consultarCurso() {
-    imprimirMensaje("Consultar curso");
+    try
+    {
+            imprimirMensaje("Consultar curso");
 
-    // Obtener colección de cursos
-    set<string> nombresCursos = controladorCurso->listarNombreCursos();
+        // Obtener colección de cursos
+        set<string> nombresCursos = controladorCurso->listarNombreCursos();
 
-    // Imprimir cursos disponibles
-    if (nombresCursos.empty()) {
-        imprimirMensaje("No hay cursos disponibles");
-        return;
-    }
+        // Imprimir cursos disponibles
+        if (nombresCursos.empty()) throw invalid_argument("No hay cursos disponibles");
 
-    imprimirSet(nombresCursos, "Cursos disponibles");
+        // Seleccionar curso
+        string nombreCurso = seleccionarElemento(nombresCursos, "curso");
+        if (nombreCurso.empty()) throw invalid_argument("No se ha seleccionado un curso");
+        imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
 
-    // Seleccionar curso
-    string nombreCurso = seleccionarElemento(nombresCursos, "curso");
-    imprimirMensaje("Ha seleccionado el curso: " + nombreCurso);
+        controladorCurso->seleccionarCurso(nombreCurso);
 
-    controladorCurso->seleccionarCurso(nombreCurso);
+        cout << endl;
 
-    cout << endl;
+        // Obtener información del curso
+        DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
 
-    // Obtener información del curso
-    DTDataCurso* dtCurso = controladorCurso->mostrarDatosCurso();
+        cout << *dtCurso << endl;
+        cout << endl; 
 
-    cout << *dtCurso << endl;
 
-    cout << endl; 
-  
-    }
-
-    /***
-     * // Obtener lecciones del curso
-    vector<dtLeccionMostrar*> lecciones = dtCurso->getLecciones();
-
-    if (lecciones.empty()) {
-        imprimirMensaje("El curso no tiene lecciones disponibles");
-    } else {
-        cout << "Lecciones del curso:" << endl;
-
-        for (const auto& dtLeccionMostrar : lecciones) {
-            cout << "Tema: " << dtLeccionMostrar->getTema() << endl;
-            cout << "Objetivo: " << dtLeccionMostrar->getObjetivo() << endl;
-
-            // Obtener ejercicios de la lección
-            vector<DTEjercicioMostrar*> ejercicios = DataEjercicioMostrar();
-
-            if (ejercicios.empty()) {
-                imprimirMensaje("La lección no tiene ejercicios disponibles");
-            } else {
-                cout << "Ejercicios de la lección:" << endl;
-
-                for (const auto& DTEjercicioMostrar : ejercicios) {
-                    cout << "Descripción: " << DTEjercicioMostrar->getDescEjercicio() << endl;
-                    cout << "Tipo de ejercicio: " << DTEjercicioMostrar->getTipoEjercicio() << endl;
-                    cout << endl;
-                }
+        // Obtener inscripciones del curso
+        set<DTInscripcion*> inscripciones = controladorCurso->mostrarInscripciones();
+        
+        if(!inscripciones.empty()){
+            int i = 1;
+            imprimirMensaje("Inscripciones del curso:");
+            for(const DTInscripcion *inscripcion : inscripciones){
+                cout << "-----Inscripción " << i << "-----" << endl;
+                cout << *inscripcion << endl;
+                delete inscripcion;
             }
-
-            cout << endl;
+        }else{
+            imprimirMensaje("El curso no cuenta con inscripciones aún");
         }
+
+        delete dtCurso;
+        inscripciones.clear();
     }
-
-    // Obtener inscripciones del curso
-    vector<DTInscripcion*> inscripciones = DataInscripciones();
-
-    if (inscripciones.empty()) {
-        imprimirMensaje("El curso no tiene inscripciones");
-    } else {
-        cout << "Inscripciones del curso:" << endl;
-
-        for (const auto& dtInscripcion : inscripciones) {
-            cout << "Estudiante: " << dtInscripcion->getEstudiante() << endl;
-            cout << "Fecha de inscripción: " << dtInscripcion->getFecha() << endl;
-            cout << endl;
-        }
+    catch(const std::exception& e)
+    {
+        cancelarOperacion(e.what(), "consultar curso");
     }
-*/
+    
+}

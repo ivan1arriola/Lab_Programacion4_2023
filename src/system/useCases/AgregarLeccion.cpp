@@ -78,7 +78,7 @@ void Sistema::agregarLeccion() {
         imprimirMensaje("No hay cursos disponibles");
         return;
         }
-        imprimirSet(nombresCursos, "Cursos disponibles");
+        
         // Seleccionar curso
         // ...
          string nombreCurso = seleccionarElemento(nombresCursos, "curso");
@@ -159,7 +159,6 @@ void Sistema::agregarLeccion() {
         cout << "Objetivo: " << leccion->getObjetivo() << endl;
         cout << "Ejercicios:" << endl;
         for (const auto& ejercicio : leccion->getEjercicios()) {
-            cout << "- Nombre: " << ejercicio->getNombre() << endl;
             cout << "  Descripción: " << ejercicio->getDescripcion() << endl;
         }
 

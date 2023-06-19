@@ -7,13 +7,13 @@ Completar::Completar() {
 }
 
 
-Completar::Completar(string nombre, string descripcion) : Ejercicio(nombre, descripcion) {
+Completar::Completar(string descripcion) : Ejercicio(descripcion) {
     // Implementación del constructor con parámetros
     this->fraseACompletar = "";
     this->palabrasFaltantes = vector<string>();
 }
 
-Completar::Completar(string nombre, string descripcion, string fraseACompletar, vector<string> palabrasFaltantes) : Ejercicio(nombre, descripcion) {
+Completar::Completar(string descripcion, string fraseACompletar, vector<string> palabrasFaltantes) : Ejercicio(descripcion) {
     this->fraseACompletar = fraseACompletar;
     this->palabrasFaltantes = palabrasFaltantes;
 }

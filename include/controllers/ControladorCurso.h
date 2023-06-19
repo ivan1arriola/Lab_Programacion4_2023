@@ -10,14 +10,19 @@
 
 #include "../enums/NIVEL.h"
 
+using namespace std;
+
 class ControladorCurso : public IControladorCurso
 {
 private:
     string nombreIdioma;
     string nombreCurso;
 
+    // Datos del usuario actual
     Usuario *usuarioActual;
     string nicknameActual;
+    string nicknameUsuarioActual;
+
     // Datos del curso actual
     string nombreCursoActual;
     string nicknameProfesorActual;
@@ -25,15 +30,16 @@ private:
     Nivel dificultadlCursoActual;
     Idioma *idiomaCursoActual;
     vector<Leccion *> leccionesCursoActual;
+    set<Curso *> cursosPreviosCursoActual;
 
     // Datos de la leccion actual
     Leccion *leccionActual;
 
     // Datos del ejercicio actual
     Ejercicio *ejercicioActual;
-    set<Ejercicio *> *ejerciciosLeccionActual;
     set<string> solC_actual;
     string solT_actual;
+    set<Ejercicio *> ejerciciosLeccionActual;
 
     static ControladorCurso *instancia;
 
@@ -68,16 +74,23 @@ public:
     void marcarEjercicioAprobado();
     void marcarEjercicioNoAprobado();
     void setLeccionActual(Leccion *leccion);
+    vector<DTDataCursoAInscribir*> obtenerCursosDisponibles(set<string> cursosHabilitados);
+    void realizarInscripcion(DTDate* fechaInscripcion);
 
     ~ControladorCurso(); // Destructor
 
     // Operaciones para Consulta Curso
     set<string> listarNombreCursos();
     DTDataCurso *mostrarDatosCurso();
+    int cantidadDeLecciones();
+    DTDataLeccion *mostrarDatosLeccion(int posicion);
+    int cantidadDeEjerciciosLeccion(int posicion);
+    set<DTEjercicio*> mostrarEjercicios(int posLeccion);
+    set<DTInscripcion*> mostrarInscripciones();
 
     // Operaciones para Alta Curso
     void seleccionarProfesor(string nickname);
-    void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad);
+    void ingresarDatosCurso(string nombre, string descripcion, Nivel dificultad, string nickname);
     void seleccionarIdioma(string nombreIdioma);
     set<string> listarCursosHabilitados();
     void seleccionarCurso(string nombreCurso);
@@ -86,6 +99,7 @@ public:
     void altaCurso(bool disponible);
     void agregarFraseTraducir(string fraseATraducir, string fraseTraducida);
     void agregarFraseCompletar(string fraseACompletar, vector<string> palabras);
+    void agregarCursoPrevio(string nombreCurso);
 
     //Operacion agregarLeccion
     void agregarLeccionACurso(Leccion *leccion);
