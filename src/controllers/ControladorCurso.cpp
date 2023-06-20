@@ -8,6 +8,7 @@
 #include "../../include/handlers/HandlerCurso.h"
 #include "../../include/handlers/HandlerUsuario.h"
 #include "../../include/handlers/HandlerIdioma.h"
+#include "../../include/system/operaciones.h"
 
 #include "../../include/classes/Curso/Completar.h"
 #include "../../include/classes/Curso/Curso.h"
@@ -118,6 +119,7 @@ void ControladorCurso::altaCurso(bool disponible)
         Profesor* profesor = this->cursoActual->getProfesor();
         coleccionCursos->agregarCurso(this->cursoActual);
         profesor->agregarACursosDeProfesor(this->cursoActual);
+        this->idiomaCursoActual->notificarSuscriptores(this->cursoActual->getNombre());
         this->cursoActual = NULL;
 
 
@@ -351,7 +353,7 @@ void ControladorCurso::corregirEj()
         cout << "Ejercicio de traduccion " << endl
              << "frase a traducrir: " << tr->getFraseATraducir() << endl;
         cout << "Ingrese la solucion:" << endl;
-        cin >> sol;
+        sol = ingresarParametro("la solucion");
         this->ingresarSolucionTraducir(sol);
         if (this->getSolT_actual() == tr->getFraseCorrecta())
         {

@@ -38,7 +38,7 @@ class Curso {
 
     public:
         Curso();
-        Curso(string nombre, string descripcion, Nivel nivel, bool disponible);
+        // Curso(string nombre, string descripcion, Nivel nivel, bool disponible);
         Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones);
         Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones, set<Curso*> cursosPrevios);
 

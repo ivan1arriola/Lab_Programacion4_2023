@@ -5,9 +5,17 @@ Curso::Curso() {
     // Implementación del constructor por defecto
 }
 
-Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible) {
-    // Implementación del constructor con parámetros
-}
+// Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible) {
+//     // Implementación del constructor con parámetros
+//     this->nombre = nombre;
+//     this->descripcion = descripcion;
+//     this->nivel = nivel;
+//     this->disponible = disponible;
+
+//     idioma->notificarSuscriptores(nombre);
+//     this->inscripciones = map<string, Inscripcion*>();
+//     profesor->agregarACursosDeProfesor(this);
+// }
 
 Curso::Curso(string nombre, string descripcion, Nivel nivel, bool disponible, Idioma* idioma, Profesor* profesor, vector<Leccion*> lecciones) {
     this->nombre = nombre;
