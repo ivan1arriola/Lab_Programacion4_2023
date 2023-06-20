@@ -17,8 +17,6 @@ El Makefile tiene las siguientes reglas:
 - `run`: Compila y ejecuta el programa.
 - `valgrind`: Ejecuta el programa utilizando Valgrind para detectar fugas de memoria.
 
-- `test`: Ejecuta los tests unitarios.
-
 Para utilizar una regla, simplemente ejecuta el comando `make` seguido del nombre de la regla. Por ejemplo, para compilar y ejecutar el programa, puedes ejecutar el siguiente comando:
 
 ```
